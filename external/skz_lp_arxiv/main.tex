@@ -1,0 +1,147 @@
+\documentclass[11pt,conference,letterpaper,onecolumn]{article}
+\usepackage{fullpage}
+\bibliographystyle{plainurl}% the mandatory bibstyle
+
+
+
+% %%%%%%%%% [Start] Packages, Commands Etc. %%%%%%%%%%
+
+% % % Packages % % %
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts} 
+\usepackage{amsmath} % for multi-lined equations
+\usepackage{thmtools}
+%\usepackage{thm-restate}
+%\usepackage[english]{babel}
+\usepackage{hyperref} % for linkable titles and referneces.
+\usepackage{tabularx} % for side-by-side equations.
+
+% ~~~~~~~~~~ For code formatting. ~~~~~~~~~~
+\usepackage{listings}
+\usepackage{xcolor} % For code formatting (coloring).
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codered}{rgb}{0.9,0,0}
+\definecolor{codeorange}{rgb}{0.9,0.5,0.0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codered},
+    keywordstyle=\color{codeorange},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\tiny,
+    breakatwhitespace=true, % break lines only on whitespaces
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    %prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}} % display a mark for a line that is not over
+    frame=single, %showing frame outside code (none/leftline/topline/bottomline/lines/single/shadowbox)
+}
+% More options from the documentation:
+   % breaklines - automatic line-breaking
+   % keepspaces - keep spaces in the code, useful for indetation
+   % escapeinside - specify characters to escape from source code to LaTeX (e.g. escapeinside={\%*}{*)})
+\lstset{style=mystyle}
+% ~~~~~~~~~~ (end) code formatting. ~~~~~~~~~~
+
+%%% [causes an error of double-definition with the template; comment-out for now] \usepackage[ruled,vlined]{algorithm2e} % for our algorithm-blocks.
+%\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+\usepackage{mathtools} % for matrices
+
+\usepackage{subcaption}
+\usepackage{enumitem} % for un-tabbing and items spacing in 'enumerate' and 'itemize' clauses.
+\usepackage{pgfplots} % for colored text and for plotting graphs
+\pgfplotsset{compat=1.6}
+
+
+% % % % Theorem types % % %
+\theoremstyle{definition} % In this style the theorems/definitions/etc. are *not* italicized.
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{corollary}[theorem]{Corollary} 
+\newtheorem{remark}[theorem]{Remark} 
+\newtheorem{definition}[theorem]{Definition} 
+\newtheorem{example}[theorem]{Example} 
+\newtheorem{observation}[theorem]{Observation} 
+\newtheorem{problem}{Problem} % separate problem numbering from anything else.
+\newtheorem{property}{Property} % separate problem numbering from anything else.
+\newtheorem{conjecture}{Conjecture}
+
+\sloppy % seems to ensure that text doesn't overflow the column's width.
+
+\setlength{\belowcaptionskip}{-10pt} %% reduces gap after figures.
+
+% % % Math Symbols % % %
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\expect}[1]{\mathbb{E}[#1]}
+\newcommand{\stdev}[1]{\sigma[#1]}
+\newcommand{\bigOnotation}[1]{\ensuremath{O\big (#1 \big )}}
+
+
+
+% % % Colors, Fonts, and Comments % % %
+\definecolor{myblue}{RGB}{80,80,160}
+\definecolor{mygreen}{RGB}{80,160,80}
+
+%\newcommand{\todo}[1]{\textcolor{red}{(TODO: #1)}}
+\newcommand{\etal}{{\em et al.}}
+
+% A shared text between two tables, so keep it consistent.
+\newcommand{\largeTablecaption}[1]{#1 Following, \emph{italicized} refer to column titles. \emph{Frac}, \emph{Vs} and \emph{denoms.} are short for fractional, vertices and denominators. \emph{Topology $U_{(n,i)}$} correspond to Figure~\ref{figure_all_trees_up_to_n8}. All columns are with respect to $D$-space except for the last. Out of all \emph{Primary Directions} (Definition~\ref{definition_primary_direction_terminology}) only few determine \emph{False Facets}, which reveal \emph{Frac Vs}. These vertices all happen to be half-integer (\emph{D-space denom.} of $1$ and $2$). \emph{Frac Vs Classes} is the number 
+of equivalence classes of non-STT vertices by automorphic symmetries. \emph{$XZD$-space denom.} lists denominators of coordinates in vertices of the LP polytope. We were able to enumerate all the vertices for topologies marked with ${*}$. For the rest, we sampled random vertices by solving the LP in random $XZD$-directions. Lists without ${*}$ may be incomplete: For example, every extension of $U_{(5,0)}$ should have third-integer vertices by Theorem~\ref{theorem_subgraph_with_frac_vertex_implies_frac_vertex_extension}, yet $U_{(7,3)}$ (allegedly) does not.}
+
+% %%%%%%%%% [End] Packages, Commands Etc. %%%%%%%%%%
+
+
+\title{Search Trees on Trees via LP}
+\author{
+Yaniv Sadeh\footnote{Tel Aviv University, yanivsadeh@tau.ac.il. Partially supported by the Israel Science Foundation grant no.\ 1156/23 and the Blavatnik Family Foundation.}
+\and
+Haim Kaplan\footnote{Tel Aviv University, haimk@tau.ac.il. Partially supported by the Israel Science Foundation grant no.\ 1156/23 and the Blavatnik Family Foundation.}
+\and
+Uri Zwick\footnote{Tel Aviv University, zwick@tau.ac.il}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We consider the problem of computing optimal search trees on trees (STTs). STTs generalize binary search trees (BSTs) in which we search nodes in a path (linear order) to search trees that facilitate search over general tree topologies. Golinsky~\cite{GolinskyThesis} proposed a linear programming (LP) relaxation of the problem of computing an optimal static STT over a given tree topology. He used this LP formulation to compute an STT that is a $2$-approximation to an optimal STT, and conjectured that it is, in fact, an extended formulation of the convex-hull of all depths-vectors of STTs, and thus always gives an optimal solution. In this work we study this LP approach further. We show that the conjecture is false and that Golinsky's LP does not always give an optimal solution. 
+To show this we use what we call the \emph{normals method}.
+We use this method to enumerate over vertices of Golinsky's polytope for all tree topologies of no more than 8 nodes. We give a lower bound on the integrality gap of the LP and on the approximation ratio of Golinsky's rounding method. We further enumerate several research directions that can lead to the resolution of the question whether one can compute an optimal STT in polynomial time.
+\end{abstract}
+
+
+\input{section_preliminaries}
+\input{section_counter_example}
+\input{section_positive_results}
+\input{section_dual_LP}
+\input{section_extra_results}
+\input{section_open_questions}
+\input{section_open_questions_extra_thoughts}
+
+\section*{Acknowledgments}
+We thank Anupam Gupta for useful discussions.
+\bibliography{reference}
+
+\appendix
+\input{section_appendix_extras}
+\input{section_code}
+%\input{section_SDP} %%% Was left in the source on purpose, see longer comment there.
+
+\end{document}

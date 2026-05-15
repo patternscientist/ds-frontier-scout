@@ -1,0 +1,55 @@
+\begin{thebibliography}{10}
+
+\bibitem{SageFreeServer}
+Sage free server.
+\newblock URL: \url{https://sagecell.sagemath.org/}.
+
+\bibitem{SageInstallation}
+Sage installation guide.
+\newblock URL: \url{https://doc.sagemath.org/html/en/installation}.
+
+\bibitem{SageWebsite}
+Sage main website.
+\newblock URL: \url{https://doc.sagemath.org}.
+
+\bibitem{BerendsohnThesis}
+Benjamin~Aram Berendsohn.
+\newblock {\em Search trees on graphs}.
+\newblock PhD thesis, Berlin University, 2024.
+
+\bibitem{SplayTreesonTrees_andPTAS}
+Benjamin~Aram Berendsohn and L{á}szl{ó} Kozma.
+\newblock Splay trees on trees.
+\newblock In {\em SODA}, 2022.
+
+\bibitem{TangoSTT}
+Prosenjit Bose, Jean Cardinal, John Iacono, Grigorios Koumoutsos, and Stefan Langerman.
+\newblock Competitive online search trees on trees.
+\newblock In {\em SODA}, 2020.
+
+\bibitem{DPtoLP2010}
+Ismet~Esra Büyüktahtakın.
+\newblock Dynamic programming via linear programming.
+\newblock {\em Wiley Encyclopedia of Operations Research and Management Science}, 2010.
+
+\bibitem{ExtendedFormulationSurvey}
+Michele Conforti, Gérard Cornuéjols, and Giacomo Zambelli.
+\newblock Extended formulations in combinatorial optimization.
+\newblock {\em 4OR}, 8:1--48, 2010.
+
+\bibitem{GolinskyThesis}
+Ishay Golinsky.
+\newblock A study on search trees on trees.
+\newblock Master's thesis, Tel Aviv University, 2023.
+
+\bibitem{KnuthOptStatic1971}
+Donald~E. Knuth.
+\newblock Optimum binary search trees.
+\newblock {\em Acta Informatica}, 1:14--25, 1971.
+
+\bibitem{BookForFourierMotzkin}
+Alexander Schrijver.
+\newblock {\em Theory of Linear and Integer Programming}.
+\newblock Wiley, 1986.
+
+\end{thebibliography}

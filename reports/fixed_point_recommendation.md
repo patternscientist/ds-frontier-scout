@@ -1,4 +1,4 @@
-# Fixed-Point Recommendation: Post-Batch-003
+# Pilot-Ready Recommendation: Post-Batch-003
 
 Date: 2026-05-15
 
@@ -6,9 +6,9 @@ Scope: final cross-batch synthesis after Batch 003 and its adversarial audit, us
 
 ## Executive Summary
 
-The recommendation is **stable enough to stop broad scouting and begin the first pilot**. This does not mean the whole research map is closed; it means the first-pilot decision has reached a fixed point. Batch 003 added useful mini-frontiers, but its adversarial audit downgraded their evaluator readiness and did not produce a candidate with the same combined source strength, theorem texture, finite certificate path, and implementation surface as `search_trees_on_trees_lp`.
+The recommendation is **stable enough to stop broad scouting and begin the first pilot**. This does not mean the whole research map is closed; it means the first-pilot decision has reached a pilot-ready stopping point. Batch 003 added useful mini-frontiers, but its adversarial audit downgraded their evaluator readiness and did not produce a candidate with the same combined source strength, theorem texture, finite certificate path, and implementation surface as `search_trees_on_trees_lp`.
 
-Final pilot recommendation: begin a two-track `search_trees_on_trees_lp` pilot now. Do not run another scouting batch before the pilot. Keep later scouting as a side queue for strict implicit cache-oblivious scans, dynamic-stream min-cut space, connected circle-segment lower bounds, and directed roundtrip routing.
+Final pilot recommendation: `search_trees_on_trees_lp` is the best current pilot discovered so far; source-diverse Scouting v2 remains pending. Begin a two-track `search_trees_on_trees_lp` pilot now. Keep later scouting as a side queue for strict implicit cache-oblivious scans, dynamic-stream min-cut space, connected circle-segment lower bounds, and directed roundtrip routing.
 
 ## Required Judgments
 
@@ -22,16 +22,16 @@ Final pilot recommendation: begin a two-track `search_trees_on_trees_lp` pilot n
    Begin the pilot. The search space is saturated enough for a first serious project, and another broad batch would mostly refine second-wave rankings.
 
 4. What exactly is the first theorem target?
-   Determine whether the depth-space projection of the versioned Golinsky STT LP equals the convex hull of STT depth vectors for every base tree whose edge-diameter is at most 3. Equivalently for the pilot: prove this subclass projection-integrality statement, or produce a minimal exact rational counterexample. Paths and stars are baselines, not open exact-optimization cases.
+   Determine whether the depth-space projection of the versioned Golinsky STT LP has the same lower envelope as the convex hull of STT depth vectors for every base tree whose edge-diameter is at most 3. Equivalently for the pilot: prove this subclass projection-integrality statement, or produce a minimal exact rational counterexample. Paths and stars are baselines, not open exact-optimization cases.
 
 5. What exactly is the first computational/certificate/OpenEvolve target?
-   Build a proof-mode STT certificate/checker scaffold that can validate topology, weights, recursive STTs, depths, exact costs, subclass labels, and complete small-`n` STT enumeration, then reproduce a Sadeh-Kaplan-Zwick-style small certificate such as the 7-node long-star data before searching edge-diameter-3 topologies for fractional depth-space behavior.
+   Build a proof-mode STT certificate/checker scaffold that can validate topology, weights, recursive STTs, depths, exact costs, subclass labels, and complete small-`n` STT enumeration, then reproduce the source-aligned 7-node SKZ long-star combinatorial optimum before searching edge-diameter-3 topologies for fractional depth-space behavior.
 
 6. What are the checker-blocking clarifications in `stt_lp_certificate_schema.md`?
    The checker needs a schema/checker version and exact `relaxation_version`; explicit variable domains for `X`, `Z`, and `D`, including symmetry and absent-variable defaults; a machine-implemented LP constraint set; machine-readable root-rounding formulas; proof-mode enumeration or dual certificates rather than trusted digests; and a fixed convention for `almost-star`, which is currently advisory.
 
 7. What should the first no-internet blind prompt be?
-   Use the STT prompt in the pilot plan, centered on edge-diameter-3 depth-projection integrality. It must define STTs recursively, depth-based cost, paths/stars as sanity checks, and the target as either a proof or a counterexample without mentioning Sadeh-Kaplan-Zwick, Golinsky, or known counterexamples.
+   Use `reports/stt_true_blind_prompt.md` before exposing any frontier context. Use `reports/stt_frontier_prompt.md` only after blind attempts are saved.
 
 8. What should the first Codex implementation prompt be?
    Use the implementation prompt in the pilot plan: implement the STT LP certificate/checker scaffold, but do not guess Golinsky constraints until `relaxation_version` and variable domains are pinned down. The first accepted scope is exact rational parsing, topology validation, STT recursion/enumeration, cost checking, subclass-label derivation, JSON normalization, and tests.

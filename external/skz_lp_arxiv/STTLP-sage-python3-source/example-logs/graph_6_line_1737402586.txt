@@ -1,0 +1,146 @@
+[time=0]
+Partial-int Vertex (intXZD=False | intXD=False | intD=True). D=[2, 2, 2, 1, 1, 3], XZD=[1, 0, 0, 1, 0, 0, 0.5, 0, 0.5, 0, 0.5, 0, 0.5, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0, 0.5, 0.5, 0, 0, 0.5, 0.5, 1, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0, 0.5, 0, 1, 0, 0, 0.5, 0.5, 1, 0, 0, 1, 0, 2, 2, 2, 1, 1, 3]
+[time=16.564] (V-stats [x3])
+
+
+
+TestId-4
+Graph: size=6 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+XZD-space vertex-analysis:
+...    820 total number of vertices
+......    807 integer vertices
+......     13 fractional vertices
+denominators fine-grained: {(1,): 807, (1, 2): 13}
+
+XD-space vertex-analysis:
+...    796 total number of vertices
+......    783 integer vertices
+......     13 fractional vertices
+denominators fine-grained: {(1,): 783, (1, 2): 13}
+
+D-space vertex-analysis:
+...    588 total number of vertices
+......    576 integer vertices
+......     12 fractional vertices
+denominators fine-grained: {(1,): 576, (1, 2): 12}
+
+[time=33.743] (V-stats [x3])
+
+
+
+TestId-5
+Graph: size=6 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+XZD-space vertex-analysis:
+...     73 total number of vertices
+......     67 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 67, (1, 2): 6}
+
+XD-space vertex-analysis:
+...     72 total number of vertices
+......     66 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 66, (1, 2): 6}
+
+D-space vertex-analysis:
+...     62 total number of vertices
+......     57 integer vertices
+......      5 fractional vertices
+denominators fine-grained: {(1,): 57, (1, 2): 5}
+
+[time=50.350] (V-stats [x3])
+
+
+
+TestId-6
+Graph: size=6 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+XZD-space vertex-analysis:
+...     58 total number of vertices
+......     58 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 58}
+
+XD-space vertex-analysis:
+...     58 total number of vertices
+......     58 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 58}
+
+D-space vertex-analysis:
+...     58 total number of vertices
+......     58 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 58}
+
+[time=66.743] (V-stats [x3])
+
+
+
+TestId-7
+Graph: size=6 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+XZD-space vertex-analysis:
+...     72 total number of vertices
+......     66 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 66, (1, 2): 6}
+
+XD-space vertex-analysis:
+...     72 total number of vertices
+......     66 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 66, (1, 2): 6}
+
+D-space vertex-analysis:
+...     62 total number of vertices
+......     57 integer vertices
+......      5 fractional vertices
+denominators fine-grained: {(1,): 57, (1, 2): 5}
+
+[time=83.440] (V-stats [x3])
+
+
+
+TestId-8
+Graph: size=6 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+XZD-space vertex-analysis:
+...     72 total number of vertices
+......     66 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 66, (1, 2): 6}
+
+XD-space vertex-analysis:
+...     72 total number of vertices
+......     66 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 66, (1, 2): 6}
+
+D-space vertex-analysis:
+...     62 total number of vertices
+......     57 integer vertices
+......      5 fractional vertices
+denominators fine-grained: {(1,): 57, (1, 2): 5}
+
+[time=100.534] (V-stats [x3])
+
+
+
+TestId-9
+Graph: size=6 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+XZD-space vertex-analysis:
+...     58 total number of vertices
+......     58 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 58}
+
+XD-space vertex-analysis:
+...     58 total number of vertices
+......     58 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 58}
+
+D-space vertex-analysis:
+...     58 total number of vertices
+......     58 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 58}
+

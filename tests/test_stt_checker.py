@@ -279,10 +279,16 @@ class CertificateTests(unittest.TestCase):
         result = check_certificate(self.load_example("star_4_proof.json"))
         self.assertEqual(result.weighted_cost, Fraction(7, 4))
 
-    def test_long_star_certificate_passes(self):
-        result = check_certificate(self.load_example("long_star_7.json"))
+    def test_edge_diameter3_checker_only_certificate_passes(self):
+        result = check_certificate(self.load_example("edge_diameter3_checker_only_7.json"))
         self.assertEqual(result.weighted_cost, Fraction(48, 23))
         self.assertEqual(result.normalized["integer_optimum"]["stt_count"], 807)
+        self.assertIn("edge-diameter-3", result.normalized["topology"]["derived_subclass_labels"])
+
+    def test_skz_long_star_certificate_passes(self):
+        result = check_certificate(self.load_example("skz_long_star_7_stt_optimum.json"))
+        self.assertEqual(result.weighted_cost, Fraction(53, 23))
+        self.assertEqual(result.normalized["integer_optimum"]["stt_count"], 662)
         self.assertIn("edge-diameter-3", result.normalized["topology"]["derived_subclass_labels"])
 
     def test_cost_mismatch_fails(self):

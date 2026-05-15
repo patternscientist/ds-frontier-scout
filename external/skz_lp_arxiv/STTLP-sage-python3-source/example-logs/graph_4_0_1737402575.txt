@@ -1,0 +1,49 @@
+[time=0]
+[time=0.155] (enriched)
+[time=0.155] (vertex statistics)
+[time=0.155] (H-count) 
+
+
+
+TestID-1
+Graph: size=4 , edges=[(1, 2), (2, 3), (3, 4)]
+integrality gap: 1.00000
+...     14 total number of vertices
+......     14 integer vertices
+.........     14 STT vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 14}
+
+hyperplanes count: all/stt-only: 32 32
+NO enriched vertices fine-grained.
+[time=0.156] (Level-1 done)
+[time=0.180] (H-count)
+[time=0.191] (V-stats)
+
+
+
+TestID-2
+Graph: size=4 , edges=[(1, 2), (2, 3), (3, 4)]
+...    113 total number of vertices
+......    113 integer vertices
+.........     14 STT vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 113}
+
+hyperplanes count: 28
+[time=0.191] (TestID-2 done)
+[time=0.209] (H-count)
+[time=0.214] (V-stats)
+
+
+
+TestID-3
+Graph: size=4 , edges=[(1, 2), (2, 3), (3, 4)]
+...     44 total number of vertices
+......     44 integer vertices
+.........     14 STT vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 44}
+
+hyperplanes count: 31
+[time=0.214] (TestID-3 done)

@@ -42,7 +42,7 @@ python -m unittest -v tests.test_stt_lp_feasibility
 python -m unittest discover -v
 python -m scripts.stt_checker.cli check examples/stt/path_4_proof.json
 python -m scripts.stt_checker.cli check examples/stt/star_4_proof.json
-python -m scripts.stt_checker.cli check examples/stt/long_star_7.json
+python -m scripts.stt_checker.cli check examples/stt/skz_long_star_7_stt_optimum.json
 python -m scripts.stt_checker.frontier_artifacts --max-n 7 --max-enumeration 100000
 python -m scripts.stt_checker.cli check-lp examples/stt_lp/path_4_stt_induced_lp.json
 python -m scripts.stt_checker.cli check-lp examples/stt_lp/star_4_stt_induced_lp.json

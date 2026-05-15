@@ -19,7 +19,8 @@ written:
 - topology vertices are required to be exactly `0..n-1`;
 - `edge-diameter-k` uses line-graph edge distance, not ordinary vertex-tree
   diameter;
-- path, star, and long-star fixtures use the corrected edge-diameter labels;
+- path, star, and the checker-only 7-node edge-diameter-3 fixture use the
+  corrected edge-diameter labels;
 - docs describe the corrected edge-diameter convention;
 - CLI `--max-enumeration` works after subcommands as well as before them;
 - tests cover rational rejection, topology boundary labels, and the
@@ -149,7 +150,8 @@ Checked behavior:
 
 - recursively enumerates one root choice per connected recursive component;
 - tiny counts match tests: path on 4 vertices has 14 STTs, star on 4 vertices
-  has 16 STTs, and the long-star fixture has 807 STTs;
+  has 16 STTs, the checker-only 7-node edge-diameter-3 fixture has 807 STTs,
+  and the SKZ source-aligned long-star fixture has 662 STTs;
 - exact weighted optimum is computed with rational costs;
 - safety cap raises `EnumerationLimitExceeded` once a complete enumeration
   would exceed the cap.
@@ -233,16 +235,22 @@ python -m scripts.stt_checker.cli check examples/stt/star_4_proof.json
 Result: `PASS examples/stt/star_4_proof.json: weighted_cost=7/4`
 
 ```text
-python -m scripts.stt_checker.cli check examples/stt/long_star_7.json
+python -m scripts.stt_checker.cli check examples/stt/edge_diameter3_checker_only_7.json
 ```
 
-Result: `PASS examples/stt/long_star_7.json: weighted_cost=48/23`
+Result: `PASS examples/stt/edge_diameter3_checker_only_7.json: weighted_cost=48/23`
+
+```text
+python -m scripts.stt_checker.cli check examples/stt/skz_long_star_7_stt_optimum.json
+```
+
+Result: `PASS examples/stt/skz_long_star_7_stt_optimum.json: weighted_cost=53/23`
 
 Additional documented examples checked:
 
 ```text
 python -m scripts.stt_checker.cli check examples/stt/path_4_proof.json --normalized-json
-python -m scripts.stt_checker.cli enumerate examples/stt/long_star_7.json
+python -m scripts.stt_checker.cli enumerate examples/stt/edge_diameter3_checker_only_7.json
 python -m scripts.stt_checker.cli enumerate-topology examples/stt/path_4_proof.json
 ```
 

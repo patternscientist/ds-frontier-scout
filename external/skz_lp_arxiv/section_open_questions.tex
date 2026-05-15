@@ -1,0 +1,47 @@
+\section{Open Questions}
+\label{section_open_questions}
+
+In this section we summarize the main open questions regarding the LP approach towards solving Problem~\ref{problem_main_problem_stt}. Of course, solving the problem with any tool/approach, is still open. Moreover, we assumed that all queries are successful, that is, there are no searches of non-existing nodes. If the optimum can be found for this case, it may also be interesting to consider an extension with search failures in a way analogous to BSTs, where the misses occur over an edge (between neighbors) or ``beyond'' a leaf, with their own frequencies.
+%%% === Welcome to the source code. Some of Yaniv's extra thoughts and discussions of the following failed attempts are detailed (as comments) in the file 'section_open_questions_extra_thoughts.tex'. ===
+
+\paragraph{Optimality Questions and Alternative Approaches}
+\begin{enumerate}
+    \item Can we extend the LP, or formulate an alternative which could be shown to have no integrality gap? Can the dual formulation (Section~\ref{section_dual_LP}) be useful?
+    
+    \item Can more general tools help? For example Quadratic Programming (QP) or Semi-Definite Programming (SDP)?
+
+    \item Is it useful to view the optimization problem in bilinear terms of minimizing the expression $\mathbf{1}^T \cdot X \cdot f$ where $\mathbf{1}^T$ is an all-ones row vector, $f$ are the frequencies, and $X$ is the matrix of the $X_{ij}$ variables subjected to the LP constraints?
+
+    \item The paper \cite{DPtoLP2010} gives a general way to transform dynamic programming (DP) formulations to linear programs (LP), thus one may take Knuth's DP  for BSTs~\cite{KnuthOptStatic1971}, or the $k$-cut trees DP of \cite{SplayTreesonTrees_andPTAS}, and try to generalize it to all STTs. For the details of the latter DP, see Chapter 5 in the thesis of Berendsohn~\cite{BerendsohnThesis}.
+
+    \item \label{item_subclass} Can we prove that the LP approach with root rounding is optimal for a sub-class of topologies other than stars (Theorem~\ref{theorem_star_has_integer_vertices})? The most interesting and promising candidates are probably (a) the class of paths, and (b) the class of graphs with edge-diameter of $3$ (``almost stars'') for which we do not know if the LP itself is integer.\footnote{The LP is known to be non-integer for edge-diameter $4$ and above by studying the path over $5$ nodes. This is discussed in more details in Section~\ref{subsection_with_and_without_z_fourier_motzkin}. Moreover the $D$-space projection of the LP is non-integer for edge-diameter $5$ and above by Theorem~\ref{theorem_non_integer_optimum_long_star}.}
+    
+    \item Are there necessary or sufficient conditions on a topology such that the projection of its LP to $D$-space is integral (and thus optimal)? Figure~\ref{figure_all_trees_up_to_n8} shows that many non-integer LPs do become integer when projected.
+\end{enumerate}
+
+
+\paragraph{Improved Approximations and Rounding Alternatives}
+\begin{enumerate}
+    \item What is the true integrality gap of the LP? Denote it $\rho$, we know that $\rho \le 2$ by Property~\ref{property_tree_2_approx} and that $\rho \ge \frac{95}{93} \approx 1.02$ by Table~\ref{table_integrality_gaps}. Can we tighten these bounds?
+
+    \item Can the root rounding (Definition~\ref{definition_rounding_scheme}) be refined, to define tie breaking more carefully, to guaranteed an integrality gap better than $2$?
+
+    \item Is there a way to take the frequencies into account when rounding? Observe that the root rounding is agnostic, which is somewhat less natural. Studying the dual LP in this context may be relevant since its polytope depends on the frequencies.
+    
+
+    \item \label{item_peeling} Is there an alternative rounding scheme which is better (absolutely, or by being easier to analyze)? As a concrete suggestion, is there a way to take a feasible solution and (almost) decompose it to STT induced points? For example, ``peel'' off STTs one by one until the remainder is small. Then we can choose the best STT in the decomposition. Another alternative decomposition rounding would be to maintain a collection of STTs whose convex combination is ``close'' to the solution we wish to round. Start by choosing a single node of the topology (a singleton STT is exact for it), then extend the topology by one node at a time, where in each step we update the set of STTs by adding the new node to each STT, possibly forking some of them if we need different STTs that are the same up to the location of the new node. As an example, the non-integer vertex $P$ shown in Figure~\ref{figure_explicit_counter_example} with depths $D^P = (2,2,4.5,2,2,1.5,0.5)$ can be presented as almost-average of STTs $B$ and $C$ with depths vectors $D^B = (2,3,4,1,2,0,1)$, $D^C = (2,1,5,3,2,4,0)$ ($P$ is better: $D^P = \frac{1}{2}(D^B+D^C) - (0,0,0,0,0,\frac{1}{2},0)$).
+
+    \item Is there an iterative rounding scheme that improves the approximation or even achieves optimality? The root rounding (Definition~\ref{definition_rounding_scheme}) takes a fractional solution of the LP, and rounds it fully. Iterative rounding does not help the root rounding, but perhaps it could help in other ways. For example, if could determine a good choice of root, we could apply this method repeatedly, $O(n)$ times, each time fixing the root of a subtree of the resulting STT. This will still take polynomial time in total. Ideally we could hope to determine an optimal choice for the root, but any choice that would lead to an approximation ratio better than $2$ would improve the state of the art.
+    %One major obstacle with iterative rounding is that we need to be able to re-define a smaller problem. Unless we determine a good root and then break the topology to sub-components, it is not clear how to reduce the problem.
+    A related question is whether there a way to remove an arbitrary (non-root) node, or contract an edge of the topology and recur on the smaller problem?
+    
+\end{enumerate}
+
+ \paragraph{Miscellaneous LP Properties}
+\begin{enumerate}
+    \item Considering the LP version without the $Z$ variables (Section~\ref{subsection_with_and_without_z_fourier_motzkin}), every coordinate of every vertex that we found was either integer, half-integer, or third-integer. When considering vertices that are solutions of the LP in $D$-direction, we only encounter integer and half-integer coordinates (Remark~\ref{remark_new_vertices_are_non_integer_half_integer_only}). Can we prove that these properties hold in general?
+
+    \item Recall Definition~\ref{definition_partially_integer_vertex} of partially integer vertices: these are $(X,Z,D)$ vertices whose $D$ coordinates are integer. In Example~\ref{figure_Example_partially_interger_vertex} we present such a vertex, yet when projected to $D$-space it is no longer a vertex. Are there partially integer vertices that remain vertices under the projection? Property~\ref{property_integer_domination} does not rule them out. It would be interesting to find out either way.
+
+\end{enumerate}
+

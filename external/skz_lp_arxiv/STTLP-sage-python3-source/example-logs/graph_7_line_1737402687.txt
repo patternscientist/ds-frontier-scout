@@ -1,0 +1,145 @@
+[time=0]
+[time=34.419] (V-stats [x3])
+
+
+
+TestId-4
+Graph: size=7 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7)]
+XZD-space vertex-analysis:
+...    975 total number of vertices
+......    929 integer vertices
+......     46 fractional vertices
+denominators fine-grained: {(1,): 929, (1, 2): 42, (1, 3): 3, (1, 2, 4): 1}
+
+XD-space vertex-analysis:
+...    972 total number of vertices
+......    926 integer vertices
+......     46 fractional vertices
+denominators fine-grained: {(1,): 926, (1, 2): 42, (1, 3): 3, (1, 2, 4): 1}
+
+D-space vertex-analysis:
+...    908 total number of vertices
+......    862 integer vertices
+......     46 fractional vertices
+denominators fine-grained: {(1,): 862, (1, 2): 42, (1, 3): 3, (1, 2, 4): 1}
+
+[time=69.646] (V-stats [x3])
+
+
+
+TestId-5
+Graph: size=7 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7)]
+XZD-space vertex-analysis:
+...    114 total number of vertices
+......    108 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1, 2): 6, (1,): 108}
+
+XD-space vertex-analysis:
+...    114 total number of vertices
+......    108 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 108, (1, 2): 6}
+
+D-space vertex-analysis:
+...    100 total number of vertices
+......     94 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 94, (1, 2): 5, (2,): 1}
+
+[time=105.573] (V-stats [x3])
+
+
+
+TestId-6
+Graph: size=7 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7)]
+XZD-space vertex-analysis:
+...    105 total number of vertices
+......    105 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 105}
+
+XD-space vertex-analysis:
+...    105 total number of vertices
+......    105 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 105}
+
+D-space vertex-analysis:
+...    105 total number of vertices
+......    105 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 105}
+
+[time=145.772] (V-stats [x3])
+
+
+
+TestId-7
+Graph: size=7 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7)]
+XZD-space vertex-analysis:
+...    114 total number of vertices
+......    108 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 108, (1, 2): 6}
+
+XD-space vertex-analysis:
+...    114 total number of vertices
+......    108 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 108, (1, 2): 6}
+
+D-space vertex-analysis:
+...    100 total number of vertices
+......     94 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 94, (1, 2): 5, (2,): 1}
+
+[time=185.354] (V-stats [x3])
+
+
+
+TestId-8
+Graph: size=7 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7)]
+XZD-space vertex-analysis:
+...    114 total number of vertices
+......    108 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 108, (1, 2): 6}
+
+XD-space vertex-analysis:
+...    114 total number of vertices
+......    108 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 108, (1, 2): 6}
+
+D-space vertex-analysis:
+...    100 total number of vertices
+......     94 integer vertices
+......      6 fractional vertices
+denominators fine-grained: {(1,): 94, (1, 2): 5, (2,): 1}
+
+[time=226.315] (V-stats [x3])
+
+
+
+TestId-9
+Graph: size=7 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7)]
+XZD-space vertex-analysis:
+...    105 total number of vertices
+......    105 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 105}
+
+XD-space vertex-analysis:
+...    105 total number of vertices
+......    105 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 105}
+
+D-space vertex-analysis:
+...    105 total number of vertices
+......    105 integer vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 105}
+

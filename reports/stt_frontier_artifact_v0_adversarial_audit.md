@@ -82,7 +82,8 @@ cases are documented and tested:
 - a one-edge tree also has `edge-diameter-0`;
 - a 4-vertex path has `edge-diameter-2`;
 - a 4-vertex star has `edge-diameter-1`;
-- the 7-node long-star fixture has `edge-diameter-3`.
+- the 7-node checker-only fixture has `edge-diameter-3`; it is not the
+  Sadeh-Kaplan-Zwick source long-star topology.
 
 The `n = 2` `edge-diameter-0` convention may surprise readers expecting a
 vertex diameter, but it is correct under line-graph diameter: the line graph
@@ -229,10 +230,10 @@ python -m scripts.stt_checker.cli check examples/stt/star_4_proof.json
 Result: `PASS examples/stt/star_4_proof.json: weighted_cost=7/4`
 
 ```text
-python -m scripts.stt_checker.cli check examples/stt/long_star_7.json
+python -m scripts.stt_checker.cli check examples/stt/edge_diameter3_checker_only_7.json
 ```
 
-Result: `PASS examples/stt/long_star_7.json: weighted_cost=48/23`
+Result: `PASS examples/stt/edge_diameter3_checker_only_7.json: weighted_cost=48/23`
 
 ```text
 python -m scripts.stt_checker.frontier_artifacts --max-n 7 --max-enumeration 100000

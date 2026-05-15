@@ -1,0 +1,101 @@
+{
+   "sources" : [
+      {
+         "usage" : "toplevel",
+         "filename" : "main.tex"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "IEEEtran.cls"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/STTLP-BasicUtils.py"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/STTLP-GraphsAndSTT.py"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/STTLP-HardcodedValues.py"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/STTLP-LPs.py"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/STTLP-main-and-tests.py"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/enriching_6_0_1737404012.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_3_0_1737402575.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_4_0_1737402575.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_4_1_1737402576.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_5_0_1737402576.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_5_1_1737402581.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_5_2_1737402583.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_6_line_1737402586.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_7_3_1737401767.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_7_line_1737402687.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_8_line_1737402913.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/example-logs/graph_9_line_1737403445.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/main.sage"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "STTLP-sage-python3-source/parse_logs.py"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "reference.bib"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "section_SDP.tex"
+      }
+   ],
+   "version" : 2,
+   "texlive_version" : 2023,
+   "process" : {
+      "compiler" : "pdflatex"
+   }
+}

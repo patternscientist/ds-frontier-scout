@@ -1,0 +1,19 @@
+[time=0]
+[time=13.187] (enriched)
+[time=13.189] (vertex statistics)
+[time=13.189] (H-count) 
+
+
+
+TestID-1
+Graph: size=6 , edges=[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+integrality gap: 1.00000
+...    132 total number of vertices
+......    132 integer vertices
+.........    132 STT vertices
+......      0 fractional vertices
+denominators fine-grained: {(1,): 132}
+
+hyperplanes count: all/stt-only: 776 776
+NO enriched vertices fine-grained.
+[time=13.189] (Level-1 done)

@@ -1,0 +1,93 @@
+\section{The Dual LP}
+\label{section_dual_LP}
+In this section we study the dual formulation of the LP given in Definition~\ref{definition_LP_program}. Section~\ref{subsection_developing_the_dual_LP} develops the formulation slowly with verbose explanations. For the final formulation and some interpretations, skip to Definition~\ref{definition_dual_LP_program} and Section~\ref{subsection_interpreting_the_dual_LP}.
+
+
+\subsection{Developing the Dual LP}
+\label{subsection_developing_the_dual_LP}
+First, we rewrite the primal LP:
+\begin{enumerate}
+    \item Remove $D$, and also change the problem to a maximization problem. As a consequence, the objective function becomes: maximize $\sum_{j \in U}{(-f_j) \cdot D_j} = \sum_{j \in U}{(-f_j) \cdot (\sum_{i \in U}{X_{ij}})}$.
+    \item Rewrite the LCA inequalities as follows (for relevant values of $i,j,k$):\\ $(1)\  0 \le X_{ki} - Z_{kij} \ \ \ ; \ \ \ (2)\  0 \le X_{kj} - Z_{kij}$.
+\end{enumerate}
+
+Next, we define the variables of the dual. We have a variables $r_{ij}$ for each ancestry inequality over a pair of $i$ and $j$. There is no difference in the order of indices, so $r_{ji} \equiv r_{ij}$ and we only use one of them (similar to how $Z_{kij} \equiv Z_{kji}$). For the LCA inequalities we define the variables $q_{ikj}$ whose indices are ordered, and represent a directed ``path'' from $i$, through $k$, to $j$. For a triplet $i,k,j$, $q_{ikj}$ corresponds to the first LCA inequality, and $q_{jki}$ corresponds to the second inequality. Since all the inequalities are such that the  sum of the variables is greater or equal to the free coefficient, both $r$ and $q$ are non-positive coordinate-wise (we flip this later).
+
+The dual objective function is to minimize $\sum_{i,j}{r_{ij}}$ since the free coefficient is $1$ only in (ancestry) inequalities that correspond to $r$, and $0$ otherwise. We derive the dual inequalities based on the primal variables $X$ and $Z$ as follows:
+\begin{enumerate}
+    \item $X_{ij}$ participates in the ancestry inequality that corresponds to $r_{ij}$, and also in the LCA inequalities of the form $X_{ij} - Z_{iaj}$ where $i \in (j \leftrightsquigarrow a)$,  which corresponds to $q_{jia}$, and not to be confused with $q_{aij}$ which corresponds to $X_{ia} - Z_{ija} \ge 0$. Lastly, $X_{ij}$ has a coefficient of $-f_j$ in the objective function, therefore we get the inequality: $r_{ij} + \sum_{a : i \in (j \leftrightsquigarrow a)}{q_{jia}} \ge (-f_j)$.
+
+    \item $Z_{kij}$ participates in three inequalities: the ones that correspond to $r_{ij}$, $q_{ikj}$ and $q_{jki}$ (with negative sign in $q$). It is not part of the primal objective, therefore: $r_{ij} - q_{ikj} - q_{jki} \ge 0$.
+\end{enumerate}
+
+It is more natural to work with non-negative variables, so let us re-define $R \equiv -r$ and $Q \equiv -q$. In this case, we flip signs in the inequalities. We also need to flip the sign in the objective function, but instead we flip from minimization to maximization. The final formulation is  as follows.
+
+\begin{definition}[STT Dual LP]
+\label{definition_dual_LP_program}
+    \mbox{}
+    \begin{enumerate}
+        \item Variables $R$ over pairs, $Q$ over colinear triplets: $\forall i, j: R_{ij}$, and $\forall k \in (i \leftrightsquigarrow j): Q_{ikj},Q_{jki}$.
+
+        \item Objective function: maximize $\sum_{i,j \in U}{R_{ij}}$.
+
+        \item Constraints:
+        \begin{enumerate}
+            \item (Bounds) $\forall i,j \in U: \forall k \in (i \leftrightsquigarrow j): 0 \le R_{ij},Q_{ikj},Q_{jki}$.
+
+            \item (Capping) $\forall i,j \in U: \forall k \in (i \leftrightsquigarrow j): R_{ij} \le Q_{ikj} + Q_{jki}$.
+
+            \item (Frequency) $\forall i,j \in U: R_{ij} + \sum_{a : i \in (j \leftrightsquigarrow a)}{Q_{jia}} \le f_j$.
+        \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+
+
+\subsection{The Dual LP: Interpretations and Insights}
+\label{subsection_interpreting_the_dual_LP}
+
+We list a few observations:
+\begin{enumerate}
+    
+    \item The solution $R = \vec{0}$, $Q = \vec{0}$ is feasible.
+
+    \item \label{dual_rooting} In the frequency constraints, $\{ a : i \in (j \leftrightsquigarrow a) \}$ is the set of all nodes that are ``behind'' $i$ from the perspective of $j$. Another way to view it: if we root the tree (topology) $U$ in node $j$, then this is exactly the subtree of $i$, excluding $i$.
+
+    \item If $i$ and $j$ are neighbors, then $R_{ij}$ has no capping inequality. However, it is still bounded by frequency inequalities. If $i$ is a leaf, these are $R_{ij} \le f_j$ and $R_{ij} \le f_i - \sum_{a \in U \setminus \{i,j\}}{Q_{ija}}$.
+
+    \item We may assume that every capping inequality holds as equality. Indeed, if $R_{ij} < Q_{ikj} + Q_{jki}$ we can decrease the right hand side until we get an equality. This can only help us increase the objective function, if we happen to get a loose frequency inequality in which we can further increase some $R_{ij}$. Given this tightness, we also get that $Q_{ik'j}+Q_{ik'j} = Q_{ikj}+Q_{ikj} (= R_{ij})$ for every pair $k,k' \in (i \leftrightsquigarrow j)$. To explain this freedom to tweak these constraints, recall that the primal constraints $Z \ge 0$ were unnecessary. When we omit them in the primal LP, the corresponding dual constraints that we get are equalities.
+
+    \item Unlike the primal LP which ``usually'' has a unique solution, the dual LP ``usually'' has multiple solutions. As a simple example, consider a topology with $3$ nodes, with frequencies $f = [3,1,2]$. The primal optimum value is $4$ due to the unique optimal BST with depths $D = [0,2,1]$. The dual solution is $R_{12} = R_{23} = 1$, $R_{13} = 2$ with freedom to set $Q$ such that $Q_{123} \in [0,2]$, $Q_{321} \in [0,1]$ and $Q_{123}+Q_{321} \ge 2$. In larger topologies, there may be degrees of freedom on the $R$ variables as well. That is, the sum over all $R_{ij}$'s is fixed (the value of the dual LP), but there will be freedom of how to distribute the sum between the specific variables. Sometimes, the dual LP has a unique solution. Tweaking the current example to $f=[2,1,2]$, the unique solution has the same $R$, with a unique $Q$: $Q_{123}=Q_{321}=1$.
+
+    \item Note that $R_{ij}$ participates in two symmetric-looking frequency inequalities: \\$R_{ij} + \sum_{a : i \in (j \leftrightsquigarrow a)}{Q_{jia}} \le f_j$ and  $R_{ij} + \sum_{a : j \in (i \leftrightsquigarrow a)}{Q_{ija}} \le f_i$. Observe that the $Q$ variables are not the same: In the first inequality they represent a directed relationship from $j$ to every node ``behind'' $i$, while in the second inequality it is a direction from $i$ to every node ``behind'' $j$. None of these $Q$ variables is related to the $Q$ variables in the capping inequalities of $R_{ij}$, where the third node is \emph{between} $i$ and $j$, not behind any of them. Also, not every node appears in some $Q$ related to $R_{ij}$: nodes that branch out of the path between $i$ and $j$ do not define a colinear triplet.
+
+    \item Some of the constraints are redundant. To see it best, consider two leaves $i$ and $j$. They do not have $Q$ variables for nodes behind them, therefore we get the two inequalities: $R_{ij} \le f_j$ and  $R_{ij} \le f_i$. Depending on whether $f_i \ge f_j$ or $f_i \le f_j$, one inequality is redundant. More generally, even when $j$ is a leaf and $i$ is not, we could have redundancy if $f_j \le f_i$. Explicitly, in this case $R_{ij} \le f_i$ is redundant because it is implied by $R_{ij} \le f_j - \sum_{a : i \in (j \leftrightsquigarrow a)}{Q_{jia}} \le f_j \le f_i$.
+
+    \item One can loosely interpret $f_j$ as an amount of tokens to be endowed by $j$ to $i$ and any node behind $i$. Note that there is an inequality for $j$ with every node, so if we think of the topology as tree rooted in $j$ (as explained in item~\ref{dual_rooting}), $j$ has the same amount to endow to each subtree, with overlaps between subtrees. $R_{ij}$ is the amount endowed to $i$, $Q_{jia}$ is the amount endowed to $a$, and full endowment means equality instead of inequality. The fact that $R_{ij} \equiv R_{ji}$ means that $i$ and $j$ must endow the same amount to each other. Because of the multiple budgets of each node and the overlap, this interpretation is not simply some kind of flow.
+\end{enumerate}
+
+
+\subsection{A Weak-Duality Invariant over STT Subtrees}
+\label{subsection_dual_LP_analysis_BST}
+
+The \emph{weak duality theorem} states that the dual value is bounded by the primal value. In this subsection we present this relation in an explicit STT-intuitive way. Specifically, given a fixed STT, $T$, we show that for each subtree $T_i$ of $T$, rooted at $i$, the contribution to the dual value of the variables $R_{ab}$ for $a$ and $b$ whose LCA (lowest common ancestor) is $i$, is bounded by the total frequency of the nodes in this subtree except for $i$ (which is the contribution to the primal value, of pushing the nodes one edge deeper when hanging the subtrees of $i$ under it). We denote $T'_i \equiv T_i \setminus\{i\}$:
+$$ \sum_{\substack{a,b \in T'_i \\ LCA(a,b)=i}}{R_{ab}} =
+\frac{1}{2} \cdot \sum_{a \in T'_i} \sum_{\substack{b \in T'_i \\ LCA(a,b)=i}} {R_{ab}}
+\underset{(1)}{=} \frac{1}{2} \cdot \sum_{a \in T'_i} \sum_{\substack{b \in T'_i \\ LCA(a,b)=i}} {(Q_{aib} + Q_{bia})}
+$$
+$$
+= \frac{1}{2} \cdot \sum_{a \in T'_i} \Big ( \sum_{\substack{b \in T'_i \\ LCA(a,b)=i}} {Q_{aib}} \Big ) + \frac{1}{2} \cdot \sum_{b \in T'_i} \Big ( \sum_{\substack{a \in T'_i \\ LCA(a,b)=i}} {Q_{bia}} \Big )
+$$
+$$
+\underset{(2)}{\le} \frac{1}{2} \cdot \sum_{a \in T'_i}{(f_a - R_{ia})} + \frac{1}{2} \cdot \sum_{b \in T'_i}{(f_b - R_{ib})}
+= \sum_{a \in T'_i}{f_a} - \sum_{a \in T'_i}{R_{ia}} \ ,
+$$
+where $(1)$ is by the capping equalities and $(2)$ is by the frequency inequalities. The factor of $\frac{1}{2}$ is due to double-counting in the double-sum. Re-arranging the inequality we get:
+$$ \sum_{\substack{a,b \in T_i \\ LCA(a,b)=i}}{R_{ab}} \le \sum_{a \in T'_i}{f_a}
+$$
+This means that the increase in the dual value, when we ``step up'' from subtrees of $i$ to the subtree rooted at $i$ (that is we add $R_{ab}$'s for pair $a$ and $b$ whose LCA is $i$, including when one of them is $i$) is at most the delta of the primal value which follows from increasing the depth of each node in $T'_i$ by $1$ (sum of frequencies, right-hand-size). If we achieve equality in every step then we can conclude that $T$ is in fact an optimal STT.
+
+If $T$ is arbitrary, the answer could be negative. We already know that some topologies are such that the primal optimum is not achieved by any STT, but let us give a simpler example. Consider the case where $f_r = 0$ and $r$ has a single child. Recall our context: given some STT, we focus on the subtree rooted at the node $r$. Then since $\forall i: R_{ri} + \sum{Q_{ria}} \le f_r = 0$, we get that $R_{ri} = 0$ and the dual contribution due to $R$ variables that involve $r$ cannot match the sum of frequencies of the (strict) descendants of $r$.
+
+However, the hope is to be able to do so in the special case where an STT does achieves the optimum, and for this specific STT. In other words, when the structure is not arbitrary but based on what we know of the primal solution. In some cases it is trivial to achieve this delta, one such case is when $f_r$ is heavy enough such that $f_r \ge \sum_{i \in S}{f_i}$ for every $S$ that is an STT subtree rooted at a child of $r$. Assigning $R_{ri} = f_i$ and $Q_{rij} = f_j$ for every $i,j \in S$ yields a feasible solution, and the delta value of the LP is indeed $\sum_{i \in S}{R_{ri}} = \sum_{i \in S}{f_i}$. This assignment is clearly feasible since all the values are non-negative, capping holds because $\forall k \in (r \leftrightsquigarrow i): R_{ri} = f_i = Q_{rki} \le Q_{rki} + Q_{ikr}$, and frequency constraints hold by our assumption, indeed $\forall i: R_{ri} + \sum_{a:i \in (r \leftrightsquigarrow a)}{Q_{ria}} = f_i + \sum_{a:i \in (r \leftrightsquigarrow a)}{f_a} \le \sum_{a \in S_i}{f_a} \le f_r$ where $S_i$ is the subtree rooted at a child of $r$, that contains $i$. This example is no surprise, since a very heavy node should be the root of the STT in the primal solution.
+

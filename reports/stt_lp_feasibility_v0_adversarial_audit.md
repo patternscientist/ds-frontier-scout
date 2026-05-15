@@ -57,7 +57,8 @@ exactly.
 - `examples/stt_lp/path_4_negative_d_invalid.json`
 - `examples/stt/path_4_proof.json`
 - `examples/stt/star_4_proof.json`
-- `examples/stt/long_star_7.json`
+- `examples/stt/edge_diameter3_checker_only_7.json`
+- `examples/stt/skz_long_star_7_stt_optimum.json`
 
 ## Source Fidelity
 
@@ -148,7 +149,7 @@ Existing tests already covered:
 - No optional LP variants are supported.
 - Dense proof-mode certificates are required; sparse zero-default encodings
   remain a future schema decision.
-- The long-star integrality-gap smoke target still lacks a checked-in full
+- The SKZ long-star integrality-gap smoke target still lacks a checked-in full
   source-transcribed `(X,Z,D)` certificate. The current LP fixtures are
   STT-induced path and star examples plus one negative example.
 - Direct fidelity to Golinsky's original thesis remains blocked by source
@@ -185,10 +186,10 @@ python -m scripts.stt_checker.cli check examples/stt/star_4_proof.json
 Result: passed, `weighted_cost=7/4`.
 
 ```text
-python -m scripts.stt_checker.cli check examples/stt/long_star_7.json
+python -m scripts.stt_checker.cli check examples/stt/skz_long_star_7_stt_optimum.json
 ```
 
-Result: passed, `weighted_cost=48/23`.
+Result: passed, `weighted_cost=53/23`.
 
 ```text
 python -m scripts.stt_checker.frontier_artifacts --max-n 7 --max-enumeration 100000
