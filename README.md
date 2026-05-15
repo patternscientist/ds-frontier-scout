@@ -46,6 +46,20 @@ To refresh `data/scores.csv` and `reports/candidate_matrix.md`, run:
 python scripts/scoring/render_scores.py
 ```
 
+## STT Checker v0
+
+The first proof-mode checker scaffold for the `search_trees_on_trees_lp` pilot
+lives in `scripts/stt_checker/`. It validates exact base-tree topologies,
+recursive STTs, rational vertex-frequency costs, and small complete
+enumerations, while rejecting unsupported LP fields in proof mode.
+
+See `docs/stt_checker_v0.md` for the supported certificate subset and CLI
+examples. A quick smoke test from the repo root is:
+
+```sh
+python -m scripts.stt_checker.cli check examples/stt/long_star_7.json
+```
+
 ## Source Discipline
 
 Do not invent citations or open-problem claims. Use TODO markers until sources are checked. Primary sources are preferred over survey summaries, and every promoted candidate should include a skeptical audit explaining why the claimed open status might be wrong.

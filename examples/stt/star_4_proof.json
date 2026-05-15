@@ -1,0 +1,36 @@
+{
+  "schema_version": "stt-cert-v0",
+  "certificate_id": "example-star-4-proof",
+  "mode": "proof",
+  "topology": {
+    "n": 4,
+    "vertices": [0, 1, 2, 3],
+    "edges": [[0, 1], [0, 2], [0, 3]],
+    "declared_subclass_labels": ["star", "edge-diameter-2"]
+  },
+  "weights": {
+    "type": "vertex_frequency",
+    "normalization": "sum_1",
+    "values": {
+      "0": "1/4",
+      "1": "1/4",
+      "2": "1/4",
+      "3": "1/4"
+    }
+  },
+  "stt": {
+    "component_roots": [
+      {"component": [0, 1, 2, 3], "root": 0}
+    ]
+  },
+  "cost": {
+    "depth_base": 1,
+    "weighted_cost": "7/4"
+  },
+  "integer_optimum": {
+    "certificate_type": "checker_enumerates_all_stts",
+    "value": "7/4",
+    "stt_count": 16
+  }
+}
+
