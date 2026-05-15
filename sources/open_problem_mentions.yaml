@@ -218,12 +218,12 @@ mentions:
     verification_notes: "Adversarially audited 2026-05-15. Downgrade: dynamic min-cut is saturated and recent SODA 2025/2026 progress must be read before claiming min-tree-cut remains a current bottleneck. Keep only the explicit maintained-tree subproblem; simulations can find bad traces but cannot prove worst-case update bounds."
 
   - id: dynamic_stream_mincut_space_gap
-    candidate_topic: dynamic_graph_structures
+    candidate_topic: dynamic_stream_mincut_space
     source_id: itcs_2025_space_complexity_mincut
     source_url: "https://drops.dagstuhl.de/storage/00lipics/lipics-vol325-itcs2025/LIPIcs.ITCS.2025.43/LIPIcs.ITCS.2025.43.pdf"
     quote_or_paraphrase: "Open Question 15 asks for the exact one-pass dynamic-stream space complexity of (1+epsilon)-approximate minimum cut in simple weighted graphs."
     open_status: open
-    verification_notes: "Adversarially audited 2026-05-15. Explicit ITCS 2025 open question, but it is a streaming/communication-complexity lower-bound problem rather than a classic DS candidate. Keep as background unless a finite sketch game is isolated."
+    verification_notes: "Adversarially audited 2026-05-15, then promoted in Batch 003 after isolating finite sketch/hard-instance evaluator angles. Still lower-bound-heavy and adjacent to data structures rather than a classic update/query candidate."
 
   - id: range_alpha_majority_space_output_sensitive
     candidate_topic: range_mode_queries
@@ -248,3 +248,43 @@ mentions:
     quote_or_paraphrase: "Recent lower bounds give essentially optimal fine-grained conditional separations for partial retroactivity; an unconditional/clean cell-probe strengthening remains an attractive but not yet explicitly sourced target."
     open_status: uncertain
     verification_notes: "Adversarially audited 2026-05-15. Keep as inferred/uncertain. Chung-Demaine-Hendrickson-Lynch already give strong conditional lower bounds; an unconditional or cleaner cell-probe strengthening needs an explicit primary-source open statement and a named problem/model before promotion."
+
+  - id: dynamic_stream_mincut_exact_space
+    candidate_topic: dynamic_stream_mincut_space
+    source_id: ding_garces_li_lin_nelson_shah_woodruff_itcs_2025_mincut_streams
+    source_url: "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.43"
+    quote_or_paraphrase: "Open Question 15 asks for the exact space complexity of calculating a (1+epsilon)-approximation to minimum cut in simple weighted graphs in a one-pass dynamic stream."
+    open_status: explicit
+    verification_notes: "Batch 003 verified 2026-05-15. Strong streaming/sketching mini-frontier; gap lies between insertion-only ~Omega(n/epsilon) and dynamic-stream ~O(n/epsilon^2)-style sparsifier bounds."
+
+  - id: directed_roundtrip_compact_routing_tradeoff
+    candidate_topic: directed_roundtrip_compact_routing
+    source_id: kadria_roditty_disc_2025_compact_routing
+    source_url: "https://arxiv.org/abs/2503.13753"
+    quote_or_paraphrase: "Problem 3 asks for the best stretch of compact roundtrip routing in weighted directed graphs using ~O(n^{1/k}) local storage."
+    open_status: explicit
+    verification_notes: "Batch 003 verified 2026-05-15. Kadria-Roditty improve directed k=3 to 7 stretch and solve undirected handshake stretch, but the general directed tradeoff remains open."
+
+  - id: concurrent_shi_single_cell_frontier
+    candidate_topic: concurrent_shi_cell_capacity
+    source_id: attiya_bender_farach_colton_oshman_schiller_stoc_2025_shi_hash_tables
+    source_url: "https://arxiv.org/abs/2503.21016"
+    quote_or_paraphrase: "The STOC 2025 paper gives a lock-free SQHI hash table with two elements plus two bits per cell and lower bounds for one-element cells under stronger progress assumptions."
+    open_status: inferred
+    verification_notes: "Batch 003 promoted cautiously. The exact lock-free one-element-cell versus two-element-cell boundary is inferred from the positive/negative result gap; read the full proof before ranking highly."
+
+  - id: connected_circle_segment_tradeoff_lower_bounds
+    candidate_topic: connected_circle_segment_queries
+    source_id: afshani_bosch_storandt_isaac_2025_circle_segment_connected
+    source_url: "https://drops.dagstuhl.de/storage/00lipics/lipics-vol359-isaac2025/html/LIPIcs.ISAAC.2025.3/LIPIcs.ISAAC.2025.3.html"
+    quote_or_paraphrase: "The future-work section asks for lower bounds for data-size/query-time tradeoffs in connected graph circle-segment queries and suggests construction/query improvements using bottom-up or fractional-cascading methods."
+    open_status: explicit
+    verification_notes: "Batch 003 verified 2026-05-15. Strong geometry mini-frontier, but exact asymptotic formulas must be recovered from PDF/LaTeX because the HTML rendering drops symbols."
+
+  - id: cache_oblivious_implicit_dictionary_scanning
+    candidate_topic: cache_oblivious_implicit_scanning
+    source_id: franceschini_grossi_icalp_2003_cache_oblivious_implicit
+    source_url: "https://pages.di.unipi.it/grossi/PAPERS/icalp03.pdf"
+    quote_or_paraphrase: "Franceschini and Grossi state that their cache-oblivious implicit dictionary does not support efficient scanning and that scanning with comparable O(log_B n) bounds is open even for cache-oblivious data structures alone."
+    open_status: explicit_modern_status_uncertain
+    verification_notes: "Batch 003 verified 2026-05-15. Crisp old open line; check later implicit/cache-oblivious predecessor and working-set dictionaries before promoting to the top shortlist."

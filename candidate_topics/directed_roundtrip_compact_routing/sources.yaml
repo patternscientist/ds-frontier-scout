@@ -1,0 +1,11 @@
+sources:
+  - id: kadria_roditty_disc_2025_compact_routing
+    title: "Compact Routing Schemes in Undirected and Directed Graphs"
+    authors: ["Avi Kadria", "Liam Roditty"]
+    year: 2025
+    doi: "10.4230/LIPIcs.DISC.2025.38"
+    arxiv: "2503.13753"
+    url: "https://arxiv.org/abs/2503.13753"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Problem 3 asks for the best directed compact roundtrip-routing stretch with ~O(n^{1/k}) local storage."

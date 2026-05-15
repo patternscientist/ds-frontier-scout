@@ -1,0 +1,10 @@
+open_status: inferred
+open_status_confidence: medium
+saturation_risk: medium
+theorem_project_suitability: 3
+openevolve_suitability: 2
+intellectual_interest: 4
+overall_score: 6.2
+confidence: medium
+best_use: Lean_formalization_project
+notes: "Batch 003 promoted cautiously. Strong primary source and theory-facing model, but the exact residual is inferred from positive/negative result gap rather than stated as a standalone open problem."

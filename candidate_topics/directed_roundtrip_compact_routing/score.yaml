@@ -1,0 +1,10 @@
+open_status: explicit
+open_status_confidence: high
+saturation_risk: medium_high
+theorem_project_suitability: 3
+openevolve_suitability: 2
+intellectual_interest: 4
+overall_score: 6.6
+confidence: medium
+best_use: theorem_project
+notes: "Batch 003 network mini-frontier. Explicit DISC 2025 directed roundtrip-routing problem; strong theory interest, weaker evaluator fit."

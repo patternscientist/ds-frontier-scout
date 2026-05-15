@@ -1,0 +1,10 @@
+sources:
+  - id: franceschini_grossi_icalp_2003_cache_oblivious_implicit
+    title: "Optimal Cache-Oblivious Implicit Dictionaries"
+    authors: ["Gianni Franceschini", "Roberto Grossi"]
+    year: 2003
+    doi: "10.1007/3-540-45061-0_27"
+    url: "https://pages.di.unipi.it/grossi/PAPERS/icalp03.pdf"
+    status: verified
+    access_date: 2026-05-15
+    notes: "States that efficient scanning is not supported and remains open with comparable cache-oblivious bounds."

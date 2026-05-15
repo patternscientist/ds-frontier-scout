@@ -1,0 +1,10 @@
+open_status: explicit_modern_status_uncertain
+open_status_confidence: medium
+saturation_risk: low_medium
+theorem_project_suitability: 4
+openevolve_suitability: 3
+intellectual_interest: 4
+overall_score: 7.1
+confidence: medium
+best_use: theorem_project
+notes: "Batch 003 cache-oblivious mini-frontier. Very crisp old open statement; must verify modern status after implicit predecessor/working-set follow-ups."

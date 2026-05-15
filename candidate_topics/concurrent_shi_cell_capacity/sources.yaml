@@ -1,0 +1,11 @@
+sources:
+  - id: attiya_bender_farach_colton_oshman_schiller_stoc_2025_shi_hash_tables
+    title: "History-Independent Concurrent Hash Tables"
+    authors: ["Hagit Attiya", "Michael A. Bender", "Martin Farach-Colton", "Rotem Oshman", "Noa Schiller"]
+    year: 2025
+    doi: "10.1145/3717823.3718283"
+    arxiv: "2503.21016"
+    url: "https://arxiv.org/abs/2503.21016"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Gives lock-free SQHI construction with two elements plus two bits per cell and lower bounds for smaller cells under stronger progress conditions."

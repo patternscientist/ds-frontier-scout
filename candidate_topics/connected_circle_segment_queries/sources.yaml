@@ -1,0 +1,10 @@
+sources:
+  - id: afshani_bosch_storandt_isaac_2025_circle_segment_connected
+    title: "Circle-Segment Intersection Queries in Connected Geometric Graphs"
+    authors: ["Peyman Afshani", "Yannick Bosch", "Sabine Storandt"]
+    year: 2025
+    doi: "10.4230/LIPIcs.ISAAC.2025.3"
+    url: "https://drops.dagstuhl.de/storage/00lipics/lipics-vol359-isaac2025/html/LIPIcs.ISAAC.2025.3/LIPIcs.ISAAC.2025.3.html"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Future work asks for lower bounds on data-size/query-time tradeoffs in the connected-graph setting and suggests construction/query improvements."

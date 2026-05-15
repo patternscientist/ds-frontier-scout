@@ -1,0 +1,11 @@
+sources:
+  - id: ding_garces_li_lin_nelson_shah_woodruff_itcs_2025_mincut_streams
+    title: "Space Complexity of Minimum Cut Problems in Single-Pass Streams"
+    authors: ["Matthew Ding", "Alexandro Garces", "Jason Li", "Honghao Lin", "Jelani Nelson", "Vihan Shah", "David P. Woodruff"]
+    year: 2025
+    doi: "10.4230/LIPIcs.ITCS.2025.43"
+    url: "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.43"
+    arxiv: "2412.01143"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Open Question 15 asks for the exact one-pass dynamic-stream space complexity of (1+epsilon)-approximate min-cut."

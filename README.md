@@ -52,4 +52,6 @@ Do not invent citations or open-problem claims. Use TODO markers until sources a
 
 ## Current Status
 
-This repository now contains an initial scaffold, Batch 001 scouting report, targeted patches for high-priority candidates, an adversarial audit, and scoring infrastructure. Some candidate folders remain placeholders or need source-backed follow-up, but the leading Batch 001 candidates have been populated and audited.
+This repository now contains Batch 001 and Batch 002 scouting reports, adversarial audits, score-rendering infrastructure, and a fixed-point synthesis. The current leading pilot remains `search_trees_on_trees_lp`, especially as a combined theorem/certificate/OpenEvolve project.
+
+Batch 003 is complete as a focused underexplored mini-frontier pass. It adds sharper candidates in dynamic-stream min-cut, directed compact roundtrip routing, concurrent history-independent hash-table cell capacity, connected geometric circle-segment queries, and cache-oblivious implicit dictionary scans, plus a first certificate schema for the STT LP pilot.
