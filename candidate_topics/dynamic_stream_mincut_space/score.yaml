@@ -1,10 +1,10 @@
 open_status: explicit
 open_status_confidence: high
-saturation_risk: medium
+saturation_risk: medium_high
 theorem_project_suitability: 3
-openevolve_suitability: 4
+openevolve_suitability: 3
 intellectual_interest: 4
-overall_score: 7.2
-confidence: medium_high
-best_use: OpenEvolve_project
-notes: "Batch 003 promoted mini-frontier. Explicit ITCS 2025 open question with a plausible finite hard-instance/sketch-testing angle, but lower-bound proof may be communication-complexity-heavy."
+overall_score: 6.8
+confidence: medium
+best_use: theorem_project
+notes: "Batch 003 audit keeps the explicit ITCS 2025 dynamic-stream min-cut gap, but downgrades OpenEvolve fit: finite sketch/collision searches are hypothesis generators, not evidence for the asymptotic communication lower bound."

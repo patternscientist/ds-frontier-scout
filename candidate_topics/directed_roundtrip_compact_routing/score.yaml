@@ -1,10 +1,10 @@
 open_status: explicit
 open_status_confidence: high
-saturation_risk: medium_high
+saturation_risk: high
 theorem_project_suitability: 3
-openevolve_suitability: 2
+openevolve_suitability: 1
 intellectual_interest: 4
-overall_score: 6.6
+overall_score: 6.2
 confidence: medium
 best_use: theorem_project
-notes: "Batch 003 network mini-frontier. Explicit DISC 2025 directed roundtrip-routing problem; strong theory interest, weaker evaluator fit."
+notes: "Batch 003 audit keeps the explicit DISC 2025 directed roundtrip-routing problem, but raises saturation risk and downgrades evaluator fit; finite graph search mostly falsifies toy routing rules and does not certify compact-routing lower bounds."

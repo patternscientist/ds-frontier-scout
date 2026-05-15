@@ -1,7 +1,7 @@
 # Problem
 
-Characterize the exact shared-cell width and progress-condition frontier for linearizable concurrent dictionaries that are state-quiescent strongly history independent.
+Characterize the exact shared-cell width, base-object, and progress-condition frontier for linearizable concurrent dictionaries that are state-quiescent strongly history independent.
 
-The focused residual is whether lock-free SQHI hash tables can use one key plus `O(1)` metadata per cell, or whether two-key lookahead cells are genuinely necessary.
+Batch 003's original one-key-versus-two-key formulation is suspect after adversarial audit. The safer residual is to pin down which strengthening of the STOC 2025 lock-free two-element-cell construction is possible, and which progress conditions are already ruled out by the paper's lower bound.
 
-Open status: inferred from the gap between the STOC 2025 construction and lower bounds.
+Open status: inferred and fragile. Read the full lower-bound theorem before using this as an open-problem prompt.

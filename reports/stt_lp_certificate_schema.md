@@ -11,6 +11,17 @@ Scope: minimal implementation-ready certificate/checker schema for `search_trees
 - A certificate should be self-contained: topology, query weights, candidate STT/LP solution, objective value, and claimed property all live in one file.
 - The checker should verify claims by recomputation from primitive fields, not by trusting derived costs.
 - Labels are metadata unless the checker can derive them from topology.
+- Include a `schema_version` and a checker-supported `relaxation_version` for every LP certificate. The name `golinsky_stt_lp` alone is not precise enough to identify constraints.
+
+## Checker-Blocking Clarifications
+
+The following items must be fixed before implementing a proof-mode checker:
+
+- LP variable domains must be explicit for the selected relaxation: which ordered/unordered index tuples exist for `X`, `Z`, and `D`, which variables are symmetric, and which absent variables default to zero.
+- LP constraints must be referenced by a versioned, machine-implemented constraint set. Free-text "Golinsky-style" constraints are not checkable.
+- Root-rounding scores must name a checker-known formula or include enough primitive data for recomputation; a list of candidate scores is not a proof by itself.
+- Enumeration digests are audit metadata unless the checker either enumerates all STTs itself below a configured threshold or verifies a complete supplied enumeration list.
+- `almost-star` remains advisory until the exact Sadeh-Kaplan-Zwick convention is verified.
 
 ## Rational Format
 
@@ -168,6 +179,12 @@ Validation:
 {
   "lp_solution": {
     "relaxation": "golinsky_stt_lp",
+    "relaxation_version": "TODO-exact-constraint-set",
+    "variable_domains": {
+      "X": "TODO: ordered_or_unordered_pairs",
+      "Z": "TODO: triples_and_symmetry_convention",
+      "D": "vertices"
+    },
     "variables": {
       "X": [{"i": 0, "j": 1, "value": "1/2"}],
       "Z": [{"i": 0, "j": 1, "k": 2, "value": "1/3"}],
@@ -184,7 +201,8 @@ Validation:
 
 Validation:
 
-- all required LP variables for the declared relaxation are present, or absent variables have a documented default of 0;
+- `relaxation_version` is one of the checker-supported exact constraint sets;
+- all required LP variables for the declared relaxation and variable domains are present, or absent variables have a schema-level default of 0 for that exact variable family;
 - every variable is rational and in its allowed range;
 - all LP constraints are checked exactly;
 - objective value is recomputed from `D` and weights;
@@ -198,6 +216,10 @@ Validation:
     "lp_solution_ref": "lp_solution",
     "tie_break": {
       "rule": "lexicographic_min_vertex"
+    },
+    "rounding_rule": {
+      "id": "TODO-root-rounding-formula",
+      "version": "TODO"
     },
     "rounding_steps": [
       {
@@ -218,7 +240,7 @@ Validation:
 Validation:
 
 - each rounding step refers to a connected current component;
-- candidate root scores match the declared root-rounding rule from the LP solution;
+- candidate root scores match the declared machine-readable root-rounding rule and the referenced LP solution;
 - tie-breaking is deterministic and replayable;
 - the produced STT validates under the STT schema;
 - rounded cost is recomputed exactly.

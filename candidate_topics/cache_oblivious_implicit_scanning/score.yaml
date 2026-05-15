@@ -1,10 +1,10 @@
-open_status: explicit_modern_status_uncertain
-open_status_confidence: medium
-saturation_risk: low_medium
+open_status: explicit_old_strict_implicit_uncertain
+open_status_confidence: low_medium
+saturation_risk: medium
 theorem_project_suitability: 4
-openevolve_suitability: 3
+openevolve_suitability: 2
 intellectual_interest: 4
-overall_score: 7.1
-confidence: medium
+overall_score: 6.5
+confidence: low_medium
 best_use: theorem_project
-notes: "Batch 003 cache-oblivious mini-frontier. Very crisp old open statement; must verify modern status after implicit predecessor/working-set follow-ups."
+notes: "Batch 003 audit keeps only the exact n-cell implicit scan/range-reporting gap. Broad cache-oblivious scan claims are stale because non-implicit/PMA-style structures support range scans; modern implicit follow-ups must still be checked."

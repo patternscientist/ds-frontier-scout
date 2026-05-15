@@ -1,10 +1,10 @@
-open_status: inferred
-open_status_confidence: medium
-saturation_risk: medium
-theorem_project_suitability: 3
-openevolve_suitability: 2
+open_status: inferred_fragile
+open_status_confidence: low
+saturation_risk: medium_high
+theorem_project_suitability: 2
+openevolve_suitability: 1
 intellectual_interest: 4
-overall_score: 6.2
-confidence: medium
+overall_score: 5.1
+confidence: low_medium
 best_use: Lean_formalization_project
-notes: "Batch 003 promoted cautiously. Strong primary source and theory-facing model, but the exact residual is inferred from positive/negative result gap rather than stated as a standalone open problem."
+notes: "Batch 003 audit downgrades sharply: the residual is inferred, and the STOC 2025 abstract lower-bounds two-element cells under stronger progress assumptions, so the one-key-vs-two-key formulation may be wrong. Use first for model extraction/formalization."

@@ -6,6 +6,7 @@ Verified source:
 - They solve the long-standing implicit dictionary search/update target with `O(log n)` time and cache-oblivious `O(log_B n)` block transfers, using exactly `n` cells.
 - They note that their structure does not support efficient scanning.
 - They state that efficient scanning with comparable `O(log_B n)` bounds is also open for cache-oblivious data structures alone.
+- Batch 003 adversarial audit warning: that last broad cache-oblivious claim is a 2003 statement. Modern non-implicit cache-oblivious/PMA-style dictionaries support range scans, so the surviving candidate must be restricted to the exact `n`-cell implicit model unless later sources say otherwise.
 
 Adjacent sources to check:
 

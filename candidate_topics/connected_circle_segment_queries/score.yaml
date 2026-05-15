@@ -1,10 +1,10 @@
 open_status: explicit
 open_status_confidence: medium_high
-saturation_risk: low_medium
+saturation_risk: medium
 theorem_project_suitability: 3
-openevolve_suitability: 4
+openevolve_suitability: 3
 intellectual_interest: 4
-overall_score: 7
+overall_score: 6.7
 confidence: medium
-best_use: OpenEvolve_project
-notes: "Batch 003 geometry mini-frontier. Strong recent source and good finite evaluator; exact asymptotic formulas need recovery from PDF/source before top-shortlist promotion."
+best_use: theorem_project
+notes: "Batch 003 audit keeps the explicit lower-bound/future-work lead, with PDF-verified main bounds O((n+C) log^3 n) space/construction and O(k log^3 n) query. Downgraded because implementation heuristics and finite oracle tests can mislead."
