@@ -48,7 +48,9 @@ LP certificates are separate from combinatorial STT certificates:
 ```
 
 The displayed variable arrays are abbreviated. Proof mode requires every
-defined variable exactly once.
+defined variable exactly once. In proof mode, `lp_solution` may contain only
+the `variables` object; unsupported nested fields are rejected instead of
+being ignored.
 
 ## Variable Keys
 

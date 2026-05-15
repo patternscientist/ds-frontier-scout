@@ -167,6 +167,12 @@ def parse_dense_assignment(raw: Any, domains: VariableDomains) -> LPAssignment:
     if not isinstance(raw, dict):
         raise ValueError("lp_solution: must be an object")
     if "variables" in raw:
+        extra_solution_fields = set(raw) - {"variables"}
+        if extra_solution_fields:
+            raise ValueError(
+                "lp_solution: unsupported fields "
+                f"{sorted(extra_solution_fields)}"
+            )
         raw_variables = raw["variables"]
     else:
         raw_variables = raw
