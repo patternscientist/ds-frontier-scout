@@ -2,191 +2,132 @@
 
 Date: 2026-05-15
 
-This file records underexplored scouting territory after Batches 001 and 002. It is not a list of promoted candidates. The goal is to guide a targeted Batch 003 without re-running the same dynamic-optimality-heavy search.
+Status: post-Batch-003 and post-Batch-003 adversarial audit. This file now distinguishes later scouting lanes from areas that are covered enough for the first pilot. It should not trigger another broad scouting batch before the `search_trees_on_trees_lp` pilot.
 
 ## Summary
 
-The current repo is strongest on self-adjusting heaps/BST-adjacent problems, a few hashing/string/range-query leads, and the new STT LP candidate. It is weaker on geometry, streaming/sketching, succinct indexes beyond two bundled Dagstuhl questions, concurrency, distributed/network data structures, and clean lower-bound mini-frontiers.
+The repository is now saturated enough to begin the first pilot. Batches 001 and 002 found the main evaluator-friendly cluster, and Batch 003 checked the largest missing areas: streaming/sketching, geometry, concurrency/history independence, distributed/network data structures, and cache-oblivious/external-memory structures. Batch 003 produced useful second-wave candidates but did not dislodge STT LP.
 
-Recommended next scouting pass: **Batch 003: underexplored mini-frontiers**. It should produce fewer candidates than the first two batches, but each should have a sharper source trail and an explicit evaluator/formalization story if possible.
+Recommended action: **begin the STT LP pilot now**. Keep the gaps below as later scouting lanes or background checks, not as blockers.
 
-## Dynamic And Online Geometric Structures
+## Gaps Covered Enough For The First Pilot
 
-Current coverage:
+### STT / Certificate Infrastructure
 
-- `kinetic_high_dim_extent` is broad and not line-level verified.
-- `geometric_data_structures` is still a placeholder.
+- `search_trees_on_trees_lp` is covered enough to start: it has explicit open status, a concrete LP/counterexample source, exact finite artifacts, and a draft certificate schema.
+- Remaining work is implementation, not scouting: fix checker-blocking schema details, validate STT enumeration/costs, and reproduce small certificates.
 
-Gaps:
+### Streaming And Sketching
 
-- Dynamic geometric range searching, dynamic planar point location, dynamic nearest neighbor under restricted models, kinetic proximity structures, connected-segment intersection reporting, and polyline/trajectory data structures have not been saturated.
-- The repo has not separated static geometric reporting, dynamic geometry, kinetic geometry, and online geometric maintenance.
+- Batch 003 promoted `dynamic_stream_mincut_space` from an earlier note into a source-backed candidate.
+- The area is covered enough for pilot selection because the best lead is explicit but lower-bound-heavy and weaker than STT LP as an evaluator project.
+- Later scouting should read the full ITCS 2025 version and search for follow-ups, but this is not a pilot blocker.
 
-Batch 003 task:
+### Geometry
 
-- Choose two or three narrow geometry sources with explicit open questions and exact asymptotic targets. Prefer one dynamic/online query problem and one kinetic event-complexity problem.
+- Batch 003 promoted `connected_circle_segment_queries` as the sharpest geometry lead.
+- Dynamic geometry and kinetic structures remain broad, but the repository now has one concrete connected-geometry data-structure problem with a primary source.
+- Later work should isolate a lower-bound family; the first pilot does not need more geometry scouting.
 
-## Streaming And Sketching Data Structures
+### Distributed / Network Data Structures
 
-Current coverage:
+- Batch 003 promoted `directed_roundtrip_compact_routing`.
+- This establishes that compact routing belongs in scope as a data-structure-adjacent lane, but the audit found high saturation and weak OpenEvolve fit.
+- No further network scouting is needed before the STT pilot.
 
-- Dynamic-stream min-cut appears only inside `dynamic_graph_structures` notes.
+### Concurrency And History Independence
 
-Gaps:
+- Batch 003 promoted and then sharply downgraded `concurrent_shi_cell_capacity`.
+- The area is covered enough for first-pilot selection: there is a strong source, but the residual is fragile and must be model-extracted before any theorem prompt.
+- Later work should focus on formal model extraction, not broad concurrency scouting.
 
-- Turnstile sketches, streaming graph sparsifiers, dynamic-stream cut/connectivity/matching, sliding-window sketches, and succinct streaming dictionaries have not been systematically checked.
-- The repo has not decided when streaming lower-bound problems are close enough to data-structure theory for promotion.
+### Cache-Oblivious And External Memory
 
-Batch 003 task:
+- `lazy_b_trees` and `cache_oblivious_implicit_scanning` now cover the most promising external-memory/cache-oblivious lanes.
+- The strict implicit scan problem is interesting but modern-status uncertain; `lazy_b_trees` is explicit but definition-heavy.
+- This is enough coverage to defer further cache/external scouting until after the STT pilot starts.
 
-- Scout explicit open questions with finite communication games, small sketch lower-bound gadgets, or certificate-checking angles.
+## Gaps Still Worth Scouting Later
 
-## Succinct Indexes And Compressed Data Structures
+### STT Source And Certificate Details
 
-Current coverage:
+- Verify Golinsky's original LP source and any post-2025 citations of Sadeh-Kaplan-Zwick.
+- Fix the exact `almost-star` convention or avoid the label in proof-mode certificates.
+- Extract a versioned Golinsky LP constraint set before implementing LP proof-mode checks.
 
-- `succinct_compressed_structures` bundles LZ indexing and grammar/DAG random access.
-- `dynamic_text_indexing` is stale until later compressed self-index work is reconciled.
+### Strict Implicit Cache-Oblivious Scans
 
-Gaps:
+- Check whether later implicit cache-oblivious dictionaries support exact `n`-cell range scans.
+- Keep exact `n` cells plus `O(1)` registers separate from `(1+epsilon)n` layouts, PMAs, cache-oblivious B-trees, and pointerless non-implicit structures.
 
-- Succinct trees/graphs, compressed rank/select variants, dynamic succinct structures, document retrieval indexes, grammar/LZ/RLBWT distinctions, and lower-order-space overhead questions are underexplored.
-- The repo needs separate candidates for LZ, grammar/DAG, dynamic text, and compressed graph indexes.
+### Dynamic-Stream Min-Cut Space
 
-Batch 003 task:
+- Read the full ITCS 2025/arXiv version around Open Question 15.
+- Preserve distinctions between insertion-only and turnstile streams, min-cut value and cut sparsifiers, simple weighted graphs and multigraphs, randomized and deterministic algorithms.
 
-- Split the current bundled succinct folder after recovering exact notation, then scout one non-string succinct structure problem.
+### Connected Circle-Segment Lower Bounds
 
-## Lower-Bound And Cell-Probe Mini-Frontiers
+- Recover exact formulas from the ISAAC 2025 PDF/source, not only the HTML rendering.
+- Separate lower bounds for all data structures from lower bounds against the 2025 edge-partition-tree technique.
 
-Current coverage:
+### Directed Roundtrip Routing
 
-- `range_mode_queries` has cell-probe context.
-- `retroactive_data_structures` is an inferred lower-bound lane.
-- Dynamic-stream min-cut is noted but not promoted.
+- Check arXiv v3 and later citations for the general `k` directed weighted compact-routing tradeoff.
+- Keep routing schemes distinct from distance oracles, labels, spanners, emulators, and conditional girth-style lower bounds.
 
-Gaps:
+### Range Mode And Imprecise Comparisons
 
-- No systematic pass over small explicit cell-probe gaps, chronogram variants, range-query lower bounds, predecessor/dictionary residuals, or data-structure lower bounds with finite certificate analogues.
+- `range_mode_queries` needs a modern static exact range-mode frontier check.
+- `imprecise_comparison_sorting` needs a post-2015 sweep separating imprecise comparisons from noisy comparisons and tournament models.
+- Both remain strong second-wave evaluator candidates, but neither blocks the STT pilot.
 
-Batch 003 task:
+### Succinct / Compressed Structures
 
-- Search for open lower-bound problems where the candidate can name a model, operation set, known upper/lower bounds, and a plausible finite hard-instance generator.
+- Split `succinct_compressed_structures` into LZ indexing and grammar/DAG length-sampling before promotion.
+- Check newer grammar-random-access work before claiming that the old Dagstuhl grammar gap remains open.
 
-## Concurrency And Lock-Free Data Structures
+## Gaps Now Deprioritized
 
-Current coverage:
+### Broad Dynamic Optimality And Splay Variants
 
-- History-independent concurrent hashing appears only as a cautionary note under `history_independent_data_structures`.
+- `splay_preorder_231` remains interesting only as a sharply defined initial-tree subproblem.
+- Broad dynamic optimality, traversal, Greedy, and fixed-pattern-avoidance scouting is too saturated for the first pilot.
 
-Gaps:
+### Broad Dynamic Graph Maintenance
 
-- Lock-free/wait-free dictionaries, queues, memory reclamation, concurrent hashing, linearizability plus privacy, and contention-sensitive data structures have not been scouted.
-- Many concurrency questions may be too systems-flavored; the repo needs a filter for theory-facing model clarity.
+- `dynamic_graph_structures` is background because the incremental topological-ordering target was stale as stated.
+- `dynamic_min_tree_cut` is plausible but too active and too weakly sourced as a standalone current gap.
 
-Batch 003 task:
+### Persistent Arrays
 
-- Look for one or two explicit theoretical open questions with model-checkable small executions or proof-assistant-friendly invariants.
+- `persistent_arrays` is likely solved as stated by the Straka source.
+- Keep only as proof archaeology/formalization unless a stricter residual model is sourced.
 
-## Distributed And Network Data Structures
+### History-Independent Allocation
 
-Current coverage:
+- `history_independent_allocation` is stale after modern strongly history-independent storage-allocation work.
+- Later scouting should extract residual tradeoffs from the 2023 paper rather than replay Naor-Teague's 2001 formulation.
 
-- `self_adjusting_networks` is a placeholder.
+### Broad Dynamic Text Indexing
 
-Gaps:
+- `dynamic_text_indexing` is background until the 2007 linear-bit question is reconciled with later dynamic compressed self-index work.
+- Toy evaluators test correctness, not the bit-space theorem gap.
 
-- Distributed dictionaries, compact routing, self-adjusting networks, skip-graph variants, distributed hash tables with theory guarantees, network decomposition data structures, and dynamic distributed graph maintenance are mostly absent.
+### Broad Hashing Residuals
 
-Batch 003 task:
+- `hashing_dictionaries` remains too vague after All-Purpose Hashing and follow-up tradeoff work.
+- `quadratic_probing` is the concrete hashing candidate; broad residual extraction can wait.
 
-- Decide whether this area belongs in scope. If yes, focus on self-adjusting networks or compact routing where the data-structure analogy is strongest.
+### Retroactivity And Temporal Data Structures
 
-## Dynamic Graph Subareas
+- `retroactive_data_structures` lacks an explicit residual open statement.
+- Promote only after a primary source names a problem/model/lower-bound gap.
 
-Current coverage:
+### Kinetic High-Dimensional Extent
 
-- Incremental topological ordering, dynamic connectivity simplification, dynamic min-tree-cut, and streaming min-cut notes.
+- `kinetic_high_dim_extent` is still too broad and line-level source fragile.
+- Later scouting should pick one measure such as 3D kinetic diameter or width.
 
-Gaps:
+## Pilot Boundary
 
-- Dynamic reachability/transitive closure, dynamic matching, dynamic spanners/sparsifiers, dynamic arboricity/orientation, dynamic shortest paths under restrictions, dynamic planar graphs, and decremental/incremental model-specific residuals are not saturated.
-
-Batch 003 task:
-
-- Avoid broad "dynamic graph" promotion. Select subroutine-shaped candidates with explicit open status and one exact maintained object.
-
-## Cache-Oblivious And External-Memory Subareas
-
-Current coverage:
-
-- `lazy_b_trees` is strong but narrow.
-- `external_memory_structures` is broad context.
-
-Gaps:
-
-- Cache-oblivious dictionaries, buffer trees, packed memory arrays, I/O lower bounds for update/query tradeoffs, simultaneous RAM/I/O optimality, external-memory hashing, and external-memory range reporting need targeted scouting.
-
-Batch 003 task:
-
-- Separate cache-aware, cache-oblivious, external-memory, and database-indexing models. Look for explicit work/I/O tradeoff questions with primary sources.
-
-## Hashing And Dictionaries
-
-Current coverage:
-
-- `quadratic_probing` is strong.
-- `hashing_dictionaries` is vague after audit.
-
-Gaps:
-
-- Cuckoo/Robin Hood/resizable/stable/succinct/hash-table tradeoffs beyond quadratic probing have not been cleanly extracted.
-- The repo has not found a residual all-purpose hashing theorem that survives recent solution papers.
-
-Batch 003 task:
-
-- Read modern hashing solution papers specifically for "future work" or residual theorem statements, not broad motivation.
-
-## Persistence, Retroactivity, And Temporal Data Structures
-
-Current coverage:
-
-- `persistent_arrays` is likely solved as stated.
-- `retroactive_data_structures` lacks an explicit residual.
-
-Gaps:
-
-- Partial/full/confluent persistence, retroactivity transformations, retroactive lower bounds, versioned dictionaries, and rollback/undo data structures have not been systematically separated.
-
-Batch 003 task:
-
-- Treat temporal data structures as a model taxonomy first. Promote only a named residual open problem with a primary source.
-
-## Online And Adaptive Structures Beyond BSTs
-
-Current coverage:
-
-- `list_update`, `pairing_heaps`, `unified_bound_heaps`, `splay_preorder_231`, and `imprecise_comparison_sorting`.
-
-Gaps:
-
-- Adaptive priority queues beyond working-set/decrease-key, online set cover-like data structures, adaptive sorting under partial orders, self-organizing dictionaries, and locality-sensitive online structures have not been broadly checked.
-
-Batch 003 task:
-
-- Scout one non-BST, non-heap online/adaptive structure with a crisp evaluator such as an exact offline optimum or minimax game.
-
-## Formalization And Certificate-Checking Infrastructure
-
-Current coverage:
-
-- The repo has identified likely certificate candidates but has no formal checker infrastructure yet.
-
-Gaps:
-
-- No Lean/Isabelle target has been selected.
-- No standard certificate format exists for LP witnesses, finite games, heap potential inequalities, range-query hard arrays, or Karp-Rabin collisions.
-
-Batch 003 task:
-
-- Alongside scouting, define a minimal certificate schema for `search_trees_on_trees_lp`; this can become the template for later candidates.
+Further scouting is not required before the first pilot. The next useful work is to turn `reports/stt_lp_certificate_schema.md` into a minimal checker and to run the first blind theorem attempt against edge-diameter-3 depth-projection integrality.

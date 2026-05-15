@@ -1,116 +1,92 @@
-# Fixed-Point Recommendation
+# Fixed-Point Recommendation: Post-Batch-003
 
 Date: 2026-05-15
 
-Scope: cross-batch synthesis of Batch 001, Batch 001 adversarial audit, Batch 002 non-Dagstuhl saturation, Batch 002 adversarial audit, the score matrix, source log, and all current candidate folders.
+Scope: final cross-batch synthesis after Batch 003 and its adversarial audit, using the Batch 001, Batch 002, and Batch 003 reports, all current candidate folders, the score matrix, the open-problem source log, and the STT LP certificate schema.
 
 ## Executive Summary
 
-The recommendations are **partially stable**. The evaluator-driven cluster has stabilized enough to start a pilot project; the theorem-only cluster is still less stable because several attractive statements need source recovery, exact model choices, or post-2025 citation checks.
+The recommendation is **stable enough to stop broad scouting and begin the first pilot**. This does not mean the whole research map is closed; it means the first-pilot decision has reached a fixed point. Batch 003 added useful mini-frontiers, but its adversarial audit downgraded their evaluator readiness and did not produce a candidate with the same combined source strength, theorem texture, finite certificate path, and implementation surface as `search_trees_on_trees_lp`.
 
-The strongest fixed-point recommendation is `search_trees_on_trees_lp`. It rose after audit because it has an explicit current open problem, a narrow specialist community, reproducible computational artifacts, exact finite certificates, and a plausible staged theorem workflow. It should be the first OpenEvolve/certificate project and also the first theorem-side pilot, but only on a narrow subproblem such as edge-diameter-3 / almost-star LP integrality or depth-space projection integrality.
+Final pilot recommendation: begin a two-track `search_trees_on_trees_lp` pilot now. Do not run another scouting batch before the pilot. Keep later scouting as a side queue for strict implicit cache-oblivious scans, dynamic-stream min-cut space, connected circle-segment lower bounds, and directed roundtrip routing.
 
-The next most stable evaluator candidates are `quadratic_probing`, `imprecise_comparison_sorting`, `range_mode_queries`, `list_update`, `karp_rabin_collision_detection`, and `pairing_heaps`. These should not be collapsed into one score: they have different risks. Some are explicit but hard (`pairing_heaps`), some are source-current but model-narrowed (`quadratic_probing`), some are finite-combinatorial but modern-status uncertain (`imprecise_comparison_sorting`, `range_mode_queries`), and some have exact oracles but problem-statement nuance (`karp_rabin_collision_detection`).
+## Required Judgments
 
-The best theorem-only candidates after audit are `search_trees_on_trees_lp`, `unified_bound_heaps`, `lazy_b_trees`, and `path_compression_topdown`. Of these, `path_compression_topdown` is a proof-simplification/formalization project rather than a new data-structure theorem, and `unified_bound_heaps` must remain pointer-model-specific.
+1. Does any Batch 003 candidate dislodge `search_trees_on_trees_lp`?
+   No. The strongest Batch 003 survivor is `dynamic_stream_mincut_space`, but it is a lower-bound-heavy streaming problem with only hypothesis-generating finite evaluators. `cache_oblivious_implicit_scanning`, `connected_circle_segment_queries`, and `directed_roundtrip_compact_routing` are real leads but not as checker-ready. `concurrent_shi_cell_capacity` was downgraded because the residual was inferred and likely misstated.
 
-The largest downgrades are important: `persistent_arrays` and `history_independent_allocation` should be discarded as open theorem targets unless a stricter residual model is sourced. `dynamic_graph_structures`, `dynamic_min_tree_cut`, `dynamic_text_indexing`, `splay_preorder_231`, and `succinct_compressed_structures` remain useful context or narrow probes, but not top recommendations in their current form.
+2. Are the recommendations unstable, partially stable, or stable?
+   Stable for the first pilot. Partially stable for the long-term ordering after the top cluster, because several second-wave candidates still need modern-status checks or model extraction.
 
-## Current Top 10 Theorem-Project Candidates
+3. Should we run more scouting, or begin the pilot?
+   Begin the pilot. The search space is saturated enough for a first serious project, and another broad batch would mostly refine second-wave rankings.
 
-1. `search_trees_on_trees_lp` - Best theorem pilot. Attack a narrow STT LP/subclass theorem, not the full polynomial-time optimality problem first.
-2. `unified_bound_heaps` - Strong theorem texture if kept to the pointer-model working-set/decrease-key formulation.
-3. `lazy_b_trees` - Explicit recent external-memory biased-search-tree gap; good design/proof target after formalizing exact operations and bounds.
-4. `path_compression_topdown` - Excellent staged proof project once the exact Seidel-Sharir recurrence and Ackermann normalization are copied into the prompt.
-5. `karp_rabin_collision_detection` - Crisp statement and exact finite instances; theorem work must separate deterministic detection from randomized false rejection.
-6. `imprecise_comparison_sorting` - Clean randomized finite-combinatorial theorem target, with modern-status uncertainty.
-7. `range_mode_queries` - Good theorem sidecar to evaluator work; must update the linear-space upper-bound frontier before any claim.
-8. `quadratic_probing` - Probabilistic theorem target after fixing the ICALP 2024 model and avoiding the stale "prove anything nontrivial" framing.
-9. `succinct_compressed_structures` - Promising only after splitting LZ indexing from grammar/DAG length sampling and recovering missing notation.
-10. `pairing_heaps` - Important but hard and saturated; use restricted potential lemmas rather than "final analysis" as the first theorem goal.
+4. What exactly is the first theorem target?
+   Determine whether the depth-space projection of the versioned Golinsky STT LP equals the convex hull of STT depth vectors for every base tree whose edge-diameter is at most 3. Equivalently for the pilot: prove this subclass projection-integrality statement, or produce a minimal exact rational counterexample. Paths and stars are baselines, not open exact-optimization cases.
 
-Near miss: `splay_preorder_231` has rich theorem texture, but the audit makes saturation risk severe. Promote only if the next step is a sharply defined initial-tree subcase not already covered by known Splay, Greedy, or offline-OPT results.
+5. What exactly is the first computational/certificate/OpenEvolve target?
+   Build a proof-mode STT certificate/checker scaffold that can validate topology, weights, recursive STTs, depths, exact costs, subclass labels, and complete small-`n` STT enumeration, then reproduce a Sadeh-Kaplan-Zwick-style small certificate such as the 7-node long-star data before searching edge-diameter-3 topologies for fractional depth-space behavior.
 
-## Current Top 10 OpenEvolve Candidates
+6. What are the checker-blocking clarifications in `stt_lp_certificate_schema.md`?
+   The checker needs a schema/checker version and exact `relaxation_version`; explicit variable domains for `X`, `Z`, and `D`, including symmetry and absent-variable defaults; a machine-implemented LP constraint set; machine-readable root-rounding formulas; proof-mode enumeration or dual certificates rather than trusted digests; and a fixed convention for `almost-star`, which is currently advisory.
 
-1. `search_trees_on_trees_lp` - Enumerate STTs/topologies, solve LPs exactly, reproduce known counterexamples, and generate certified subclass evidence.
-2. `quadratic_probing` - Search witness configurations, thresholds, and model-specific obstruction families beyond the ICALP 2024 positive regime.
-3. `imprecise_comparison_sorting` - Finite randomized games, adversary LPs, and certificate checking for error-2 maximum finding.
+7. What should the first no-internet blind prompt be?
+   Use the STT prompt in the pilot plan, centered on edge-diameter-3 depth-projection integrality. It must define STTs recursively, depth-based cost, paths/stars as sanity checks, and the target as either a proof or a counterexample without mentioning Sadeh-Kaplan-Zwick, Golinsky, or known counterexamples.
+
+8. What should the first Codex implementation prompt be?
+   Use the implementation prompt in the pilot plan: implement the STT LP certificate/checker scaffold, but do not guess Golinsky constraints until `relaxation_version` and variable domains are pinned down. The first accepted scope is exact rational parsing, topology validation, STT recursion/enumeration, cost checking, subclass-label derivation, JSON normalization, and tests.
+
+## Final Top Theorem-Project Candidates
+
+1. `search_trees_on_trees_lp` - First theorem pilot; explicit open status, narrow subclass targets, and a certificate path.
+2. `unified_bound_heaps` - Strong theorem texture only in the pointer-model working-set/decrease-key formulation.
+3. `lazy_b_trees` - Explicit recent external-memory biased-search-tree gap; needs exact operation/bound extraction.
+4. `karp_rabin_collision_detection` - Crisp theorem target with exact finite instances; keep deterministic detection and randomized false rejection separate.
+5. `imprecise_comparison_sorting` - Excellent finite-combinatorial theorem/evaluator target, but modern status is only medium confidence.
+6. `range_mode_queries` - Good theorem sidecar after the current exact linear-space upper/lower frontier is verified.
+7. `cache_oblivious_implicit_scanning` - Interesting strict-implicit theorem target, but old-source modern status is uncertain.
+8. `dynamic_stream_mincut_space` - Explicit open lower-bound problem; theorem-heavy and only adjacent to classic data structures.
+9. `path_compression_topdown` - Excellent proof-simplification/formalization target, not a new data-structure theorem.
+10. `connected_circle_segment_queries` - Explicit geometry lead; lower-bound/tradeoff side is cleaner than construction-improvement suggestions.
+
+## Final Top OpenEvolve / Evaluator Candidates
+
+1. `search_trees_on_trees_lp` - Exact enumeration, rational LP certificates, depth-vector checks, and subclass search.
+2. `quadratic_probing` - Witness-configuration and threshold search beyond the ICALP 2024 positive regime.
+3. `imprecise_comparison_sorting` - Randomized finite games, adversary LPs, and certificate checking.
 4. `range_mode_queries` - Exact small-array oracles and hard-array generation for block/candidate-list schemes.
-5. `list_update` - Offline optimum, adversarial request sequences, randomized policy search, and LP/game lower-bound certificates.
-6. `karp_rabin_collision_detection` - Exact brute-force collision oracle for strings/moduli, plus candidate algorithm benchmarking.
+5. `list_update` - Offline optimum, adversarial request sequences, finite-state policies, and LP/game lower bounds.
+6. `karp_rabin_collision_detection` - Exact brute-force collision oracle and candidate algorithm benchmarking.
 7. `pairing_heaps` - Potential-function and adversarial-trace search for the standard two-pass heap.
-8. `succinct_compressed_structures` - Best on the grammar/DAG sampling side; LZ indexing needs exact notation first.
-9. `splay_preorder_231` - Useful for counterexample and invariant mining, not as a direct dynamic-optimality solver.
-10. `dynamic_min_tree_cut` - Trace-generation sandbox only after the exact maintained-tree model is fixed; high saturation risk.
+8. `connected_circle_segment_queries` - Connected geometric instance generation and partition-tree stress tests.
+9. `dynamic_stream_mincut_space` - Toy hard distributions only; not proof evidence for the asymptotic lower bound.
+10. `succinct_compressed_structures` - Potentially useful on the grammar/DAG side after the bundled problem is split.
 
-## Current Top 10 Lean/Formalization/Certificate Candidates
+## Final Top Lean / Formalization / Certificate Candidates
 
-1. `path_compression_topdown` - Formalize the recurrence-to-Ackermann comparison; best Lean-style proof target.
-2. `search_trees_on_trees_lp` - Exact rational LP/STT enumeration certificates and checkable counterexample logs.
-3. `imprecise_comparison_sorting` - Adversary LPs and randomized-strategy certificates for finite `n`.
+1. `search_trees_on_trees_lp` - Best immediate certificate project: exact rationals, topology/STT validation, LP witness checking after schema clarifications.
+2. `path_compression_topdown` - Best pure proof-formalization target once the exact recurrence is recovered.
+3. `imprecise_comparison_sorting` - Finite adversary LPs and randomized-strategy certificates.
 4. `list_update` - Game/LP certificates for finite list sizes and policy classes.
-5. `karp_rabin_collision_detection` - Certified substring-hash collision oracle and fixed-length/all-length distinction.
-6. `range_mode_queries` - Checkable candidate-list failures and hard-array certificates for restricted frameworks.
-7. `pairing_heaps` - Potential inequality checkers over exact small heap states.
-8. `persistent_arrays` - Proof archaeology/formalization of Dietz/Straka-style known results, not an open-problem attack.
-9. `succinct_compressed_structures` - Grammar/DAG sparse-sampling certificates after the formal problem is recovered.
-10. `history_independent_data_structures` - Tiny-state distributional equivalence/model checking, but only after a precise model is sourced.
+5. `karp_rabin_collision_detection` - Certified substring-hash collision oracle.
+6. `range_mode_queries` - Hard-array and candidate-list failure certificates for restricted frameworks.
+7. `pairing_heaps` - Exact small heap-state potential-inequality checking.
+8. `concurrent_shi_cell_capacity` - Model extraction and tiny-history linearizability/SQHI checking, not theorem hunting yet.
+9. `cache_oblivious_implicit_scanning` - Layout and cache-miss checker only after strict implicit model validation.
+10. `connected_circle_segment_queries` - Certified geometric intersection oracle for finite stress tests.
 
-## Best Background/Context Candidates
+## Batch 003 Implication
 
-- `splay_preorder_231` - Keep as background for dynamic-optimality-adjacent reasoning and Splay/Greedy/OPT distinctions; promote only a narrow initial-tree subproblem.
-- `dynamic_min_tree_cut` - Keep as dynamic-graph subroutine context until recent min-cut papers are checked.
-- `dynamic_graph_structures` - Keep for dynamic connectivity level-elimination and streaming min-cut notes, not for the stale topological-ordering target.
-- `dynamic_text_indexing` - Keep as compressed-indexing context until the old linear-bit question is reconciled with modern dynamic self-indexes.
-- `external_memory_structures` - Keep as context for `lazy_b_trees` and simultaneous work/I/O questions.
-- `kinetic_high_dim_extent` - Keep as a geometry scouting lane, but narrow to one 3D measure before promotion.
-- `history_independent_data_structures` - Keep for model taxonomy and formalization leads, not as a theorem target yet.
-- `retroactive_data_structures` and `hashing_dictionaries` - Keep only as residual-extraction lanes.
+Batch 003 covered the major previously underexplored areas well enough for a first pilot:
 
-## Stable Across Batches
+- Streaming/sketching produced `dynamic_stream_mincut_space`, explicit but not evaluator-first.
+- Distributed/network data structures produced `directed_roundtrip_compact_routing`, explicit but active and weak for OpenEvolve.
+- Concurrency/history independence produced `concurrent_shi_cell_capacity`, but the audit found the residual fragile.
+- Geometry produced `connected_circle_segment_queries`, useful but lower-bound/model-sensitive.
+- Cache-oblivious/external-memory scouting produced `cache_oblivious_implicit_scanning`, promising only under the exact `n`-cell implicit model.
 
-- `quadratic_probing` remains high-value after audit, but its claim has narrowed from historical openness to load-factor/model improvement.
-- `pairing_heaps` remains a strong evaluator/counterexample target, while being too hard and well-known for a first theorem proof.
-- `karp_rabin_collision_detection` remains explicit, concrete, and source-backed.
-- `list_update` remains a good evaluator-first old-gap problem, with the caveat that finite-state results may not lift.
-- `path_compression_topdown` remains stable as a proof/formalization project, not as a new DS theorem.
-- `lazy_b_trees` remains a niche theorem candidate with an explicit recent source, but not an evaluator-first project.
+These are good second-wave leads. None beats STT LP for a first integrated theorem/certificate/OpenEvolve pilot.
 
-## Rose Sharply
+## Final Recommendation
 
-- `search_trees_on_trees_lp` rose the most. It has an explicit 2025 open problem, known baselines, known counterexamples, reproducible code, exact rational certificates, and a narrow LP/subclass attack surface.
-- `imprecise_comparison_sorting` rose after adversarial audit because it survived as a finite-combinatorial evaluator target with an explicit open question, despite modern-status uncertainty.
-- `range_mode_queries` rose as the cleanest Batch 002 range-query lead, because exact small-instance oracles are trivial and the linear-space exact-mode gap appears plausible.
-
-## Downgraded Or Discarded
-
-- `persistent_arrays` - Discard as an open theorem target unless a stricter residual model is found; Straka likely solves the stated target.
-- `history_independent_allocation` - Discard as stated; FOCS 2023 storage-allocation work likely narrows or answers the Naor-Teague historical problem.
-- `dynamic_graph_structures` - Downgraded because the incremental topological-ordering target is stale/misstated and the remaining dynamic-connectivity simplification is saturated.
-- `dynamic_min_tree_cut` - Downgraded because the open status is plausible but not crisp, and dynamic min-cut is highly active after 2025/2026 progress.
-- `dynamic_text_indexing` - Downgraded until dynamic compressed self-index literature is reconciled with the old linear-bit single-text question.
-- `splay_preorder_231` - Downgraded because the surrounding dynamic-optimality/pattern-avoidance area is severe-saturation territory.
-- `succinct_compressed_structures` - Held back because it bundles two different Dagstuhl questions and lacks exact notation.
-- `hashing_dictionaries` and `retroactive_data_structures` - Background only until a single residual theorem is sourced.
-
-## Unresolved Uncertainties
-
-- `search_trees_on_trees_lp`: verify post-v2 citations after 2025-08-01, Golinsky's original LP source, and Berendsohn thesis context.
-- `quadratic_probing`: extract exact ICALP 2024 theorems, assumptions, and stated remaining gaps.
-- `imprecise_comparison_sorting`: separate imprecise comparisons from noisy/uncertain/tournament variants in post-2015 literature.
-- `range_mode_queries`: verify the strongest current static exact range-mode upper and lower bounds.
-- `karp_rabin_collision_detection`: locate Dagstuhl slides/full notes and search stringology terminology for fixed-prime collision certification.
-- `lazy_b_trees`: turn "fully satisfactory external biased search tree" into a precise theorem statement.
-- `path_compression_topdown`: recover the exact recurrence before blind prompting.
-- `succinct_compressed_structures`: split LZ and grammar/DAG problems and recover missing asymptotic notation.
-- `dynamic_min_tree_cut`: read recent dynamic min-cut papers before treating min-tree-cut as current.
-
-## Recommended Next Action
-
-Start a **two-track pilot** rather than another broad recommendation pass:
-
-1. OpenEvolve/certificate pilot: `search_trees_on_trees_lp`. Reproduce the Sadeh-Kaplan-Zwick LP/counterexample pipeline, then add certified search for edge-diameter-3 / almost-star LP integrality and depth-space projection behavior.
-2. Theorem pilot: `search_trees_on_trees_lp` on the same narrow subclass. Use the staged workflow: blind STT subclass prompt, frontier document with LP/counterexamples, then literature mode.
-
-In parallel, run a smaller **Scouting Batch 003: underexplored mini-frontiers** before freezing the long-term shortlist. Batch 003 should not revisit dynamic optimality. It should target gaps in dynamic/online geometry, streaming/sketching data structures, succinct indexes, lower-bound mini-frontiers, concurrency/history-independent residuals, distributed/network data structures, and cache-oblivious/external-memory subareas.
+Freeze broad scouting and start the `search_trees_on_trees_lp` pilot. The first week should produce a checker scaffold and at least one exact checked STT certificate, not a claimed new theorem. The first theorem attempt should target edge-diameter-3 depth-projection integrality, with failure treated as a useful counterexample/certificate outcome.
