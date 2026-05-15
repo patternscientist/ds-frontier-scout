@@ -1,0 +1,13 @@
+sources:
+  - id: tarjan_dagstuhl_25191
+    title: "Top-down analysis of path compression"
+    authors: ["Robert E. Tarjan"]
+    year: 2025
+    url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    status: verified
+  - id: seidel_sharir_2005
+    title: "Top-Down Analysis of Path Compression"
+    authors: ["Raimund Seidel", "Micha Sharir"]
+    year: 2005
+    url: "https://doi.org/10.1137/S0097539703439088"
+    status: todo

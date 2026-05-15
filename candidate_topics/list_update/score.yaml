@@ -1,0 +1,10 @@
+open_status: open
+open_status_confidence: medium
+saturation_risk: medium
+theorem_project_suitability: 2
+openevolve_suitability: 5
+intellectual_interest: 4
+overall_score: 7.6
+confidence: medium
+best_use: OpenEvolve_project
+notes: "Good evaluator-first candidate. The global randomized ratio gap is old and narrow; finite-state/non-projective search is useful but may not generalize."

@@ -1,0 +1,11 @@
+# Seed sources for scouting.
+# Do not add unverified bibliographic claims as facts. Use TODO entries until checked.
+sources:
+  - id: TODO
+    title: "TODO: add verified primary source"
+    authors: []
+    year: null
+    url: null
+    type: null
+    status: todo
+    notes: "TODO: verify before using in candidate files."

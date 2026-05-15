@@ -1,0 +1,10 @@
+open_status: open
+open_status_confidence: medium_high
+saturation_risk: medium
+theorem_project_suitability: 3
+openevolve_suitability: 5
+intellectual_interest: 4
+overall_score: 8.2
+confidence: medium_high
+best_use: OpenEvolve_project
+notes: "Still one of the best OpenEvolve-first candidates, but the pre-2024 'prove anything nontrivial' gap is solved: Kuszmaul-Xi prove constant expected insertion time at load factor at least 0.089 for fixed-offset schemes. Remaining work is model-specific threshold/load-factor improvement."

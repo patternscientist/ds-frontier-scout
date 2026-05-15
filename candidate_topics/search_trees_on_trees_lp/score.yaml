@@ -1,0 +1,10 @@
+open_status: open
+open_status_confidence: high
+saturation_risk: medium
+theorem_project_suitability: 4
+openevolve_suitability: 5
+intellectual_interest: 5
+overall_score: 8.6
+confidence: medium_high
+best_use: OpenEvolve_project
+notes: "Excellent dual theorem/computational candidate. General optimal static STT remains explicitly open in Sadeh-Kaplan-Zwick 2025. Paths and stars are baselines for exact optimization; open LP questions concern paths' LP/root-rounding behavior and almost-star/edge-diameter-3 classes."

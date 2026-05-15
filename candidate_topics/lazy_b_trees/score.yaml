@@ -1,0 +1,10 @@
+open_status: open_but_formulation_uncertain
+open_status_confidence: medium_high
+saturation_risk: low
+theorem_project_suitability: 4
+openevolve_suitability: 1
+intellectual_interest: 4
+overall_score: 7.0
+confidence: medium
+best_use: theorem_project
+notes: "Promising niche theorem project. The explicit open gap is external-memory biased search trees with linear block space and weighted I/O guarantees; OpenEvolve fit is weak until a crisp finite evaluator exists."

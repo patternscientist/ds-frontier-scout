@@ -1,0 +1,10 @@
+open_status: open_but_narrow
+open_status_confidence: medium
+saturation_risk: medium
+theorem_project_suitability: 4
+openevolve_suitability: 2
+intellectual_interest: 5
+overall_score: 7.4
+confidence: medium
+best_use: theorem_project
+notes: "Only promote the pointer-model version with an exact working-set definition. Broad non-pointer formulations are ambiguous because recent Dijkstra universal-optimality work already gives heaps with working-set guarantees and O(1) amortized decrease-key-like Fibonacci bounds."

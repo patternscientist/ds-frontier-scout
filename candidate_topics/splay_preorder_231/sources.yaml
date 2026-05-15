@@ -1,0 +1,96 @@
+sources:
+  - id: sleator_tarjan_1985_self_adjusting_bsts
+    title: "Self-Adjusting Binary Search Trees"
+    authors: ["Daniel D. Sleator", "Robert E. Tarjan"]
+    year: 1985
+    url: "https://www.cs.cmu.edu/~sleator/papers/Self-Adjusting.htm"
+    stable_url: "https://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Original splay tree paper; source for dynamic optimality/traversal-conjecture lineage."
+
+  - id: chaudhuri_hoft_1991_preorder_linear
+    title: "Splaying a Search Tree in Preorder Takes Linear Time"
+    authors: ["R. Chaudhuri", "H. Hoft"]
+    year: 1991
+    doi: "10.1155/S0161171291000741"
+    url: "https://downloads.hindawi.com/journals/IJMMS/14/439269.pdf"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Aligned-tree special case: preorder of the same tree costs O(n)."
+
+  - id: chalermsook_goswami_kozma_mehlhorn_saranurak_2015_pattern_access
+    title: "Pattern-Avoiding Access in Binary Search Trees"
+    authors: ["Parinya Chalermsook", "Mayank Goswami", "Laszlo Kozma", "Kurt Mehlhorn", "Thatchaphol Saranurak"]
+    year: 2015
+    arxiv: "1507.06953"
+    doi: "10.48550/arXiv.1507.06953"
+    url: "https://arxiv.org/abs/1507.06953"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Greedy pattern-avoidance bounds; preorder equals 231-free; traversal conjecture stated for arbitrary initial tree."
+
+  - id: levy_tarjan_2019_preorders_postorders
+    title: "Splaying Preorders and Postorders"
+    authors: ["Caleb C. Levy", "Robert E. Tarjan"]
+    year: 2019
+    arxiv: "1907.06309"
+    doi: "10.48550/arXiv.1907.06309"
+    url: "https://arxiv.org/abs/1907.06309"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Splay linear for empty insertion preorder/postorder; balanced target tree from arbitrary initial tree."
+
+  - id: levy_tarjan_2019_new_path
+    title: "A New Path from Splay to Dynamic Optimality"
+    authors: ["Caleb Levy", "Robert E. Tarjan"]
+    year: 2019
+    doi: "10.1137/1.9781611975482.80"
+    url: "https://epubs.siam.org/doi/10.1137/1.9781611975482.80"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Subsequence property; implies traversal and deque conjectures."
+
+  - id: chalermsook_gupta_jiamjitrak_acosta_pareek_yingchareonthawornchai_2023_greedy
+    title: "Improved Pattern-Avoidance Bounds for Greedy BSTs via Matrix Decomposition"
+    authors: ["Parinya Chalermsook", "Manoj Gupta", "Wanchote Jiamjitrak", "Nidia Obscura Acosta", "Akash Pareek", "Sorrachai Yingchareonthawornchai"]
+    year: 2023
+    arxiv: "2211.04112"
+    doi: "10.1137/1.9781611977554.ch22"
+    url: "https://arxiv.org/abs/2211.04112"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Best known Greedy preorder pattern-avoidance bound from checked sources; settles Greedy postorder."
+
+  - id: chalermsook_pettie_yingchareonthawornchai_2024_sorting_pattern_avoiding
+    title: "Sorting Pattern-Avoiding Permutations via 0-1 Matrices Forbidding Product Patterns"
+    authors: ["Parinya Chalermsook", "Seth Pettie", "Sorrachai Yingchareonthawornchai"]
+    year: 2024
+    arxiv: "2307.02294"
+    doi: "10.48550/arXiv.2307.02294"
+    url: "https://arxiv.org/abs/2307.02294"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Sharpens product-pattern extremal bounds for sorting fixed-pattern-avoiding permutations."
+
+  - id: berendsohn_kozma_opler_2025_optimization_pattern_avoiding
+    title: "Optimization with Pattern-Avoiding Input"
+    authors: ["Benjamin Aram Berendsohn", "Laszlo Kozma", "Michal Opler"]
+    year: 2025
+    arxiv: "2310.04236"
+    doi: "10.48550/arXiv.2310.04236"
+    url: "https://arxiv.org/abs/2310.04236"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Resolves constant amortized offline optimal BST cost for fixed-pattern-avoiding sequences."
+
+  - id: pareek_2025_greedy_permutation_initial_tree
+    title: "Greedy BST on Permutation Initial Tree"
+    authors: ["Akash Pareek"]
+    year: 2025
+    arxiv: "2407.03666"
+    doi: "10.48550/arXiv.2407.03666"
+    url: "https://arxiv.org/abs/2407.03666"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Greedy linear for preorder under a special permutation initial-tree regime."

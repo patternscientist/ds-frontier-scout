@@ -1,0 +1,13 @@
+sources:
+  - id: fsst_pairing_heap_1986
+    title: "The Pairing Heap: A New Form of Self-Adjusting Heap"
+    authors: ["Michael L. Fredman", "Robert Sedgewick", "Daniel D. Sleator", "Robert E. Tarjan"]
+    year: 1986
+    url: "https://www.cs.cmu.edu/~sleator/papers/Pairing-Heaps.htm"
+    status: verified
+  - id: pettie_2006_final_analysis
+    title: "Towards a Final Analysis of Pairing Heaps"
+    authors: ["Seth Pettie"]
+    year: 2006
+    url: "https://drops.dagstuhl.de/entities/document/10.4230/DagSemProc.06091.5"
+    status: verified

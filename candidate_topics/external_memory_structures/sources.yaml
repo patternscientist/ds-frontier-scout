@@ -1,0 +1,13 @@
+sources:
+  - id: eenberg_larsen_yu_2017
+    title: "DecreaseKeys are Expensive for External Memory Priority Queues"
+    authors: ["Kasper Eenberg", "Kasper Green Larsen", "Huacheng Yu"]
+    year: 2017
+    url: "https://arxiv.org/abs/1611.00911"
+    status: verified
+  - id: afshani_dagstuhl_25191
+    title: "Simultaneous Work And I/O Optimality"
+    authors: ["Peyman Afshani"]
+    year: 2025
+    url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    status: verified

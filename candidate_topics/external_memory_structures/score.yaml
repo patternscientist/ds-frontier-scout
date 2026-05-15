@@ -1,0 +1,10 @@
+open_status: mixed
+open_status_confidence: medium
+saturation_risk: medium
+theorem_project_suitability: 2
+openevolve_suitability: 1
+intellectual_interest: 4
+overall_score: 5.2
+confidence: medium
+best_use: background_context
+notes: "Keep as context only. The classic external-memory DecreaseKey necessity question has a lower-bound answer; remaining work/I/O tradeoff questions need a separate precise candidate."

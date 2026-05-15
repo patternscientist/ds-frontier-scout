@@ -1,0 +1,11 @@
+open_status: open_proof_problem
+open_status_confidence: high
+saturation_risk: low
+theorem_project_suitability: 4
+openevolve_suitability: 1
+intellectual_interest: 4
+lean_formalization_suitability: 5
+overall_score: 6.6
+confidence: medium_high
+best_use: Lean_formalization_project
+notes: "Explicit Tarjan/Dagstuhl proof-simplification problem, not a new inverse-Ackermann theorem. Best as blind proof/Lean formalization after extracting the exact Seidel-Sharir recurrence."

@@ -1,0 +1,55 @@
+# ds-frontier-scout
+
+`ds-frontier-scout` is a research-scouting repository for systematically finding, verifying, comparing, and adversarially auditing under-attended open problems in data-structure theory and nearby algorithmic theory.
+
+The repo is deliberately pre-solution. Its purpose is to build a reliable map of candidate projects before attempting proofs, experiments, or computational search.
+
+## What Counts As A Candidate?
+
+A candidate may be famous, obscure, or hyper-niche. The key requirement is that it could matter to a real specialist community if resolved. The initial spark came from splay trees and dynamic optimality, but this scouting process is intentionally broader than dynamic optimality.
+
+Candidates should be marked honestly:
+
+- `open`: supported by checked sources.
+- `uncertain`: plausible, but source verification is incomplete.
+- `closed`: no longer a candidate, retained only for audit history.
+
+## Scouting Workflow
+
+1. Collect seed sources and open-problem mentions in `sources/`.
+2. Create one folder per candidate topic in `candidate_topics/`.
+3. For each candidate, write:
+   - a self-contained problem statement;
+   - a frontier summary from verified sources;
+   - a blind prompt suitable for no-internet theorem exploration;
+   - a skeptical audit;
+   - separate fit assessments for theorem discovery and OpenEvolve-style search.
+4. Compare candidates in `reports/candidate_matrix.md`.
+5. Promote the most promising items into `reports/top_20_shortlist.md`.
+6. Maintain the current best recommendation in `reports/fixed_point_recommendation.md`.
+
+## Evaluation Axes
+
+The repo separates three questions that are often conflated:
+
+- Is this a good AI-assisted theorem project?
+- Is this a good OpenEvolve or evaluator-driven computational-search project?
+- Is this intellectually interesting in general?
+
+A topic can score high on one axis and low on another. For example, a problem may be mathematically beautiful but hard to automate, or highly searchable by exhaustive small-instance methods but not especially promising as a proof project.
+
+## Rendering Scores
+
+To refresh `data/scores.csv` and `reports/candidate_matrix.md`, run:
+
+```sh
+python scripts/scoring/render_scores.py
+```
+
+## Source Discipline
+
+Do not invent citations or open-problem claims. Use TODO markers until sources are checked. Primary sources are preferred over survey summaries, and every promoted candidate should include a skeptical audit explaining why the claimed open status might be wrong.
+
+## Current Status
+
+This repository currently contains the scaffolding for candidate scouting. Most candidate files are placeholders awaiting source-backed research.

@@ -1,0 +1,10 @@
+open_status: uncertain_narrow_open
+open_status_confidence: medium
+saturation_risk: severe
+theorem_project_suitability: 3
+openevolve_suitability: 3
+intellectual_interest: 5
+overall_score: 6.5
+confidence: medium
+best_use: background_context
+notes: "Downgraded. Arbitrary-initial-tree Splay preorder/traversal still appears unresolved in checked sources, but the area is saturated and nearby Greedy/offline-OPT results have narrowed the useful target. Promote only a sharply defined Splay-vs-Greedy/initial-tree subproblem."

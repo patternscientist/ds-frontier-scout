@@ -1,0 +1,7 @@
+sources:
+  - id: rysgaard_wild_mfcs_2025
+    title: "Lazy B-Trees"
+    authors: ["Casper Moldrup Rysgaard", "Sebastian Wild"]
+    year: 2025
+    url: "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2025.87"
+    status: verified

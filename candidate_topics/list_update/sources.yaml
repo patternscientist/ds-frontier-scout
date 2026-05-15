@@ -1,0 +1,7 @@
+sources:
+  - id: ambuehl_gaertner_von_stengel_2012
+    title: "Optimal Lower Bounds for Projective List Update Algorithms"
+    authors: ["Christoph Ambuehl", "Bernd Gaertner", "Bernhard von Stengel"]
+    year: 2012
+    url: "https://arxiv.org/abs/1002.2440"
+    status: verified

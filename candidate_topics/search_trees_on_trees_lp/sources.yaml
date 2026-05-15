@@ -1,0 +1,61 @@
+sources:
+  - id: bose_cardinal_iacono_koumoutsos_langerman_2020_competitive_stt
+    title: "Competitive Online Search Trees on Trees"
+    authors: ["Prosenjit Bose", "Jean Cardinal", "John Iacono", "Grigorios Koumoutsos", "Stefan Langerman"]
+    year: 2020
+    doi: "10.1137/1.9781611975994.115"
+    url: "https://epubs.siam.org/doi/10.1137/1.9781611975994.115"
+    arxiv: "1908.00848"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Adaptive STT model; O(log log n)-competitive online structure."
+
+  - id: berendsohn_kozma_2022_splay_trees_on_trees
+    title: "Splay Trees on Trees"
+    authors: ["Benjamin Aram Berendsohn", "Laszlo Kozma"]
+    year: 2022
+    doi: "10.1137/1.9781611977073.75"
+    arxiv: "2010.00931"
+    url: "https://arxiv.org/abs/2010.00931"
+    status: verified
+    access_date: 2026-05-15
+    notes: "(1+1/t)-approximation in O(n^{2t+1}); generalized Splay for STTs."
+
+  - id: berendsohn_golinsky_kaplan_kozma_2023_centroid_stt
+    title: "Fast Approximation of Search Trees on Trees with Centroid Trees"
+    authors: ["Benjamin Aram Berendsohn", "Ishay Golinsky", "Haim Kaplan", "Laszlo Kozma"]
+    year: 2023
+    doi: "10.4230/LIPIcs.ICALP.2023.19"
+    arxiv: "2209.08024"
+    url: "https://arxiv.org/abs/2209.08024"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Centroid-tree construction and tight 2-approximation; states optimal STT not known polynomial-time."
+
+  - id: sadeh_kaplan_zwick_2025_stt_lp
+    title: "Search Trees on Trees via LP"
+    authors: ["Yaniv Sadeh", "Haim Kaplan", "Uri Zwick"]
+    year: 2025
+    arxiv: "2501.17563"
+    doi: "10.48550/arXiv.2501.17563"
+    url: "https://arxiv.org/abs/2501.17563"
+    status: verified
+    access_date: 2026-05-15
+    notes: "Disproves Golinsky LP optimality conjecture; gives integrality-gap and root-rounding lower bounds; lists open directions."
+
+  - id: golinsky_lp_relaxation_original
+    title: "Original source for Golinsky's STT LP relaxation"
+    authors: ["Ishay Golinsky"]
+    year: null
+    url: null
+    status: todo
+    notes: "TODO: verify original thesis/manuscript. Sadeh-Kaplan-Zwick cite Golinsky as source [9] for the LP and conjecture."
+
+  - id: berendsohn_2024_search_trees_on_graphs_thesis
+    title: "Search Trees on Graphs"
+    authors: ["Benjamin Aram Berendsohn"]
+    year: 2024
+    url: "https://refubium.fu-berlin.de/handle/fub188/45994"
+    status: partially_verified
+    access_date: 2026-05-15
+    notes: "Broader thesis context; verify chapters on static optimal STT and k-cut DP before relying on specific claims."

@@ -1,0 +1,10 @@
+open_status: open_but_bundled
+open_status_confidence: medium
+saturation_risk: medium
+theorem_project_suitability: 3
+openevolve_suitability: 3
+intellectual_interest: 4
+overall_score: 6.8
+confidence: medium
+best_use: theorem_project
+notes: "Dagstuhl gives explicit questions, but this folder bundles LZ indexing and grammar/DAG length-sampling. Split before promotion; recover missing notation from PDF/talk notes."

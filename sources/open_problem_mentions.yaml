@@ -1,0 +1,154 @@
+# Raw mentions of possible open problems.
+# Each item should be traceable to a checked source before promotion.
+mentions:
+  - id: quadratic_probing_1968_gap
+    candidate_topic: quadratic_probing
+    source_id: kuszmaul_xi_icalp_2024_and_dagstuhl_25191
+    source_url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    quote_or_paraphrase: "Dagstuhl 25191 describes quadratic probing analysis as a simple open hash-table question dating to 1968, with 2024 work giving first tangible progress."
+    open_status: open_but_narrowed
+    verification_notes: "Audited 2026-05-15. The historic 'prove anything nontrivial' gap is no longer open as stated: Kuszmaul-Xi ICALP 2024 prove constant expected insertion time for fixed-offset schemes at load factor at least 0.089 and high-load bounds for chunked schemes. Remaining gap is improving/sharpening the load-factor/model frontier."
+
+  - id: working_set_heaps_decrease_key
+    candidate_topic: unified_bound_heaps
+    source_id: iacono_dagstuhl_25191
+    source_url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    quote_or_paraphrase: "The report states that no pointer-model priority queue is known with both a working-set extract-min property and constant-time decrease-key."
+    open_status: open_but_narrow
+    verification_notes: "Audited 2026-05-15. Dagstuhl explicitly says no pointer-model structure is known. Broad non-pointer formulations are ambiguous because Haeupler-Hladik-Rozhon-Tarjan-Tetek give a working-set heap with Fibonacci-like amortized bounds for Dijkstra universal optimality. Must separate age/working-set definitions and model."
+
+  - id: pairing_heap_complete_analysis
+    candidate_topic: pairing_heaps
+    source_id: fsst_1986_pettie_2006
+    source_url: "https://drops.dagstuhl.de/entities/document/10.4230/DagSemProc.06091.5"
+    quote_or_paraphrase: "The standard pairing heap's basic amortized complexity remains unresolved; Pettie narrows but does not close the gap."
+    open_status: open
+    verification_notes: "Audited 2026-05-15. Still appears open for the standard two-pass pairing heap. Do not confuse with slim/smooth/rank-pairing/hollow heap variants or formalizations of known bounds."
+
+  - id: lazy_b_tree_external_biased_tree
+    candidate_topic: lazy_b_trees
+    source_id: rysgaard_wild_mfcs_2025
+    source_url: "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2025.87"
+    quote_or_paraphrase: "The Lazy B-Trees paper leaves a general-purpose external-memory biased search tree as an open problem and notes no known linear-block solution with desired I/O guarantees."
+    open_status: open
+    verification_notes: "Use HTML full version for exact context: https://drops.dagstuhl.de/storage/00lipics/lipics-vol345-mfcs2025/html/LIPIcs.MFCS.2025.87/LIPIcs.MFCS.2025.87.html."
+
+  - id: karp_rabin_collision_detection
+    candidate_topic: karp_rabin_collision_detection
+    source_id: farach_colton_dagstuhl_25191
+    source_url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    quote_or_paraphrase: "The report asks how quickly one can detect whether a string and prime induce a Karp-Rabin collision between equal-length substrings."
+    open_status: open
+    verification_notes: "Audited 2026-05-15. Dagstuhl statement is explicit: given a string and prime, detect whether any two distinct equal-length substrings collide; quadratic via suffix trees is straightforward; target linear or near-linear. Randomized false rejection of non-colliding choices is allowed with small probability, so exact deterministic and randomized versions must be separated."
+
+  - id: list_update_randomized_gap
+    candidate_topic: list_update
+    source_id: ambuehl_gaertner_von_stengel_2012
+    source_url: "https://arxiv.org/abs/1002.2440"
+    quote_or_paraphrase: "The source states that the optimal randomized competitive ratio for list update remains between 1.5 and 1.6, while projective algorithms cannot beat 1.6."
+    open_status: open
+    verification_notes: "Audited 2026-05-15. Quick post-2012 search found variants but no primary closure of the 1.5--1.6 randomized partial-cost gap. Still requires deeper online-algorithms citation check before final ranking."
+
+  - id: path_compression_topdown_proof
+    candidate_topic: path_compression_topdown
+    source_id: tarjan_dagstuhl_25191
+    source_url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    quote_or_paraphrase: "Tarjan asks for a simple direct inverse-Ackermann proof from the Seidel-Sharir top-down recurrence."
+    open_status: open_proof_problem
+    verification_notes: "Audited 2026-05-15. This is not a new union-find bound; it is an explicit Tarjan/Dagstuhl proof-simplification request. Need Seidel-Sharir SIAM J. Comput. 2005 recurrence and Ackermann normalization before using blind prompt."
+
+  - id: lz_compressed_pattern_matching_indexing
+    candidate_topic: succinct_compressed_structures
+    source_id: gawrychowski_dagstuhl_25191
+    source_url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    quote_or_paraphrase: "The report poses two questions on Lempel-Ziv compressed pattern matching and compact random access/indexing."
+    open_status: open
+    verification_notes: "Audited 2026-05-15. Explicit Dagstuhl question, but the HTML omits critical asymptotic notation. Split from grammar-compression DAG problem and recover PDF/talk-note statement before promotion."
+
+  - id: grammar_compressed_random_access_lengths
+    candidate_topic: succinct_compressed_structures
+    source_id: navarro_dagstuhl_25191
+    source_url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    quote_or_paraphrase: "The report asks whether expansion-length overhead in grammar-compressed random access can be removed while preserving efficient access."
+    open_status: open
+    verification_notes: "Audited 2026-05-15. Explicit Dagstuhl question, but formal DAG sampling problem must be recovered. Promising evaluator angle only after exact graph problem is stated."
+
+  - id: incremental_topological_sort_m43
+    candidate_topic: dynamic_graph_structures
+    source_id: fineman_dagstuhl_25191
+    source_url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    quote_or_paraphrase: "The report suggests a combinatorial m^(4/3)-type total update bound should be possible for incremental topological sort."
+    open_status: likely_solved_or_misstated
+    verification_notes: "Audited 2026-05-15. As written, ~O(m^(4/3)) incremental topological ordering is already achieved randomized by Bhattacharya-Kulkarni 2020. Dagstuhl's Fineman note likely intends a different combinatorial/density-regime bound, but the HTML loses the exact expression; recover PDF/slides before treating as open."
+
+  - id: dynamic_connectivity_remove_levels
+    candidate_topic: dynamic_graph_structures
+    source_id: liu_king_dagstuhl_25191
+    source_url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    quote_or_paraphrase: "The report asks whether the level data structure can be eliminated from sequential and batch-dynamic connectivity algorithms."
+    open_status: open
+    verification_notes: "Audited 2026-05-15. Still an explicit Dagstuhl simplification question, but dynamic-graph area is saturated and follow-up work from the seminar may exist."
+
+  - id: history_independent_priority_queues
+    candidate_topic: history_independent_data_structures
+    source_id: conway_dagstuhl_25191
+    source_url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    quote_or_paraphrase: "The report describes open questions on reconciling history independence with optimal efficiency in priority queues."
+    open_status: uncertain
+    verification_notes: "Audited 2026-05-15. Too weak for promotion: current source records a question cluster, not a precise theorem. Need weak/strong history-independence model, memory model, and operation set."
+
+  - id: geometric_intersection_reporting_connected_segments
+    candidate_topic: geometric_data_structures
+    source_id: storandt_dagstuhl_25191
+    source_url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    quote_or_paraphrase: "The report poses segment-circle and range intersection-reporting questions, including connected segment graphs and polyline settings."
+    open_status: open
+    verification_notes: "Need full asymptotic targets."
+
+  - id: splay_dynamic_optimality_and_loglog
+    candidate_topic: splay_preorder_231
+    source_id: tarjan_2006_levy_tarjan_2019
+    source_url: "https://collaborate.princeton.edu/en/publications/results-and-problems-on-self-adjusting-search-trees-and-related-d"
+    quote_or_paraphrase: "Tarjan identifies dynamic optimality and splay loglog-competitiveness as open; Levy-Tarjan states the conjecture still stands."
+    open_status: open
+    verification_notes: "Audited 2026-05-15. Severe saturation. Do not promote full dynamic optimality; use only sharply defined Splay subclaims and distinguish Splay, Greedy, OPT, and initial-tree regimes."
+
+  - id: kinetic_extent_structures
+    candidate_topic: kinetic_data_structures
+    source_id: guibas_kds_handbook
+    source_url: "https://geometry.stanford.edu/paper/g-KDS_DS-Handbook-04/g-KDS_DS-Handbook-04.pdf"
+    quote_or_paraphrase: "Kinetic extent and higher-dimensional maintenance questions appear as open-problem themes, but exact claims need direct verification."
+    open_status: uncertain
+    verification_notes: "Needs primary line-level verification before promotion."
+
+  - id: splay_preorder_231_arbitrary_initial
+    candidate_topic: splay_preorder_231
+    source_id: chalermsook_goswami_kozma_mehlhorn_saranurak_2015_pattern_access_and_levy_tarjan_2019_preorders
+    source_url: "https://arxiv.org/abs/1507.06953"
+    quote_or_paraphrase: "The 2015 pattern-avoidance paper states the traversal conjecture for Splay from an arbitrary initial tree and identifies preorder sequences with 231-free permutations; Levy-Tarjan 2019 proves only empty-insertion and balanced-target variants."
+    open_status: uncertain_narrow_open
+    verification_notes: "Audited 2026-05-15. Checked sources still leave arbitrary-initial-tree Splay preorder unresolved, but nearby cases are solved: Splay empty/aligned/balanced-target variants; Greedy flat/permutation-initial variants; offline OPT constant for fixed-pattern-avoiding input. Treat only the exact arbitrary/nontrivial initial-tree Splay claim as candidate."
+
+  - id: fixed_pattern_avoiding_online_bst_constant_cost
+    candidate_topic: splay_preorder_231
+    source_id: berendsohn_kozma_opler_2025_optimization_pattern_avoiding
+    source_url: "https://arxiv.org/abs/2310.04236"
+    quote_or_paraphrase: "Berendsohn-Kozma-Opler resolve constant amortized offline-optimal BST cost for fixed-pattern-avoiding access sequences, leaving online candidates such as Splay/Greedy as the natural matching frontier."
+    open_status: inferred_open
+    verification_notes: "Audited 2026-05-15. Berendsohn-Kozma-Opler v4 (2025-11-24) resolves offline OPT at O(1) for fixed-pattern-avoiding input and explicitly frames current online candidates as needing to match it. Exact 'Splay/Greedy constant' openness is inferred unless stated directly in final paper/author notes."
+
+  - id: static_stt_polynomial_optimality
+    candidate_topic: search_trees_on_trees_lp
+    source_id: sadeh_kaplan_zwick_2025_stt_lp
+    source_url: "https://arxiv.org/abs/2501.17563"
+    quote_or_paraphrase: "Sadeh-Kaplan-Zwick state that computing an optimal static search tree on a tree in polynomial time remains open, even after disproving Golinsky's LP optimality conjecture."
+    open_status: open
+    verification_notes: "Audited 2026-05-15. Sadeh-Kaplan-Zwick arXiv v2 (2025-08-01) explicitly leaves general polynomial-time optimal static STT open. Still verify citations after v2 and Golinsky's original LP source."
+
+  - id: stt_lp_integrality_subclasses
+    candidate_topic: search_trees_on_trees_lp
+    source_id: sadeh_kaplan_zwick_2025_stt_lp
+    source_url: "https://arxiv.org/abs/2501.17563"
+    quote_or_paraphrase: "The 2025 LP paper proves stars integral, gives nonintegral examples, and asks about paths and edge-diameter-3 topologies such as almost-stars."
+    open_status: open_but_subclass_specific
+    verification_notes: "Audited 2026-05-15. Section 5 explicitly lists paths and edge-diameter-3/'almost stars' as promising LP/root-rounding/integrality directions. Important: paths are solved for exact optimal BST/STT computation; the open issue is LP behavior, not exact search-tree optimization. Stars are proved integral and should be baseline only."
