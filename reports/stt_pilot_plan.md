@@ -4,16 +4,19 @@ Date: 2026-05-15
 
 ## Pilot Objective
 
-This is the incumbent STT LP pilot plan to use if STT survives Scouting v2.Start a one-week `search_trees_on_trees_lp` pilot that tests whether this repository can move from scouting into proof/certificate work. The pilot should not try to solve general optimal STT computation. It should build a trustworthy exact checker scaffold, reproduce at least one known small STT/LP-style artifact, and run a narrow theorem attempt on an edge-diameter-3 subclass target.
+This is the incumbent STT LP pilot plan to use if `search_trees_on_trees_lp` survives Scouting v2. It is not the final pilot commitment.
 
-This is the best current pilot discovered so far; source-diverse Scouting v2
-remains pending.
+If selected after Scouting v2 and its adversarial audit, the two-week pilot should test whether this repository can move from scouting into proof/certificate work. The pilot should not try to solve general optimal STT computation. It should build a trustworthy exact checker scaffold, reproduce at least one known small STT/LP-style artifact, and run a narrow theorem attempt on an edge-diameter-3 subclass target.
 
 ## Exact First Theorem Target
 
-Target statement:
+Target statement: for every base tree `U` whose edge-diameter is at most 3, determine whether the depth-space projection of `golinsky_stt_lp_v0` has the same lower envelope as the convex hull of LP-depth vectors of valid static search trees on `U`.
 
-For every base tree `U` whose edge-diameter is at most 3, determine whether the depth-space projection of `golinsky_stt_lp_v0` has the same lower envelope as the convex hull of LP-depth vectors of valid static search trees on `U`; equivalently, determine whether the projection equals `conv(STT LP-depth vectors) + R_{\ge 0}^n`.
+Equivalently, determine whether the projection equals:
+
+```text
+conv(STT LP-depth vectors) + R_{>= 0}^n
+```
 
 Accepted pilot outcomes:
 
@@ -42,10 +45,7 @@ Minimum first artifact:
 - enumerate all STTs for small `n` and verify the best integer cost against the supplied STT;
 - emit a normalized certificate with stable key order and reduced rationals.
 
-The first reproducibility target is the source-aligned 7-node SKZ long-star
-topology and frequency vector, as a combinatorial STT optimum fixture. LP
-feasibility for that fixture stays unsupported until complete source-transcribed
-`X`/`Z`/`D` values are available.
+The first reproducibility target is the source-aligned 7-node SKZ long-star topology and frequency vector, as a combinatorial STT optimum fixture. LP feasibility for that fixture stays unsupported until complete source-transcribed `X`/`Z`/`D` values are available.
 
 ## Certificate / Checker Requirements
 
@@ -82,7 +82,7 @@ Required top-level fields for the first scaffold:
     "n": 7,
     "vertices": [0, 1, 2, 3, 4, 5, 6],
     "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [2, 5], [5, 6]],
-    "declared_subclass_labels": ["edge-diameter-3"]
+    "declared_subclass_labels": ["source-aligned-skz-long-star"]
   },
   "weights": {
     "type": "vertex_frequency",
@@ -99,16 +99,20 @@ Required top-level fields for the first scaffold:
   },
   "stt": {
     "component_roots": [
-      {"component": [0, 1, 2, 3, 4, 5, 6], "root": 2}
+      {
+        "component": [0, 1, 2, 3, 4, 5, 6],
+        "root": "TODO"
+      }
     ]
   },
   "cost": {
     "depth_base": 1,
-    "weighted_cost": "TODO"
+    "weighted_cost": "53/23"
   },
   "integer_optimum": {
     "certificate_type": "checker_enumerates_all_stts",
-    "value": "TODO"
+    "value": "53/23",
+    "stt_count": 662
   }
 }
 ```
@@ -121,20 +125,20 @@ Optional fields for later phases:
 
 ## First Blind And Frontier Prompts
 
-Use `reports/stt_true_blind_prompt.md` before showing the model any frontier
-document, literature notes, source names, known examples, or repository context.
-After blind attempts are saved under the protocol in
-`reports/stt_blind_attempt_protocol.md`, use `reports/stt_frontier_prompt.md`
-for the literature-aware pass.
+Use `reports/stt_true_blind_prompt.md` before showing the model any frontier document, literature notes, source names, known examples, or repository context.
+
+After blind attempts are saved under the protocol in `reports/stt_blind_attempt_protocol.md`, use `reports/stt_frontier_prompt.md` for the literature-aware pass.
 
 ## First Codex Implementation Prompt
 
-Use this prompt for the first implementation pass:
+Use this prompt for the first implementation pass if STT LP survives Scouting v2:
 
 ```text
 Implement the first STT LP certificate/checker scaffold in this repository.
 
-Read AGENTS.md and reports/stt_lp_certificate_schema.md. Do not fetch the internet and do not implement guessed Golinsky LP constraints. Treat LP proof-mode checking as unsupported until relaxation_version, variable domains for X/Z/D, and the exact constraint set are specified.
+Read AGENTS.md and reports/stt_lp_certificate_schema.md.
+
+Do not fetch the internet and do not implement guessed Golinsky LP constraints. Treat LP proof-mode checking as unsupported until relaxation_version, variable domains for X/Z/D, and the exact constraint set are specified.
 
 Create a small Python checker package and tests that support:
 
@@ -149,9 +153,13 @@ Create a small Python checker package and tests that support:
 9. proof-mode integer optimum checking by checker enumeration for small n;
 10. canonical normalized JSON output with stable key order and reduced rationals.
 
-Add fixture certificates for a path, a star, a checker-only 7-node edge-diameter-3 topology, and the source-aligned SKZ long-star combinatorial STT optimum using the frequency vector [3,2,0,2,3,3,10]/23. Include tests for invalid topology, invalid STT recursion, rational normalization, cost mismatch, and unsupported lp_solution rejection.
+Add fixture certificates for a path, a star, a checker-only 7-node edge-diameter-3 topology, and the source-aligned SKZ long-star combinatorial STT optimum using the frequency vector [3,2,0,2,3,3,10]/23.
 
-Keep the implementation conservative and documented. Do not rewrite candidate folders. Do not claim LP feasibility checking is complete until the checker-blocking clarifications are resolved.
+Include tests for invalid topology, invalid STT recursion, rational normalization, cost mismatch, and unsupported lp_solution rejection.
+
+Keep the implementation conservative and documented. Do not rewrite candidate folders.
+
+Do not claim LP feasibility checking is complete until the checker-blocking clarifications are resolved.
 ```
 
 ## First OpenEvolve-Style Evaluator Idea
@@ -168,9 +176,9 @@ After the scaffold exists, define an evaluator that scores candidate finite cert
 
 Until LP constraints are versioned, the evaluator should search only integer STT structure, depth-vector hull data, and certificate-shape robustness.
 
-## One-Week Success Criteria
+## Pilot Success Criteria
 
-Success after one week means:
+Success after the first week means:
 
 - the checker scaffold runs in proof mode on path, star, and one nontrivial 7-node fixture;
 - exact rational costs and complete small-`n` STT enumeration are tested;
@@ -178,11 +186,12 @@ Success after one week means:
 - the first blind theorem attempt has been run and summarized;
 - the next LP-blocking clarification is isolated as a short checklist, not a vague TODO.
 
-Stretch success:
+Success after two weeks means at least one of:
 
 - a verified certificate reproduces one known integer optimum or root-rounded STT cost;
 - edge-diameter-3 topologies up to a small `n` are enumerated and summarized;
-- the code can ingest a future LP certificate while safely rejecting unsupported relaxations.
+- the code can ingest a future LP certificate while safely rejecting unsupported relaxations;
+- a credible proof attempt or counterexample search narrows the edge-diameter-3 target.
 
 ## Failure / Pivot Signals
 

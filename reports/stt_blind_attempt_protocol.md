@@ -2,8 +2,7 @@
 
 Date: 2026-05-15
 
-Purpose: obtain clean-room theorem attempts before exposing a model to the STT
-frontier notes or literature context.
+Purpose: obtain clean-room theorem attempts before exposing a model to the STT frontier notes or literature context.
 
 ## Prompt
 
@@ -11,27 +10,27 @@ Use exactly:
 
 - `reports/stt_true_blind_prompt.md`
 
-Do not include repository files, source summaries, known examples, author
-names, or internet access in the blind attempt thread.
+Do not include repository files, source summaries, known examples, author names, or internet access in the blind attempt thread.
 
 ## Runs
 
-Run two fresh threads:
+Run two fresh threads.
 
-1. GPT-5 primary blind attempt.
-   - Use the highest reasoning level available.
-   - Allow a sustained serious session.
-   - Do not browse.
-   - Do not attach repository context.
+### 1. GPT-5 primary blind attempt
 
-2. Claude Opus 4.7 extended-thinking cross-check.
-   - Use one focused deep pass.
-   - Avoid multi-turn coaching or iterative hints.
-   - Do not browse.
-   - Do not attach repository context.
+- Use the highest reasoning level available.
+- Allow a sustained serious session.
+- Do not browse.
+- Do not attach repository context.
 
-Codex should not run these blind attempts. Codex only maintains this protocol
-and the prompt files.
+### 2. Claude Opus 4.7 extended-thinking cross-check
+
+- Use one focused deep pass.
+- Avoid multi-turn coaching or iterative hints.
+- Do not browse.
+- Do not attach repository context.
+
+Codex should not run these blind attempts. Codex only maintains this protocol and the prompt files.
 
 ## Output Files
 
@@ -51,5 +50,4 @@ clean_room_attestation: "No internet, no repository context, no literature notes
 ---
 ```
 
-After the metadata header, paste the model output without editing except for
-obvious transcript formatting needed to preserve readability.
+After the metadata header, paste the model output without editing except for obvious transcript formatting needed to preserve readability.
