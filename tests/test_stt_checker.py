@@ -1,11 +1,15 @@
 import copy
+import io
 import json
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
 from fractions import Fraction
 from pathlib import Path
 
 from scripts.stt_checker.certificates import check_certificate, load_json
+from scripts.stt_checker.cli import main as cli_main
 from scripts.stt_checker.enumerate_stts import (
+    EnumerationLimitExceeded,
     enumerate_stts,
     integer_optimum_by_enumeration,
 )
@@ -30,6 +34,12 @@ class RationalTests(unittest.TestCase):
             parse_rational(0.5)
         with self.assertRaises(ValueError):
             parse_rational("0.5")
+        with self.assertRaises(ValueError):
+            parse_rational("1/0")
+        with self.assertRaises(ValueError):
+            parse_rational({"num": 1, "den": 0})
+        with self.assertRaises(ValueError):
+            parse_rational({"num": 1, "den": 2, "extra": 0})
 
 
 class TopologyTests(unittest.TestCase):
@@ -46,22 +56,39 @@ class TopologyTests(unittest.TestCase):
             TreeTopology.from_dict(
                 {"n": 4, "vertices": [0, 1, 2, 3], "edges": [[0, 1], [2, 3], [0, 2], [1, 3]]}
             )
+        with self.assertRaises(ValueError):
+            TreeTopology.from_dict(
+                {"n": 3, "vertices": [1, 2, 3], "edges": [[1, 2], [2, 3]]}
+            )
 
     def test_derived_labels(self):
         path = TreeTopology.from_dict(
             {"n": 4, "vertices": [0, 1, 2, 3], "edges": [[0, 1], [1, 2], [2, 3]]}
         )
         self.assertIn("path", path.derived_subclass_labels())
-        self.assertIn("edge-diameter-3", path.derived_subclass_labels())
+        self.assertIn("edge-diameter-2", path.derived_subclass_labels())
 
         star = TreeTopology.from_dict(
             {"n": 4, "vertices": [0, 1, 2, 3], "edges": [[0, 1], [0, 2], [0, 3]]}
         )
         self.assertIn("star", star.derived_subclass_labels())
-        self.assertIn("edge-diameter-2", star.derived_subclass_labels())
+        self.assertIn("edge-diameter-1", star.derived_subclass_labels())
 
         with self.assertRaises(ValueError):
             star.validate_declared_labels(["path"])
+
+    def test_edge_diameter_boundary_cases(self):
+        one = TreeTopology.from_dict({"n": 1, "vertices": [0], "edges": []})
+        self.assertIn("path", one.derived_subclass_labels())
+        self.assertIn("star", one.derived_subclass_labels())
+        self.assertIn("edge-diameter-0", one.derived_subclass_labels())
+
+        two = TreeTopology.from_dict(
+            {"n": 2, "vertices": [0, 1], "edges": [[0, 1]]}
+        )
+        self.assertIn("path", two.derived_subclass_labels())
+        self.assertIn("star", two.derived_subclass_labels())
+        self.assertIn("edge-diameter-0", two.derived_subclass_labels())
 
 
 class STTTests(unittest.TestCase):
@@ -115,6 +142,13 @@ class EnumerationTests(unittest.TestCase):
         )
         self.assertEqual(len(enumerate_stts(star)), 16)
 
+    def test_enumeration_safety_cap(self):
+        path = TreeTopology.from_dict(
+            {"n": 4, "vertices": [0, 1, 2, 3], "edges": [[0, 1], [1, 2], [2, 3]]}
+        )
+        with self.assertRaises(EnumerationLimitExceeded):
+            enumerate_stts(path, max_count=13)
+
 
 class CertificateTests(unittest.TestCase):
     def load_example(self, name):
@@ -133,7 +167,7 @@ class CertificateTests(unittest.TestCase):
         result = check_certificate(self.load_example("long_star_7.json"))
         self.assertEqual(result.weighted_cost, Fraction(48, 23))
         self.assertEqual(result.normalized["integer_optimum"]["stt_count"], 807)
-        self.assertIn("edge-diameter-4", result.normalized["topology"]["derived_subclass_labels"])
+        self.assertIn("edge-diameter-3", result.normalized["topology"]["derived_subclass_labels"])
 
     def test_cost_mismatch_fails(self):
         data = self.load_example("path_4_proof.json")
@@ -153,6 +187,35 @@ class CertificateTests(unittest.TestCase):
         data["lp_solution"] = {"relaxation_version": "unsupported"}
         result = check_certificate(data)
         self.assertIn("unsupported_lp_metadata", result.normalized)
+
+
+class CliTests(unittest.TestCase):
+    def test_check_exit_codes(self):
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            code = cli_main(["check", str(ROOT / "examples" / "stt" / "path_4_proof.json")])
+        self.assertEqual(code, 0)
+        self.assertIn("PASS", stdout.getvalue())
+
+        stderr = io.StringIO()
+        with redirect_stderr(stderr):
+            code = cli_main(["check", str(ROOT / "examples" / "stt" / "missing.json")])
+        self.assertEqual(code, 1)
+        self.assertIn("FAIL", stderr.getvalue())
+
+    def test_subcommand_max_enumeration_option(self):
+        stderr = io.StringIO()
+        with redirect_stderr(stderr):
+            code = cli_main(
+                [
+                    "enumerate",
+                    str(ROOT / "examples" / "stt" / "path_4_proof.json"),
+                    "--max-enumeration",
+                    "13",
+                ]
+            )
+        self.assertEqual(code, 1)
+        self.assertIn("safety cap 13", stderr.getvalue())
 
 
 if __name__ == "__main__":

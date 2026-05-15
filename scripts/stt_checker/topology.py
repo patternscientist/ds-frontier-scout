@@ -40,6 +40,8 @@ class TreeTopology:
             vertices = tuple(sorted(raw_vertices))
         else:
             vertices = tuple(range(n))
+        if vertices != tuple(range(n)):
+            raise ValueError("topology.vertices: must be exactly 0..n-1")
 
         vertex_set = set(vertices)
         raw_edges = data.get("edges")
@@ -78,10 +80,7 @@ class TreeTopology:
             raise ValueError("topology: graph is not connected")
 
         distances = _all_pairs_distances(vertices, adjacency)
-        diameter = 0
-        for source in vertices:
-            if distances[source]:
-                diameter = max(diameter, max(distances[source].values()))
+        edge_diameter = _line_graph_edge_diameter(tuple(sorted(edges_set)))
 
         return cls(
             n=n,
@@ -90,7 +89,7 @@ class TreeTopology:
             adjacency=adjacency,
             degrees={v: len(adjacency[v]) for v in vertices},
             distances=distances,
-            diameter_edges=diameter,
+            diameter_edges=edge_diameter,
         )
 
     def validate_declared_labels(self, declared: Iterable[str]) -> None:
@@ -205,3 +204,30 @@ def _all_pairs_distances(
         distances[source] = dist
     return distances
 
+
+def _line_graph_edge_diameter(edges: tuple[tuple[int, int], ...]) -> int:
+    if len(edges) <= 1:
+        return 0
+
+    edge_neighbors: dict[tuple[int, int], list[tuple[int, int]]] = {
+        edge: [] for edge in edges
+    }
+    for index, first in enumerate(edges):
+        first_vertices = set(first)
+        for second in edges[index + 1 :]:
+            if first_vertices.intersection(second):
+                edge_neighbors[first].append(second)
+                edge_neighbors[second].append(first)
+
+    diameter = 0
+    for source in edges:
+        queue = deque([source])
+        dist = {source: 0}
+        while queue:
+            current = queue.popleft()
+            for neighbor in edge_neighbors[current]:
+                if neighbor not in dist:
+                    dist[neighbor] = dist[current] + 1
+                    queue.append(neighbor)
+        diameter = max(diameter, max(dist.values()))
+    return diameter

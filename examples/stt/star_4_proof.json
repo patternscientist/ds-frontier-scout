@@ -6,7 +6,7 @@
     "n": 4,
     "vertices": [0, 1, 2, 3],
     "edges": [[0, 1], [0, 2], [0, 3]],
-    "declared_subclass_labels": ["star", "edge-diameter-2"]
+    "declared_subclass_labels": ["star", "edge-diameter-1"]
   },
   "weights": {
     "type": "vertex_frequency",
@@ -33,4 +33,3 @@
     "stt_count": 16
   }
 }
-

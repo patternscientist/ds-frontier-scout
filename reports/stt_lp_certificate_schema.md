@@ -53,7 +53,7 @@ Checker normalization requirements:
     "vertices": [0, 1, 2, 3, 4, 5, 6],
     "edges": [[0, 1], [1, 2], [2, 3], [2, 4], [4, 5], [4, 6]],
     "root_label": null,
-    "subclass_labels": ["edge-diameter-4"],
+    "subclass_labels": ["edge-diameter-3"],
     "canonical_label": "optional-nauty-or-todo"
   }
 }

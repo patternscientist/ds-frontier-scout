@@ -6,7 +6,7 @@
     "n": 4,
     "vertices": [0, 1, 2, 3],
     "edges": [[0, 1], [1, 2], [2, 3]],
-    "declared_subclass_labels": ["path", "edge-diameter-3"]
+    "declared_subclass_labels": ["path", "edge-diameter-2"]
   },
   "weights": {
     "type": "vertex_frequency",
@@ -34,4 +34,3 @@
     "stt_count": 14
   }
 }
-

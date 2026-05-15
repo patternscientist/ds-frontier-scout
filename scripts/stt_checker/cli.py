@@ -16,11 +16,14 @@ from .certificates import _parse_weights
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="python -m scripts.stt_checker.cli")
-    parser.add_argument("--max-enumeration", type=int, default=100_000)
+    parser.add_argument("--max-enumeration", type=int, default=None)
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     check_parser = subparsers.add_parser("check", help="check a JSON certificate")
     check_parser.add_argument("certificate")
+    check_parser.add_argument(
+        "--max-enumeration", dest="command_max_enumeration", type=int, default=None
+    )
     check_parser.add_argument(
         "--normalized-json",
         action="store_true",
@@ -31,18 +34,30 @@ def main(argv: list[str] | None = None) -> int:
         "enumerate", help="enumerate STTs for a certificate topology"
     )
     enum_parser.add_argument("certificate")
+    enum_parser.add_argument(
+        "--max-enumeration", dest="command_max_enumeration", type=int, default=None
+    )
     enum_parser.add_argument("--depth-base", type=int, default=None)
 
     topo_parser = subparsers.add_parser(
         "enumerate-topology", help="enumerate STTs for a topology JSON object"
     )
     topo_parser.add_argument("topology")
+    topo_parser.add_argument(
+        "--max-enumeration", dest="command_max_enumeration", type=int, default=None
+    )
     topo_parser.add_argument("--depth-base", type=int, default=1)
 
     args = parser.parse_args(argv)
+    max_enumeration = args.max_enumeration
+    command_max_enumeration = getattr(args, "command_max_enumeration", None)
+    if command_max_enumeration is not None:
+        max_enumeration = command_max_enumeration
+    if max_enumeration is None:
+        max_enumeration = 100_000
     try:
         if args.command == "check":
-            result = check_file(args.certificate, max_enumeration=args.max_enumeration)
+            result = check_file(args.certificate, max_enumeration=max_enumeration)
             print(
                 f"PASS {args.certificate}: weighted_cost="
                 f"{rational_to_string(result.weighted_cost)}"
@@ -59,7 +74,7 @@ def main(argv: list[str] | None = None) -> int:
                 depth_base = data.get("cost", {}).get("depth_base", 1)
             count = len(
                 enumerate_stts(
-                    topology, depth_base=depth_base, max_count=args.max_enumeration
+                    topology, depth_base=depth_base, max_count=max_enumeration
                 )
             )
             print(f"STT count: {count}")
@@ -69,7 +84,7 @@ def main(argv: list[str] | None = None) -> int:
                     topology,
                     weights,
                     depth_base=depth_base,
-                    max_count=args.max_enumeration,
+                    max_count=max_enumeration,
                 )
                 print(f"Integer optimum: {rational_to_string(optimum)}")
                 print(f"Enumerated for optimum: {opt_count}")
@@ -84,7 +99,7 @@ def main(argv: list[str] | None = None) -> int:
                 enumerate_stts(
                     topology,
                     depth_base=args.depth_base,
-                    max_count=args.max_enumeration,
+                    max_count=max_enumeration,
                 )
             )
             print(f"STT count: {count}")
@@ -99,4 +114,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

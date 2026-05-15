@@ -47,7 +47,7 @@ integers printed without `/1`.
     "n": 4,
     "vertices": [0, 1, 2, 3],
     "edges": [[0, 1], [1, 2], [2, 3]],
-    "declared_subclass_labels": ["path", "edge-diameter-3"]
+    "declared_subclass_labels": ["path", "edge-diameter-2"]
   }
 }
 ```
@@ -60,7 +60,9 @@ Derived labels in v0 are:
 
 - `path`, when maximum degree is at most 2;
 - `star`, when some vertex is adjacent to every other vertex;
-- `edge-diameter-k`, where `k` is the ordinary tree diameter in edges.
+- `edge-diameter-k`, where `k` is the maximum line-graph distance between
+  two base-tree edges. A one-vertex tree and a one-edge tree have
+  `edge-diameter-0`.
 
 The `almost-star` label is advisory and unsupported for now. If declared, it
 does not prove anything and is not checked.
@@ -162,8 +164,8 @@ to reproduce Sadeh-Kaplan-Zwick LP results.
 ## Known Limitations
 
 - Enumeration is exponential and intended only for small topologies.
-- The `edge-diameter-k` label follows the ordinary tree diameter in edges,
-  matching the pilot fixture convention.
+- The `edge-diameter-k` label follows the line-graph distance convention from
+  the pilot target, not ordinary vertex-tree diameter.
 - `almost-star` is not formalized.
 - Only vertex-frequency objectives are supported.
 - There is no canonical unlabeled tree isomorphism support.
@@ -178,4 +180,3 @@ to reproduce Sadeh-Kaplan-Zwick LP results.
 - Add topology generation up to small `n` for edge-diameter subclass audits.
 - Formalize the exact `almost-star` convention before using that label in
   proof mode.
-
