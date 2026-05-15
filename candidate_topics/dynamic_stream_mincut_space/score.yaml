@@ -7,4 +7,4 @@ intellectual_interest: 4
 overall_score: 6.8
 confidence: medium
 best_use: theorem_project
-notes: "Batch 003 audit keeps the explicit ITCS 2025 dynamic-stream min-cut gap, but downgrades OpenEvolve fit: finite sketch/collision searches are hypothesis generators, not evidence for the asymptotic communication lower bound."
+notes: "Batch 003 audit says this survives as an explicit one-pass dynamic-stream min-cut open question, but it is lower-bound-heavy and only weakly evaluator-friendly: finite sketch/collision searches are hypothesis generators, not evidence for the asymptotic communication lower bound."

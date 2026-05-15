@@ -7,4 +7,4 @@ intellectual_interest: 4
 overall_score: 6.2
 confidence: medium
 best_use: theorem_project
-notes: "Batch 003 audit keeps the explicit DISC 2025 directed roundtrip-routing problem, but raises saturation risk and downgrades evaluator fit; finite graph search mostly falsifies toy routing rules and does not certify compact-routing lower bounds."
+notes: "Batch 003 audit keeps the explicit DISC 2025 directed roundtrip-routing problem, but frames it as active compact-routing theory with weak OpenEvolve fit; finite graph search mostly falsifies toy routing rules and does not certify compact-routing lower bounds."
