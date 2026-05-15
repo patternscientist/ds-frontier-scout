@@ -1,0 +1,51 @@
+{
+  "schema_version": "stt-lp-cert-v0",
+  "certificate_id": "example-star-4-proof-induced-lp",
+  "mode": "proof",
+  "relaxation": "golinsky_stt_lp",
+  "relaxation_version": "golinsky_stt_lp_v0",
+  "topology": {
+    "n": 4,
+    "vertices": [0, 1, 2, 3],
+    "edges": [[0, 1], [0, 2], [0, 3]],
+    "declared_subclass_labels": ["star", "edge-diameter-1"]
+  },
+  "lp_solution": {
+    "variables": {
+      "D": [
+        {"i": 0, "value": "0"},
+        {"i": 1, "value": "1"},
+        {"i": 2, "value": "1"},
+        {"i": 3, "value": "1"}
+      ],
+      "X": [
+        {"i": 0, "j": 1, "value": "1"},
+        {"i": 0, "j": 2, "value": "1"},
+        {"i": 0, "j": 3, "value": "1"},
+        {"i": 1, "j": 0, "value": "0"},
+        {"i": 1, "j": 2, "value": "0"},
+        {"i": 1, "j": 3, "value": "0"},
+        {"i": 2, "j": 0, "value": "0"},
+        {"i": 2, "j": 1, "value": "0"},
+        {"i": 2, "j": 3, "value": "0"},
+        {"i": 3, "j": 0, "value": "0"},
+        {"i": 3, "j": 1, "value": "0"},
+        {"i": 3, "j": 2, "value": "0"}
+      ],
+      "Z": [
+        {"k": 0, "i": 1, "j": 2, "value": "1"},
+        {"k": 0, "i": 1, "j": 3, "value": "1"},
+        {"k": 0, "i": 2, "j": 3, "value": "1"}
+      ]
+    }
+  },
+  "objective": {
+    "frequency": {
+      "0": "1/4",
+      "1": "1/4",
+      "2": "1/4",
+      "3": "1/4"
+    },
+    "value": "3/4"
+  }
+}

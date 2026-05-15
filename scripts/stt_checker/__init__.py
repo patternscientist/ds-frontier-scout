@@ -6,5 +6,6 @@ __all__ = [
     "stt",
     "enumerate_stts",
     "certificates",
+    "lp_feasibility",
 ]
 

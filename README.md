@@ -64,12 +64,23 @@ The first reproducible small-topology frontier artifact is generated in
 `reports/stt_v0_frontier_artifact.md`, with companion machine-readable files in
 `data/stt_frontier/`.
 
+The LP feasibility checker v0 replays dense exact rational certificates for
+`golinsky_stt_lp_v0` only. It lives beside the STT checker and is documented in
+`docs/stt_lp_feasibility_v0.md`:
+
+```sh
+python -m scripts.stt_checker.cli check-lp examples/stt_lp/path_4_stt_induced_lp.json
+```
+
+It is not an LP solver and does not check root rounding, integrality gaps, or
+projection/lower-envelope claims.
+
 ## Source Discipline
 
 Do not invent citations or open-problem claims. Use TODO markers until sources are checked. Primary sources are preferred over survey summaries, and every promoted candidate should include a skeptical audit explaining why the claimed open status might be wrong.
 
 ## Current Status
 
-This repository now contains the initial scaffold; Batch 001 scouting; targeted high-priority patches; the Batch 001 adversarial audit; scoring infrastructure; the Batch 002 saturation pass and adversarial audit; cross-batch fixed-point synthesis; Batch 003 mini-frontier scouting; the STT LP certificate schema; and the Batch 003 adversarial audit. The current leading pilot remains `search_trees_on_trees_lp`, especially as a combined theorem/certificate/OpenEvolve project.
+This repository now contains the initial scaffold; Batch 001 scouting; targeted high-priority patches; the Batch 001 adversarial audit; scoring infrastructure; the Batch 002 saturation pass and adversarial audit; cross-batch fixed-point synthesis; Batch 003 mini-frontier scouting; the STT LP certificate schema; the Batch 003 adversarial audit; and exact rational LP feasibility checking for `golinsky_stt_lp_v0`. The current leading pilot remains `search_trees_on_trees_lp`, especially as a combined theorem/certificate/OpenEvolve project.
 
 Batch 003 added candidates in dynamic-stream min-cut, directed compact roundtrip routing, concurrent history-independent hash-table cell capacity, connected geometric circle-segment queries, and cache-oblivious implicit dictionary scans. Its adversarial audit downgraded several evaluator claims, especially the concurrent SHI and cache-oblivious scan formulations, and left checker-blocking clarifications for the STT LP certificate schema before implementation.
