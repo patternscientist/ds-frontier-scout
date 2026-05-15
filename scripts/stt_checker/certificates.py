@@ -53,7 +53,9 @@ def check_certificate(
             f"schema_version: expected {SUPPORTED_SCHEMA_VERSION!r}, got "
             f"{data.get('schema_version')!r}"
         )
-    mode = data.get("mode", "proof")
+    if "mode" not in data:
+        raise ValueError("mode: missing")
+    mode = data["mode"]
     if mode not in ("proof", "audit"):
         raise ValueError("mode: must be 'proof' or 'audit'")
     if mode == "proof":
@@ -236,4 +238,3 @@ def _check_integer_optimum(
         "stt_count": count,
         "best_stt": {"component_roots": best_stt.to_normalized_component_roots()},
     }
-

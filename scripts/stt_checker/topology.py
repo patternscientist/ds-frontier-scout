@@ -97,12 +97,18 @@ class TreeTopology:
         for label in declared:
             if label == "almost-star":
                 continue
+            if label == "unknown":
+                continue
             if label in {"path", "star"} or label.startswith("edge-diameter-"):
                 if label not in derived:
                     raise ValueError(
                         f"topology.declared_subclass_labels: declared {label!r} "
                         f"but derived labels are {sorted(derived)}"
                     )
+                continue
+            raise ValueError(
+                f"topology.declared_subclass_labels: unsupported label {label!r}"
+            )
 
     def derived_subclass_labels(self) -> set[str]:
         labels = {f"edge-diameter-{self.diameter_edges}"}

@@ -76,6 +76,9 @@ class TopologyTests(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             star.validate_declared_labels(["path"])
+        with self.assertRaises(ValueError):
+            star.validate_declared_labels(["not-a-schema-label"])
+        star.validate_declared_labels(["unknown", "almost-star"])
 
     def test_edge_diameter_boundary_cases(self):
         one = TreeTopology.from_dict({"n": 1, "vertices": [0], "edges": []})
@@ -172,6 +175,12 @@ class CertificateTests(unittest.TestCase):
     def test_cost_mismatch_fails(self):
         data = self.load_example("path_4_proof.json")
         data["cost"]["weighted_cost"] = "3"
+        with self.assertRaises(ValueError):
+            check_certificate(data)
+
+    def test_missing_mode_fails(self):
+        data = self.load_example("path_4_proof.json")
+        del data["mode"]
         with self.assertRaises(ValueError):
             check_certificate(data)
 
