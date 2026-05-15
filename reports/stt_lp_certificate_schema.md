@@ -17,11 +17,13 @@ Scope: minimal implementation-ready certificate/checker schema for `search_trees
 
 The following items must be fixed before implementing a proof-mode checker:
 
-- LP variable domains must be explicit for the selected relaxation: which ordered/unordered index tuples exist for `X`, `Z`, and `D`, which variables are symmetric, and which absent variables default to zero.
-- LP constraints must be referenced by a versioned, machine-implemented constraint set. Free-text "Golinsky-style" constraints are not checkable.
+- For the first intended LP relaxation, `reports/stt_lp_spec_golinsky_v0.md` now fixes the source-backed variable domains and constraint set under `relaxation_version: "golinsky_stt_lp_v0"`. A proof-mode checker still must implement that spec before accepting LP certificates.
+- LP variable domains must be explicit for any selected relaxation: which ordered/unordered index tuples exist for `X`, `Z`, and `D`, which variables are symmetric, and which absent variables default to zero. For `golinsky_stt_lp_v0`, proof-mode certificates should be dense and missing defined variables should fail closed.
+- LP constraints must be referenced by a versioned, machine-implemented constraint set. Free-text "Golinsky-style" constraints are not checkable; use `golinsky_stt_lp_v0` only for the vanilla Sadeh-Kaplan-Zwick/Golinsky `X,Z,D` LP.
 - Root-rounding scores must name a checker-known formula or include enough primitive data for recomputation; a list of candidate scores is not a proof by itself.
 - Enumeration digests are audit metadata unless the checker either enumerates all STTs itself below a configured threshold or verifies a complete supplied enumeration list.
 - `almost-star` remains advisory until the exact Sadeh-Kaplan-Zwick convention is verified.
+- Depth-projection claims for `golinsky_stt_lp_v0` must account for the source LP's `D_i >= sum_j X_ji` inequalities: compare lower envelopes, or compare against `conv(STT LP-depth vectors) + R_{\ge 0}^n`, not literal equality to the bounded STT depth hull.
 
 ## Rational Format
 
@@ -179,11 +181,12 @@ Validation:
 {
   "lp_solution": {
     "relaxation": "golinsky_stt_lp",
-    "relaxation_version": "TODO-exact-constraint-set",
+    "relaxation_version": "golinsky_stt_lp_v0",
     "variable_domains": {
-      "X": "TODO: ordered_or_unordered_pairs",
-      "Z": "TODO: triples_and_symmetry_convention",
-      "D": "vertices"
+      "X": "ordered_pairs_i_j_i_ne_j",
+      "Z": "triples_k_i_j_with_i_lt_j_and_k_strictly_between_i_j",
+      "D": "vertices",
+      "encoding": "dense_required_in_proof_mode"
     },
     "variables": {
       "X": [{"i": 0, "j": 1, "value": "1/2"}],
