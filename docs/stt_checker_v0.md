@@ -1,9 +1,11 @@
 # STT Checker Scaffold v0
 
 This document describes the first trusted checker scaffold for static search
-trees on trees (STTs). It is intentionally narrower than the LP certificate
-schema: v0 checks exact combinatorial STTs, exact costs, topology labels, and
-small complete enumerations. It does not check Golinsky LP feasibility.
+trees on trees (STTs). The `check` command checks exact combinatorial STTs,
+exact costs, topology labels, and small complete enumerations.
+
+Golinsky-style LP feasibility is implemented as a separate proof-mode command,
+`check-lp`, documented in `docs/stt_lp_feasibility_v0.md`.
 
 ## Supported Certificate Subset
 
@@ -19,9 +21,9 @@ The checker accepts JSON certificates with:
 - an optional `integer_optimum` block whose `certificate_type` is
   `checker_enumerates_all_stts`.
 
-In proof mode, any `lp_solution`, `root_rounding`, or `integrality_gap` field
-is rejected. In audit mode, these fields are preserved as unsupported metadata
-but are not verified.
+In `stt-cert-v0` proof mode, any `lp_solution`, `root_rounding`, or
+`integrality_gap` field is still rejected. Use an `stt-lp-cert-v0` certificate
+and the `check-lp` command for LP feasibility.
 
 ## Exact Rationals
 
@@ -138,6 +140,7 @@ From the repository root:
 python -m scripts.stt_checker.cli check examples/stt/long_star_7.json
 python -m scripts.stt_checker.cli check examples/stt/path_4_proof.json --normalized-json
 python -m scripts.stt_checker.cli enumerate examples/stt/long_star_7.json
+python -m scripts.stt_checker.cli check-lp examples/stt_lp/path_4_stt_induced_lp.json
 ```
 
 To enumerate a standalone topology JSON object:
@@ -169,19 +172,22 @@ Outputs:
 - `data/stt_frontier/topology_summary_n_leq_7.csv`;
 - `reports/stt_v0_frontier_artifact.md`.
 
-This command does not implement or check any LP constraints.
+This command does not solve LPs or check LP constraints for the frontier
+artifact. LP feasibility can be checked certificate-by-certificate with
+`check-lp`.
 
-## Unsupported LP Fields
+## LP Support Boundary
 
-The following fields are deliberately unsupported in proof mode:
+The combinatorial `stt-cert-v0` checker deliberately rejects these fields in
+proof mode:
 
 - `lp_solution`;
 - `root_rounding`;
 - `integrality_gap`.
 
-No `relaxation_version` is supported yet. This checker does not implement
-Golinsky LP constraints, does not infer LP variable domains, and does not claim
-to reproduce Sadeh-Kaplan-Zwick LP results.
+The separate `stt-lp-cert-v0` checker supports exact primal feasibility for
+`golinsky_stt_lp_v0` only. It does not solve LPs, check root rounding, verify
+integrality gaps, or claim to reproduce Sadeh-Kaplan-Zwick optimality results.
 
 ## Known Limitations
 

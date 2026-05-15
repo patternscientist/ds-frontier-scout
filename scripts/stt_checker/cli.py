@@ -9,6 +9,7 @@ from pathlib import Path
 
 from .certificates import check_file, load_json
 from .enumerate_stts import enumerate_stts, integer_optimum_by_enumeration
+from .lp_feasibility import check_lp_file
 from .rationals import rational_to_string
 from .topology import TreeTopology
 from .certificates import _parse_weights
@@ -28,6 +29,21 @@ def main(argv: list[str] | None = None) -> int:
         "--normalized-json",
         action="store_true",
         help="print the normalized certificate JSON after a successful check",
+    )
+
+    check_lp_parser = subparsers.add_parser(
+        "check-lp", help="check a proof-mode Golinsky STT LP certificate"
+    )
+    check_lp_parser.add_argument("certificate")
+    check_lp_parser.add_argument(
+        "--normalized-json",
+        action="store_true",
+        help="print the normalized LP certificate JSON after a successful check",
+    )
+    check_lp_parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="print variable-domain counts after a successful check",
     )
 
     enum_parser = subparsers.add_parser(
@@ -62,6 +78,26 @@ def main(argv: list[str] | None = None) -> int:
                 f"PASS {args.certificate}: weighted_cost="
                 f"{rational_to_string(result.weighted_cost)}"
             )
+            if args.normalized_json:
+                print(result.normalized_json(), end="")
+            return 0
+
+        if args.command == "check-lp":
+            result = check_lp_file(args.certificate)
+            message = f"PASS {args.certificate}: feasible golinsky_stt_lp_v0"
+            if result.objective is not None:
+                message += (
+                    ", depth_objective="
+                    f"{rational_to_string(result.objective.computed_value)}"
+                )
+            print(message)
+            if args.verbose:
+                print(
+                    "Variable counts: "
+                    f"D={len(result.domains.D)} "
+                    f"X={len(result.domains.X)} "
+                    f"Z={len(result.domains.Z)}"
+                )
             if args.normalized_json:
                 print(result.normalized_json(), end="")
             return 0
