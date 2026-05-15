@@ -30,9 +30,11 @@ Primary sources consulted:
 - Golinsky original source: Sadeh-Kaplan-Zwick cite Ishay Golinsky,
   "A study on search trees on trees", master's thesis, Tel Aviv University,
   2023, as `GolinskyThesis`. I did not locate an accessible copy during this
-  extraction. Independent verification against Golinsky's thesis remains a
-  blocker before saying this is Golinsky's original text rather than the
-  Sadeh-Kaplan-Zwick presentation of it.
+  extraction. The arXiv `reference.bib` contains a commented DOI line
+  `10.22028/D291-26671` adjacent to this entry, but that DOI resolves to
+  Laszlo Kozma's 2016 thesis, not Golinsky's thesis. Independent verification
+  against Golinsky's thesis remains a blocker before saying this is Golinsky's
+  original text rather than the Sadeh-Kaplan-Zwick presentation of it.
 
 Formulas used:
 
@@ -192,7 +194,10 @@ Z_kij >= 0                       for all defined Z_kij
 
 Source:
 
-- `section_preliminaries.tex`, Definition `definition_LP_program`, "Bounds".
+- `section_preliminaries.tex`, exposition before Definition
+  `definition_LP_program`, which relaxes the variables to nonnegative reals.
+  The displayed "Bounds" line explicitly lists `X` and `Z`; `D_i >= 0` also
+  follows from nonnegative `X` and the depth inequality.
 - `STTLP-LPs.py`, `construct_constraints_primal`, "Bounds constraints", which
   adds `variable >= 0` for every variable in the primal dictionary.
 
@@ -381,7 +386,7 @@ pi_D(P_U) vs. H_U + R_{\ge 0}^V.
 
 For the pilot theorem target, this means the implementation should not test
 literal bounded-polytope equality for the vanilla LP. It should test whether
-every feasible projected depth vector is dominated by a convex combination of
+every feasible projected depth vector dominates some convex combination of
 valid STT LP-depth vectors, or search for a non-STT lower-envelope projected
 vertex that improves some nonnegative objective.
 
@@ -459,7 +464,10 @@ The Sadeh-Kaplan-Zwick long-star example gives a source-backed smoke target:
 - Source frequency vector is `[3,2,0,2,3,3,10]/23`.
 - Source LP-depth vector is `[2,2,9/2,2,2,3/2,1/2]`.
 - Source best STT LP-depth value for unnormalized weights is `30`; the
-  fractional value is `59/2`, giving gap `60/59` for this example.
+  fractional LP-depth value is `59/2`, giving LP-depth-objective gap `60/59`
+  for this example. These are not root-depth-1 search-cost values; with
+  normalized frequencies, the corresponding base-1 search costs add `1` to
+  both objectives.
 
 ## 8. Edge-Diameter-3 Pilot Relevance
 

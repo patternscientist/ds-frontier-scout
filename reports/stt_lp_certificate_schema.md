@@ -53,7 +53,7 @@ Checker normalization requirements:
   "topology": {
     "n": 7,
     "vertices": [0, 1, 2, 3, 4, 5, 6],
-    "edges": [[0, 1], [1, 2], [2, 3], [2, 4], [4, 5], [4, 6]],
+    "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [2, 5], [5, 6]],
     "root_label": null,
     "subclass_labels": ["edge-diameter-3"],
     "canonical_label": "optional-nauty-or-todo"
@@ -96,9 +96,9 @@ Minimal representation:
       {"component": [0, 1, 2, 3, 4, 5, 6], "root": 2},
       {"component": [0, 1], "root": 1},
       {"component": [0], "root": 0},
-      {"component": [3], "root": 3},
-      {"component": [4, 5, 6], "root": 4},
-      {"component": [5], "root": 5},
+      {"component": [3, 4], "root": 3},
+      {"component": [4], "root": 4},
+      {"component": [5, 6], "root": 5},
       {"component": [6], "root": 6}
     ]
   }
@@ -160,11 +160,11 @@ Depth convention must be explicit:
       "1": 2,
       "2": 1,
       "3": 2,
-      "4": 2,
-      "5": 3,
+      "4": 3,
+      "5": 2,
       "6": 3
     },
-    "weighted_cost": {"num": 60, "den": 23}
+    "weighted_cost": {"num": 62, "den": 23}
   }
 }
 ```

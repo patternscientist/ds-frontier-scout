@@ -10,11 +10,11 @@ Start a one-week `search_trees_on_trees_lp` pilot that tests whether this reposi
 
 Target statement:
 
-For every base tree `U` whose edge-diameter is at most 3, determine whether the depth-space projection of the versioned Golinsky STT LP is exactly the convex hull of depth vectors of valid static search trees on `U`.
+For every base tree `U` whose edge-diameter is at most 3, determine whether the depth-space projection of `golinsky_stt_lp_v0` has the same lower envelope as the convex hull of LP-depth vectors of valid static search trees on `U`; equivalently, determine whether the projection equals `conv(STT LP-depth vectors) + R_{\ge 0}^n`.
 
 Accepted pilot outcomes:
 
-- a proof of projection integrality for the edge-diameter-3 class;
+- a proof of lower-envelope projection integrality for the edge-diameter-3 class;
 - a minimal exact rational counterexample with topology, weights/objective, LP solution, and complete STT enumeration or dual certificate;
 - a sharper reduction showing that the target must be narrowed, for example to a verified `almost-star` convention.
 
@@ -75,7 +75,7 @@ Required top-level fields for the first scaffold:
   "topology": {
     "n": 7,
     "vertices": [0, 1, 2, 3, 4, 5, 6],
-    "edges": [[0, 1], [1, 2], [2, 3], [2, 4], [4, 5], [4, 6]],
+    "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [2, 5], [5, 6]],
     "declared_subclass_labels": ["edge-diameter-3"]
   },
   "weights": {
@@ -128,7 +128,7 @@ Paths and stars are baseline sanity checks, not the target: paths should behave 
 
 Focus on base trees whose edge-diameter is at most 3, meaning that in the line graph of U, every two edges have distance at most 3. Consider linear relaxations whose variables are intended to encode ancestry, lowest-common-ancestor, and depth information for recursive search trees.
 
-Main target: prove or refute that for every edge-diameter-3 base tree U, every feasible depth vector of a natural ancestry/LCA/depth LP relaxation lies in the convex hull of depth vectors of valid recursive search trees on U. If the target is too broad, isolate the smallest precise subclass where the statement can be proved, or construct a concrete counterexample with rational weights/objective.
+Main target, corrected for the vanilla LP's depth inequalities: prove or refute that every feasible LP-depth vector dominates a convex combination of valid recursive-search-tree LP-depth vectors, equivalently that the projected feasible region is the STT LP-depth hull plus the nonnegative orthant. If the target is too broad, isolate the smallest precise subclass where the statement can be proved, or construct a concrete lower-envelope counterexample with rational weights/objective.
 
 Try dynamic programming, exchange arguments, root-choice characterizations, or valid inequalities. State every definition you use, distinguish full LP integrality from depth-projection integrality, and list failure modes clearly.
 ```
