@@ -1,0 +1,2066 @@
+{
+  "lp_feasibility_checked": false,
+  "lp_note": "No Golinsky LP constraints are implemented or checked in this artifact.",
+  "max_enumeration": 100000,
+  "max_n": 7,
+  "schema_version": "stt-frontier-artifact-v0",
+  "topologies": [
+    {
+      "canonical_form": "()",
+      "canonical_id": "n1:()",
+      "degree_sequence": [
+        0
+      ],
+      "derived_labels": [
+        "edge-diameter-0",
+        "path",
+        "star"
+      ],
+      "edge_diameter": 0,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 1
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "1",
+        "support": [
+          0
+        ],
+        "weights": {
+          "0": "1"
+        }
+      },
+      "n": 1,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "1",
+        "weights": {
+          "0": "1"
+        }
+      },
+      "vertices": [
+        0
+      ]
+    },
+    {
+      "canonical_form": "(())",
+      "canonical_id": "n2:(())",
+      "degree_sequence": [
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-0",
+        "path",
+        "star"
+      ],
+      "edge_diameter": 0,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 2
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "3/2",
+        "support": [
+          0,
+          1
+        ],
+        "weights": {
+          "0": "1/2",
+          "1": "1/2"
+        }
+      },
+      "n": 2,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "3/2",
+        "weights": {
+          "0": "1/2",
+          "1": "1/2"
+        }
+      },
+      "vertices": [
+        0,
+        1
+      ]
+    },
+    {
+      "canonical_form": "(()())",
+      "canonical_id": "n3:(()())",
+      "degree_sequence": [
+        2,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-1",
+        "path",
+        "star"
+      ],
+      "edge_diameter": 1,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 5
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "3/2",
+        "support": [
+          1,
+          2
+        ],
+        "weights": {
+          "0": "0",
+          "1": "1/2",
+          "2": "1/2"
+        }
+      },
+      "n": 3,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "5/3",
+        "weights": {
+          "0": "1/3",
+          "1": "1/3",
+          "2": "1/3"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "canonical_form": "((())())",
+      "canonical_id": "n4:((())())",
+      "degree_sequence": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-2",
+        "path"
+      ],
+      "edge_diameter": 2,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 14
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "3/2",
+        "support": [
+          2,
+          3
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "1/2",
+          "3": "1/2"
+        }
+      },
+      "n": 4,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "weights": {
+          "0": "1/4",
+          "1": "1/4",
+          "2": "1/4",
+          "3": "1/4"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "canonical_form": "(()()())",
+      "canonical_id": "n4:(()()())",
+      "degree_sequence": [
+        3,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-1",
+        "star"
+      ],
+      "edge_diameter": 1,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 16
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          1,
+          2,
+          3
+        ],
+        "weights": {
+          "0": "0",
+          "1": "1/3",
+          "2": "1/3",
+          "3": "1/3"
+        }
+      },
+      "n": 4,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "7/4",
+        "weights": {
+          "0": "1/4",
+          "1": "1/4",
+          "2": "1/4",
+          "3": "1/4"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "canonical_form": "((()())())",
+      "canonical_id": "n5:((()())())",
+      "degree_sequence": [
+        3,
+        2,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-2"
+      ],
+      "edge_diameter": 2,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 51
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          2,
+          3,
+          4
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "1/3",
+          "3": "1/3",
+          "4": "1/3"
+        }
+      },
+      "n": 5,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "weights": {
+          "0": "1/5",
+          "1": "1/5",
+          "2": "1/5",
+          "3": "1/5",
+          "4": "1/5"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "canonical_form": "((())(()))",
+      "canonical_id": "n5:((())(()))",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-3",
+        "path"
+      ],
+      "edge_diameter": 3,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": true,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 42
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "3/2",
+        "support": [
+          3,
+          4
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "1/2",
+          "4": "1/2"
+        }
+      },
+      "n": 5,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "11/5",
+        "weights": {
+          "0": "1/5",
+          "1": "1/5",
+          "2": "1/5",
+          "3": "1/5",
+          "4": "1/5"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "canonical_form": "(()()()())",
+      "canonical_id": "n5:(()()()())",
+      "degree_sequence": [
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-1",
+        "star"
+      ],
+      "edge_diameter": 1,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 65
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "weights": {
+          "0": "0",
+          "1": "1/4",
+          "2": "1/4",
+          "3": "1/4",
+          "4": "1/4"
+        }
+      },
+      "n": 5,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "9/5",
+        "weights": {
+          "0": "1/5",
+          "1": "1/5",
+          "2": "1/5",
+          "3": "1/5",
+          "4": "1/5"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "canonical_form": "(((()))(()))",
+      "canonical_id": "n6:(((()))(()))",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-4",
+        "path"
+      ],
+      "edge_diameter": 4,
+      "edge_diameter_at_most_3": false,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 132
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "3/2",
+        "support": [
+          4,
+          5
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "0",
+          "4": "1/2",
+          "5": "1/2"
+        }
+      },
+      "n": 6,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "7/3",
+        "weights": {
+          "0": "1/6",
+          "1": "1/6",
+          "2": "1/6",
+          "3": "1/6",
+          "4": "1/6",
+          "5": "1/6"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "canonical_form": "((()()())())",
+      "canonical_id": "n6:((()()())())",
+      "degree_sequence": [
+        4,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-2"
+      ],
+      "edge_diameter": 2,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 236
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "1/4",
+          "3": "1/4",
+          "4": "1/4",
+          "5": "1/4"
+        }
+      },
+      "n": 6,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "weights": {
+          "0": "1/6",
+          "1": "1/6",
+          "2": "1/6",
+          "3": "1/6",
+          "4": "1/6",
+          "5": "1/6"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "canonical_form": "((()())(()))",
+      "canonical_id": "n6:((()())(()))",
+      "degree_sequence": [
+        3,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-3"
+      ],
+      "edge_diameter": 3,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": true,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 166
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          3,
+          4,
+          5
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "1/3",
+          "4": "1/3",
+          "5": "1/3"
+        }
+      },
+      "n": 6,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "13/6",
+        "weights": {
+          "0": "1/6",
+          "1": "1/6",
+          "2": "1/6",
+          "3": "1/6",
+          "4": "1/6",
+          "5": "1/6"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "canonical_form": "((()())()())",
+      "canonical_id": "n6:((()())()())",
+      "degree_sequence": [
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-2"
+      ],
+      "edge_diameter": 2,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 214
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "9/4",
+        "support": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "1/4",
+          "3": "1/4",
+          "4": "1/4",
+          "5": "1/4"
+        }
+      },
+      "n": 6,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "13/6",
+        "weights": {
+          "0": "1/6",
+          "1": "1/6",
+          "2": "1/6",
+          "3": "1/6",
+          "4": "1/6",
+          "5": "1/6"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "canonical_form": "((())(())())",
+      "canonical_id": "n6:((())(())())",
+      "degree_sequence": [
+        3,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-3"
+      ],
+      "edge_diameter": 3,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": true,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 176
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          3,
+          4,
+          5
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "1/3",
+          "4": "1/3",
+          "5": "1/3"
+        }
+      },
+      "n": 6,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "13/6",
+        "weights": {
+          "0": "1/6",
+          "1": "1/6",
+          "2": "1/6",
+          "3": "1/6",
+          "4": "1/6",
+          "5": "1/6"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "canonical_form": "(()()()()())",
+      "canonical_id": "n6:(()()()()())",
+      "degree_sequence": [
+        5,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-1",
+        "star"
+      ],
+      "edge_diameter": 1,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 326
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "weights": {
+          "0": "0",
+          "1": "1/5",
+          "2": "1/5",
+          "3": "1/5",
+          "4": "1/5",
+          "5": "1/5"
+        }
+      },
+      "n": 6,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "11/6",
+        "weights": {
+          "0": "1/6",
+          "1": "1/6",
+          "2": "1/6",
+          "3": "1/6",
+          "4": "1/6",
+          "5": "1/6"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "canonical_form": "(((()()))(()))",
+      "canonical_id": "n7:(((()()))(()))",
+      "degree_sequence": [
+        3,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-4"
+      ],
+      "edge_diameter": 4,
+      "edge_diameter_at_most_3": false,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 552
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          4,
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "0",
+          "4": "1/3",
+          "5": "1/3",
+          "6": "1/3"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "17/7",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "canonical_form": "(((())())(()))",
+      "canonical_id": "n7:(((())())(()))",
+      "degree_sequence": [
+        3,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-4"
+      ],
+      "edge_diameter": 4,
+      "edge_diameter_at_most_3": false,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 605
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          4,
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "0",
+          "4": "1/3",
+          "5": "1/3",
+          "6": "1/3"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "16/7",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "canonical_form": "(((()))((())))",
+      "canonical_id": "n7:(((()))((())))",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-5",
+        "path"
+      ],
+      "edge_diameter": 5,
+      "edge_diameter_at_most_3": false,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 429
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "3/2",
+        "support": [
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "0",
+          "4": "0",
+          "5": "1/2",
+          "6": "1/2"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "17/7",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "canonical_form": "((()()()())())",
+      "canonical_id": "n7:((()()()())())",
+      "degree_sequence": [
+        5,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-2"
+      ],
+      "edge_diameter": 2,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 1337
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "1/5",
+          "3": "1/5",
+          "4": "1/5",
+          "5": "1/5",
+          "6": "1/5"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "canonical_form": "((()()())(()))",
+      "canonical_id": "n7:((()()())(()))",
+      "degree_sequence": [
+        4,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-3"
+      ],
+      "edge_diameter": 3,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": true,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 836
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "1/4",
+          "4": "1/4",
+          "5": "1/4",
+          "6": "1/4"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "15/7",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "canonical_form": "((()()())()())",
+      "canonical_id": "n7:((()()())()())",
+      "degree_sequence": [
+        4,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-2"
+      ],
+      "edge_diameter": 2,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 1135
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "11/5",
+        "support": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "1/5",
+          "3": "1/5",
+          "4": "1/5",
+          "5": "1/5",
+          "6": "1/5"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "15/7",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "canonical_form": "((()())(()()))",
+      "canonical_id": "n7:((()())(()()))",
+      "degree_sequence": [
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-3"
+      ],
+      "edge_diameter": 3,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": true,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 721
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "9/4",
+        "support": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "1/4",
+          "4": "1/4",
+          "5": "1/4",
+          "6": "1/4"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "16/7",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "canonical_form": "((()())(())())",
+      "canonical_id": "n7:((()())(())())",
+      "degree_sequence": [
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-3"
+      ],
+      "edge_diameter": 3,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": true,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 807
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "9/4",
+        "support": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "1/4",
+          "4": "1/4",
+          "5": "1/4",
+          "6": "1/4"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "16/7",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "canonical_form": "((())(())(()))",
+      "canonical_id": "n7:((())(())(()))",
+      "degree_sequence": [
+        3,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-3"
+      ],
+      "edge_diameter": 3,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": true,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 662
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          4,
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "0",
+          "4": "1/3",
+          "5": "1/3",
+          "6": "1/3"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "16/7",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "canonical_form": "((())(())()())",
+      "canonical_id": "n7:((())(())()())",
+      "degree_sequence": [
+        4,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-3"
+      ],
+      "edge_diameter": 3,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": true,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 930
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "0",
+          "2": "0",
+          "3": "1/4",
+          "4": "1/4",
+          "5": "1/4",
+          "6": "1/4"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "15/7",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "canonical_form": "(()()()()()())",
+      "canonical_id": "n7:(()()()()()())",
+      "degree_sequence": [
+        6,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "derived_labels": [
+        "edge-diameter-1",
+        "star"
+      ],
+      "edge_diameter": 1,
+      "edge_diameter_at_most_3": true,
+      "edge_diameter_equals_3": false,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "enumeration": {
+        "completed": true,
+        "exceeded_cap": false,
+        "max_enumeration": 100000,
+        "stt_count": 1957
+      },
+      "leaf_heavy_weights": {
+        "normalization": "sum_1",
+        "optimum": "2",
+        "support": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weights": {
+          "0": "0",
+          "1": "1/6",
+          "2": "1/6",
+          "3": "1/6",
+          "4": "1/6",
+          "5": "1/6",
+          "6": "1/6"
+        }
+      },
+      "n": 7,
+      "uniform_weights": {
+        "normalization": "sum_1",
+        "optimum": "13/7",
+        "weights": {
+          "0": "1/7",
+          "1": "1/7",
+          "2": "1/7",
+          "3": "1/7",
+          "4": "1/7",
+          "5": "1/7",
+          "6": "1/7"
+        }
+      },
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import copy
 import io
 import json
+import tempfile
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
 from fractions import Fraction
@@ -13,9 +14,15 @@ from scripts.stt_checker.enumerate_stts import (
     enumerate_stts,
     integer_optimum_by_enumeration,
 )
+from scripts.stt_checker.frontier_artifacts import build_frontier_artifact
 from scripts.stt_checker.rationals import parse_rational, rational_to_string
 from scripts.stt_checker.stt import validate_stt
 from scripts.stt_checker.topology import TreeTopology
+from scripts.stt_checker.topology_generation import (
+    decode_prufer_code,
+    generate_unlabeled_tree_topologies,
+    tree_canonical_form,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -92,6 +99,42 @@ class TopologyTests(unittest.TestCase):
         self.assertIn("path", two.derived_subclass_labels())
         self.assertIn("star", two.derived_subclass_labels())
         self.assertIn("edge-diameter-0", two.derived_subclass_labels())
+
+
+class TopologyGenerationTests(unittest.TestCase):
+    def test_prufer_decoding_tiny_examples(self):
+        self.assertEqual(decode_prufer_code([], 1), [])
+        self.assertEqual(decode_prufer_code([], 2), [(0, 1)])
+        self.assertEqual(decode_prufer_code([0, 0], 4), [(0, 1), (0, 2), (0, 3)])
+        self.assertEqual(decode_prufer_code([1, 2], 4), [(0, 1), (1, 2), (2, 3)])
+
+    def test_canonical_form_matches_isomorphic_relabelings(self):
+        first = TreeTopology.from_dict(
+            {"n": 5, "vertices": [0, 1, 2, 3, 4], "edges": [[0, 1], [1, 2], [2, 3], [2, 4]]}
+        )
+        second = TreeTopology.from_dict(
+            {"n": 5, "vertices": [0, 1, 2, 3, 4], "edges": [[3, 0], [0, 4], [4, 1], [4, 2]]}
+        )
+        self.assertEqual(tree_canonical_form(first), tree_canonical_form(second))
+
+    def test_unlabeled_generation_counts_through_six(self):
+        expected = {1: 1, 2: 1, 3: 1, 4: 2, 5: 3, 6: 6}
+        generated = generate_unlabeled_tree_topologies(6)
+        counts = {n: 0 for n in expected}
+        for item in generated:
+            counts[item["n"]] += 1
+        self.assertEqual(counts, expected)
+
+    def test_edge_diameter_filtering(self):
+        generated = generate_unlabeled_tree_topologies(6)
+        edge_diameter_3 = [item for item in generated if item["edge_diameter"] == 3]
+        edge_diameter_at_most_3 = [
+            item for item in generated if item["edge_diameter"] <= 3
+        ]
+        self.assertTrue(edge_diameter_3)
+        self.assertTrue(all("edge-diameter-3" in item["derived_labels"] for item in edge_diameter_3))
+        self.assertLess(len(edge_diameter_at_most_3), len(generated))
+        self.assertTrue(all(item["edge_diameter"] <= 3 for item in edge_diameter_at_most_3))
 
 
 class STTTests(unittest.TestCase):
@@ -225,6 +268,25 @@ class CliTests(unittest.TestCase):
             )
         self.assertEqual(code, 1)
         self.assertIn("safety cap 13", stderr.getvalue())
+
+
+class FrontierArtifactTests(unittest.TestCase):
+    def test_frontier_artifact_smoke(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            paths = build_frontier_artifact(
+                max_n=5,
+                max_enumeration=100_000,
+                data_dir=root / "data",
+                report_path=root / "reports" / "stt_v0_frontier_artifact.md",
+            )
+            self.assertTrue(paths.json_path.exists())
+            self.assertTrue(paths.csv_path.exists())
+            self.assertTrue(paths.report_path.exists())
+            payload = json.loads(paths.json_path.read_text(encoding="utf-8"))
+            self.assertFalse(payload["lp_feasibility_checked"])
+            self.assertEqual(len(payload["topologies"]), 8)
+            self.assertIn("No LP feasibility is checked", paths.report_path.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

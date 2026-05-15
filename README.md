@@ -60,6 +60,10 @@ examples. A quick smoke test from the repo root is:
 python -m scripts.stt_checker.cli check examples/stt/long_star_7.json
 ```
 
+The first reproducible small-topology frontier artifact is generated in
+`reports/stt_v0_frontier_artifact.md`, with companion machine-readable files in
+`data/stt_frontier/`.
+
 ## Source Discipline
 
 Do not invent citations or open-problem claims. Use TODO markers until sources are checked. Primary sources are preferred over survey summaries, and every promoted candidate should include a skeptical audit explaining why the claimed open status might be wrong.

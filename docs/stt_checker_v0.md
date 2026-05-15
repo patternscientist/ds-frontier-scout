@@ -149,6 +149,28 @@ python -m scripts.stt_checker.cli enumerate-topology path/to/topology.json
 The CLI prints `PASS` on valid inputs, `FAIL` on invalid inputs, and exits
 nonzero on failure.
 
+## Frontier Artifact Generation
+
+The v0 frontier artifact generator builds a reproducible small-instance
+summary from checker-supported operations only:
+
+```sh
+python -m scripts.stt_checker.frontier_artifacts --max-n 7 --max-enumeration 100000
+```
+
+It generates labeled trees from Prufer codes, deduplicates them up to tree
+isomorphism with an AHU-style center-rooted canonical form, derives topology
+labels with the existing checker, enumerates STTs when below the cap, and
+computes exact integer optima for uniform and leaf-heavy rational weights.
+
+Outputs:
+
+- `data/stt_frontier/topologies_n_leq_7.json`;
+- `data/stt_frontier/topology_summary_n_leq_7.csv`;
+- `reports/stt_v0_frontier_artifact.md`.
+
+This command does not implement or check any LP constraints.
+
 ## Unsupported LP Fields
 
 The following fields are deliberately unsupported in proof mode:
@@ -168,7 +190,8 @@ to reproduce Sadeh-Kaplan-Zwick LP results.
   the pilot target, not ordinary vertex-tree diameter.
 - `almost-star` is not formalized.
 - Only vertex-frequency objectives are supported.
-- There is no canonical unlabeled tree isomorphism support.
+- Canonical unlabeled tree support is limited to the small AHU-style generator
+  used by the frontier artifact.
 - No LP, SAT, SMT, or dual-certificate backend exists in v0.
 
 ## Next Steps
