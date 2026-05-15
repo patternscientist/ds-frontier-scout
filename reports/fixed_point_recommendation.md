@@ -89,4 +89,6 @@ These are good second-wave leads. None beats STT LP for a first integrated theor
 
 ## Final Recommendation
 
-Freeze broad scouting and start the `search_trees_on_trees_lp` pilot. The first week should produce a checker scaffold and at least one exact checked STT certificate, not a claimed new theorem. The first theorem attempt should target edge-diameter-3 depth-projection integrality, with failure treated as a useful counterexample/certificate outcome.
+Final pilot recommendation from the pre-v2 synthesis: search_trees_on_trees_lp is the best current pilot discovered so far. However, source-diverse Scouting v2 remains pending and must be completed before the project commits to the two-week theorem/formalization pilot.Freeze broad scouting and start the `search_trees_on_trees_lp` pilot. The first week should produce a checker scaffold and at least one exact checked STT certificate, not a claimed new theorem. The first theorem attempt should target edge-diameter-3 depth-projection integrality, with failure treated as a useful counterexample/certificate outcome.
+
+Do not treat this document as the final pilot commitment. Use it as the incumbent recommendation entering Scouting v2.

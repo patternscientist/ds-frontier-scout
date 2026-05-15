@@ -8,3 +8,7 @@ Thumbs.db
 *.pem
 *.p12
 *.pfx
+
+# Local research/source extractions
+external/skz_lp_arxiv/
+*.tar.gz

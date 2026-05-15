@@ -4,7 +4,7 @@ Date: 2026-05-15
 
 ## Pilot Objective
 
-Start a one-week `search_trees_on_trees_lp` pilot that tests whether this repository can move from scouting into proof/certificate work. The pilot should not try to solve general optimal STT computation. It should build a trustworthy exact checker scaffold, reproduce at least one known small STT/LP-style artifact, and run a narrow theorem attempt on an edge-diameter-3 subclass target.
+This is the incumbent STT LP pilot plan to use if STT survives Scouting v2.Start a one-week `search_trees_on_trees_lp` pilot that tests whether this repository can move from scouting into proof/certificate work. The pilot should not try to solve general optimal STT computation. It should build a trustworthy exact checker scaffold, reproduce at least one known small STT/LP-style artifact, and run a narrow theorem attempt on an edge-diameter-3 subclass target.
 
 This is the best current pilot discovered so far; source-diverse Scouting v2
 remains pending.
