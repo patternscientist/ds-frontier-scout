@@ -76,7 +76,7 @@ Required top-level fields for the first scaffold:
     "n": 7,
     "vertices": [0, 1, 2, 3, 4, 5, 6],
     "edges": [[0, 1], [1, 2], [2, 3], [2, 4], [4, 5], [4, 6]],
-    "declared_subclass_labels": ["edge-diameter-4"]
+    "declared_subclass_labels": ["edge-diameter-3"]
   },
   "weights": {
     "type": "vertex_frequency",

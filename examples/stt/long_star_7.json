@@ -1,0 +1,40 @@
+{
+  "schema_version": "stt-cert-v0",
+  "certificate_id": "example-long-star-7",
+  "mode": "proof",
+  "topology": {
+    "n": 7,
+    "vertices": [0, 1, 2, 3, 4, 5, 6],
+    "edges": [[0, 1], [1, 2], [2, 3], [2, 4], [4, 5], [4, 6]],
+    "declared_subclass_labels": ["edge-diameter-3"]
+  },
+  "weights": {
+    "type": "vertex_frequency",
+    "normalization": "sum_1",
+    "values": {
+      "0": "3/23",
+      "1": "2/23",
+      "2": "0",
+      "3": "2/23",
+      "4": "3/23",
+      "5": "3/23",
+      "6": "10/23"
+    }
+  },
+  "stt": {
+    "component_roots": [
+      {"component": [0, 1, 2, 3, 4, 5, 6], "root": 4},
+      {"component": [0, 1, 2, 3], "root": 1},
+      {"component": [2, 3], "root": 3}
+    ]
+  },
+  "cost": {
+    "depth_base": 1,
+    "weighted_cost": "48/23"
+  },
+  "integer_optimum": {
+    "certificate_type": "checker_enumerates_all_stts",
+    "value": "48/23",
+    "stt_count": 807
+  }
+}
