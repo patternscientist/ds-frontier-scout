@@ -1,6 +1,7 @@
 import copy
 import io
 import json
+import tempfile
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
 from fractions import Fraction
@@ -13,12 +14,34 @@ from scripts.stt_checker.enumerate_stts import (
     enumerate_stts,
     integer_optimum_by_enumeration,
 )
+from scripts.stt_checker.frontier_artifacts import build_frontier_artifact
 from scripts.stt_checker.rationals import parse_rational, rational_to_string
 from scripts.stt_checker.stt import validate_stt
 from scripts.stt_checker.topology import TreeTopology
+from scripts.stt_checker.topology_generation import (
+    decode_prufer_code,
+    generate_labeled_tree_topologies,
+    generate_unlabeled_tree_topologies,
+    tree_canonical_form,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _independent_stt_count(topology, component=None):
+    """Count recursive STTs without constructing STTResult objects."""
+
+    if component is None:
+        component = tuple(topology.vertices)
+    component = tuple(sorted(component))
+    total = 0
+    for root in component:
+        subtotal = 1
+        for child in topology.connected_components_after_removing(root, component):
+            subtotal *= _independent_stt_count(topology, child)
+        total += subtotal
+    return total
 
 
 class RationalTests(unittest.TestCase):
@@ -94,6 +117,91 @@ class TopologyTests(unittest.TestCase):
         self.assertIn("edge-diameter-0", two.derived_subclass_labels())
 
 
+class TopologyGenerationTests(unittest.TestCase):
+    def test_prufer_decoding_tiny_examples(self):
+        self.assertEqual(decode_prufer_code([], 1), [])
+        self.assertEqual(decode_prufer_code([], 2), [(0, 1)])
+        self.assertEqual(decode_prufer_code([0, 0], 4), [(0, 1), (0, 2), (0, 3)])
+        self.assertEqual(decode_prufer_code([1, 2], 4), [(0, 1), (1, 2), (2, 3)])
+        with self.assertRaises(ValueError):
+            decode_prufer_code([0], 2)
+        with self.assertRaises(ValueError):
+            decode_prufer_code([4, 0], 4)
+
+    def test_labeled_generation_covers_cayley_counts(self):
+        for n in range(1, 6):
+            generated = list(generate_labeled_tree_topologies(n))
+            expected = 1 if n == 1 else n ** (n - 2)
+            self.assertEqual(len(generated), expected)
+            edge_sets = {topology.edges for topology in generated}
+            self.assertEqual(len(edge_sets), expected)
+            for topology in generated:
+                self.assertEqual(topology.vertices, tuple(range(n)))
+                self.assertEqual(len(topology.edges), n - 1)
+
+    def test_canonical_form_matches_isomorphic_relabelings(self):
+        one_center_first = TreeTopology.from_dict(
+            {"n": 5, "vertices": [0, 1, 2, 3, 4], "edges": [[0, 1], [1, 2], [2, 3], [2, 4]]}
+        )
+        one_center_second = TreeTopology.from_dict(
+            {"n": 5, "vertices": [0, 1, 2, 3, 4], "edges": [[3, 0], [0, 4], [4, 1], [4, 2]]}
+        )
+        self.assertEqual(
+            tree_canonical_form(one_center_first),
+            tree_canonical_form(one_center_second),
+        )
+
+        two_center_first = TreeTopology.from_dict(
+            {
+                "n": 6,
+                "vertices": [0, 1, 2, 3, 4, 5],
+                "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5]],
+            }
+        )
+        two_center_second = TreeTopology.from_dict(
+            {
+                "n": 6,
+                "vertices": [0, 1, 2, 3, 4, 5],
+                "edges": [[5, 0], [0, 3], [3, 2], [2, 4], [4, 1]],
+            }
+        )
+        self.assertEqual(
+            tree_canonical_form(two_center_first),
+            tree_canonical_form(two_center_second),
+        )
+
+    def test_canonical_form_separates_non_isomorphic_shapes(self):
+        path = TreeTopology.from_dict(
+            {"n": 4, "vertices": [0, 1, 2, 3], "edges": [[0, 1], [1, 2], [2, 3]]}
+        )
+        star = TreeTopology.from_dict(
+            {"n": 4, "vertices": [0, 1, 2, 3], "edges": [[0, 1], [0, 2], [0, 3]]}
+        )
+        self.assertNotEqual(tree_canonical_form(path), tree_canonical_form(star))
+
+    def test_unlabeled_generation_counts_through_seven(self):
+        expected = {1: 1, 2: 1, 3: 1, 4: 2, 5: 3, 6: 6, 7: 11}
+        generated = generate_unlabeled_tree_topologies(7)
+        counts = {n: 0 for n in expected}
+        for item in generated:
+            counts[item["n"]] += 1
+            topology = item["topology"]
+            self.assertEqual(topology.vertices, tuple(range(item["n"])))
+            self.assertEqual(len(topology.edges), item["n"] - 1)
+        self.assertEqual(counts, expected)
+
+    def test_edge_diameter_filtering(self):
+        generated = generate_unlabeled_tree_topologies(6)
+        edge_diameter_3 = [item for item in generated if item["edge_diameter"] == 3]
+        edge_diameter_at_most_3 = [
+            item for item in generated if item["edge_diameter"] <= 3
+        ]
+        self.assertTrue(edge_diameter_3)
+        self.assertTrue(all("edge-diameter-3" in item["derived_labels"] for item in edge_diameter_3))
+        self.assertLess(len(edge_diameter_at_most_3), len(generated))
+        self.assertTrue(all(item["edge_diameter"] <= 3 for item in edge_diameter_at_most_3))
+
+
 class STTTests(unittest.TestCase):
     def test_validate_stt_with_omitted_singletons(self):
         topology = TreeTopology.from_dict(
@@ -144,6 +252,11 @@ class EnumerationTests(unittest.TestCase):
             {"n": 4, "vertices": [0, 1, 2, 3], "edges": [[0, 1], [0, 2], [0, 3]]}
         )
         self.assertEqual(len(enumerate_stts(star)), 16)
+
+    def test_counts_match_independent_recurrence(self):
+        for item in generate_unlabeled_tree_topologies(6):
+            topology = item["topology"]
+            self.assertEqual(len(enumerate_stts(topology)), _independent_stt_count(topology))
 
     def test_enumeration_safety_cap(self):
         path = TreeTopology.from_dict(
@@ -225,6 +338,75 @@ class CliTests(unittest.TestCase):
             )
         self.assertEqual(code, 1)
         self.assertIn("safety cap 13", stderr.getvalue())
+
+
+class FrontierArtifactTests(unittest.TestCase):
+    def test_frontier_artifact_smoke(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            paths = build_frontier_artifact(
+                max_n=5,
+                max_enumeration=100_000,
+                data_dir=root / "data",
+                report_path=root / "reports" / "stt_v0_frontier_artifact.md",
+            )
+            self.assertTrue(paths.json_path.exists())
+            self.assertTrue(paths.csv_path.exists())
+            self.assertTrue(paths.report_path.exists())
+            payload = json.loads(paths.json_path.read_text(encoding="utf-8"))
+            self.assertFalse(payload["lp_feasibility_checked"])
+            self.assertEqual(len(payload["topologies"]), 8)
+            self.assertIn("No LP feasibility is checked", paths.report_path.read_text(encoding="utf-8"))
+
+    def test_frontier_artifact_records_caps_without_optima(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            paths = build_frontier_artifact(
+                max_n=5,
+                max_enumeration=10,
+                data_dir=root / "data",
+                report_path=root / "reports" / "stt_v0_frontier_artifact.md",
+            )
+            payload = json.loads(paths.json_path.read_text(encoding="utf-8"))
+            capped = [
+                record
+                for record in payload["topologies"]
+                if record["enumeration"]["exceeded_cap"]
+            ]
+            self.assertTrue(capped)
+            for record in capped:
+                self.assertFalse(record["enumeration"]["completed"])
+                self.assertIsNone(record["enumeration"]["stt_count"])
+                self.assertIsNone(record["uniform_weights"]["optimum"])
+                self.assertIsNone(record["leaf_heavy_weights"]["optimum"])
+
+    def test_frontier_artifact_deterministic_rerun(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            first = build_frontier_artifact(
+                max_n=5,
+                max_enumeration=100_000,
+                data_dir=root / "first" / "data",
+                report_path=root / "first" / "reports" / "stt_v0_frontier_artifact.md",
+            )
+            second = build_frontier_artifact(
+                max_n=5,
+                max_enumeration=100_000,
+                data_dir=root / "second" / "data",
+                report_path=root / "second" / "reports" / "stt_v0_frontier_artifact.md",
+            )
+            self.assertEqual(
+                first.json_path.read_text(encoding="utf-8"),
+                second.json_path.read_text(encoding="utf-8"),
+            )
+            self.assertEqual(
+                first.csv_path.read_text(encoding="utf-8"),
+                second.csv_path.read_text(encoding="utf-8"),
+            )
+            self.assertEqual(
+                first.report_path.read_text(encoding="utf-8"),
+                second.report_path.read_text(encoding="utf-8"),
+            )
 
 
 if __name__ == "__main__":
