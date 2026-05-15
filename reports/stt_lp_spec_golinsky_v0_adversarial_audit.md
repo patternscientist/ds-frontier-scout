@@ -299,10 +299,10 @@ Invoke-WebRequest -Uri https://arxiv.org/e-print/2501.17563 -OutFile arxiv-2501.
 tar -tf arxiv-2501.17563-src.tar.gz
 tar -xzf arxiv-2501.17563-src.tar.gz -C .audit_arxiv_2501_17563
 rg ... .audit_arxiv_2501_17563
-python -m scripts.stt_checker.cli check examples/stt/long_star_7.json
+python -m scripts.stt_checker.cli check examples/stt/edge_diameter3_checker_only_7.json
 ```
 
-Result for the checked-in `examples/stt/long_star_7.json`: valid checker-only
+Result for the checked-in `examples/stt/edge_diameter3_checker_only_7.json`: valid checker-only
 certificate, but not the source long-star topology.
 
 Additional source-topology check:

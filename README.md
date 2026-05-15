@@ -57,8 +57,14 @@ See `docs/stt_checker_v0.md` for the supported certificate subset and CLI
 examples. A quick smoke test from the repo root is:
 
 ```sh
-python -m scripts.stt_checker.cli check examples/stt/long_star_7.json
+python -m scripts.stt_checker.cli check examples/stt/skz_long_star_7_stt_optimum.json
 ```
+
+`examples/stt/edge_diameter3_checker_only_7.json` is a valid checker-only
+edge-diameter-3 fixture, but it is not the Sadeh-Kaplan-Zwick source long-star
+topology. `examples/stt/skz_long_star_7_stt_optimum.json` is source-aligned for
+the SKZ long-star topology and combinatorial STT optimum only; a full SKZ LP
+fixture still requires complete source-transcribed `X`/`Z`/`D` values.
 
 The first reproducible small-topology frontier artifact is generated in
 `reports/stt_v0_frontier_artifact.md`, with companion machine-readable files in
@@ -81,6 +87,6 @@ Do not invent citations or open-problem claims. Use TODO markers until sources a
 
 ## Current Status
 
-This repository now contains the initial scaffold; Batch 001 scouting; targeted high-priority patches; the Batch 001 adversarial audit; scoring infrastructure; the Batch 002 saturation pass and adversarial audit; cross-batch fixed-point synthesis; Batch 003 mini-frontier scouting; the STT LP certificate schema; the Batch 003 adversarial audit; and exact rational LP feasibility checking for `golinsky_stt_lp_v0`. The current leading pilot remains `search_trees_on_trees_lp`, especially as a combined theorem/certificate/OpenEvolve project.
+This repository now contains the initial scaffold; Batch 001 scouting; targeted high-priority patches; the Batch 001 adversarial audit; scoring infrastructure; the Batch 002 saturation pass and adversarial audit; cross-batch pilot-ready synthesis; Batch 003 mini-frontier scouting; the STT LP certificate schema; the Batch 003 adversarial audit; and exact rational LP feasibility checking for `golinsky_stt_lp_v0`. The current leading pilot remains `search_trees_on_trees_lp`, especially as a combined theorem/certificate/OpenEvolve project.
 
 Batch 003 added candidates in dynamic-stream min-cut, directed compact roundtrip routing, concurrent history-independent hash-table cell capacity, connected geometric circle-segment queries, and cache-oblivious implicit dictionary scans. Its adversarial audit downgraded several evaluator claims, especially the concurrent SHI and cache-oblivious scan formulations, and left checker-blocking clarifications for the STT LP certificate schema before implementation.

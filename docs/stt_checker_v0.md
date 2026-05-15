@@ -123,8 +123,8 @@ Proof-mode integer optima are currently supported only through:
 {
   "integer_optimum": {
     "certificate_type": "checker_enumerates_all_stts",
-    "value": "48/23",
-    "stt_count": 807
+    "value": "53/23",
+    "stt_count": 662
   }
 }
 ```
@@ -137,11 +137,19 @@ and, if supplied, the STT count.
 From the repository root:
 
 ```sh
-python -m scripts.stt_checker.cli check examples/stt/long_star_7.json
+python -m scripts.stt_checker.cli check examples/stt/skz_long_star_7_stt_optimum.json
 python -m scripts.stt_checker.cli check examples/stt/path_4_proof.json --normalized-json
-python -m scripts.stt_checker.cli enumerate examples/stt/long_star_7.json
+python -m scripts.stt_checker.cli enumerate examples/stt/edge_diameter3_checker_only_7.json
 python -m scripts.stt_checker.cli check-lp examples/stt_lp/path_4_stt_induced_lp.json
 ```
+
+The checker-only 7-node fixture
+`examples/stt/edge_diameter3_checker_only_7.json` is a valid edge-diameter-3
+topology for exercising the combinatorial checker, but it is not the
+Sadeh-Kaplan-Zwick source long-star topology. The source-aligned combinatorial
+fixture is `examples/stt/skz_long_star_7_stt_optimum.json`, with STT count 662
+and base-1 optimum `53/23`. It intentionally contains no LP `X`/`Z`/`D` values;
+a full SKZ LP fixture still requires complete source transcription.
 
 To enumerate a standalone topology JSON object:
 

@@ -1,11 +1,11 @@
 {
   "schema_version": "stt-cert-v0",
-  "certificate_id": "example-long-star-7",
+  "certificate_id": "example-skz-long-star-7-stt-optimum",
   "mode": "proof",
   "topology": {
     "n": 7,
     "vertices": [0, 1, 2, 3, 4, 5, 6],
-    "edges": [[0, 1], [1, 2], [2, 3], [2, 4], [4, 5], [4, 6]],
+    "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [2, 5], [5, 6]],
     "declared_subclass_labels": ["edge-diameter-3"]
   },
   "weights": {
@@ -23,18 +23,19 @@
   },
   "stt": {
     "component_roots": [
-      {"component": [0, 1, 2, 3, 4, 5, 6], "root": 4},
-      {"component": [0, 1, 2, 3], "root": 1},
-      {"component": [2, 3], "root": 3}
+      {"component": [0, 1, 2, 3, 4, 5, 6], "root": 2},
+      {"component": [0, 1], "root": 0},
+      {"component": [3, 4], "root": 4},
+      {"component": [5, 6], "root": 6}
     ]
   },
   "cost": {
     "depth_base": 1,
-    "weighted_cost": "48/23"
+    "weighted_cost": "53/23"
   },
   "integer_optimum": {
     "certificate_type": "checker_enumerates_all_stts",
-    "value": "48/23",
-    "stt_count": 807
+    "value": "53/23",
+    "stt_count": 662
   }
 }

@@ -1,4 +1,4 @@
-# Fixed-Point Recommendation: Post-Batch-003
+# Pilot-Ready Recommendation: Post-Batch-003
 
 Date: 2026-05-15
 
@@ -6,39 +6,66 @@ Scope: final cross-batch synthesis after Batch 003 and its adversarial audit, us
 
 ## Executive Summary
 
-The recommendation is **stable enough to stop broad scouting and begin the first pilot**. This does not mean the whole research map is closed; it means the first-pilot decision has reached a fixed point. Batch 003 added useful mini-frontiers, but its adversarial audit downgraded their evaluator readiness and did not produce a candidate with the same combined source strength, theorem texture, finite certificate path, and implementation surface as `search_trees_on_trees_lp`.
+The pre-v2 recommendation is that `search_trees_on_trees_lp` is the best current pilot discovered so far. This is an incumbent recommendation, not a final project commitment.
 
-Final pilot recommendation: begin a two-track `search_trees_on_trees_lp` pilot now. Do not run another scouting batch before the pilot. Keep later scouting as a side queue for strict implicit cache-oblivious scans, dynamic-stream min-cut space, connected circle-segment lower bounds, and directed roundtrip routing.
+This does not mean the whole research map is closed. It means the pre-v2 scouting work found one candidate with unusually good combined source strength, theorem texture, finite certificate path, and implementation surface. Source-diverse Scouting v2 remains pending and must be completed before committing to the two-week theorem/formalization pilot.
+
+Final pre-v2 recommendation: carry `search_trees_on_trees_lp` forward as the incumbent theorem-pilot candidate entering Scouting v2. Do not treat this document as authorization to start the final pilot immediately.
 
 ## Required Judgments
 
-1. Does any Batch 003 candidate dislodge `search_trees_on_trees_lp`?
-   No. The strongest Batch 003 survivor is `dynamic_stream_mincut_space`, but it is a lower-bound-heavy streaming problem with only hypothesis-generating finite evaluators. `cache_oblivious_implicit_scanning`, `connected_circle_segment_queries`, and `directed_roundtrip_compact_routing` are real leads but not as checker-ready. `concurrent_shi_cell_capacity` was downgraded because the residual was inferred and likely misstated.
+### 1. Does any Batch 003 candidate dislodge `search_trees_on_trees_lp`?
 
-2. Are the recommendations unstable, partially stable, or stable?
-   Stable for the first pilot. Partially stable for the long-term ordering after the top cluster, because several second-wave candidates still need modern-status checks or model extraction.
+No.
 
-3. Should we run more scouting, or begin the pilot?
-   Begin the pilot. The search space is saturated enough for a first serious project, and another broad batch would mostly refine second-wave rankings.
+The strongest Batch 003 survivor is `dynamic_stream_mincut_space`, but it is a lower-bound-heavy streaming problem with only hypothesis-generating finite evaluators. `cache_oblivious_implicit_scanning`, `connected_circle_segment_queries`, and `directed_roundtrip_compact_routing` are real leads but not as checker-ready. `concurrent_shi_cell_capacity` was downgraded because the residual was inferred and likely misstated.
 
-4. What exactly is the first theorem target?
-   Determine whether the depth-space projection of the versioned Golinsky STT LP equals the convex hull of STT depth vectors for every base tree whose edge-diameter is at most 3. Equivalently for the pilot: prove this subclass projection-integrality statement, or produce a minimal exact rational counterexample. Paths and stars are baselines, not open exact-optimization cases.
+### 2. Are the recommendations unstable, partially stable, or stable?
 
-5. What exactly is the first computational/certificate/OpenEvolve target?
-   Build a proof-mode STT certificate/checker scaffold that can validate topology, weights, recursive STTs, depths, exact costs, subclass labels, and complete small-`n` STT enumeration, then reproduce a Sadeh-Kaplan-Zwick-style small certificate such as the 7-node long-star data before searching edge-diameter-3 topologies for fractional depth-space behavior.
+Stable enough to define the incumbent entering Scouting v2. Partially stable for the long-term ordering after the top cluster, because several second-wave candidates still need modern-status checks or model extraction.
 
-6. What are the checker-blocking clarifications in `stt_lp_certificate_schema.md`?
-   The checker needs a schema/checker version and exact `relaxation_version`; explicit variable domains for `X`, `Z`, and `D`, including symmetry and absent-variable defaults; a machine-implemented LP constraint set; machine-readable root-rounding formulas; proof-mode enumeration or dual certificates rather than trusted digests; and a fixed convention for `almost-star`, which is currently advisory.
+### 3. Should we run more scouting, or begin the final pilot?
 
-7. What should the first no-internet blind prompt be?
-   Use the STT prompt in the pilot plan, centered on edge-diameter-3 depth-projection integrality. It must define STTs recursively, depth-based cost, paths/stars as sanity checks, and the target as either a proof or a counterexample without mentioning Sadeh-Kaplan-Zwick, Golinsky, or known counterexamples.
+Run the planned source-diverse Scouting v2 before beginning the final two-week pilot.
 
-8. What should the first Codex implementation prompt be?
-   Use the implementation prompt in the pilot plan: implement the STT LP certificate/checker scaffold, but do not guess Golinsky constraints until `relaxation_version` and variable domains are pinned down. The first accepted scope is exact rational parsing, topology validation, STT recursion/enumeration, cost checking, subclass-label derivation, JSON normalization, and tests.
+The search space is saturated enough to stop open-ended broad scouting, but the revised project strategy requires one final under-attendedness-first scouting correction before pilot commitment. Scouting v2 should test whether STT LP genuinely remains the best theorem/formalization pilot once source diversity and literal under-attendedness are prioritized.
+
+### 4. What exactly is the incumbent theorem target if STT LP survives Scouting v2?
+
+Determine whether the depth-space projection of the versioned Golinsky STT LP has the same lower envelope as the convex hull of STT depth vectors for every base tree whose edge-diameter is at most 3.
+
+Equivalently for the pilot: prove this subclass projection-integrality statement, or produce a minimal exact rational counterexample. Paths and stars are baselines, not open exact-optimization cases.
+
+### 5. What exactly is the incumbent computational/certificate/OpenEvolve target?
+
+Build a proof-mode STT certificate/checker scaffold that can validate topology, weights, recursive STTs, depths, exact costs, subclass labels, and complete small-`n` STT enumeration. Then reproduce the source-aligned 7-node SKZ long-star combinatorial optimum before searching edge-diameter-3 topologies for fractional depth-space behavior.
+
+### 6. What are the checker-blocking clarifications in `stt_lp_certificate_schema.md`?
+
+The checker needs:
+
+- a schema/checker version and exact `relaxation_version`;
+- explicit variable domains for `X`, `Z`, and `D`, including symmetry and absent-variable defaults;
+- a machine-implemented LP constraint set;
+- machine-readable root-rounding formulas;
+- proof-mode enumeration or dual certificates rather than trusted digests;
+- a fixed convention for `almost-star`, which is currently advisory.
+
+### 7. What should the first no-internet blind prompt be?
+
+Use `reports/stt_true_blind_prompt.md` before exposing any frontier context.
+
+Use `reports/stt_frontier_prompt.md` only after blind attempts are saved.
+
+### 8. What should the first Codex implementation prompt be?
+
+If STT LP survives Scouting v2, use the implementation prompt in `reports/stt_pilot_plan.md`: implement the STT LP certificate/checker scaffold, but do not guess Golinsky constraints until `relaxation_version` and variable domains are pinned down.
+
+The first accepted scope is exact rational parsing, topology validation, STT recursion/enumeration, cost checking, subclass-label derivation, JSON normalization, and tests.
 
 ## Final Top Theorem-Project Candidates
 
-1. `search_trees_on_trees_lp` - First theorem pilot; explicit open status, narrow subclass targets, and a certificate path.
+1. `search_trees_on_trees_lp` - Incumbent theorem pilot entering Scouting v2; explicit open status, narrow subclass targets, and a certificate path.
 2. `unified_bound_heaps` - Strong theorem texture only in the pointer-model working-set/decrease-key formulation.
 3. `lazy_b_trees` - Explicit recent external-memory biased-search-tree gap; needs exact operation/bound extraction.
 4. `karp_rabin_collision_detection` - Crisp theorem target with exact finite instances; keep deterministic detection and randomized false rejection separate.
@@ -77,16 +104,18 @@ Final pilot recommendation: begin a two-track `search_trees_on_trees_lp` pilot n
 
 ## Batch 003 Implication
 
-Batch 003 covered the major previously underexplored areas well enough for a first pilot:
+Batch 003 covered the major previously underexplored areas well enough to select an incumbent entering Scouting v2:
 
-- Streaming/sketching produced `dynamic_stream_mincut_space`, explicit but not evaluator-first.
-- Distributed/network data structures produced `directed_roundtrip_compact_routing`, explicit but active and weak for OpenEvolve.
-- Concurrency/history independence produced `concurrent_shi_cell_capacity`, but the audit found the residual fragile.
-- Geometry produced `connected_circle_segment_queries`, useful but lower-bound/model-sensitive.
-- Cache-oblivious/external-memory scouting produced `cache_oblivious_implicit_scanning`, promising only under the exact `n`-cell implicit model.
+- streaming/sketching produced `dynamic_stream_mincut_space`, explicit but not evaluator-first;
+- distributed/network data structures produced `directed_roundtrip_compact_routing`, explicit but active and weak for OpenEvolve;
+- concurrency/history independence produced `concurrent_shi_cell_capacity`, but the audit found the residual fragile;
+- geometry produced `connected_circle_segment_queries`, useful but lower-bound/model-sensitive;
+- cache-oblivious/external-memory scouting produced `cache_oblivious_implicit_scanning`, promising only under the exact `n`-cell implicit model.
 
-These are good second-wave leads. None beats STT LP for a first integrated theorem/certificate/OpenEvolve pilot.
+These are good second-wave leads. None beats STT LP as the pre-v2 incumbent for an integrated theorem/certificate/OpenEvolve pilot.
 
 ## Final Recommendation
 
-Freeze broad scouting and start the `search_trees_on_trees_lp` pilot. The first week should produce a checker scaffold and at least one exact checked STT certificate, not a claimed new theorem. The first theorem attempt should target edge-diameter-3 depth-projection integrality, with failure treated as a useful counterexample/certificate outcome.
+Do not start the final pilot from this document alone.
+
+Use `search_trees_on_trees_lp` as the incumbent recommendation entering source-diverse Scouting v2. After Scouting v2 and its adversarial audit, choose the two-week theorem/formalization pilot according to the v2 ranking rules. If STT LP survives, this document supplies the incumbent STT pilot rationale and starting target.
