@@ -1,0 +1,15 @@
+sources:
+  - id: ajtai_feldman_hassidim_nelson_icalp_2009_arxiv_2015
+    title: "Sorting and Selection with Imprecise Comparisons"
+    authors: ["Miklos Ajtai", "Vitaly Feldman", "Avinatan Hassidim", "Jelani Nelson"]
+    year: 2009
+    url: "https://arxiv.org/abs/1501.02911"
+    status: verified_batch_002
+    access_date: "2026-05-15"
+  - id: ajtai_feldman_hassidim_nelson_pdf
+    title: "Sorting and Selection with Imprecise Comparisons"
+    authors: ["Miklos Ajtai", "Vitaly Feldman", "Avinatan Hassidim", "Jelani Nelson"]
+    year: 2012
+    url: "https://people.eecs.berkeley.edu/~minilek/publications/papers/tournament_full.pdf"
+    status: verified_batch_002
+    access_date: "2026-05-15"

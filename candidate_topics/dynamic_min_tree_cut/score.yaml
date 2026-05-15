@@ -1,0 +1,11 @@
+open_status: open_but_recent_progress_context
+open_status_confidence: medium
+saturation_risk: high
+theorem_project_suitability: 3
+openevolve_suitability: 4
+lean_formalization_suitability: 2
+intellectual_interest: 4
+overall_score: 7.1
+confidence: medium
+best_use: OpenEvolve_project
+notes: "Keep narrowly focused on min-tree-cut or explicit dynamic cut certificates. Full dynamic min-cut is active and too broad."

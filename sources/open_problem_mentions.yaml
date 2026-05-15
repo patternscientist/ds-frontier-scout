@@ -152,3 +152,99 @@ mentions:
     quote_or_paraphrase: "The 2025 LP paper proves stars integral, gives nonintegral examples, and asks about paths and edge-diameter-3 topologies such as almost-stars."
     open_status: open_but_subclass_specific
     verification_notes: "Audited 2026-05-15. Section 5 explicitly lists paths and edge-diameter-3/'almost stars' as promising LP/root-rounding/integrality directions. Important: paths are solved for exact optimal BST/STT computation; the open issue is LP behavior, not exact search-tree optimization. Stars are proved integral and should be baseline only."
+
+  - id: range_mode_linear_space_query_gap
+    candidate_topic: range_mode_queries
+    source_id: chan_durocher_larsen_morrison_wilkinson_stacs_2012
+    source_url: "https://arxiv.org/abs/1101.4068"
+    quote_or_paraphrase: "Linear-space exact range mode has O(sqrt(n))-style query upper bounds, while known cell-probe lower bounds are much smaller; the optimal linear-space query time remains unresolved."
+    open_status: open
+    verification_notes: "Batch 002 checked 2026-05-15. Need a follow-up sweep after dynamic/conditional lower-bound papers before top-shortlist promotion."
+
+  - id: persistent_array_worst_case_loglog_linear_space
+    candidate_topic: persistent_arrays
+    source_id: dietz_1989_straka_2009_2013
+    source_url: "https://ufal.mff.cuni.cz/~straka/papers/2009-perarray.pdf"
+    quote_or_paraphrase: "Secondary summaries of Straka's persistent-array work state that O(log log m) worst-case time with linear space remains open, between linear-space slightly slower bounds and O(log log m) superlinear-space bounds."
+    open_status: uncertain_open
+    verification_notes: "Batch 002 checked 2026-05-15. Must verify exact open wording in Straka thesis/paper, not just summary pages."
+
+  - id: dynamic_text_indexing_linear_bits_substring_updates
+    candidate_topic: dynamic_text_indexing
+    source_id: chan_hon_lam_sadakane_dynamic_compressed_indexes
+    source_url: "https://www.researchgate.net/publication/220390557_Compressed_indexes_for_dynamic_text_collections"
+    quote_or_paraphrase: "The dynamic compressed-index paper asks whether a single dynamic text can be indexed in O(|T|) bits with substring updates and pattern search in polylogarithmic overhead."
+    open_status: open_modern_status_uncertain
+    verification_notes: "Batch 002 checked 2026-05-15 via available PDF snippets. Needs primary PDF/ACM version and post-2007 dynamic FM-index follow-up sweep."
+
+  - id: history_independent_variable_size_allocation
+    candidate_topic: history_independent_allocation
+    source_id: naor_teague_stoc_2001
+    source_url: "https://www.wisdom.weizmann.ac.il/~naor/PAPERS/history_abs.html"
+    quote_or_paraphrase: "Naor and Teague state that their main remaining open problem is whether variable-size record allocation can be made history independent with low overhead."
+    open_status: open_modern_status_uncertain
+    verification_notes: "Batch 002 checked 2026-05-15. Verify whether later history-independent file-system/allocation work closes or narrows this."
+
+  - id: history_independent_concurrent_hashing_frontier
+    candidate_topic: history_independent_data_structures
+    source_id: attiya_bender_farach_colton_oshman_schiller_2024_2025
+    source_url: "https://arxiv.org/abs/2503.21016"
+    quote_or_paraphrase: "The 2025 concurrent hash-table paper studies a stated open problem on strongly history-independent concurrent dictionaries, gives a lock-free construction, and proves lower bounds for very small cells."
+    open_status: partially_resolved_residual_uncertain
+    verification_notes: "Batch 002 checked 2026-05-15. Do not promote until a residual theorem target is isolated."
+
+  - id: kinetic_higher_dimensional_extent
+    candidate_topic: kinetic_high_dim_extent
+    source_id: basch_guibas_hershberger_1999_guibas_handbook
+    source_url: "https://geometry.stanford.edu/paper/g-KDS_DS-Handbook-04/g-KDS_DS-Handbook-04.pdf"
+    quote_or_paraphrase: "Classic kinetic-data-structure sources identify higher-dimensional kinetic convex hull and extent maintenance as poorly understood/open."
+    open_status: uncertain
+    verification_notes: "Batch 002 checked 2026-05-15. Needs line-level verification in Basch-Guibas-Hershberger and Agarwal-Guibas-Hershberger-Veach before promotion beyond medium confidence."
+
+  - id: imprecise_comparison_error2_randomized
+    candidate_topic: imprecise_comparison_sorting
+    source_id: ajtai_feldman_hassidim_nelson_icalp_2009_arxiv_2015
+    source_url: "https://arxiv.org/abs/1501.02911"
+    quote_or_paraphrase: "The paper asks whether randomized maximum finding with error 2 can be achieved using O(n) comparisons and leaves randomized sorting with error k open."
+    open_status: open_modern_status_uncertain
+    verification_notes: "Batch 002 checked 2026-05-15. Strong finite-tournament evaluator candidate; verify noisy-sorting follow-up literature."
+
+  - id: dynamic_min_tree_cut_polylog_subroutine
+    candidate_topic: dynamic_min_tree_cut
+    source_id: henzinger_krinninger_nanongkai_saranurak_dynamic_hardness
+    source_url: "https://people.csail.mit.edu/virgi/6.s078/papers/omv.pdf"
+    quote_or_paraphrase: "The dynamic-hardness paper highlights that even the min-tree-cut subroutine for dynamic min-cut has unknown polylogarithmic update complexity."
+    open_status: open_but_recent_progress_context
+    verification_notes: "Batch 002 checked 2026-05-15. Recent SODA 2025/2026 min-cut progress gives n^{o(1)} algorithms but does not obviously close the polylog/min-tree-cut subroutine."
+
+  - id: dynamic_stream_mincut_space_gap
+    candidate_topic: dynamic_graph_structures
+    source_id: itcs_2025_space_complexity_mincut
+    source_url: "https://drops.dagstuhl.de/storage/00lipics/lipics-vol325-itcs2025/LIPIcs.ITCS.2025.43/LIPIcs.ITCS.2025.43.pdf"
+    quote_or_paraphrase: "Open Question 15 asks for the exact one-pass dynamic-stream space complexity of (1+epsilon)-approximate minimum cut in simple weighted graphs."
+    open_status: open
+    verification_notes: "Batch 002 checked 2026-05-15. Streaming rather than classic data-structure candidate; keep as lower-bound-flavored side lead."
+
+  - id: range_alpha_majority_space_output_sensitive
+    candidate_topic: range_mode_queries
+    source_id: durocher_he_munro_nicholson_skala_2013_range_majority
+    source_url: "https://www.sciencedirect.com/science/article/pii/S0890540112001526"
+    quote_or_paraphrase: "The range-majority paper asks whether space can be improved for range alpha-majority while preserving O(1/alpha) query time, and whether reporting can be output-sensitive O(k)."
+    open_status: open_modern_status_uncertain
+    verification_notes: "Batch 002 checked 2026-05-15. Adjacent to exact range mode; verify later range-majority literature."
+
+  - id: all_purpose_hashing_residual_tradeoffs
+    candidate_topic: hashing_dictionaries
+    source_id: bender_conway_farach_colton_kuszmaul_tagliavini_2021
+    source_url: "https://arxiv.org/abs/2109.04548"
+    quote_or_paraphrase: "All-Purpose Hashing frames the simultaneous achievement of desirable hash-table properties as a significant open problem before Iceberg hashing; residual exact tradeoffs need extraction from follow-up work."
+    open_status: uncertain
+    verification_notes: "Batch 002 checked 2026-05-15. Do not promote until a single unsolved residual theorem is identified."
+
+  - id: retroactive_lower_bound_strengthening
+    candidate_topic: retroactive_data_structures
+    source_id: demaine_iacono_langerman_2007_chung_demaine_hendrickson_lynch_2022
+    source_url: "https://arxiv.org/abs/2211.14664"
+    quote_or_paraphrase: "Recent lower bounds give essentially optimal fine-grained conditional separations for partial retroactivity; an unconditional/clean cell-probe strengthening remains an attractive but not yet explicitly sourced target."
+    open_status: uncertain
+    verification_notes: "Batch 002 checked 2026-05-15. Avoid claiming this exact strengthening is an explicitly stated open problem until a primary source is found."

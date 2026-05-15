@@ -1,0 +1,22 @@
+sources:
+  - id: basch_guibas_hershberger_1999
+    title: "Data Structures for Mobile Data"
+    authors: ["Julien Basch", "Leonidas J. Guibas", "John Hershberger"]
+    year: 1999
+    url: "https://doi.org/10.1006/jagm.1998.0988"
+    status: metadata_checked
+    access_date: "2026-05-15"
+  - id: guibas_kds_handbook
+    title: "Kinetic Data Structures"
+    authors: ["Leonidas J. Guibas"]
+    year: 2004
+    url: "https://geometry.stanford.edu/paper/g-KDS_DS-Handbook-04/g-KDS_DS-Handbook-04.pdf"
+    status: checked_batch_002
+    access_date: "2026-05-15"
+  - id: agarwal_guibas_hershberger_veach_extent
+    title: "Maintaining the Extent of a Moving Point Set"
+    authors: ["Pankaj K. Agarwal", "Leonidas J. Guibas", "John Hershberger", "Eric Veach"]
+    year: 2001
+    url: "https://doi.org/10.1007/s00454-001-0020-x"
+    status: metadata_checked
+    access_date: "2026-05-15"

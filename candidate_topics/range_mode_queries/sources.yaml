@@ -1,0 +1,22 @@
+sources:
+  - id: chan_durocher_larsen_morrison_wilkinson_stacs_2012
+    title: "Linear-Space Data Structures for Range Mode Query in Arrays"
+    authors: ["Timothy M. Chan", "Stephane Durocher", "Kasper Green Larsen", "Jason Morrison", "Bryan T. Wilkinson"]
+    year: 2012
+    url: "https://arxiv.org/abs/1101.4068"
+    status: verified_batch_002
+    access_date: "2026-05-15"
+  - id: greve_jorgensen_larsen_truelsen_icalp_2010
+    title: "Cell probe lower bounds and approximations for range mode"
+    authors: ["Mark Greve", "Allan Gronlund Jorgensen", "Kasper Green Larsen", "Jakob Truelsen"]
+    year: 2010
+    url: "https://doi.org/10.1007/978-3-642-14165-2_50"
+    status: metadata_only_batch_002
+    access_date: "2026-05-15"
+  - id: durocher_he_munro_nicholson_skala_2013_range_majority
+    title: "Range majority in constant time and linear space"
+    authors: ["Stephane Durocher", "Meng He", "J. Ian Munro", "Patrick K. Nicholson", "Matthew Skala"]
+    year: 2013
+    url: "https://www.sciencedirect.com/science/article/pii/S0890540112001526"
+    status: checked_for_adjacent_open_questions
+    access_date: "2026-05-15"

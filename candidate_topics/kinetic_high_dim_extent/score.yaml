@@ -1,0 +1,11 @@
+open_status: uncertain
+open_status_confidence: low_medium
+saturation_risk: low_medium
+theorem_project_suitability: 3
+openevolve_suitability: 3
+lean_formalization_suitability: 2
+intellectual_interest: 4
+overall_score: 6.5
+confidence: low_medium
+best_use: background_context
+notes: "Interesting kinetic-geometry lead, but too broad until narrowed to one measure and verified in primary sources."

@@ -1,0 +1,11 @@
+open_status: uncertain_open
+open_status_confidence: low_medium
+saturation_risk: low
+theorem_project_suitability: 4
+openevolve_suitability: 3
+lean_formalization_suitability: 4
+intellectual_interest: 4
+overall_score: 7.3
+confidence: low_medium
+best_use: theorem_project
+notes: "Promising persistent-structure tradeoff, but exact open wording must be verified in Straka/Dietz sources before claiming it as open."

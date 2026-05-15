@@ -1,0 +1,22 @@
+sources:
+  - id: henzinger_krinninger_nanongkai_saranurak_dynamic_hardness
+    title: "Unifying and Strengthening Hardness for Dynamic Problems"
+    authors: ["Monika Henzinger", "Sebastian Krinninger", "Danupon Nanongkai", "Thatchaphol Saranurak"]
+    year: 2015
+    url: "https://people.csail.mit.edu/virgi/6.s078/papers/omv.pdf"
+    status: checked_batch_002
+    access_date: "2026-05-15"
+  - id: el_hayek_henzinger_li_soda_2025
+    title: "Fully Dynamic Approximate Minimum Cut in Subpolynomial Time per Operation"
+    authors: ["Antoine El-Hayek", "Monika Henzinger", "Jason Li"]
+    year: 2025
+    url: "https://epubs.siam.org/doi/book/10.1137/1.9781611978322"
+    status: context_checked
+    access_date: "2026-05-15"
+  - id: el_hayek_henzinger_li_soda_2026
+    title: "Deterministic and Exact Fully-dynamic Minimum Cut of Superpolylogarithmic Size in Subpolynomial Time"
+    authors: ["Antoine El-Hayek", "Monika Henzinger", "Jason Li"]
+    year: 2026
+    url: "https://epubs.siam.org/doi/10.1137/1.9781611978971"
+    status: context_checked
+    access_date: "2026-05-15"

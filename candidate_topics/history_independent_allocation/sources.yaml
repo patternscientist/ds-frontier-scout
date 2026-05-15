@@ -1,0 +1,15 @@
+sources:
+  - id: naor_teague_stoc_2001
+    title: "Anti-persistence: History Independent Data Structures"
+    authors: ["Moni Naor", "Vanessa Teague"]
+    year: 2001
+    url: "https://www.wisdom.weizmann.ac.il/~naor/PAPERS/history_abs.html"
+    status: verified_batch_002
+    access_date: "2026-05-15"
+  - id: naor_teague_stoc_2001_pdf
+    title: "Anti-persistence: History Independent Data Structures"
+    authors: ["Moni Naor", "Vanessa Teague"]
+    year: 2001
+    url: "https://theory.stanford.edu/~vteague/STOC01.pdf"
+    status: verified_batch_002
+    access_date: "2026-05-15"

@@ -1,0 +1,8 @@
+sources:
+  - id: chan_hon_lam_sadakane_dynamic_compressed_indexes
+    title: "Compressed indexes for dynamic text collections"
+    authors: ["Ho-Leung Chan", "Wing-Kai Hon", "Tak-Wah Lam", "Kunihiko Sadakane"]
+    year: 2007
+    url: "https://www.researchgate.net/publication/220390557_Compressed_indexes_for_dynamic_text_collections"
+    status: checked_snippet_needs_primary_pdf
+    access_date: "2026-05-15"

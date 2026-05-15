@@ -1,0 +1,22 @@
+sources:
+  - id: dietz_wads_1989
+    title: "Fully persistent arrays"
+    authors: ["Paul F. Dietz"]
+    year: 1989
+    url: "https://doi.org/10.1007/3-540-51542-9_8"
+    status: metadata_checked
+    access_date: "2026-05-15"
+  - id: straka_2009_persistent_arrays
+    title: "Fully persistent arrays with optimal worst-case access and update time"
+    authors: ["Milan Straka"]
+    year: 2009
+    url: "https://ufal.mff.cuni.cz/~straka/papers/2009-perarray.pdf"
+    status: checked_batch_002
+    access_date: "2026-05-15"
+  - id: straka_2013_thesis
+    title: "Functional Data Structures and Algorithms"
+    authors: ["Milan Straka"]
+    year: 2013
+    url: "https://dspace.cuni.cz/handle/20.500.11956/52896"
+    status: needs_direct_open_problem_verification
+    access_date: "2026-05-15"

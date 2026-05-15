@@ -1,0 +1,11 @@
+open_status: open_modern_status_uncertain
+open_status_confidence: medium
+saturation_risk: low
+theorem_project_suitability: 3
+openevolve_suitability: 3
+lean_formalization_suitability: 3
+intellectual_interest: 4
+overall_score: 6.8
+confidence: medium
+best_use: theorem_project
+notes: "Small, under-attended history-independence problem. Verify later allocator/file-system work before promotion."

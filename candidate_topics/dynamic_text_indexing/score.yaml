@@ -1,0 +1,11 @@
+open_status: open_modern_status_uncertain
+open_status_confidence: low_medium
+saturation_risk: medium
+theorem_project_suitability: 3
+openevolve_suitability: 4
+lean_formalization_suitability: 2
+intellectual_interest: 4
+overall_score: 7.0
+confidence: low_medium
+best_use: OpenEvolve_project
+notes: "Good string-data-structure lead with exact small oracles, but old open statement requires a modern dynamic compressed-index literature sweep."

@@ -1,0 +1,11 @@
+open_status: open_modern_status_uncertain
+open_status_confidence: medium
+saturation_risk: low_medium
+theorem_project_suitability: 4
+openevolve_suitability: 5
+lean_formalization_suitability: 4
+intellectual_interest: 4
+overall_score: 8.0
+confidence: medium
+best_use: OpenEvolve_project
+notes: "Excellent finite-combinatorial evaluator candidate; not a classic data structure, but squarely in adaptive sorting/partial information."
