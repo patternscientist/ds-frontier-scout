@@ -52,4 +52,4 @@ Do not invent citations or open-problem claims. Use TODO markers until sources a
 
 ## Current Status
 
-This repository currently contains the scaffolding for candidate scouting. Most candidate files are placeholders awaiting source-backed research.
+This repository now contains an initial scaffold, Batch 001 scouting report, targeted patches for high-priority candidates, an adversarial audit, and scoring infrastructure. Some candidate folders remain placeholders or need source-backed follow-up, but the leading Batch 001 candidates have been populated and audited.
