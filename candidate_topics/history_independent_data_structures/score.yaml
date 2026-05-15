@@ -1,10 +1,11 @@
 open_status: uncertain
 open_status_confidence: low
-saturation_risk: unknown
+saturation_risk: medium
 theorem_project_suitability: 2
 openevolve_suitability: 1
+lean_formalization_suitability: 3
 intellectual_interest: 4
 overall_score: 4.8
 confidence: low
 best_use: background_context
-notes: "Downgraded. Dagstuhl records an active question cluster, not a precise theorem target. Needs formal weak/strong history-independence model and operation set before promotion."
+notes: "Downgraded. Dagstuhl records an active question cluster, not a precise theorem target; the Batch 002 concurrent hashing lead is already partially resolved by 2025 work and needs a residual model-specific gap."

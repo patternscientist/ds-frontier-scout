@@ -27,3 +27,10 @@ Primary sources to check before promotion:
 - Bhattacharya-Kulkarni 2020, "An Improved Algorithm for Incremental Cycle Detection and Topological Ordering in Sparse Graphs."
 - Dagstuhl 25191 PDF or slides for Fineman's exact missing expression.
 - Liu-King/Cann-King-Liu batch-dynamic connectivity manuscript.
+
+Batch 002 adversarial addendum, 2026-05-15:
+
+- `dynamic_stream_mincut_space` is explicit in ITCS 2025 as a streaming open question, but it is not a classic dynamic data-structure candidate.
+- Best use is background/lower-bound context unless a communication game or finite sketch lower-bound task is isolated.
+- Saturation risk remains high: dynamic min-cut, streaming cuts, and cut sketches are active areas.
+- Automation warning: small sketch games may suggest hard distributions, but a credible result needs communication-complexity proof machinery.

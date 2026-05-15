@@ -1,11 +1,11 @@
-open_status: open_modern_status_uncertain
-open_status_confidence: medium
-saturation_risk: low
-theorem_project_suitability: 3
-openevolve_suitability: 3
+open_status: likely_solved_or_narrowed
+open_status_confidence: medium_high
+saturation_risk: medium
+theorem_project_suitability: 1
+openevolve_suitability: 1
 lean_formalization_suitability: 3
 intellectual_interest: 4
-overall_score: 6.8
+overall_score: 4.0
 confidence: medium
-best_use: theorem_project
-notes: "Small, under-attended history-independence problem. Verify later allocator/file-system work before promotion."
+best_use: background_context
+notes: "Downgraded. Naor-Teague's 2001 variable-size allocation question is stale after the FOCS 2023 strongly history-independent storage-allocation result; only model-specific residual tradeoffs may remain."

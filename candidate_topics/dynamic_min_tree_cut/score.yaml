@@ -1,11 +1,11 @@
-open_status: open_but_recent_progress_context
-open_status_confidence: medium
-saturation_risk: high
-theorem_project_suitability: 3
-openevolve_suitability: 4
+open_status: plausible_but_not_crisp
+open_status_confidence: low_medium
+saturation_risk: severe
+theorem_project_suitability: 2
+openevolve_suitability: 3
 lean_formalization_suitability: 2
 intellectual_interest: 4
-overall_score: 7.1
-confidence: medium
-best_use: OpenEvolve_project
-notes: "Keep narrowly focused on min-tree-cut or explicit dynamic cut certificates. Full dynamic min-cut is active and too broad."
+overall_score: 6.0
+confidence: low_medium
+best_use: background_context
+notes: "Downgraded. The min-tree-cut subroutine is a plausible niche, but dynamic min-cut is saturated and recent 2025/2026 progress must be read before treating the subroutine gap as current."

@@ -4,7 +4,7 @@ saturation_risk: high
 theorem_project_suitability: 2
 openevolve_suitability: 2
 intellectual_interest: 4
-overall_score: 5.5
+overall_score: 5.2
 confidence: medium
 best_use: background_context
-notes: "Downgraded. Incremental topological ordering near ~O(m^(4/3)) is already achieved randomized by Bhattacharya-Kulkarni; only deterministic/combinatorial refinements or the dynamic-connectivity level-elimination problem remain plausible."
+notes: "Downgraded. Incremental topological ordering near ~O(m^(4/3)) is already achieved randomized by Bhattacharya-Kulkarni; Batch 002 dynamic-stream min-cut is explicit but streaming/lower-bound context, not a promoted DS candidate."

@@ -1,11 +1,11 @@
-open_status: open_modern_status_uncertain
+open_status: stale_open_claim_needs_reformulation
 open_status_confidence: low_medium
-saturation_risk: medium
-theorem_project_suitability: 3
-openevolve_suitability: 4
+saturation_risk: medium_high
+theorem_project_suitability: 2
+openevolve_suitability: 2
 lean_formalization_suitability: 2
 intellectual_interest: 4
-overall_score: 7.0
+overall_score: 5.4
 confidence: low_medium
-best_use: OpenEvolve_project
-notes: "Good string-data-structure lead with exact small oracles, but old open statement requires a modern dynamic compressed-index literature sweep."
+best_use: background_context
+notes: "Downgraded. The 2007 open question is stale without reconciling later dynamic compressed self-index results and precise bit/compression models; small-instance evaluators would be misleading for the theorem-level space claim."

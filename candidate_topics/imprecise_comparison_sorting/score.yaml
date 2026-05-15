@@ -8,4 +8,4 @@ intellectual_interest: 4
 overall_score: 8.0
 confidence: medium
 best_use: OpenEvolve_project
-notes: "Excellent finite-combinatorial evaluator candidate; not a classic data structure, but squarely in adaptive sorting/partial information."
+notes: "Survives adversarial audit as one of the best Batch 002 evaluator candidates. Keep confidence at medium until noisy/uncertain-comparison follow-ups are separated from the exact imprecise-comparison model."

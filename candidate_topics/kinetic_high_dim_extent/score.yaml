@@ -1,11 +1,11 @@
 open_status: uncertain
 open_status_confidence: low_medium
-saturation_risk: low_medium
-theorem_project_suitability: 3
-openevolve_suitability: 3
+saturation_risk: medium
+theorem_project_suitability: 2
+openevolve_suitability: 2
 lean_formalization_suitability: 2
 intellectual_interest: 4
-overall_score: 6.5
+overall_score: 5.6
 confidence: low_medium
 best_use: background_context
-notes: "Interesting kinetic-geometry lead, but too broad until narrowed to one measure and verified in primary sources."
+notes: "Downgraded by adversarial audit. Interesting KDS context, but the candidate is too broad and line-level open status remains unverified; narrow to one 3D measure before promotion."

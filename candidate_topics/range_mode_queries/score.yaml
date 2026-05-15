@@ -1,11 +1,11 @@
 open_status: open
-open_status_confidence: medium
+open_status_confidence: medium_high
 saturation_risk: medium
 theorem_project_suitability: 4
 openevolve_suitability: 5
 lean_formalization_suitability: 3
 intellectual_interest: 4
-overall_score: 8.4
+overall_score: 8.0
 confidence: medium
 best_use: OpenEvolve_project
-notes: "Strong Batch 002 candidate. Exact range mode has a clean finite oracle and a large upper/lower-bound gap; verify post-2012 conditional and dynamic literature before top-shortlist promotion."
+notes: "Survives adversarial audit as a good OpenEvolve-first candidate, but the blind prompt's O(sqrt n) baseline is stale and range alpha-majority should stay separate. Verify the exact modern linear-space upper/lower-bound frontier before top-shortlist promotion."

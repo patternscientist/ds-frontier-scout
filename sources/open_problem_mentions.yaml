@@ -159,31 +159,31 @@ mentions:
     source_url: "https://arxiv.org/abs/1101.4068"
     quote_or_paraphrase: "Linear-space exact range mode has O(sqrt(n))-style query upper bounds, while known cell-probe lower bounds are much smaller; the optimal linear-space query time remains unresolved."
     open_status: open
-    verification_notes: "Batch 002 checked 2026-05-15. Need a follow-up sweep after dynamic/conditional lower-bound papers before top-shortlist promotion."
+    verification_notes: "Adversarially audited 2026-05-15. Still plausible as an open exact static range-mode gap, but the blind prompt's O(sqrt n) baseline is stale if the current best linear-space upper bound is O(sqrt(n / log n))-style. Range alpha-majority is adjacent only. Need final Chan et al./ToCS and post-2012 citation sweep before top-shortlist promotion."
 
   - id: persistent_array_worst_case_loglog_linear_space
     candidate_topic: persistent_arrays
     source_id: dietz_1989_straka_2009_2013
     source_url: "https://ufal.mff.cuni.cz/~straka/papers/2009-perarray.pdf"
     quote_or_paraphrase: "Secondary summaries of Straka's persistent-array work state that O(log log m) worst-case time with linear space remains open, between linear-space slightly slower bounds and O(log log m) superlinear-space bounds."
-    open_status: uncertain_open
-    verification_notes: "Batch 002 checked 2026-05-15. Must verify exact open wording in Straka thesis/paper, not just summary pages."
+    open_status: likely_solved_as_stated
+    verification_notes: "Adversarially audited 2026-05-15. Downgrade/disqualify as stated: the cited Straka paper is itself titled 'Fully persistent arrays with optimal worst-case access and update time' and appears to claim the O(n+m)-space, worst-case O(log log m) target. Treat secondary summaries as suspect until the thesis/paper is read line-by-line; do not use this blind prompt as an open problem."
 
   - id: dynamic_text_indexing_linear_bits_substring_updates
     candidate_topic: dynamic_text_indexing
     source_id: chan_hon_lam_sadakane_dynamic_compressed_indexes
     source_url: "https://www.researchgate.net/publication/220390557_Compressed_indexes_for_dynamic_text_collections"
     quote_or_paraphrase: "The dynamic compressed-index paper asks whether a single dynamic text can be indexed in O(|T|) bits with substring updates and pattern search in polylogarithmic overhead."
-    open_status: open_modern_status_uncertain
-    verification_notes: "Batch 002 checked 2026-05-15 via available PDF snippets. Needs primary PDF/ACM version and post-2007 dynamic FM-index follow-up sweep."
+    open_status: stale_open_claim_needs_reformulation
+    verification_notes: "Adversarially audited 2026-05-15. The 2007 source gives an explicit historical question, but later dynamic compressed self-index/signature-encoding work likely narrows nearby update/search goals under different space measures. ResearchGate snippets are too weak; use ACM/TALG and later primary papers. Small-instance evaluators would test correctness, not the linear-bit theorem gap."
 
   - id: history_independent_variable_size_allocation
     candidate_topic: history_independent_allocation
     source_id: naor_teague_stoc_2001
     source_url: "https://www.wisdom.weizmann.ac.il/~naor/PAPERS/history_abs.html"
     quote_or_paraphrase: "Naor and Teague state that their main remaining open problem is whether variable-size record allocation can be made history independent with low overhead."
-    open_status: open_modern_status_uncertain
-    verification_notes: "Batch 002 checked 2026-05-15. Verify whether later history-independent file-system/allocation work closes or narrows this."
+    open_status: likely_solved_or_narrowed
+    verification_notes: "Adversarially audited 2026-05-15. Naor-Teague 2001 explicitly states the historical variable-size allocation open problem, but Kuszmaul FOCS 2023 'Strongly History-Independent Storage Allocation: New Upper and Lower Bounds' (DOI:10.1109/FOCS57990.2023.00111) directly addresses variable-sized memory blocks. Do not promote the 2001 formulation unchanged; extract only model-specific residual tradeoffs after reading the 2023 paper."
 
   - id: history_independent_concurrent_hashing_frontier
     candidate_topic: history_independent_data_structures
@@ -191,7 +191,7 @@ mentions:
     source_url: "https://arxiv.org/abs/2503.21016"
     quote_or_paraphrase: "The 2025 concurrent hash-table paper studies a stated open problem on strongly history-independent concurrent dictionaries, gives a lock-free construction, and proves lower bounds for very small cells."
     open_status: partially_resolved_residual_uncertain
-    verification_notes: "Batch 002 checked 2026-05-15. Do not promote until a residual theorem target is isolated."
+    verification_notes: "Adversarially audited 2026-05-15. The 2025 paper is already a solution/narrowing paper for the broad concurrent SHI dictionary problem. Residuals must be specific to cell capacity, progress condition, or base-object strength. Best treated as Lean/model-checking context, not a broad OpenEvolve target."
 
   - id: kinetic_higher_dimensional_extent
     candidate_topic: kinetic_high_dim_extent
@@ -199,7 +199,7 @@ mentions:
     source_url: "https://geometry.stanford.edu/paper/g-KDS_DS-Handbook-04/g-KDS_DS-Handbook-04.pdf"
     quote_or_paraphrase: "Classic kinetic-data-structure sources identify higher-dimensional kinetic convex hull and extent maintenance as poorly understood/open."
     open_status: uncertain
-    verification_notes: "Batch 002 checked 2026-05-15. Needs line-level verification in Basch-Guibas-Hershberger and Agarwal-Guibas-Hershberger-Veach before promotion beyond medium confidence."
+    verification_notes: "Adversarially audited 2026-05-15. Too broad and still line-level unverified. Narrow to one problem, e.g. 3D kinetic diameter or width under bounded-degree algebraic motion, before promotion. Finite event simulations cannot certify asymptotic KDS bounds."
 
   - id: imprecise_comparison_error2_randomized
     candidate_topic: imprecise_comparison_sorting
@@ -207,15 +207,15 @@ mentions:
     source_url: "https://arxiv.org/abs/1501.02911"
     quote_or_paraphrase: "The paper asks whether randomized maximum finding with error 2 can be achieved using O(n) comparisons and leaves randomized sorting with error k open."
     open_status: open_modern_status_uncertain
-    verification_notes: "Batch 002 checked 2026-05-15. Strong finite-tournament evaluator candidate; verify noisy-sorting follow-up literature."
+    verification_notes: "Adversarially audited 2026-05-15. Survives as a strong finite-combinatorial evaluator lead. Quick search found no primary closure, but confidence remains medium until noisy-comparison, uncertain-comparison, tournament, and interval-order variants are separated from the exact imprecise-comparison model."
 
   - id: dynamic_min_tree_cut_polylog_subroutine
     candidate_topic: dynamic_min_tree_cut
     source_id: henzinger_krinninger_nanongkai_saranurak_dynamic_hardness
     source_url: "https://people.csail.mit.edu/virgi/6.s078/papers/omv.pdf"
     quote_or_paraphrase: "The dynamic-hardness paper highlights that even the min-tree-cut subroutine for dynamic min-cut has unknown polylogarithmic update complexity."
-    open_status: open_but_recent_progress_context
-    verification_notes: "Batch 002 checked 2026-05-15. Recent SODA 2025/2026 min-cut progress gives n^{o(1)} algorithms but does not obviously close the polylog/min-tree-cut subroutine."
+    open_status: plausible_but_not_crisp
+    verification_notes: "Adversarially audited 2026-05-15. Downgrade: dynamic min-cut is saturated and recent SODA 2025/2026 progress must be read before claiming min-tree-cut remains a current bottleneck. Keep only the explicit maintained-tree subproblem; simulations can find bad traces but cannot prove worst-case update bounds."
 
   - id: dynamic_stream_mincut_space_gap
     candidate_topic: dynamic_graph_structures
@@ -223,7 +223,7 @@ mentions:
     source_url: "https://drops.dagstuhl.de/storage/00lipics/lipics-vol325-itcs2025/LIPIcs.ITCS.2025.43/LIPIcs.ITCS.2025.43.pdf"
     quote_or_paraphrase: "Open Question 15 asks for the exact one-pass dynamic-stream space complexity of (1+epsilon)-approximate minimum cut in simple weighted graphs."
     open_status: open
-    verification_notes: "Batch 002 checked 2026-05-15. Streaming rather than classic data-structure candidate; keep as lower-bound-flavored side lead."
+    verification_notes: "Adversarially audited 2026-05-15. Explicit ITCS 2025 open question, but it is a streaming/communication-complexity lower-bound problem rather than a classic DS candidate. Keep as background unless a finite sketch game is isolated."
 
   - id: range_alpha_majority_space_output_sensitive
     candidate_topic: range_mode_queries
@@ -231,7 +231,7 @@ mentions:
     source_url: "https://www.sciencedirect.com/science/article/pii/S0890540112001526"
     quote_or_paraphrase: "The range-majority paper asks whether space can be improved for range alpha-majority while preserving O(1/alpha) query time, and whether reporting can be output-sensitive O(k)."
     open_status: open_modern_status_uncertain
-    verification_notes: "Batch 002 checked 2026-05-15. Adjacent to exact range mode; verify later range-majority literature."
+    verification_notes: "Adversarially audited 2026-05-15. Adjacent context only; do not bundle with exact range mode. Modern range-majority/colored-reporting literature must be checked before treating output-sensitive O(k) reporting as current."
 
   - id: all_purpose_hashing_residual_tradeoffs
     candidate_topic: hashing_dictionaries
@@ -239,7 +239,7 @@ mentions:
     source_url: "https://arxiv.org/abs/2109.04548"
     quote_or_paraphrase: "All-Purpose Hashing frames the simultaneous achievement of desirable hash-table properties as a significant open problem before Iceberg hashing; residual exact tradeoffs need extraction from follow-up work."
     open_status: uncertain
-    verification_notes: "Batch 002 checked 2026-05-15. Do not promote until a single unsolved residual theorem is identified."
+    verification_notes: "Adversarially audited 2026-05-15. Too vague and recent-active. 'All properties at once' was historical motivation before Iceberg hashing; residual claims must be one explicit model-specific tradeoff after reading All-Purpose Hashing and the optimal time/space tradeoff paper."
 
   - id: retroactive_lower_bound_strengthening
     candidate_topic: retroactive_data_structures
@@ -247,4 +247,4 @@ mentions:
     source_url: "https://arxiv.org/abs/2211.14664"
     quote_or_paraphrase: "Recent lower bounds give essentially optimal fine-grained conditional separations for partial retroactivity; an unconditional/clean cell-probe strengthening remains an attractive but not yet explicitly sourced target."
     open_status: uncertain
-    verification_notes: "Batch 002 checked 2026-05-15. Avoid claiming this exact strengthening is an explicitly stated open problem until a primary source is found."
+    verification_notes: "Adversarially audited 2026-05-15. Keep as inferred/uncertain. Chung-Demaine-Hendrickson-Lynch already give strong conditional lower bounds; an unconditional or cleaner cell-probe strengthening needs an explicit primary-source open statement and a named problem/model before promotion."

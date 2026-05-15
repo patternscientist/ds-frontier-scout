@@ -1,6 +1,11 @@
-open_status: uncertain
-theorem_project_suitability: TODO
-openevolve_suitability: TODO
-intellectual_interest: TODO
+open_status: uncertain_residual
+open_status_confidence: low
+saturation_risk: high
+theorem_project_suitability: 1
+openevolve_suitability: 2
+lean_formalization_suitability: 1
+intellectual_interest: 3
+overall_score: 4.2
 confidence: low
-notes: "TODO"
+best_use: background_context
+notes: "Batch 002 all-purpose hashing residual is too vague and recent-active for promotion. Extract one explicit model-specific tradeoff before scoring higher."
