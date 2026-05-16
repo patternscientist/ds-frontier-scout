@@ -14,6 +14,8 @@ No H2 depth-projection gap was found; H2 optima were certified by the H1/STT san
 
 This is finite evidence only.  It does not claim double-star exactness.
 
+Clarification: this report tests the full H1/H2 connected first-hit depth LPs on structured double-star objectives. It does not optimize the reduced global coupling functional `LB_H1(theta,p,q,r,s)` from the subsequent double-star formalization pass. That reduced functional is a separate proof-route target: a counterexample to it would kill the current coupling-proof strategy, but would not automatically give a full H1 depth-projection counterexample.
+
 ## Solve Table
 
 | topology | family | weights | STT | H1 | H1 cert | H2 | H2 cert |
