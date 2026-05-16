@@ -1,0 +1,3012 @@
+{
+  "basis_reconstruction": {
+    "basic_original_variables": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      20,
+      19,
+      37,
+      41,
+      53,
+      49,
+      65,
+      70,
+      75,
+      80,
+      85,
+      101,
+      107,
+      8,
+      10,
+      23,
+      47,
+      12,
+      14,
+      35,
+      17,
+      21,
+      38,
+      46,
+      16,
+      42,
+      24,
+      30,
+      15,
+      94,
+      11,
+      51,
+      27,
+      13,
+      44,
+      54,
+      39,
+      55,
+      26,
+      58,
+      33,
+      56,
+      112,
+      29,
+      32,
+      43,
+      64,
+      63,
+      36,
+      18,
+      66,
+      40,
+      68,
+      22,
+      71,
+      72,
+      73,
+      74,
+      25,
+      76,
+      77,
+      78,
+      102,
+      81,
+      59,
+      83,
+      31,
+      86,
+      82,
+      84,
+      88,
+      89,
+      87,
+      91,
+      60,
+      92,
+      93,
+      45,
+      52,
+      96,
+      98,
+      48,
+      97,
+      100,
+      104,
+      34,
+      62,
+      105,
+      79,
+      110,
+      111,
+      109,
+      106,
+      114,
+      115,
+      116,
+      118,
+      69,
+      67,
+      119,
+      113,
+      99,
+      61,
+      90,
+      50,
+      57,
+      108,
+      28
+    ],
+    "nonbasic_original_variables": [
+      117,
+      95,
+      103
+    ],
+    "nonbasic_slack_rows": [
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17,
+      495,
+      19,
+      1961,
+      21,
+      1695,
+      23,
+      57,
+      25,
+      632,
+      1925,
+      29,
+      630,
+      31,
+      1177,
+      1566,
+      568,
+      33,
+      751,
+      2008,
+      1877,
+      496,
+      504,
+      36,
+      1930,
+      555,
+      38,
+      1984,
+      110,
+      41,
+      1576,
+      35,
+      1889,
+      42,
+      1801,
+      740,
+      1974,
+      44,
+      716,
+      1960,
+      622,
+      46,
+      1159,
+      1860,
+      49,
+      1179,
+      1959,
+      406,
+      51,
+      752,
+      747,
+      53,
+      1936,
+      1938,
+      1887,
+      55,
+      1947,
+      1997,
+      60,
+      733,
+      637,
+      566,
+      1723,
+      2000,
+      1302,
+      1888,
+      1864,
+      1916,
+      1592,
+      703,
+      1913,
+      1432,
+      1908,
+      1911,
+      1983,
+      63,
+      1926,
+      2005,
+      743,
+      2009,
+      64,
+      59,
+      1929,
+      27,
+      1558,
+      67,
+      1428,
+      745,
+      373,
+      1914,
+      1748,
+      69,
+      1890,
+      1330,
+      88,
+      1988,
+      1590,
+      70,
+      1770,
+      1966,
+      631,
+      1818,
+      712,
+      1632,
+      501,
+      616,
+      1594,
+      1891,
+      1193,
+      1
+    ],
+    "nonzero_dual_rows": 89,
+    "source_result_json": "examples\\stt_lp\\skz_long_star_7_h2_result.json"
+  },
+  "certificate_id": "skz_long_star_7_h2_exact_primal_dual",
+  "dual": {
+    "max_negated_objective": "-30",
+    "nonzero_rows": [
+      {
+        "row": {
+          "component": [
+            0,
+            1
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 15,
+        "value": "2"
+      },
+      {
+        "row": {
+          "component": [
+            3,
+            4
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 23,
+        "value": "2"
+      },
+      {
+        "row": {
+          "component": [
+            5,
+            6
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 25,
+        "value": "3"
+      },
+      {
+        "row": {
+          "component": [
+            1,
+            2,
+            3
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 29,
+        "value": "2"
+      },
+      {
+        "row": {
+          "component": [
+            1,
+            2,
+            5
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 31,
+        "value": "1"
+      },
+      {
+        "row": {
+          "component": [
+            2,
+            3,
+            5
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 35,
+        "value": "2"
+      },
+      {
+        "row": {
+          "component": [
+            2,
+            5,
+            6
+          ],
+          "kind": "simplex_upper"
+        },
+        "row_index": 36,
+        "value": "5"
+      },
+      {
+        "row": {
+          "component": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "kind": "simplex_upper"
+        },
+        "row_index": 38,
+        "value": "1"
+      },
+      {
+        "row": {
+          "component": [
+            0,
+            1,
+            2,
+            5
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 41,
+        "value": "3"
+      },
+      {
+        "row": {
+          "component": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "kind": "simplex_upper"
+        },
+        "row_index": 42,
+        "value": "1"
+      },
+      {
+        "row": {
+          "component": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "kind": "simplex_upper"
+        },
+        "row_index": 44,
+        "value": "3"
+      },
+      {
+        "row": {
+          "component": [
+            1,
+            2,
+            5,
+            6
+          ],
+          "kind": "simplex_upper"
+        },
+        "row_index": 46,
+        "value": "5"
+      },
+      {
+        "row": {
+          "component": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 49,
+        "value": "2"
+      },
+      {
+        "row": {
+          "component": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 51,
+        "value": "2"
+      },
+      {
+        "row": {
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 53,
+        "value": "6"
+      },
+      {
+        "row": {
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 55,
+        "value": "1"
+      },
+      {
+        "row": {
+          "component": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 57,
+        "value": "10"
+      },
+      {
+        "row": {
+          "component": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 59,
+        "value": "4"
+      },
+      {
+        "row": {
+          "component": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "simplex_upper"
+        },
+        "row_index": 60,
+        "value": "2"
+      },
+      {
+        "row": {
+          "component": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 63,
+        "value": "3"
+      },
+      {
+        "row": {
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "simplex_upper"
+        },
+        "row_index": 64,
+        "value": "3"
+      },
+      {
+        "row": {
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 67,
+        "value": "2"
+      },
+      {
+        "row": {
+          "component": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "simplex_lower"
+        },
+        "row_index": 69,
+        "value": "7"
+      },
+      {
+        "row": {
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "simplex_upper"
+        },
+        "row_index": 70,
+        "value": "2"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 4,
+          "subset": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "superset": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 373,
+        "value": "1"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 5,
+          "subset": [
+            1,
+            2,
+            5,
+            6
+          ],
+          "superset": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ]
+        },
+        "row_index": 406,
+        "value": "7"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 2,
+          "subset": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 495,
+        "value": "4"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 3,
+          "subset": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 501,
+        "value": "7"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 2,
+          "subset": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 504,
+        "value": "3"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 2,
+          "subset": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ]
+        },
+        "row_index": 555,
+        "value": "10"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 2,
+          "subset": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ]
+        },
+        "row_index": 566,
+        "value": "10"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 6,
+          "subset": [
+            1,
+            2,
+            5,
+            6
+          ],
+          "superset": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 616,
+        "value": "5"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 3,
+          "subset": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "superset": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 622,
+        "value": "5"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 1,
+          "subset": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "superset": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 630,
+        "value": "3"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 2,
+          "subset": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "superset": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 631,
+        "value": "11"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 3,
+          "subset": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "superset": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 632,
+        "value": "3"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 4,
+          "subset": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "superset": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 637,
+        "value": "7"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 5,
+          "subset": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 703,
+        "value": "5"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 1,
+          "subset": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 716,
+        "value": "5"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 5,
+          "subset": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 733,
+        "value": "3"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 5,
+          "subset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 740,
+        "value": "3"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 2,
+          "subset": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 743,
+        "value": "2"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 5,
+          "subset": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 745,
+        "value": "3"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 1,
+          "subset": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 747,
+        "value": "12"
+      },
+      {
+        "row": {
+          "kind": "heredity",
+          "root": 6,
+          "subset": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "superset": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 752,
+        "value": "7"
+      },
+      {
+        "row": {
+          "base": [
+            0,
+            1
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "extension_b": [
+            0,
+            1,
+            2,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 1,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        "row_index": 1159,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2
+          ],
+          "extension_a": [
+            0,
+            1,
+            2
+          ],
+          "extension_b": [
+            1,
+            2,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            0,
+            1,
+            2,
+            5
+          ]
+        },
+        "row_index": 1179,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2
+          ],
+          "extension_a": [
+            1,
+            2,
+            3
+          ],
+          "extension_b": [
+            1,
+            2,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        "row_index": 1193,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            3
+          ],
+          "extension_a": [
+            1,
+            2,
+            3
+          ],
+          "extension_b": [
+            2,
+            3,
+            4
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "row_index": 1302,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            3
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            2,
+            3,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1330,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            5
+          ],
+          "extension_a": [
+            1,
+            2,
+            5
+          ],
+          "extension_b": [
+            2,
+            3,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        "row_index": 1428,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            5
+          ],
+          "extension_a": [
+            1,
+            2,
+            5
+          ],
+          "extension_b": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1432,
+        "value": "2"
+      },
+      {
+        "row": {
+          "base": [
+            3,
+            4
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 3,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1558,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            5,
+            6
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_b": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 5,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ]
+        },
+        "row_index": 1576,
+        "value": "7"
+      },
+      {
+        "row": {
+          "base": [
+            0,
+            1,
+            2
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "extension_b": [
+            0,
+            1,
+            2,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        "row_index": 1592,
+        "value": "4"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            5
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            5
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 1,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1695,
+        "value": "2"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            5
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1723,
+        "value": "4"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            5
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 5,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1748,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            3,
+            4
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1770,
+        "value": "4"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            3,
+            5
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "extension_b": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 3,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1801,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            5,
+            6
+          ],
+          "extension_a": [
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_b": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ]
+        },
+        "row_index": 1860,
+        "value": "15"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            5,
+            6
+          ],
+          "extension_a": [
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_b": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 5,
+          "union": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1864,
+        "value": "5"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            5,
+            6
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 6,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1877,
+        "value": "5"
+      },
+      {
+        "row": {
+          "base": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 0,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1887,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 1,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1888,
+        "value": "2"
+      },
+      {
+        "row": {
+          "base": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1889,
+        "value": "5"
+      },
+      {
+        "row": {
+          "base": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 3,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1890,
+        "value": "4"
+      },
+      {
+        "row": {
+          "base": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 0,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1891,
+        "value": "2"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 1,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1911,
+        "value": "4"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 3,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1913,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 4,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1914,
+        "value": "3"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "kind": "h2_rectangle",
+          "root": 3,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "row_index": 1925,
+        "value": "3"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 5,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ]
+        },
+        "row_index": 1930,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "extension_a": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1936,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "extension_a": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 5,
+          "union": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1938,
+        "value": "2"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "extension_b": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 1,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1947,
+        "value": "3"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 1,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ]
+        },
+        "row_index": 1959,
+        "value": "15"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ]
+        },
+        "row_index": 1960,
+        "value": "20"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 5,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ]
+        },
+        "row_index": 1961,
+        "value": "3"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 6,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1966,
+        "value": "2"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "extension_a": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "extension_b": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 5,
+          "union": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1974,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_a": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_b": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1983,
+        "value": "3"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_a": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_b": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 3,
+          "union": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1984,
+        "value": "1"
+      },
+      {
+        "row": {
+          "base": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_b": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 3,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1988,
+        "value": "2"
+      },
+      {
+        "row": {
+          "base": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "extension_b": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 2,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 1997,
+        "value": "4"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 1,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 2000,
+        "value": "2"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 1,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 2005,
+        "value": "14"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 5,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 2008,
+        "value": "15"
+      },
+      {
+        "row": {
+          "base": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_a": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "extension_b": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "kind": "h2_rectangle",
+          "root": 6,
+          "union": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "row_index": 2009,
+        "value": "2"
+      }
+    ],
+    "original_min_lower_bound": "30"
+  },
+  "objective_convention": {
+    "dual": "dual for max -objective subject to Ax <= b, x >= 0",
+    "primal": "minimize original weighted depth objective over H2"
+  },
+  "primal": {
+    "nonzero_z_variables": [
+      {
+        "component": [
+          0
+        ],
+        "root": 0,
+        "value": "1"
+      },
+      {
+        "component": [
+          1
+        ],
+        "root": 1,
+        "value": "1"
+      },
+      {
+        "component": [
+          2
+        ],
+        "root": 2,
+        "value": "1"
+      },
+      {
+        "component": [
+          3
+        ],
+        "root": 3,
+        "value": "1"
+      },
+      {
+        "component": [
+          4
+        ],
+        "root": 4,
+        "value": "1"
+      },
+      {
+        "component": [
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          6
+        ],
+        "root": 6,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1
+        ],
+        "root": 1,
+        "value": "1"
+      },
+      {
+        "component": [
+          1,
+          2
+        ],
+        "root": 1,
+        "value": "1"
+      },
+      {
+        "component": [
+          2,
+          3
+        ],
+        "root": 3,
+        "value": "1"
+      },
+      {
+        "component": [
+          2,
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          3,
+          4
+        ],
+        "root": 4,
+        "value": "1"
+      },
+      {
+        "component": [
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2
+        ],
+        "root": 1,
+        "value": "1"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3
+        ],
+        "root": 1,
+        "value": "1"
+      },
+      {
+        "component": [
+          1,
+          2,
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          2,
+          3,
+          4
+        ],
+        "root": 4,
+        "value": "1"
+      },
+      {
+        "component": [
+          2,
+          3,
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          2,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "root": 1,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "root": 1,
+        "value": "1"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          1,
+          2,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "root": 1,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1"
+      }
+    ],
+    "objective": "30"
+  },
+  "relaxation": "h2",
+  "schema_version": "stt-h2-primal-dual-cert-v0",
+  "standard_form": {
+    "inequality_row_count": 2010,
+    "original_variable_count": 120,
+    "simplex_equalities_as_two_inequalities": true
+  },
+  "topology": {
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "n": 7,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "verified": {
+    "dual_feasible": true,
+    "h2_optimum": "30",
+    "primal_feasible": true,
+    "weak_duality_matches": true
+  },
+  "weights": {
+    "0": "3",
+    "1": "2",
+    "2": "0",
+    "3": "2",
+    "4": "3",
+    "5": "3",
+    "6": "10"
+  }
+}

@@ -13,11 +13,17 @@ from scripts.stt_checker.hereditary_lp import (
     rationalize_solution,
     solve_hereditary_lp,
 )
+from scripts.stt_checker.h2_dual_certificate import (
+    audit_h2_rectangle_enumeration,
+    fixed_depth_certificate,
+    verify_certificate_file,
+)
 from scripts.stt_checker.topology import TreeTopology
 
 
 ROOT = Path(__file__).resolve().parents[1]
 H1_SKZ_RESULT = ROOT / "examples" / "stt_lp" / "skz_long_star_7_hereditary_lp_result.json"
+H2_DUAL_CERTIFICATE = ROOT / "examples" / "stt_lp" / "skz_long_star_7_h2_dual_certificate.json"
 
 
 def parse_fraction(text):
@@ -196,6 +202,21 @@ class HereditaryLPH2RectangleTests(unittest.TestCase):
         )
         self.assertEqual(max(violations), Fraction(1, 2))
 
+    def test_h2_rectangle_audit_skz_has_no_missing_nontrivial_rows(self):
+        topology = TreeTopology.from_dict(SKZ_LONG_STAR_TOPOLOGY)
+        lp = build_hereditary_lp(topology, SKZ_LONG_STAR_WEIGHTS, relaxation="h2")
+        audit = audit_h2_rectangle_enumeration(lp)
+        self.assertTrue(audit["passes"])
+        self.assertEqual(audit["ordered_candidates"], 8435)
+        self.assertEqual(audit["tautologies"], 1482)
+        self.assertEqual(audit["h1_duplicates"], 4439)
+        self.assertEqual(audit["nontrivial_ordered"], 2514)
+        self.assertEqual(audit["symmetric_or_exact_duplicates"], 1257)
+        self.assertEqual(audit["canonical_nontrivial"], 1257)
+        self.assertEqual(audit["implemented_rectangles"], 1257)
+        self.assertEqual(audit["missing_nontrivial_rows"], 0)
+        self.assertEqual(audit["extra_rows"], 0)
+
 
 class HereditaryLPSKZRegressionTests(unittest.TestCase):
     def test_skz_long_star_solve_has_fractional_certificate_below_30(self):
@@ -238,6 +259,23 @@ class HereditaryLPSKZRegressionTests(unittest.TestCase):
         self.assertEqual(rational.max_simplex_residual, Fraction(0))
         self.assertEqual(rational.max_heredity_violation, Fraction(0))
         self.assertEqual(rational.max_h2_rectangle_violation, Fraction(0))
+
+
+class HereditaryLPH2CertificateTests(unittest.TestCase):
+    def test_checked_in_h2_dual_certificate_verifies_exactly(self):
+        verification = verify_certificate_file(H2_DUAL_CERTIFICATE)
+        self.assertEqual(verification.primal_objective, Fraction(30))
+        self.assertEqual(verification.dual_max_objective, Fraction(-30))
+        self.assertEqual(verification.original_min_lower_bound, Fraction(30))
+        self.assertTrue(verification.matching_objective)
+
+    def test_fixed_depth_vector_is_infeasible_by_dual_contradiction(self):
+        result = fixed_depth_certificate(H2_DUAL_CERTIFICATE, run_numerical=False)
+        exact = result["exact_certificate"]
+        self.assertFalse(exact["feasible"])
+        self.assertEqual(exact["fixed_depth_objective"], "59/2")
+        self.assertEqual(exact["h2_lower_bound"], "30")
+        self.assertEqual(exact["farkas_rhs"], "-1/2")
 
 
 if __name__ == "__main__":
