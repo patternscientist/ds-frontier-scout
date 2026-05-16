@@ -1,0 +1,672 @@
+{
+  "certificate_policy": "Optima are reconstructed exactly from floating simplex bases and independently verified by exact primal feasibility, exact dual feasibility, and matching primal/dual objective values. Basis data and variable assignments are not saved in this compact artifact.",
+  "runs": [
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 1,
+      "gap": "0",
+      "h2_optimum": "0",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "0",
+      "weights": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 1,
+      "gap": "0",
+      "h2_optimum": "1",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "1",
+      "weights": [
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 1,
+      "gap": "0",
+      "h2_optimum": "1",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "1",
+      "weights": [
+        "4",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 1,
+      "gap": "0",
+      "h2_optimum": "1",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "1",
+      "weights": [
+        "10",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 1,
+      "gap": "0",
+      "h2_optimum": "1",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "1",
+      "weights": [
+        "1",
+        "4"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 2,
+      "gap": "0",
+      "h2_optimum": "1",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "1",
+      "weights": [
+        "0",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 2,
+      "gap": "0",
+      "h2_optimum": "2",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "2",
+      "weights": [
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 2,
+      "gap": "0",
+      "h2_optimum": "2",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "2",
+      "weights": [
+        "4",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 2,
+      "gap": "0",
+      "h2_optimum": "2",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "2",
+      "weights": [
+        "10",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 2,
+      "gap": "0",
+      "h2_optimum": "6",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "6",
+      "weights": [
+        "1",
+        "4",
+        "4"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 3,
+      "gap": "0",
+      "h2_optimum": "3",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "3",
+      "weights": [
+        "0",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 3,
+      "gap": "0",
+      "h2_optimum": "3",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "3",
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 3,
+      "gap": "0",
+      "h2_optimum": "3",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "3",
+      "weights": [
+        "4",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 3,
+      "gap": "0",
+      "h2_optimum": "3",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "3",
+      "weights": [
+        "10",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 3,
+      "gap": "0",
+      "h2_optimum": "12",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "12",
+      "weights": [
+        "1",
+        "4",
+        "4",
+        "4"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 4,
+      "gap": "0",
+      "h2_optimum": "4",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "4",
+      "weights": [
+        "0",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 4,
+      "gap": "0",
+      "h2_optimum": "4",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "4",
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 4,
+      "gap": "0",
+      "h2_optimum": "4",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "4",
+      "weights": [
+        "4",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 4,
+      "gap": "0",
+      "h2_optimum": "4",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "4",
+      "weights": [
+        "10",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 4,
+      "gap": "0",
+      "h2_optimum": "16",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "16",
+      "weights": [
+        "1",
+        "4",
+        "4",
+        "4",
+        "4"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 5,
+      "gap": "0",
+      "h2_optimum": "5",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "5",
+      "weights": [
+        "0",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 5,
+      "gap": "0",
+      "h2_optimum": "5",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "5",
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 5,
+      "gap": "0",
+      "h2_optimum": "5",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "5",
+      "weights": [
+        "4",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 5,
+      "gap": "0",
+      "h2_optimum": "5",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "5",
+      "weights": [
+        "10",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 5,
+      "gap": "0",
+      "h2_optimum": "20",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "20",
+      "weights": [
+        "1",
+        "4",
+        "4",
+        "4",
+        "4",
+        "4"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 6,
+      "gap": "0",
+      "h2_optimum": "6",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "6",
+      "weights": [
+        "0",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 6,
+      "gap": "0",
+      "h2_optimum": "6",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "6",
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 6,
+      "gap": "0",
+      "h2_optimum": "6",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "6",
+      "weights": [
+        "4",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 6,
+      "gap": "0",
+      "h2_optimum": "6",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "6",
+      "weights": [
+        "10",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 6,
+      "gap": "0",
+      "h2_optimum": "24",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "24",
+      "weights": [
+        "1",
+        "4",
+        "4",
+        "4",
+        "4",
+        "4",
+        "4"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 7,
+      "gap": "0",
+      "h2_optimum": "7",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "7",
+      "weights": [
+        "0",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 7,
+      "gap": "0",
+      "h2_optimum": "7",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "7",
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 7,
+      "gap": "0",
+      "h2_optimum": "7",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "7",
+      "weights": [
+        "4",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 7,
+      "gap": "0",
+      "h2_optimum": "7",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "7",
+      "weights": [
+        "10",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 7,
+      "gap": "0",
+      "h2_optimum": "28",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "28",
+      "weights": [
+        "1",
+        "4",
+        "4",
+        "4",
+        "4",
+        "4",
+        "4",
+        "4"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 8,
+      "gap": "0",
+      "h2_optimum": "8",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "8",
+      "weights": [
+        "0",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 8,
+      "gap": "0",
+      "h2_optimum": "8",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "8",
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 8,
+      "gap": "0",
+      "h2_optimum": "8",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "8",
+      "weights": [
+        "4",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 8,
+      "gap": "0",
+      "h2_optimum": "8",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "8",
+      "weights": [
+        "10",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "certificate_verification_status": "verified_exact_primal_dual_after_floating_basis_reconstruction",
+      "d": 8,
+      "gap": "0",
+      "h2_optimum": "32",
+      "max_dual_deficit": "0",
+      "max_primal_violation": "0",
+      "stt_optimum": "32",
+      "weights": [
+        "1",
+        "4",
+        "4",
+        "4",
+        "4",
+        "4",
+        "4",
+        "4",
+        "4"
+      ]
+    }
+  ],
+  "schema": "stt_star_symmetric_h2_summary_v0",
+  "scope": "Symmetric H2 star depth-projection objectives through d=8.",
+  "settings": {
+    "full_d_max": 4,
+    "small_bound": 2,
+    "symmetric_d_max": 8
+  }
+}
