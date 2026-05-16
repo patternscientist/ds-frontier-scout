@@ -189,6 +189,40 @@ def stt_depth_optimum(
     return best_value, best_vector
 
 
+def ordered_prefix_star_optimum_formula(
+    d: int, weights: Iterable[Fraction | int]
+) -> Fraction:
+    """Exact d-leaf star optimum from sorted ordered-prefix STTs.
+
+    For a fixed prefix length k, put the k heaviest leaves before the center in
+    nonincreasing weight order.  The center has depth k, prefix leaves have
+    depths 0..k-1, and all remaining leaves have depth k+1.
+    """
+
+    weight_tuple = tuple(Fraction(value) for value in weights)
+    if len(weight_tuple) != d + 1:
+        raise ValueError("weight vector length must be d+1")
+    center_weight = weight_tuple[0]
+    leaf_weights = tuple(sorted(weight_tuple[1:], reverse=True))
+    suffix_sums = [Fraction(0) for _ in range(d + 1)]
+    for index in range(d - 1, -1, -1):
+        suffix_sums[index] = suffix_sums[index + 1] + leaf_weights[index]
+
+    best_value: Fraction | None = None
+    for prefix_length in range(d + 1):
+        value = center_weight * prefix_length
+        value += sum(
+            leaf_weights[index] * index
+            for index in range(prefix_length)
+        )
+        value += Fraction(prefix_length + 1) * suffix_sums[prefix_length]
+        if best_value is None or value < best_value:
+            best_value = value
+    if best_value is None:
+        raise ValueError("no prefix length evaluated")
+    return best_value
+
+
 def build_star_hierarchy_lp(
     d: int,
     weights: Iterable[Fraction | int],
@@ -976,6 +1010,13 @@ def _render_report(data: dict[str, Any]) -> str:
     lines.append("- H1 is simplex plus heredity.  Hk adds all union finite-difference inequalities through order `k`: `sum_B (-1)^|B| z[union_{i in B} A_i,r] >= 0`.")
     lines.append("- Depth projection uses `D_v = sum_{u != v} z[P(u,v),u]` with root-depth-0 convention.")
     lines.append("- The complete/`H_infty` baseline is exact STT enumeration.  On a star, an STT is an ordered prefix of leaves, followed by the center, then the remaining leaves as children.")
+    lines.append("- For nonnegative weights, the ordered-prefix formula sorts leaf weights `a_1 >= ... >= a_d` and minimizes `w_0 k + sum_{i=1..k} a_i (i-1) + (k+1) sum_{i=k+1..d} a_i` over `0 <= k <= d`.")
+    lines.append("")
+    lines.append("## Theorem Discovered After Computation")
+    lines.append("")
+    lines.append("- Finite computational evidence already run: this artifact found no H2/H3/H4 star depth-projection gap in the tested ranges, and the symmetric H2 reduction matched the full H2 LP for symmetric objectives through the checked full-LP range.")
+    lines.append("- Theorem now believed/proved externally: H1 has exact depth projection on all stars.  Since H2 contains H1 constraints, this also explains why the H2 star depth-projection gap search did not find a witness.")
+    lines.append("- Regression role of the code: the implementation now checks the ordered-prefix formula against exact H1 and H2 LP optima on feasible structured and deterministic pseudorandom nonnegative weights, and it keeps the audited 4-leaf full-`z` obstruction regression.  These tests guard the model and report machinery; they are not a proof of the theorem.")
     lines.append("")
     lines.append("## Symmetric Star Reduction")
     lines.append("")
@@ -1030,7 +1071,8 @@ def _render_report(data: dict[str, Any]) -> str:
     lines.append("")
     lines.append("### Random/Secondary Scouting")
     lines.append("")
-    lines.append("- No random objective sampling is reported in this artifact.  The secondary scouting is deterministic: structured heavy-leaf families, convex heavy-count families, and small nondecreasing integer weights modulo leaf symmetry.")
+    lines.append("- No random objective sampling is reported as scouting evidence in this artifact.  The secondary scouting is deterministic: structured heavy-leaf families, convex heavy-count families, and small nondecreasing integer weights modulo leaf symmetry.")
+    lines.append("- Separately, the regression tests include deterministic pseudorandom nonnegative weights to check the H1/H2 implementation against the ordered-prefix theorem formula.")
     lines.append("")
     lines.append("### Limitations")
     lines.append("")
@@ -1062,21 +1104,22 @@ def _render_report(data: dict[str, Any]) -> str:
     lines.append("")
     lines.append("## Candidate Theorem Extracted")
     lines.append("")
-    lines.append("The best theorem suggested by the computation is: **H2 depth projection may be exact for all stars.**  This is theorem-scouting evidence only; it does not prove the statement.")
+    lines.append("The computation originally suggested: **H2 depth projection may be exact for all stars.**  After the computation, the stronger theorem now believed/proved externally is: **H1 has exact depth projection on all stars.**  The code did not prove this theorem; it now serves as a regression harness for the formula and the LP implementations.")
     lines.append("")
-    lines.append("What would still be needed for a proof:")
+    lines.append("What remains before this repository should promote the theorem as a proof artifact:")
     lines.append("")
+    lines.append("- A checked-in proof note or source reference for the external proof.")
     lines.append("- An analytic characterization of the star STT dominant.")
-    lines.append("- An analytic form of the symmetric H2 constraints.")
-    lines.append("- A dual pattern for all symmetric weights, or a reduction from nonsymmetric objectives to symmetric/orbit cases.")
+    lines.append("- An analytic derivation showing why H1 attains exactly the ordered-prefix formula for every nonnegative weight vector.")
+    lines.append("- Optional: a dual pattern explaining the exact LP optimum symbolically rather than by per-instance certificates.")
     lines.append("")
     lines.append("## Skeptical Audit")
     lines.append("")
-    lines.append("- The tests do not prove all-star exactness; they only rule out witnesses in the enumerated objective families and sizes.")
-    lines.append("- A nonsymmetric separating weight vector with larger support or larger coefficients could still exist.")
+    lines.append("- The tests do not prove all-star exactness; by themselves they only rule out witnesses in the enumerated objective families and sizes.")
+    lines.append("- Without the external H1 theorem, a nonsymmetric separating weight vector with larger support or larger coefficients would remain a possible finite-test escape.")
     lines.append("- H3/H4 were only probed where the full finite-difference generator was computationally modest.")
     lines.append("- The 4-leaf full-`z` obstruction remains real; the evidence here says it does not project to a depth obstruction.")
-    lines.append("- Before promotion, the symmetric reduction should be independently reviewed and a hand-checkable dual pattern should be extracted from the exact multipliers.")
+    lines.append("- Before proof-level promotion inside this repository, the external theorem should be recorded in a proof note or tied to a primary source.")
     lines.append("")
     return "\n".join(lines)
 

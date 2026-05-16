@@ -1,5 +1,6 @@
 import unittest
 import json
+import random
 from fractions import Fraction
 from tempfile import TemporaryDirectory
 from pathlib import Path
@@ -8,10 +9,12 @@ from scripts.stt_checker.star_depth_projection import (
     build_star_hierarchy_lp,
     build_symmetric_star_hierarchy_lp,
     evaluate_objective,
+    ordered_prefix_star_optimum_formula,
     run_scout,
     star_connected_subsets,
     star_topology,
     stt_depth_optimum,
+    structured_weight_vectors,
     structural_star_stts,
     verify_structural_stts,
     write_report,
@@ -62,6 +65,50 @@ class StarDepthProjectionModelTests(unittest.TestCase):
         optimum, vector = stt_depth_optimum(2, (0, 1, 1))
         self.assertEqual(optimum, Fraction(1))
         self.assertIn(vector, ((2, 0, 1), (2, 1, 0)))
+
+    def test_ordered_prefix_formula_matches_stt_enumeration(self):
+        cases = [
+            (1, (0, 1)),
+            (2, (3, 5, 1)),
+            (4, (1, 4, 0, 2, 3)),
+            (5, (7, 0, 5, 1, 5, 2)),
+        ]
+        for d, weights in cases:
+            with self.subTest(d=d, weights=weights):
+                optimum, _vector = stt_depth_optimum(d, weights)
+                self.assertEqual(ordered_prefix_star_optimum_formula(d, weights), optimum)
+
+    def test_h1_h2_match_ordered_prefix_formula_for_structured_weights(self):
+        data = self.scout_data()
+        for result in data["full_results"]:
+            with self.subTest(k=2, d=result.d, family=result.family, weights=result.weights):
+                formula = ordered_prefix_star_optimum_formula(result.d, result.weights)
+                self.assertEqual(result.h_optimum, formula)
+                self.assertEqual(result.stt_optimum, formula)
+
+        for d in range(1, 5):
+            for family, weights in structured_weight_vectors(d, small_bound=2):
+                with self.subTest(k=1, d=d, family=family, weights=weights):
+                    formula = ordered_prefix_star_optimum_formula(d, weights)
+                    result = evaluate_objective(d, weights, 1, family)
+                    self.assertEqual(result.h_optimum, formula)
+                    self.assertEqual(result.stt_optimum, formula)
+                    self.assertTrue(result.certificate.verified)
+
+    def test_h1_h2_match_ordered_prefix_formula_for_random_nonnegative_weights(self):
+        rng = random.Random(20260516)
+        for d in range(1, 5):
+            for sample in range(4):
+                weights = tuple(Fraction(rng.randrange(0, 11)) for _ in range(d + 1))
+                if not any(weights):
+                    weights = (Fraction(1),) + weights[1:]
+                formula = ordered_prefix_star_optimum_formula(d, weights)
+                for k in (1, 2):
+                    with self.subTest(k=k, d=d, sample=sample, weights=weights):
+                        result = evaluate_objective(d, weights, k, "random_regression")
+                        self.assertEqual(result.h_optimum, formula)
+                        self.assertEqual(result.stt_optimum, formula)
+                        self.assertTrue(result.certificate.verified)
 
     def test_full_h2_objectives_match_stt_for_probe_weights(self):
         for weights in (
