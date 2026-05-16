@@ -1,0 +1,73 @@
+{
+  "certificate_id": "skz_long_star_7_h2_fixed_depth_infeasible",
+  "depth_vector": {
+    "0": "2",
+    "1": "2",
+    "2": "9/2",
+    "3": "2",
+    "4": "2",
+    "5": "3/2",
+    "6": "1/2"
+  },
+  "exact_certificate": {
+    "explanation": "The H2 dual gives objective >= 30, while the fixed depth vector forces the same objective to 59/2.",
+    "farkas_rhs": "-1/2",
+    "feasible": false,
+    "fixed_depth_objective": "59/2",
+    "h2_lower_bound": "30",
+    "type": "dual_bound_plus_fixed_depth_objective_contradiction"
+  },
+  "numerical_simplex": {
+    "augmented_inequality_rows": 2024,
+    "message": "infeasible in simplex phase I",
+    "status": 2
+  },
+  "schema_version": "stt-h2-fixed-depth-cert-v0",
+  "topology": {
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "n": 7,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "weights": {
+    "0": "3",
+    "1": "2",
+    "2": "0",
+    "3": "2",
+    "4": "3",
+    "5": "3",
+    "6": "10"
+  }
+}

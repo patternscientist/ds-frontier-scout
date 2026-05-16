@@ -1,7 +1,12 @@
 import unittest
+from contextlib import redirect_stdout
 from fractions import Fraction
+import io
+import json
+from pathlib import Path
 
 from scripts.stt_checker.hereditary_lp import (
+    RectangleConstraint,
     SKZ_LONG_STAR_TOPOLOGY,
     SKZ_LONG_STAR_WEIGHTS,
     build_hereditary_lp,
@@ -10,7 +15,42 @@ from scripts.stt_checker.hereditary_lp import (
     rationalize_solution,
     solve_hereditary_lp,
 )
+from scripts.stt_checker.h2_dual_certificate import (
+    audit_h2_rectangle_enumeration,
+    fixed_depth_certificate,
+    main as h2_certificate_main,
+    verify_certificate,
+    verify_certificate_file,
+)
 from scripts.stt_checker.topology import TreeTopology
+
+
+ROOT = Path(__file__).resolve().parents[1]
+H1_SKZ_RESULT = ROOT / "examples" / "stt_lp" / "skz_long_star_7_hereditary_lp_result.json"
+H2_DUAL_CERTIFICATE = ROOT / "examples" / "stt_lp" / "skz_long_star_7_h2_dual_certificate.json"
+H2_FIXED_D_RESULT = ROOT / "examples" / "stt_lp" / "skz_long_star_7_h2_fixed_d_result.json"
+
+
+def parse_fraction(text):
+    return Fraction(text)
+
+
+def load_h1_skz_rational_values(lp):
+    payload = json.loads(H1_SKZ_RESULT.read_text(encoding="utf-8"))
+    values = {variable: Fraction(0) for variable in lp.variables}
+    for item in payload["rationalized_certificate"]["nonzero_z_variables"]:
+        values[(tuple(item["component"]), item["root"])] = parse_fraction(item["value"])
+    return values
+
+
+def rectangle_value(values, constraint):
+    root = constraint.root
+    return (
+        values[(constraint.base, root)]
+        - values[(constraint.extension_a, root)]
+        - values[(constraint.extension_b, root)]
+        + values[(constraint.union, root)]
+    )
 
 
 class HereditaryLPEnumerationTests(unittest.TestCase):
@@ -109,6 +149,80 @@ class HereditaryLPConstructionTests(unittest.TestCase):
         self.assertEqual(rational.exact_objective, Fraction(6))
 
 
+class HereditaryLPH2RectangleTests(unittest.TestCase):
+    def test_h2_rectangle_enumeration_tiny_trees(self):
+        edge = TreeTopology.from_dict(
+            {"n": 2, "vertices": [0, 1], "edges": [[0, 1]]}
+        )
+        edge_lp = build_hereditary_lp(edge, [1, 1], relaxation="h2")
+        self.assertEqual(len(edge_lp.rectangle_constraints), 0)
+
+        p3 = TreeTopology.from_dict(
+            {"n": 3, "vertices": [0, 1, 2], "edges": [[0, 1], [1, 2]]}
+        )
+        p3_lp = build_hereditary_lp(p3, [1, 1, 1], relaxation="h2")
+        self.assertEqual(
+            p3_lp.rectangle_constraints,
+            (
+                RectangleConstraint(
+                    base=(1,),
+                    extension_a=(0, 1),
+                    extension_b=(1, 2),
+                    union=(0, 1, 2),
+                    root=1,
+                ),
+            ),
+        )
+
+    def test_h1_certificate_violates_reported_h2_rectangle_by_minus_half(self):
+        topology = TreeTopology.from_dict(SKZ_LONG_STAR_TOPOLOGY)
+        lp = build_hereditary_lp(topology, SKZ_LONG_STAR_WEIGHTS, relaxation="h2")
+        values = load_h1_skz_rational_values(lp)
+        constraint = RectangleConstraint(
+            base=(2, 3, 4),
+            extension_a=(1, 2, 3, 4),
+            extension_b=(2, 3, 4, 5),
+            union=(1, 2, 3, 4, 5),
+            root=3,
+        )
+        self.assertEqual(rectangle_value(values, constraint), Fraction(-1, 2))
+
+    def test_h2_includes_constraint_cutting_old_h1_certificate(self):
+        topology = TreeTopology.from_dict(SKZ_LONG_STAR_TOPOLOGY)
+        lp = build_hereditary_lp(topology, SKZ_LONG_STAR_WEIGHTS, relaxation="h2")
+        values = load_h1_skz_rational_values(lp)
+        violations = [
+            -rectangle_value(values, constraint)
+            for constraint in lp.rectangle_constraints
+        ]
+        self.assertIn(
+            RectangleConstraint(
+                base=(2, 3, 4),
+                extension_a=(1, 2, 3, 4),
+                extension_b=(2, 3, 4, 5),
+                union=(1, 2, 3, 4, 5),
+                root=3,
+            ),
+            lp.rectangle_constraints,
+        )
+        self.assertEqual(max(violations), Fraction(1, 2))
+
+    def test_h2_rectangle_audit_skz_has_no_missing_nontrivial_rows(self):
+        topology = TreeTopology.from_dict(SKZ_LONG_STAR_TOPOLOGY)
+        lp = build_hereditary_lp(topology, SKZ_LONG_STAR_WEIGHTS, relaxation="h2")
+        audit = audit_h2_rectangle_enumeration(lp)
+        self.assertTrue(audit["passes"])
+        self.assertEqual(audit["ordered_candidates"], 8435)
+        self.assertEqual(audit["tautologies"], 1482)
+        self.assertEqual(audit["h1_duplicates"], 4439)
+        self.assertEqual(audit["nontrivial_ordered"], 2514)
+        self.assertEqual(audit["symmetric_or_exact_duplicates"], 1257)
+        self.assertEqual(audit["canonical_nontrivial"], 1257)
+        self.assertEqual(audit["implemented_rectangles"], 1257)
+        self.assertEqual(audit["missing_nontrivial_rows"], 0)
+        self.assertEqual(audit["extra_rows"], 0)
+
+
 class HereditaryLPSKZRegressionTests(unittest.TestCase):
     def test_skz_long_star_solve_has_fractional_certificate_below_30(self):
         topology = TreeTopology.from_dict(SKZ_LONG_STAR_TOPOLOGY)
@@ -127,6 +241,75 @@ class HereditaryLPSKZRegressionTests(unittest.TestCase):
         self.assertEqual(rational.exact_objective, Fraction(59, 2))
         self.assertEqual(rational.max_simplex_residual, Fraction(0))
         self.assertEqual(rational.max_heredity_violation, Fraction(0))
+
+    def test_skz_long_star_h2_solve_numerically_closes_h1_gap(self):
+        topology = TreeTopology.from_dict(SKZ_LONG_STAR_TOPOLOGY)
+        lp = build_hereditary_lp(topology, SKZ_LONG_STAR_WEIGHTS, relaxation="h2")
+        self.assertEqual(len(lp.connected_subsets), 36)
+        self.assertEqual(len(lp.variables), 120)
+        self.assertEqual(lp.simplex_constraint_count, 36)
+        self.assertEqual(len(lp.heredity_constraints), 681)
+        self.assertEqual(len(lp.rectangle_constraints), 1257)
+
+        solution = solve_hereditary_lp(
+            topology,
+            SKZ_LONG_STAR_WEIGHTS,
+            relaxation="h2",
+        )
+        self.assertEqual(solution.status, 0)
+        self.assertAlmostEqual(solution.objective_value, 30.0, places=8)
+        rational = rationalize_solution(solution)
+        self.assertTrue(rational.feasible)
+        self.assertEqual(rational.exact_objective, Fraction(30))
+        self.assertEqual(rational.max_simplex_residual, Fraction(0))
+        self.assertEqual(rational.max_heredity_violation, Fraction(0))
+        self.assertEqual(rational.max_h2_rectangle_violation, Fraction(0))
+
+
+class HereditaryLPH2CertificateTests(unittest.TestCase):
+    def test_checked_in_h2_dual_certificate_verifies_exactly_from_rebuilt_lp(self):
+        verification = verify_certificate_file(H2_DUAL_CERTIFICATE)
+        self.assertEqual(verification.primal_objective, Fraction(30))
+        self.assertEqual(verification.dual_max_objective, Fraction(-30))
+        self.assertEqual(verification.original_min_lower_bound, Fraction(30))
+        self.assertTrue(verification.matching_objective)
+
+    def test_h2_dual_certificate_verify_command_is_independent_of_basis_metadata(self):
+        certificate = json.loads(H2_DUAL_CERTIFICATE.read_text(encoding="utf-8"))
+        certificate.pop("basis_reconstruction")
+        certificate.pop("verified")
+
+        verification = verify_certificate(certificate)
+        self.assertEqual(verification.primal_objective, Fraction(30))
+        self.assertEqual(verification.dual_max_objective, Fraction(-30))
+        self.assertEqual(verification.original_min_lower_bound, Fraction(30))
+        self.assertTrue(verification.matching_objective)
+
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            code = h2_certificate_main(["verify", str(H2_DUAL_CERTIFICATE)])
+        self.assertEqual(code, 0)
+        self.assertEqual(
+            stdout.getvalue().strip(),
+            "verified H2 certificate: primal=30 dual_max=-30 lower_bound=30",
+        )
+
+    def test_fixed_depth_vector_is_infeasible_by_dual_contradiction(self):
+        result = fixed_depth_certificate(H2_DUAL_CERTIFICATE, run_numerical=False)
+        exact = result["exact_certificate"]
+        self.assertFalse(exact["feasible"])
+        self.assertEqual(exact["fixed_depth_objective"], "59/2")
+        self.assertEqual(exact["h2_lower_bound"], "30")
+        self.assertEqual(exact["farkas_rhs"], "-1/2")
+
+    def test_checked_in_fixed_depth_result_records_exact_infeasibility(self):
+        result = json.loads(H2_FIXED_D_RESULT.read_text(encoding="utf-8"))
+        self.assertEqual(result["schema_version"], "stt-h2-fixed-depth-cert-v0")
+        exact = result["exact_certificate"]
+        self.assertFalse(exact["feasible"])
+        self.assertEqual(exact["fixed_depth_objective"], "59/2")
+        self.assertEqual(exact["h2_lower_bound"], "30")
+        self.assertEqual(exact["farkas_rhs"], "-1/2")
 
 
 if __name__ == "__main__":

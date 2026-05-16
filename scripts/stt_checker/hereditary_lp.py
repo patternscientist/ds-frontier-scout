@@ -37,7 +37,17 @@ class HeredityConstraint:
 
 
 @dataclass(frozen=True)
+class RectangleConstraint:
+    base: tuple[int, ...]
+    extension_a: tuple[int, ...]
+    extension_b: tuple[int, ...]
+    union: tuple[int, ...]
+    root: int
+
+
+@dataclass(frozen=True)
 class HereditaryLP:
+    relaxation: str
     topology: TreeTopology
     weights: dict[int, Fraction]
     connected_subsets: tuple[tuple[int, ...], ...]
@@ -46,6 +56,7 @@ class HereditaryLP:
     paths: dict[tuple[int, int], tuple[int, ...]]
     objective_coefficients: tuple[Fraction, ...]
     heredity_constraints: tuple[HeredityConstraint, ...]
+    rectangle_constraints: tuple[RectangleConstraint, ...]
 
     @property
     def simplex_constraint_count(self) -> int:
@@ -57,6 +68,7 @@ class HereditaryLPDiagnostics:
     min_variable_value: float
     max_simplex_residual: float
     max_heredity_violation: float
+    max_h2_rectangle_violation: float
     objective_recomputed: float
 
     def to_dict(self) -> dict[str, float]:
@@ -64,6 +76,7 @@ class HereditaryLPDiagnostics:
             "min_variable_value": self.min_variable_value,
             "max_simplex_residual": self.max_simplex_residual,
             "max_heredity_violation": self.max_heredity_violation,
+            "max_h2_rectangle_violation": self.max_h2_rectangle_violation,
             "objective_recomputed": self.objective_recomputed,
         }
 
@@ -78,6 +91,8 @@ class HereditaryLPSolution:
     variable_values: tuple[float, ...]
     tolerance: float
     diagnostics: HereditaryLPDiagnostics
+    basis: tuple[int, ...] = ()
+    nonbasis: tuple[int, ...] = ()
 
     @property
     def success(self) -> bool:
@@ -89,6 +104,7 @@ class HereditaryLPSolution:
 
     def summary_dict(self) -> dict[str, Any]:
         return {
+            "relaxation": self.lp.relaxation,
             "solver": self.solver,
             "status": self.status,
             "message": self.message,
@@ -99,6 +115,7 @@ class HereditaryLPSolution:
             "z_variables": len(self.lp.variables),
             "simplex_constraints": self.lp.simplex_constraint_count,
             "heredity_inequalities": len(self.lp.heredity_constraints),
+            "h2_rectangle_inequalities": len(self.lp.rectangle_constraints),
         }
 
     def to_result_json(
@@ -108,7 +125,7 @@ class HereditaryLPSolution:
     ) -> dict[str, Any]:
         payload = {
             "schema_version": "stt-hereditary-lp-result-v0",
-            "relaxation": "clean_room_hereditary_first_hit",
+            "relaxation": relaxation_label(self.lp.relaxation),
             "result_type": "numerical_lp_solve",
             "topology": {
                 "n": self.lp.topology.n,
@@ -133,6 +150,27 @@ class HereditaryLPSolution:
             ]
         if include_rationalized:
             payload["rationalized_certificate"] = rationalize_solution(self).to_dict()
+        if self.basis or self.nonbasis:
+            payload["solver_basis_data"] = {
+                "standard_form": (
+                    "max -objective subject to Ax <= b, x >= 0; "
+                    "simplex equalities are represented as both signs"
+                ),
+                "original_variable_count": len(self.lp.variables),
+                "inequality_row_count": (
+                    2 * self.lp.simplex_constraint_count
+                    + len(self.lp.heredity_constraints)
+                    + len(self.lp.rectangle_constraints)
+                ),
+                "basis_variable_indices": list(self.basis),
+                "nonbasis_variable_indices": list(self.nonbasis),
+                "index_convention": (
+                    "0..original_variable_count-1 are z variables; "
+                    "original_variable_count..original_variable_count+"
+                    "inequality_row_count-1 are standard-form slacks; "
+                    "-1 is the phase-I artificial variable"
+                ),
+            }
         return payload
 
 
@@ -143,6 +181,7 @@ class RationalizedCertificate:
     min_variable_value: Fraction
     max_simplex_residual: Fraction
     max_heredity_violation: Fraction
+    max_h2_rectangle_violation: Fraction
     max_rounding_error: float
     feasible: bool
     lp: HereditaryLP
@@ -155,6 +194,9 @@ class RationalizedCertificate:
             "min_variable_value": rational_to_string(self.min_variable_value),
             "max_simplex_residual": rational_to_string(self.max_simplex_residual),
             "max_heredity_violation": rational_to_string(self.max_heredity_violation),
+            "max_h2_rectangle_violation": rational_to_string(
+                self.max_h2_rectangle_violation
+            ),
             "nonzero_z_variables": [
                 {
                     "component": list(component),
@@ -193,6 +235,9 @@ class StandardCaseResult:
                 "heredity_inequalities": len(
                     self.hereditary_solution.lp.heredity_constraints
                 ),
+                "h2_rectangle_inequalities": len(
+                    self.hereditary_solution.lp.rectangle_constraints
+                ),
             },
         }
         if self.expected is not None:
@@ -204,6 +249,21 @@ def rational_to_string(value: Fraction) -> str:
     if value.denominator == 1:
         return str(value.numerator)
     return f"{value.numerator}/{value.denominator}"
+
+
+def normalize_relaxation(relaxation: str) -> str:
+    normalized = relaxation.lower()
+    if normalized not in {"h1", "h2"}:
+        raise ValueError("relaxation must be 'h1' or 'h2'")
+    return normalized
+
+
+def relaxation_label(relaxation: str) -> str:
+    if relaxation == "h1":
+        return "clean_room_hereditary_first_hit"
+    if relaxation == "h2":
+        return "clean_room_hereditary_first_hit_h2_extension_rectangles"
+    raise ValueError(f"unknown relaxation {relaxation!r}")
 
 
 def parse_weight_vector(
@@ -245,9 +305,63 @@ def compute_tree_paths(
     }
 
 
+def enumerate_h2_rectangle_constraints(
+    connected_subsets: tuple[tuple[int, ...], ...],
+) -> tuple[RectangleConstraint, ...]:
+    """Enumerate second-order connected-set extension rectangle inequalities.
+
+    Each returned constraint represents
+    z_{S,r} - z_{A,r} - z_{B,r} + z_{A union B,r} >= 0,
+    with all four sets connected, S subset A, S subset B, and r in S.
+    The inequality is symmetric in A and B, so we keep only one orientation.
+    """
+
+    connected_set = set(connected_subsets)
+    subset_sets = {component: set(component) for component in connected_subsets}
+    constraints: list[RectangleConstraint] = []
+    seen: set[tuple[tuple[int, ...], tuple[int, ...], tuple[int, ...], tuple[int, ...], int]] = set()
+
+    for base in connected_subsets:
+        base_set = subset_sets[base]
+        supersets = [
+            component
+            for component in connected_subsets
+            if base_set.issubset(subset_sets[component])
+        ]
+        for index_a, extension_a in enumerate(supersets):
+            set_a = subset_sets[extension_a]
+            for extension_b in supersets[index_a:]:
+                if extension_a == extension_b:
+                    continue
+                union = tuple(sorted(set_a | subset_sets[extension_b]))
+                if union not in connected_set:
+                    continue
+                if union == extension_a or union == extension_b:
+                    continue
+                first, second = sorted((extension_a, extension_b))
+                for root in base:
+                    key = (base, first, second, union, root)
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    constraints.append(
+                        RectangleConstraint(
+                            base=base,
+                            extension_a=first,
+                            extension_b=second,
+                            union=union,
+                            root=root,
+                        )
+                    )
+    return tuple(constraints)
+
+
 def build_hereditary_lp(
-    topology: TreeTopology, weights: dict[int, Fraction] | Iterable[int | Fraction]
+    topology: TreeTopology,
+    weights: dict[int, Fraction] | Iterable[int | Fraction],
+    relaxation: str = "h1",
 ) -> HereditaryLP:
+    relaxation = normalize_relaxation(relaxation)
     if not isinstance(weights, dict):
         weights = parse_weight_vector(topology, weights)
     else:
@@ -288,7 +402,14 @@ def build_hereditary_lp(
                     )
                 )
 
+    rectangle_constraints = (
+        enumerate_h2_rectangle_constraints(connected_subsets)
+        if relaxation == "h2"
+        else ()
+    )
+
     return HereditaryLP(
+        relaxation=relaxation,
         topology=topology,
         weights=weights,
         connected_subsets=connected_subsets,
@@ -297,6 +418,7 @@ def build_hereditary_lp(
         paths=paths,
         objective_coefficients=tuple(objective),
         heredity_constraints=tuple(heredity_constraints),
+        rectangle_constraints=rectangle_constraints,
     )
 
 
@@ -304,8 +426,9 @@ def solve_hereditary_lp(
     topology: TreeTopology,
     weights: dict[int, Fraction] | Iterable[int | Fraction],
     tolerance: float = DEFAULT_TOLERANCE,
+    relaxation: str = "h1",
 ) -> HereditaryLPSolution:
-    lp = build_hereditary_lp(topology, weights)
+    lp = build_hereditary_lp(topology, weights, relaxation=relaxation)
     matrix, rhs, maximize_coefficients = _standard_form_for_simplex(lp)
     simplex_result = _simplex_maximize(
         matrix,
@@ -324,6 +447,8 @@ def solve_hereditary_lp(
         variable_values=tuple(simplex_result.solution),
         tolerance=tolerance,
         diagnostics=diagnostics,
+        basis=simplex_result.basis,
+        nonbasis=simplex_result.nonbasis,
     )
 
 
@@ -342,6 +467,16 @@ def compute_diagnostics(
         rhs = values[lp.variable_index[(constraint.subset, constraint.root)]]
         heredity_violation = max(heredity_violation, lhs - rhs)
 
+    rectangle_violation = 0.0
+    for constraint in lp.rectangle_constraints:
+        expression = (
+            values[lp.variable_index[(constraint.base, constraint.root)]]
+            - values[lp.variable_index[(constraint.extension_a, constraint.root)]]
+            - values[lp.variable_index[(constraint.extension_b, constraint.root)]]
+            + values[lp.variable_index[(constraint.union, constraint.root)]]
+        )
+        rectangle_violation = max(rectangle_violation, -expression)
+
     objective = sum(
         float(coefficient) * values[index]
         for index, coefficient in enumerate(lp.objective_coefficients)
@@ -350,6 +485,7 @@ def compute_diagnostics(
         min_variable_value=min(values) if values else 0.0,
         max_simplex_residual=simplex_residual,
         max_heredity_violation=max(0.0, heredity_violation),
+        max_h2_rectangle_violation=max(0.0, rectangle_violation),
         objective_recomputed=objective,
     )
 
@@ -381,6 +517,16 @@ def rationalize_solution(
         rhs = values[lp.variable_index[(constraint.subset, constraint.root)]]
         heredity_violation = max(heredity_violation, lhs - rhs)
 
+    rectangle_violation = Fraction(0)
+    for constraint in lp.rectangle_constraints:
+        expression = (
+            values[lp.variable_index[(constraint.base, constraint.root)]]
+            - values[lp.variable_index[(constraint.extension_a, constraint.root)]]
+            - values[lp.variable_index[(constraint.extension_b, constraint.root)]]
+            + values[lp.variable_index[(constraint.union, constraint.root)]]
+        )
+        rectangle_violation = max(rectangle_violation, -expression)
+
     max_rounding_error = max(
         (
             abs(float(values[index]) - solution.variable_values[index])
@@ -390,17 +536,20 @@ def rationalize_solution(
     )
     min_variable = min(values) if values else Fraction(0)
     max_positive_heredity_violation = max(Fraction(0), heredity_violation)
+    max_positive_rectangle_violation = max(Fraction(0), rectangle_violation)
     return RationalizedCertificate(
         values=values,
         exact_objective=objective,
         min_variable_value=min_variable,
         max_simplex_residual=simplex_residual,
         max_heredity_violation=max_positive_heredity_violation,
+        max_h2_rectangle_violation=max_positive_rectangle_violation,
         max_rounding_error=max_rounding_error,
         feasible=(
             min_variable >= 0
             and simplex_residual == 0
             and max_positive_heredity_violation == 0
+            and max_positive_rectangle_violation == 0
         ),
         lp=lp,
     )
@@ -429,6 +578,15 @@ def _standard_form_for_simplex(
         matrix.append(row)
         rhs.append(0.0)
 
+    for constraint in lp.rectangle_constraints:
+        row = [0.0] * variable_count
+        row[lp.variable_index[(constraint.base, constraint.root)]] -= 1.0
+        row[lp.variable_index[(constraint.extension_a, constraint.root)]] += 1.0
+        row[lp.variable_index[(constraint.extension_b, constraint.root)]] += 1.0
+        row[lp.variable_index[(constraint.union, constraint.root)]] -= 1.0
+        matrix.append(row)
+        rhs.append(0.0)
+
     maximize_coefficients = [-float(coefficient) for coefficient in lp.objective_coefficients]
     return matrix, rhs, maximize_coefficients
 
@@ -439,6 +597,8 @@ class _SimplexResult:
     message: str
     objective_value: float
     solution: tuple[float, ...]
+    basis: tuple[int, ...] = ()
+    nonbasis: tuple[int, ...] = ()
 
 
 def _simplex_maximize(
@@ -557,6 +717,8 @@ def _simplex_maximize(
                     message="infeasible in simplex phase I",
                     objective_value=math.nan,
                     solution=tuple(math.nan for _ in range(variable_count)),
+                    basis=tuple(basis),
+                    nonbasis=tuple(nonbasis),
                 )
             if phase_one_value > tolerance:
                 return _SimplexResult(
@@ -564,6 +726,8 @@ def _simplex_maximize(
                     message="infeasible in simplex phase I",
                     objective_value=math.nan,
                     solution=tuple(math.nan for _ in range(variable_count)),
+                    basis=tuple(basis),
+                    nonbasis=tuple(nonbasis),
                 )
             for row in range(row_count):
                 if basis[row] != -1:
@@ -582,6 +746,8 @@ def _simplex_maximize(
             message="unbounded in simplex phase II",
             objective_value=math.inf,
             solution=tuple(math.nan for _ in range(variable_count)),
+            basis=tuple(basis),
+            nonbasis=tuple(nonbasis),
         )
 
     solution = [0.0 for _ in range(variable_count)]
@@ -593,10 +759,16 @@ def _simplex_maximize(
         message="optimal",
         objective_value=tableau[row_count][rhs_col],
         solution=tuple(solution),
+        basis=tuple(basis),
+        nonbasis=tuple(nonbasis),
     )
 
 
-def standard_cases(tolerance: float = DEFAULT_TOLERANCE) -> list[StandardCaseResult]:
+def standard_cases(
+    tolerance: float = DEFAULT_TOLERANCE,
+    relaxation: str = "h1",
+) -> list[StandardCaseResult]:
+    relaxation = normalize_relaxation(relaxation)
     cases = [
         (
             "edge_weights_1_1",
@@ -649,7 +821,12 @@ def standard_cases(tolerance: float = DEFAULT_TOLERANCE) -> list[StandardCaseRes
     results: list[StandardCaseResult] = []
     for name, topology, weights_raw, expected in cases:
         weights = parse_weight_vector(topology, weights_raw)
-        solution = solve_hereditary_lp(topology, weights, tolerance=tolerance)
+        solution = solve_hereditary_lp(
+            topology,
+            weights,
+            tolerance=tolerance,
+            relaxation=relaxation,
+        )
         true_optimum, _best_stt, _count = integer_optimum_by_enumeration(
             topology,
             weights,
@@ -703,6 +880,12 @@ def main(argv: list[str] | None = None) -> int:
         help="write the numerical SKZ solution/result JSON to this path",
     )
     parser.add_argument(
+        "--relaxation",
+        choices=("h1", "h2"),
+        default="h1",
+        help="LP relaxation to solve: h1 or h2",
+    )
+    parser.add_argument(
         "--tolerance",
         type=float,
         default=DEFAULT_TOLERANCE,
@@ -710,7 +893,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    results = standard_cases(tolerance=args.tolerance)
+    results = standard_cases(tolerance=args.tolerance, relaxation=args.relaxation)
 
     if args.write_skz_json is not None:
         skz_result = next(
@@ -730,11 +913,14 @@ def main(argv: list[str] | None = None) -> int:
             else ""
         )
         print(
-            f"{result.name}: status={solution.status} objective="
+            f"{result.name}: relaxation={solution.lp.relaxation} "
+            f"status={solution.status} objective="
             f"{solution.objective_value:.12g} true_root_depth_0="
             f"{rational_to_string(result.true_optimum)}{expected_text} "
             f"max_simplex_residual={solution.diagnostics.max_simplex_residual:.3g} "
-            f"max_heredity_violation={solution.diagnostics.max_heredity_violation:.3g}"
+            f"max_heredity_violation={solution.diagnostics.max_heredity_violation:.3g} "
+            f"max_h2_rectangle_violation="
+            f"{solution.diagnostics.max_h2_rectangle_violation:.3g}"
         )
     return 0
 
