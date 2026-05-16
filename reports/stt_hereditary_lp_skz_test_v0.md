@@ -54,11 +54,13 @@ All values below use the same root-depth-0 hereditary objective.
 | P3 `0-1-2` | `[1,1,1]` | `2` | `2` |
 | P3 `0-1-2` | `[2,0,3]` | `2` | `2` |
 | P3 `0-1-2` | `[1,4,4]` | `5` | `5` |
+| P3 `1-0-2`, center `0` | `[1,4,4]` | `6` | `6` |
 
-Note: the requested sanity expectation said the P3 `[1,4,4]` true optimum was
-`6`. Under the root-depth-0 objective above and full STT recursion, exact
-enumeration gives `5`, achieved by rooting the whole P3 at vertex `1`.
-The value `6` is a nonoptimal valid STT cost, not the optimum in this convention.
+Note: the earlier discrepancy was caused by a coordinate convention mismatch.
+For the path topology `0-1-2`, weights `[1,4,4]` put weight `1` on an endpoint,
+and exact enumeration gives optimum `5`. The intended good-root-failure sanity
+case is instead the topology `1-0-2`, with vertex `0` as the center and weights
+`[1,4,4]`; in that convention the true root-depth-0 STT optimum is `6`.
 
 ## SKZ Result
 

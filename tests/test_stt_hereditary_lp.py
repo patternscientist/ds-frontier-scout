@@ -80,22 +80,33 @@ class HereditaryLPConstructionTests(unittest.TestCase):
         self.assertAlmostEqual(solution.objective_value, 1.0)
         self.assertEqual(rationalize_solution(solution).exact_objective, Fraction(1))
 
-    def test_p3_lp_construction_and_good_root_weights(self):
-        topology = TreeTopology.from_dict(
+    def test_p3_path_weights_1_4_4(self):
+        path_topology = TreeTopology.from_dict(
             {"n": 3, "vertices": [0, 1, 2], "edges": [[0, 1], [1, 2]]}
         )
-        lp = build_hereditary_lp(topology, [1, 4, 4])
+        lp = build_hereditary_lp(path_topology, [1, 4, 4])
         self.assertEqual(len(lp.connected_subsets), 6)
         self.assertEqual(len(lp.variables), 10)
         self.assertEqual(lp.simplex_constraint_count, 6)
         self.assertEqual(len(lp.heredity_constraints), 11)
 
-        solution = solve_hereditary_lp(topology, [1, 4, 4])
+        solution = solve_hereditary_lp(path_topology, [1, 4, 4])
         self.assertEqual(solution.status, 0)
         self.assertAlmostEqual(solution.objective_value, 5.0)
         rational = rationalize_solution(solution)
         self.assertTrue(rational.feasible)
         self.assertEqual(rational.exact_objective, Fraction(5))
+
+    def test_p3_good_root_failure_center_0(self):
+        center_topology = TreeTopology.from_dict(
+            {"n": 3, "vertices": [0, 1, 2], "edges": [[0, 1], [0, 2]]}
+        )
+        solution = solve_hereditary_lp(center_topology, [1, 4, 4])
+        self.assertEqual(solution.status, 0)
+        self.assertAlmostEqual(solution.objective_value, 6.0)
+        rational = rationalize_solution(solution)
+        self.assertTrue(rational.feasible)
+        self.assertEqual(rational.exact_objective, Fraction(6))
 
 
 class HereditaryLPSKZRegressionTests(unittest.TestCase):

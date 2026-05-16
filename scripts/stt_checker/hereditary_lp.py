@@ -623,12 +623,20 @@ def standard_cases(tolerance: float = DEFAULT_TOLERANCE) -> list[StandardCaseRes
             Fraction(2),
         ),
         (
-            "p3_good_root_failure_weights_1_4_4",
+            "p3_path_weights_1_4_4",
             TreeTopology.from_dict(
                 {"n": 3, "vertices": [0, 1, 2], "edges": [[0, 1], [1, 2]]}
             ),
             [1, 4, 4],
             Fraction(5),
+        ),
+        (
+            "p3_good_root_failure_center_0",
+            TreeTopology.from_dict(
+                {"n": 3, "vertices": [0, 1, 2], "edges": [[0, 1], [0, 2]]}
+            ),
+            [1, 4, 4],
+            Fraction(6),
         ),
         (
             "skz_u_7_3_long_star",
