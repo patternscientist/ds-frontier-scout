@@ -1,5 +1,7 @@
 import unittest
+from contextlib import redirect_stdout
 from fractions import Fraction
+import io
 import json
 from pathlib import Path
 
@@ -16,6 +18,8 @@ from scripts.stt_checker.hereditary_lp import (
 from scripts.stt_checker.h2_dual_certificate import (
     audit_h2_rectangle_enumeration,
     fixed_depth_certificate,
+    main as h2_certificate_main,
+    verify_certificate,
     verify_certificate_file,
 )
 from scripts.stt_checker.topology import TreeTopology
@@ -24,6 +28,7 @@ from scripts.stt_checker.topology import TreeTopology
 ROOT = Path(__file__).resolve().parents[1]
 H1_SKZ_RESULT = ROOT / "examples" / "stt_lp" / "skz_long_star_7_hereditary_lp_result.json"
 H2_DUAL_CERTIFICATE = ROOT / "examples" / "stt_lp" / "skz_long_star_7_h2_dual_certificate.json"
+H2_FIXED_D_RESULT = ROOT / "examples" / "stt_lp" / "skz_long_star_7_h2_fixed_d_result.json"
 
 
 def parse_fraction(text):
@@ -262,15 +267,44 @@ class HereditaryLPSKZRegressionTests(unittest.TestCase):
 
 
 class HereditaryLPH2CertificateTests(unittest.TestCase):
-    def test_checked_in_h2_dual_certificate_verifies_exactly(self):
+    def test_checked_in_h2_dual_certificate_verifies_exactly_from_rebuilt_lp(self):
         verification = verify_certificate_file(H2_DUAL_CERTIFICATE)
         self.assertEqual(verification.primal_objective, Fraction(30))
         self.assertEqual(verification.dual_max_objective, Fraction(-30))
         self.assertEqual(verification.original_min_lower_bound, Fraction(30))
         self.assertTrue(verification.matching_objective)
 
+    def test_h2_dual_certificate_verify_command_is_independent_of_basis_metadata(self):
+        certificate = json.loads(H2_DUAL_CERTIFICATE.read_text(encoding="utf-8"))
+        certificate.pop("basis_reconstruction")
+        certificate.pop("verified")
+
+        verification = verify_certificate(certificate)
+        self.assertEqual(verification.primal_objective, Fraction(30))
+        self.assertEqual(verification.dual_max_objective, Fraction(-30))
+        self.assertEqual(verification.original_min_lower_bound, Fraction(30))
+        self.assertTrue(verification.matching_objective)
+
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            code = h2_certificate_main(["verify", str(H2_DUAL_CERTIFICATE)])
+        self.assertEqual(code, 0)
+        self.assertEqual(
+            stdout.getvalue().strip(),
+            "verified H2 certificate: primal=30 dual_max=-30 lower_bound=30",
+        )
+
     def test_fixed_depth_vector_is_infeasible_by_dual_contradiction(self):
         result = fixed_depth_certificate(H2_DUAL_CERTIFICATE, run_numerical=False)
+        exact = result["exact_certificate"]
+        self.assertFalse(exact["feasible"])
+        self.assertEqual(exact["fixed_depth_objective"], "59/2")
+        self.assertEqual(exact["h2_lower_bound"], "30")
+        self.assertEqual(exact["farkas_rhs"], "-1/2")
+
+    def test_checked_in_fixed_depth_result_records_exact_infeasibility(self):
+        result = json.loads(H2_FIXED_D_RESULT.read_text(encoding="utf-8"))
+        self.assertEqual(result["schema_version"], "stt-h2-fixed-depth-cert-v0")
         exact = result["exact_certificate"]
         self.assertFalse(exact["feasible"])
         self.assertEqual(exact["fixed_depth_objective"], "59/2")

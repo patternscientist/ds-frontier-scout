@@ -53,7 +53,7 @@ Thus every intended nontrivial H2 rectangle inequality is present, and every
 omitted candidate is a tautology, an H1 duplicate, or the symmetric duplicate of
 an included rectangle row.
 
-## Exact Certificate Status
+## Reconstruction From Numerical Basis
 
 Exact certificate produced:
 
@@ -61,7 +61,22 @@ Exact certificate produced:
 examples/stt_lp/skz_long_star_7_h2_dual_certificate.json
 ```
 
-The certificate is verified by:
+The certificate was reconstructed from the saved numerical simplex result in
+`examples/stt_lp/skz_long_star_7_h2_result.json`. The reconstruction uses only
+the saved topology, weights, rationalized primal point, and simplex basis to
+solve an exact reduced linear system for the dual multipliers.
+
+The saved numerical basis reconstructs cleanly. There are `117` basic original
+variables and `117` nonbasic slack rows; solving the reduced exact system yields
+an integral nonnegative dual. The checked certificate has `89` nonzero dual
+rows.
+
+This reconstruction step is not the verifier. It is the provenance of the
+checked-in certificate.
+
+## Independent Certificate Verification
+
+The saved certificate is independently verified by:
 
 ```powershell
 python -m scripts.stt_checker.h2_dual_certificate verify examples\stt_lp\skz_long_star_7_h2_dual_certificate.json
@@ -73,9 +88,12 @@ Verifier output:
 verified H2 certificate: primal=30 dual_max=-30 lower_bound=30
 ```
 
-The verifier rebuilds the H2 standard form exactly as
+This verifier does not read `examples/stt_lp/skz_long_star_7_h2_result.json`
+and does not rely on the saved numerical basis or the certificate's
+`basis_reconstruction` metadata. It rebuilds the H2 standard form exactly from
+the certificate's topology and weights as
 `max -objective subject to Ax <= b, x >= 0`, with simplex equalities represented
-by both signs. It checks:
+by both signs. It then checks:
 
 - primal dimensions and all exact H2 constraints;
 - primal objective `30`;
@@ -83,12 +101,6 @@ by both signs. It checks:
   `A^T y >= c`;
 - dual objective `b^T y = -30`, giving original minimization lower bound `30`;
 - matching primal and dual values.
-
-The saved numerical basis in
-`examples/stt_lp/skz_long_star_7_h2_result.json` reconstructs cleanly. There are
-`117` basic original variables and `117` nonbasic slack rows; solving the reduced
-exact system yields an integral nonnegative dual. The checked certificate has
-`89` nonzero dual rows.
 
 Conclusion: H2 closes the SKZ `U(7,3)` objective gap exactly for this weight
 vector. This is now an exact, independently checkable LP certificate, not only a
@@ -118,7 +130,7 @@ original minimization lower bound = 30
 
 Together with the exact primal value `30`, this certifies the H2 optimum exactly.
 
-## Fixed-D Lift Test
+## Fixed-D Infeasibility
 
 Depth vector tested:
 
@@ -159,6 +171,13 @@ So the public SKZ fractional depth vector does not lift to H2.
 
 The optional full public SKZ `X/Z` path-variable lift was not run; the complete
 public point is not checked in as data in this repository.
+
+## Full Public X/Z Lift Status
+
+The full public SKZ `X/Z` lift remains untested in this repository. The result
+above only rules out the listed fixed depth vector under H2. It should not be
+read as a certificate about every possible public path-variable assignment
+unless that full public point is added and checked separately.
 
 ## Reproduction
 
