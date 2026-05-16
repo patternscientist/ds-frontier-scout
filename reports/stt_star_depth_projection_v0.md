@@ -13,26 +13,72 @@ This report tests whether the connected first-hit H2 failure on the 4-leaf star 
 - Depth projection uses `D_v = sum_{u != v} z[P(u,v),u]` with root-depth-0 convention.
 - The complete/`H_infty` baseline is exact STT enumeration.  On a star, an STT is an ordered prefix of leaves, followed by the center, then the remaining leaves as children.
 
-## Ranges Tested
+## Symmetric Star Reduction
+
+Let `S subseteq {1..d}` be a set of leaves.  Under leaf symmetry, every center-containing first-hit variable belongs to one of two orbit types:
+
+- `c_s = z[{0} union S, 0]` for `|S|=s`, with `0 <= s <= d`.
+- `l_s = z[{0} union S, i]` for `i in S` and `|S|=s`, with `1 <= s <= d`.
+- Singleton leaf values are constants: `z[{i}, i] = 1`.
+
+The simplex equations reduce to:
+
+- `c_0 = 1` for the singleton center set.
+- `c_s + s l_s = 1` for every `s >= 1`, because `{0} union S` has one center root orbit and `s` identical leaf-root entries.
+
+The H1 orbit inequalities are exactly the monotonicity rows obtained from a base connected set and a proper connected superset:
+
+- Center-root rows: `c_s - c_t >= 0` for `0 <= s < t <= d`.
+- Leaf-root rows inside center-containing sets: `l_s - l_t >= 0` for `1 <= s < t <= d`.
+- Singleton-leaf base rows: `1 - l_t >= 0` for `1 <= t <= d`.
+
+The H2 orbit inequalities are the two-extension finite differences after quotienting by leaf permutations.  For feasible union-size patterns with base size `s`, extension sizes `t` and `u`, and union size `v`, the generated rows have the forms `c_s - c_t - c_u + c_v >= 0`, `l_s - l_t - l_u + l_v >= 0`, and `1 - l_t - l_u + l_v >= 0` for center roots, center-containing leaf roots, and singleton-leaf bases respectively.  Feasible patterns are enumerated by distributing leaves among the Venn atoms of the two supersets, so the reduction depends only on orbit sizes rather than leaf labels.
+
+Implementation note: the code generates rows directly in orbit variables for root types `center`, `leaf`, and `singleton_leaf`.  It stores rows in internal `<=` form and de-duplicates by the exact sparse coefficient vector plus exact right-hand side.  Swapping the two H2 extensions, repeated orbit-size patterns, and simplex/H1 duplicates therefore collapse to one row.  The only pre-insertion skip is for an empty row with a nonnegative pre-negation bound, so the filter cannot remove a nonempty orbit inequality.
+
+## Evidence Types
+
+### Exact Full-LP Tests
 
 - Structural STT enumeration checked against generic recursive enumeration for `d=1..5`: `{'1': True, '2': True, '3': True, '4': True, '5': True}`.
 - Full H2 LP objectives: 122 objectives; smallest H-STT gap `0`.
-- Full H3/H4 probe objectives: 22 objectives; smallest H-STT gap `0`.
-- Symmetric H2 objectives: 40 objectives; smallest H-STT gap `0`.
 - Full objective families include center-heavy, one/two/three/four-heavy leaves, symmetric leaf weights, convex heavy-count patterns, and all small integer weights up to `2` modulo leaf symmetry through `d=4`.
+- Reported families: `1_leaf_heavy`, `2_leaf_heavy`, `3_leaf_heavy`, `4_leaf_heavy`, `center_heavy`, `convex_heavy_count_0`, `convex_heavy_count_1`, `convex_heavy_count_2`, `convex_heavy_count_3`, `convex_heavy_count_4`, `small_int_leq_2`, `symmetric_leaf_weights`.
+- Certificate status: each no-gap optimum is reconstructed from a floating simplex basis, independently verified after reconstruction by exact primal and dual checks, and checked during report generation only.  Full-LP basis data and per-objective certificates are not saved as JSON.
+- Tightest full H2 case: d=1, H2, family=center_heavy, weights=(10, 1), H=1, STT=1.
+
+### Exact Symmetric-Reduction Tests
+
+- Symmetric H2 objectives: 40 objectives; smallest H-STT gap `0`.
 - Symmetric objectives use `(center, leaf)` weights `(0,1)`, `(1,1)`, `(4,1)`, `(10,1)`, and `(1,4)` through `d=8`.
+- For symmetric weights and `d<=4`, the orbit-variable H2 LP was compared against the full H2 LP.  All compared optima matched exactly.
+- Reported families: `symmetric_0_1`, `symmetric_10_1`, `symmetric_1_1`, `symmetric_1_4`, `symmetric_4_1`.
+- Certificate status: each no-gap optimum is reconstructed from a floating simplex basis and independently verified after reconstruction.  A compact JSON summary is saved at `examples\stt_lp\star_symmetric_h2_d_leq_8_summary.json`; it records optima, gaps, weights, and verification status, but not basis data or full variable assignments.
+- Tightest symmetric H2 case: d=1, H2, family=symmetric_0_1, weights=(0, 1), H=0, STT=0.
 
-## Full vs Symmetric Reduction
+### H3/H4 Probes
 
-For symmetric weights and `d<=4`, the orbit-variable H2 LP was compared against the full H2 LP.  All compared optima matched exactly.  The reduced variables are `c_s` for the center root on a center-containing set with `s` leaves and `l_s` for a leaf root in such a set; singleton leaf first-hit values are constants equal to `1`.
+- Full H3/H4 probe objectives: 22 objectives; smallest H-STT gap `0`.
+- Probe families are center-heavy, symmetric leaf weights, and two-heavy-leaf objectives where defined.
+- Reported families: `center_heavy`, `symmetric_leaf_weights`, `two_leaf_heavy`.
+- Certificate status: each no-gap optimum is reconstructed from a floating simplex basis, independently verified after reconstruction, and checked during report generation only.  H3/H4 probe certificates are not saved as JSON.
+- Tightest H3/H4 probe case: d=1, H3, family=center_heavy, weights=(10, 1), H=1, STT=1.
+
+### Random/Secondary Scouting
+
+- No random objective sampling is reported in this artifact.  The secondary scouting is deterministic: structured heavy-leaf families, convex heavy-count families, and small nondecreasing integer weights modulo leaf symmetry.
+
+### Limitations
+
+- No finite test proves all-star exactness.
+- A nonsymmetric separating weight vector with larger support or larger coefficients could still exist.
+- H3/H4 were only probed where the full finite-difference generator was computationally modest.
+- The compact symmetric JSON artifact intentionally omits basis data; rerun the generator to reconstruct and reverify certificates.
 
 ## Depth-Projection Gap Search
 
-No depth-projection gap was found in the tested range.
-- Tightest full H2 case: d=1, H2, family=center_heavy, weights=(10, 1), H=1, STT=1.
-- Tightest H3/H4 probe case: d=1, H3, family=center_heavy, weights=(10, 1), H=1, STT=1.
-- Tightest symmetric H2 case: d=1, H2, family=symmetric_0_1, weights=(0, 1), H=0, STT=0.
-- For every reported objective, an exact primal/dual certificate was reconstructed from the LP basis with zero primal violation, zero dual deficit, and matching objective value.
+No H2/H3/H4 star depth-projection gap was found in the tested ranges.
+- For every reported objective, the H-STT gap is nonnegative and the exact primal/dual certificate verification passes.
 
 ## 4-Leaf z-Obstruction Regression
 
@@ -41,11 +87,15 @@ No depth-projection gap was found in the tested range.
 - Depth vector: `('8/3', '11/6', '11/6', '11/6', '11/6')`.
 - Dominated by center-root STT vector `(0,1,1,1,1)`: `True`.
 
-## Candidate Theorem Statements
+## Candidate Theorem Extracted
 
-1. Conservative candidate: For every fixed nonnegative weight vector tested here, the H2 depth optimum on a star equals the exact STT optimum.  This is only a finite computational statement.
-2. Structural candidate: The leaf-symmetrized H2 constraints may already imply the lower envelope of ordered-prefix STT depth vectors for symmetric weights on all stars.
-3. Strong candidate to audit: H2 has exact depth projection on all stars, even though H2 is not exact in full first-hit `z`-space.
+The best theorem suggested by the computation is: **H2 depth projection may be exact for all stars.**  This is theorem-scouting evidence only; it does not prove the statement.
+
+What would still be needed for a proof:
+
+- An analytic characterization of the star STT dominant.
+- An analytic form of the symmetric H2 constraints.
+- A dual pattern for all symmetric weights, or a reduction from nonsymmetric objectives to symmetric/orbit cases.
 
 ## Skeptical Audit
 

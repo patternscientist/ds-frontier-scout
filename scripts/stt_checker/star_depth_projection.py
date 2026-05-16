@@ -32,6 +32,7 @@ from .topology import TreeTopology
 
 
 DEFAULT_REPORT = Path("reports/stt_star_depth_projection_v0.md")
+DEFAULT_SYMMETRIC_SUMMARY = Path("examples/stt_lp/star_symmetric_h2_d_leq_8_summary.json")
 
 Component = tuple[int, ...]
 Variable = tuple[Component, int]
@@ -556,18 +557,69 @@ def run_scout(
     }
 
 
-def write_report(path: Path = DEFAULT_REPORT) -> dict[str, Any]:
-    data = run_scout()
+def write_report(
+    path: Path = DEFAULT_REPORT,
+    symmetric_summary_path: Path = DEFAULT_SYMMETRIC_SUMMARY,
+    data: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    if data is None:
+        data = run_scout()
     report = _render_report(data)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(report, encoding="utf-8")
+    write_symmetric_h2_summary(data["symmetric_results"], symmetric_summary_path, data["settings"])
     return {
         "report": str(path),
+        "symmetric_summary": str(symmetric_summary_path),
         "full_objectives": len(data["full_results"]),
         "h3_h4_objectives": len(data["h3_h4_results"]),
         "symmetric_objectives": len(data["symmetric_results"]),
         "gaps": len(data["gaps"]),
     }
+
+
+def write_symmetric_h2_summary(
+    results: list[ObjectiveResult],
+    path: Path = DEFAULT_SYMMETRIC_SUMMARY,
+    settings: dict[str, Any] | None = None,
+) -> None:
+    """Write the compact exact summary artifact for symmetric H2 star runs."""
+
+    runs = []
+    for result in results:
+        if result.k != 2 or not result.symmetric:
+            continue
+        runs.append(
+            {
+                "d": result.d,
+                "weights": [rational_to_string(value) for value in result.weights],
+                "stt_optimum": rational_to_string(result.stt_optimum),
+                "h2_optimum": rational_to_string(result.h_optimum),
+                "gap": rational_to_string(result.gap),
+                "certificate_verification_status": (
+                    "verified_exact_primal_dual_after_floating_basis_reconstruction"
+                    if result.certificate.verified
+                    else "failed"
+                ),
+                "max_primal_violation": rational_to_string(result.certificate.max_primal_violation),
+                "max_dual_deficit": rational_to_string(result.certificate.max_dual_deficit),
+            }
+        )
+
+    artifact = {
+        "schema": "stt_star_symmetric_h2_summary_v0",
+        "scope": "Symmetric H2 star depth-projection objectives through d=8.",
+        "settings": settings or {},
+        "certificate_policy": (
+            "Optima are reconstructed exactly from floating simplex bases and "
+            "independently verified by exact primal feasibility, exact dual "
+            "feasibility, and matching primal/dual objective values. Basis data "
+            "and variable assignments are not saved in this compact artifact."
+        ),
+        "runs": runs,
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(artifact, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def _depth_objective_coefficients(
@@ -896,6 +948,11 @@ def _summarize_results(results: list[ObjectiveResult]) -> tuple[str, str]:
     )
 
 
+def _family_list(results: list[ObjectiveResult]) -> str:
+    families = sorted({result.family for result in results})
+    return ", ".join(f"`{family}`" for family in families)
+
+
 def _render_report(data: dict[str, Any]) -> str:
     full_summary, full_witness = _summarize_results(data["full_results"])
     h34_summary, h34_witness = _summarize_results(data["h3_h4_results"])
@@ -920,18 +977,67 @@ def _render_report(data: dict[str, Any]) -> str:
     lines.append("- Depth projection uses `D_v = sum_{u != v} z[P(u,v),u]` with root-depth-0 convention.")
     lines.append("- The complete/`H_infty` baseline is exact STT enumeration.  On a star, an STT is an ordered prefix of leaves, followed by the center, then the remaining leaves as children.")
     lines.append("")
-    lines.append("## Ranges Tested")
+    lines.append("## Symmetric Star Reduction")
+    lines.append("")
+    lines.append("Let `S subseteq {1..d}` be a set of leaves.  Under leaf symmetry, every center-containing first-hit variable belongs to one of two orbit types:")
+    lines.append("")
+    lines.append("- `c_s = z[{0} union S, 0]` for `|S|=s`, with `0 <= s <= d`.")
+    lines.append("- `l_s = z[{0} union S, i]` for `i in S` and `|S|=s`, with `1 <= s <= d`.")
+    lines.append("- Singleton leaf values are constants: `z[{i}, i] = 1`.")
+    lines.append("")
+    lines.append("The simplex equations reduce to:")
+    lines.append("")
+    lines.append("- `c_0 = 1` for the singleton center set.")
+    lines.append("- `c_s + s l_s = 1` for every `s >= 1`, because `{0} union S` has one center root orbit and `s` identical leaf-root entries.")
+    lines.append("")
+    lines.append("The H1 orbit inequalities are exactly the monotonicity rows obtained from a base connected set and a proper connected superset:")
+    lines.append("")
+    lines.append("- Center-root rows: `c_s - c_t >= 0` for `0 <= s < t <= d`.")
+    lines.append("- Leaf-root rows inside center-containing sets: `l_s - l_t >= 0` for `1 <= s < t <= d`.")
+    lines.append("- Singleton-leaf base rows: `1 - l_t >= 0` for `1 <= t <= d`.")
+    lines.append("")
+    lines.append("The H2 orbit inequalities are the two-extension finite differences after quotienting by leaf permutations.  For feasible union-size patterns with base size `s`, extension sizes `t` and `u`, and union size `v`, the generated rows have the forms `c_s - c_t - c_u + c_v >= 0`, `l_s - l_t - l_u + l_v >= 0`, and `1 - l_t - l_u + l_v >= 0` for center roots, center-containing leaf roots, and singleton-leaf bases respectively.  Feasible patterns are enumerated by distributing leaves among the Venn atoms of the two supersets, so the reduction depends only on orbit sizes rather than leaf labels.")
+    lines.append("")
+    lines.append("Implementation note: the code generates rows directly in orbit variables for root types `center`, `leaf`, and `singleton_leaf`.  It stores rows in internal `<=` form and de-duplicates by the exact sparse coefficient vector plus exact right-hand side.  Swapping the two H2 extensions, repeated orbit-size patterns, and simplex/H1 duplicates therefore collapse to one row.  The only pre-insertion skip is for an empty row with a nonnegative pre-negation bound, so the filter cannot remove a nonempty orbit inequality.")
+    lines.append("")
+    lines.append("## Evidence Types")
+    lines.append("")
+    lines.append("### Exact Full-LP Tests")
     lines.append("")
     lines.append(f"- Structural STT enumeration checked against generic recursive enumeration for `d=1..5`: `{data['structural_checks']}`.")
     lines.append(f"- Full H2 LP objectives: {full_summary}.")
-    lines.append(f"- Full H3/H4 probe objectives: {h34_summary}.")
-    lines.append(f"- Symmetric H2 objectives: {sym_summary}.")
     lines.append(f"- Full objective families include center-heavy, one/two/three/four-heavy leaves, symmetric leaf weights, convex heavy-count patterns, and all small integer weights up to `{settings['small_bound']}` modulo leaf symmetry through `d={settings['full_d_max']}`.")
+    lines.append(f"- Reported families: {_family_list(data['full_results'])}.")
+    lines.append("- Certificate status: each no-gap optimum is reconstructed from a floating simplex basis, independently verified after reconstruction by exact primal and dual checks, and checked during report generation only.  Full-LP basis data and per-objective certificates are not saved as JSON.")
+    lines.append(f"- Tightest full H2 case: {full_witness}.")
+    lines.append("")
+    lines.append("### Exact Symmetric-Reduction Tests")
+    lines.append("")
+    lines.append(f"- Symmetric H2 objectives: {sym_summary}.")
     lines.append(f"- Symmetric objectives use `(center, leaf)` weights `(0,1)`, `(1,1)`, `(4,1)`, `(10,1)`, and `(1,4)` through `d={settings['symmetric_d_max']}`.")
+    lines.append(f"- For symmetric weights and `d<={min(6, settings['full_d_max'])}`, the orbit-variable H2 LP was compared against the full H2 LP.  All compared optima matched exactly.")
+    lines.append(f"- Reported families: {_family_list(data['symmetric_results'])}.")
+    lines.append(f"- Certificate status: each no-gap optimum is reconstructed from a floating simplex basis and independently verified after reconstruction.  A compact JSON summary is saved at `{DEFAULT_SYMMETRIC_SUMMARY}`; it records optima, gaps, weights, and verification status, but not basis data or full variable assignments.")
+    lines.append(f"- Tightest symmetric H2 case: {sym_witness}.")
     lines.append("")
-    lines.append("## Full vs Symmetric Reduction")
+    lines.append("### H3/H4 Probes")
     lines.append("")
-    lines.append(f"For symmetric weights and `d<={min(6, settings['full_d_max'])}`, the orbit-variable H2 LP was compared against the full H2 LP.  All compared optima matched exactly.  The reduced variables are `c_s` for the center root on a center-containing set with `s` leaves and `l_s` for a leaf root in such a set; singleton leaf first-hit values are constants equal to `1`.")
+    lines.append(f"- Full H3/H4 probe objectives: {h34_summary}.")
+    lines.append("- Probe families are center-heavy, symmetric leaf weights, and two-heavy-leaf objectives where defined.")
+    lines.append(f"- Reported families: {_family_list(data['h3_h4_results'])}.")
+    lines.append("- Certificate status: each no-gap optimum is reconstructed from a floating simplex basis, independently verified after reconstruction, and checked during report generation only.  H3/H4 probe certificates are not saved as JSON.")
+    lines.append(f"- Tightest H3/H4 probe case: {h34_witness}.")
+    lines.append("")
+    lines.append("### Random/Secondary Scouting")
+    lines.append("")
+    lines.append("- No random objective sampling is reported in this artifact.  The secondary scouting is deterministic: structured heavy-leaf families, convex heavy-count families, and small nondecreasing integer weights modulo leaf symmetry.")
+    lines.append("")
+    lines.append("### Limitations")
+    lines.append("")
+    lines.append("- No finite test proves all-star exactness.")
+    lines.append("- A nonsymmetric separating weight vector with larger support or larger coefficients could still exist.")
+    lines.append("- H3/H4 were only probed where the full finite-difference generator was computationally modest.")
+    lines.append("- The compact symmetric JSON artifact intentionally omits basis data; rerun the generator to reconstruct and reverify certificates.")
     lines.append("")
     lines.append("## Depth-Projection Gap Search")
     lines.append("")
@@ -944,11 +1050,8 @@ def _render_report(data: dict[str, Any]) -> str:
         lines.append(f"- STT witness vector: `{first.stt_witness}`.")
         lines.append("- The LP certificate includes exact primal values and exact dual multipliers reconstructed from the simplex basis.")
     else:
-        lines.append("No depth-projection gap was found in the tested range.")
-        lines.append(f"- Tightest full H2 case: {full_witness}.")
-        lines.append(f"- Tightest H3/H4 probe case: {h34_witness}.")
-        lines.append(f"- Tightest symmetric H2 case: {sym_witness}.")
-        lines.append("- For every reported objective, an exact primal/dual certificate was reconstructed from the LP basis with zero primal violation, zero dual deficit, and matching objective value.")
+        lines.append("No H2/H3/H4 star depth-projection gap was found in the tested ranges.")
+        lines.append("- For every reported objective, the H-STT gap is nonnegative and the exact primal/dual certificate verification passes.")
     lines.append("")
     lines.append("## 4-Leaf z-Obstruction Regression")
     lines.append("")
@@ -957,11 +1060,15 @@ def _render_report(data: dict[str, Any]) -> str:
     lines.append(f"- Depth vector: `{star4['depth']}`.")
     lines.append(f"- Dominated by center-root STT vector `(0,1,1,1,1)`: `{star4['dominated_by_center_root']}`.")
     lines.append("")
-    lines.append("## Candidate Theorem Statements")
+    lines.append("## Candidate Theorem Extracted")
     lines.append("")
-    lines.append("1. Conservative candidate: For every fixed nonnegative weight vector tested here, the H2 depth optimum on a star equals the exact STT optimum.  This is only a finite computational statement.")
-    lines.append("2. Structural candidate: The leaf-symmetrized H2 constraints may already imply the lower envelope of ordered-prefix STT depth vectors for symmetric weights on all stars.")
-    lines.append("3. Strong candidate to audit: H2 has exact depth projection on all stars, even though H2 is not exact in full first-hit `z`-space.")
+    lines.append("The best theorem suggested by the computation is: **H2 depth projection may be exact for all stars.**  This is theorem-scouting evidence only; it does not prove the statement.")
+    lines.append("")
+    lines.append("What would still be needed for a proof:")
+    lines.append("")
+    lines.append("- An analytic characterization of the star STT dominant.")
+    lines.append("- An analytic form of the symmetric H2 constraints.")
+    lines.append("- A dual pattern for all symmetric weights, or a reduction from nonsymmetric objectives to symmetric/orbit cases.")
     lines.append("")
     lines.append("## Skeptical Audit")
     lines.append("")
@@ -977,10 +1084,11 @@ def _render_report(data: dict[str, Any]) -> str:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="python -m scripts.stt_checker.star_depth_projection")
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
+    parser.add_argument("--symmetric-summary", type=Path, default=DEFAULT_SYMMETRIC_SUMMARY)
     args = parser.parse_args(argv)
-    result = write_report(args.report)
+    result = write_report(args.report, args.symmetric_summary)
     print(
-        "wrote {report}: full_objectives={full_objectives} "
+        "wrote {report} and {symmetric_summary}: full_objectives={full_objectives} "
         "h3_h4_objectives={h3_h4_objectives} "
         "symmetric_objectives={symmetric_objectives} gaps={gaps}".format(**result)
     )
