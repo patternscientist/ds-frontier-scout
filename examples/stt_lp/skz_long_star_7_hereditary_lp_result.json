@@ -1,0 +1,1910 @@
+{
+  "caveat": "Floating-point simplex output; not an exact rational proof.",
+  "comparison": {
+    "expected_root_depth_0_stt_optimum": "30",
+    "lp_minus_true_optimum": -0.5,
+    "true_root_depth_0_stt_optimum": "30"
+  },
+  "rationalized_certificate": {
+    "exact_objective": "59/2",
+    "feasible_exactly_after_rationalization": true,
+    "max_heredity_violation": "0",
+    "max_rounding_error": 0.0,
+    "max_simplex_residual": "0",
+    "min_variable_value": "0",
+    "nonzero_z_variables": [
+      {
+        "component": [
+          0
+        ],
+        "root": 0,
+        "value": "1"
+      },
+      {
+        "component": [
+          1
+        ],
+        "root": 1,
+        "value": "1"
+      },
+      {
+        "component": [
+          2
+        ],
+        "root": 2,
+        "value": "1"
+      },
+      {
+        "component": [
+          3
+        ],
+        "root": 3,
+        "value": "1"
+      },
+      {
+        "component": [
+          4
+        ],
+        "root": 4,
+        "value": "1"
+      },
+      {
+        "component": [
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          6
+        ],
+        "root": 6,
+        "value": "1"
+      },
+      {
+        "component": [
+          0,
+          1
+        ],
+        "root": 0,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2
+        ],
+        "root": 1,
+        "value": "1"
+      },
+      {
+        "component": [
+          2,
+          3
+        ],
+        "root": 3,
+        "value": "1"
+      },
+      {
+        "component": [
+          2,
+          5
+        ],
+        "root": 5,
+        "value": "1"
+      },
+      {
+        "component": [
+          3,
+          4
+        ],
+        "root": 3,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          3,
+          4
+        ],
+        "root": 4,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          5,
+          6
+        ],
+        "root": 6,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2
+        ],
+        "root": 0,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3
+        ],
+        "root": 3,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          5
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          5
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          3,
+          4
+        ],
+        "root": 3,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          3,
+          4
+        ],
+        "root": 4,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          3,
+          5
+        ],
+        "root": 3,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          3,
+          5
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          5,
+          6
+        ],
+        "root": 6,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "root": 3,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "root": 3,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          5
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          5
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          5,
+          6
+        ],
+        "root": 6,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "root": 3,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "root": 6,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "root": 3,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          5,
+          6
+        ],
+        "root": 6,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "root": 6,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "root": 6,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "root": 1,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "root": 6,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "root": 6,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "root": 5,
+        "value": "1/2"
+      },
+      {
+        "component": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "root": 6,
+        "value": "1/2"
+      }
+    ]
+  },
+  "relaxation": "clean_room_hereditary_first_hit",
+  "result_type": "numerical_lp_solve",
+  "schema_version": "stt-hereditary-lp-result-v0",
+  "summary": {
+    "connected_subsets": 36,
+    "diagnostics": {
+      "max_heredity_violation": 0.0,
+      "max_simplex_residual": 0.0,
+      "min_variable_value": 0.0,
+      "objective_recomputed": 29.5
+    },
+    "heredity_inequalities": 681,
+    "message": "optimal",
+    "objective_value": 29.5,
+    "simplex_constraints": 36,
+    "solver": "pure_python_two_phase_simplex",
+    "status": 0,
+    "tolerance": 1e-09,
+    "z_variables": 120
+  },
+  "topology": {
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "n": 7,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "weights": {
+    "0": "3",
+    "1": "2",
+    "2": "0",
+    "3": "2",
+    "4": "3",
+    "5": "3",
+    "6": "10"
+  },
+  "z_variables": [
+    {
+      "component": [
+        0
+      ],
+      "root": 0,
+      "value": 1.0
+    },
+    {
+      "component": [
+        1
+      ],
+      "root": 1,
+      "value": 1.0
+    },
+    {
+      "component": [
+        2
+      ],
+      "root": 2,
+      "value": 1.0
+    },
+    {
+      "component": [
+        3
+      ],
+      "root": 3,
+      "value": 1.0
+    },
+    {
+      "component": [
+        4
+      ],
+      "root": 4,
+      "value": 1.0
+    },
+    {
+      "component": [
+        5
+      ],
+      "root": 5,
+      "value": 1.0
+    },
+    {
+      "component": [
+        6
+      ],
+      "root": 6,
+      "value": 1.0
+    },
+    {
+      "component": [
+        0,
+        1
+      ],
+      "root": 0,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2
+      ],
+      "root": 1,
+      "value": 1.0
+    },
+    {
+      "component": [
+        1,
+        2
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3
+      ],
+      "root": 3,
+      "value": 1.0
+    },
+    {
+      "component": [
+        2,
+        5
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        5
+      ],
+      "root": 5,
+      "value": 1.0
+    },
+    {
+      "component": [
+        3,
+        4
+      ],
+      "root": 3,
+      "value": 0.5
+    },
+    {
+      "component": [
+        3,
+        4
+      ],
+      "root": 4,
+      "value": 0.5
+    },
+    {
+      "component": [
+        5,
+        6
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        5,
+        6
+      ],
+      "root": 6,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2
+      ],
+      "root": 0,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3
+      ],
+      "root": 3,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        5
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        5
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        5
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        3,
+        4
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3,
+        4
+      ],
+      "root": 3,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        3,
+        4
+      ],
+      "root": 4,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        3,
+        5
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3,
+        5
+      ],
+      "root": 3,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        3,
+        5
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        5,
+        6
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        5,
+        6
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        5,
+        6
+      ],
+      "root": 6,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "root": 0,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "root": 3,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "root": 0,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "root": 3,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "root": 4,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "root": 3,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "root": 1,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "root": 6,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 3,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 4,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 3,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 6,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "root": 0,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "root": 3,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "root": 4,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "root": 0,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "root": 3,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ],
+      "root": 0,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ],
+      "root": 1,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ],
+      "root": 6,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 3,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 4,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 1,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 3,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 6,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 3,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 4,
+      "value": 0.0
+    },
+    {
+      "component": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 6,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 0,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 1,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 3,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 4,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 0,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 1,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 3,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "root": 6,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 1,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 3,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 4,
+      "value": 0.0
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 6,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 0,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 1,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 2,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 3,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 4,
+      "value": 0.0
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 5,
+      "value": 0.5
+    },
+    {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "root": 6,
+      "value": 0.5
+    }
+  ]
+}
