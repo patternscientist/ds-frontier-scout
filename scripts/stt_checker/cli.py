@@ -64,6 +64,16 @@ def main(argv: list[str] | None = None) -> int:
     )
     topo_parser.add_argument("--depth-base", type=int, default=1)
 
+    star_audit_parser = subparsers.add_parser(
+        "star-audit", help="run the exact Frontier Note v4 star audit"
+    )
+    star_audit_parser.add_argument(
+        "--report",
+        type=Path,
+        default=Path("reports/stt_v4_star_audit_v0.md"),
+        help="path for the generated markdown report",
+    )
+
     args = parser.parse_args(argv)
     max_enumeration = args.max_enumeration
     command_max_enumeration = getattr(args, "command_max_enumeration", None)
@@ -139,6 +149,18 @@ def main(argv: list[str] | None = None) -> int:
                 )
             )
             print(f"STT count: {count}")
+            return 0
+
+        if args.command == "star-audit":
+            from .star_audit import write_report
+
+            result = write_report(args.report)
+            print(
+                "wrote {report}: star_feasible={star_feasible} "
+                "center_mass={star_center_mass} depth={star_depth} "
+                "depth_dominant_member={depth_dominant_member} "
+                "embedding_cases={embedding_cases}".format(**result)
+            )
             return 0
     except Exception as exc:
         print(f"FAIL: {exc}", file=sys.stderr)
