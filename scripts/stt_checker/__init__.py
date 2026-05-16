@@ -7,5 +7,6 @@ __all__ = [
     "enumerate_stts",
     "certificates",
     "lp_feasibility",
+    "hereditary_lp",
 ]
 
