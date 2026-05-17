@@ -1,4 +1,5 @@
 import json
+import copy
 from collections import Counter
 from fractions import Fraction
 from pathlib import Path
@@ -15,6 +16,7 @@ from src.ds22_simplex_augmented_packet_conic import (
     packet_atoms,
     parse_fraction,
     solve_representative,
+    verify_artifacts,
     verify_artifact_files,
 )
 
@@ -93,6 +95,8 @@ class DS22SimplexAugmentedPacketConicTests(unittest.TestCase):
                 self.assertEqual(entry["maximum_packet_mass"], maximum_mass)
                 self.assertEqual(entry["deficit"], deficit)
                 self.assertLess(parse_fraction(entry["maximum_packet_mass"]), Fraction(1))
+                self.assertTrue(entry["nonzero_packet_coefficients"])
+                self.assertTrue(entry["nonzero_residual_terms"])
                 self.assertTrue(entry["dual_upper_bound_terms"])
 
     def test_rebuild_special_lp_bases_exactly(self):
@@ -107,6 +111,32 @@ class DS22SimplexAugmentedPacketConicTests(unittest.TestCase):
                 five_packet = solve_representative(reps[orbit_id], include_sigma=False)
                 self.assertEqual(five_packet.status, 0)
                 self.assertEqual(five_packet.optimum, parse_fraction(maximum_mass))
+
+    def test_verifier_rejects_factorization_atlas_metadata_mismatch(self):
+        factorization_data = copy.deepcopy(self.factorizations)
+        first = factorization_data["factorizations"][0]
+        second = factorization_data["factorizations"][1]
+        first["weights"] = dict(second["weights"])
+
+        with self.assertRaisesRegex(ValueError, "weights mismatch"):
+            verify_artifacts(factorization_data, self.residuals, self.atlas)
+
+    def test_verifier_rejects_duplicate_orbit_entries(self):
+        factorization_data = copy.deepcopy(self.factorizations)
+        duplicate = copy.deepcopy(factorization_data["factorizations"][0])
+        duplicate["orbit_id"] = factorization_data["factorizations"][1]["orbit_id"]
+        factorization_data["factorizations"][0] = duplicate
+
+        with self.assertRaisesRegex(ValueError, "duplicate orbit id"):
+            verify_artifacts(factorization_data, self.residuals, self.atlas)
+
+    def test_verifier_rejects_five_packet_primal_tampering(self):
+        residual_data = copy.deepcopy(self.residuals)
+        special = residual_data["five_packet_without_sigma"]["representatives"][0]
+        special["nonzero_packet_coefficients"][0]["coefficient"] = "1/999"
+
+        with self.assertRaisesRegex(ValueError, "packet mass|residual"):
+            verify_artifacts(self.factorizations, residual_data, self.atlas)
 
 
 if __name__ == "__main__":

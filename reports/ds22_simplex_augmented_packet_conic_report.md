@@ -4,7 +4,7 @@
 
 All 302 leaf-swap atlas orbit representatives factor exactly into the simplex-augmented packet basis `Sigma/Lambda/Gamma/Delta/Omega/Pi` plus a nonnegative coordinate residual. Each stored factorization has total packet mass exactly `1`.
 
-Floating-point simplex was used only to identify candidate LP bases. The checked artifacts store exact rational coefficients, exact rational residuals, and exact rational dual upper-bound certificates for the five-packet failures.
+Floating-point simplex was used only to identify candidate LP bases. The checked artifacts store exact rational coefficients, exact rational residuals, and exact rational dual upper-bound certificates for the five-packet optima.
 
 ## Counts
 
@@ -19,6 +19,8 @@ Floating-point simplex was used only to identify candidate LP bases. The checked
 ## Correction Note
 
 `Lambda/Gamma/Delta/Omega/Pi` alone are insufficient. In the exact LP audit without `Sigma`, 287 of the 302 orbit representatives have maximum packet mass below `1`; the raw simplex atoms supply the missing mass.
+
+`Sigma_S = sigma_S` is a raw H1 simplex-row atom, not a new packet type with independent structural content. The augmented closure is therefore best read as an exact DS(2,2) computational atlas and a bookkeeping decomposition for the packet deficit, not as a conceptual packet-basis theorem.
 
 Special representatives requested in the task:
 
@@ -40,7 +42,7 @@ Special representatives requested in the task:
 
 This branch uses only H1 first-hit coordinates, raw simplex rows, and packet-coordinate arithmetic. It does not use H2, refined-Z, path-monotonicity, ancestry-transitivity, LCA-separation, or mixed-second-difference rows.
 
-The result is a finite DS(2,2) packet-closure certificate over this atlas. It does not imply DS(k,2), DS(2,m), or DS(k,m) exactness.
+The result is a finite DS(2,2) packet-closure certificate over this atlas. It does not imply DS(k,2), DS(2,m), or DS(k,m) exactness, and it should not be promoted as a standalone conceptual closure until the role of the simplex atoms is explained by a non-tautological proof template.
 
 ## Artifacts
 

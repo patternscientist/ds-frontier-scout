@@ -427,7 +427,20 @@ def build_artifacts(
             five_packet_atoms,
             tolerance=tolerance,
         )
+        if five_packet_solution.status != 0:
+            raise ValueError(
+                f"{orbit_id}: five-packet LP failed with {five_packet_solution.message}"
+            )
         five_deficit = Fraction(1) - five_packet_solution.optimum
+        five_coefficients = [
+            {
+                "atom_id": atom.atom_id,
+                "kind": atom.kind,
+                "coefficient": rational_to_string(five_packet_solution.coefficients[index]),
+            }
+            for index, atom in enumerate(five_packet_atoms)
+            if five_packet_solution.coefficients[index] != 0
+        ]
         five_entry = {
             "orbit_id": orbit_id,
             "representative_blocker_id": representative["representative_blocker_id"],
@@ -436,10 +449,12 @@ def build_artifacts(
             "status": "closes" if five_deficit <= 0 else "deficient",
             "maximum_packet_mass": rational_to_string(five_packet_solution.optimum),
             "deficit": rational_to_string(max(Fraction(0), five_deficit)),
-            "nonzero_primal_coefficients": five_packet_solution.nonzero_coefficients,
+            "nonzero_packet_coefficients": five_coefficients,
+            "residual_nonzero_count": sum(1 for value in five_packet_solution.residual if value != 0),
+            "minimum_residual_coordinate": rational_to_string(min(five_packet_solution.residual)),
+            "nonzero_residual_terms": _nonzero_terms(system, five_packet_solution.residual),
+            "dual_upper_bound_terms": _nonzero_terms(system, five_packet_solution.dual),
         }
-        if five_deficit > 0:
-            five_entry["dual_upper_bound_terms"] = _nonzero_terms(system, five_packet_solution.dual)
         if orbit_id in SPECIAL_ORBITS:
             special_deficits[orbit_id] = dict(five_entry)
         five_packet_entries.append(five_entry)
@@ -543,7 +558,7 @@ def render_report(
         "",
         "All 302 leaf-swap atlas orbit representatives factor exactly into the simplex-augmented packet basis `Sigma/Lambda/Gamma/Delta/Omega/Pi` plus a nonnegative coordinate residual. Each stored factorization has total packet mass exactly `1`.",
         "",
-        "Floating-point simplex was used only to identify candidate LP bases. The checked artifacts store exact rational coefficients, exact rational residuals, and exact rational dual upper-bound certificates for the five-packet failures.",
+        "Floating-point simplex was used only to identify candidate LP bases. The checked artifacts store exact rational coefficients, exact rational residuals, and exact rational dual upper-bound certificates for the five-packet optima.",
         "",
         "## Counts",
         "",
@@ -558,6 +573,8 @@ def render_report(
         "## Correction Note",
         "",
         "`Lambda/Gamma/Delta/Omega/Pi` alone are insufficient. In the exact LP audit without `Sigma`, 287 of the 302 orbit representatives have maximum packet mass below `1`; the raw simplex atoms supply the missing mass.",
+        "",
+        "`Sigma_S = sigma_S` is a raw H1 simplex-row atom, not a new packet type with independent structural content. The augmented closure is therefore best read as an exact DS(2,2) computational atlas and a bookkeeping decomposition for the packet deficit, not as a conceptual packet-basis theorem.",
         "",
         "Special representatives requested in the task:",
         "",
@@ -574,7 +591,7 @@ def render_report(
         "",
         "This branch uses only H1 first-hit coordinates, raw simplex rows, and packet-coordinate arithmetic. It does not use H2, refined-Z, path-monotonicity, ancestry-transitivity, LCA-separation, or mixed-second-difference rows.",
         "",
-        "The result is a finite DS(2,2) packet-closure certificate over this atlas. It does not imply DS(k,2), DS(2,m), or DS(k,m) exactness.",
+        "The result is a finite DS(2,2) packet-closure certificate over this atlas. It does not imply DS(k,2), DS(2,m), or DS(k,m) exactness, and it should not be promoted as a standalone conceptual closure until the role of the simplex atoms is explained by a non-tautological proof template.",
         "",
         "## Artifacts",
         "",
@@ -626,60 +643,168 @@ def verify_artifacts(
         raise ValueError("duplicate packet atom ids")
     _verify_atom_catalog(system, factorization_data.get("packet_atoms", []), atoms)
 
-    residual_by_orbit = {
-        entry["orbit_id"]: _vector_from_terms(system, entry["nonzero_residual_terms"])
-        for entry in residual_data["augmented_basis"]["residuals"]
-    }
-    reps_by_id = {entry["id"]: entry for entry in atlas["representatives"]}
+    reps_by_id = _entries_by_orbit_id(atlas.get("representatives", []), "atlas")
+    expected_orbits = set(reps_by_id)
+    if factorization_data.get("orbit_representative_count") != len(expected_orbits):
+        raise ValueError("factorization orbit_representative_count mismatch")
+    if factorization_data.get("packet_atom_count") != len(atoms):
+        raise ValueError("packet atom count mismatch")
+    if factorization_data.get("packet_kind_counts") != _kind_counts(atoms):
+        raise ValueError("packet kind counts mismatch")
+
+    factorization_by_orbit = _entries_by_orbit_id(
+        factorization_data.get("factorizations", []),
+        "factorizations",
+        expected_orbits,
+    )
+    residual_entry_by_orbit = _entries_by_orbit_id(
+        residual_data["augmented_basis"]["residuals"],
+        "augmented residuals",
+        expected_orbits,
+    )
 
     factorization_count = 0
-    for entry in factorization_data["factorizations"]:
-        orbit_id = entry["orbit_id"]
-        if orbit_id not in reps_by_id:
-            raise ValueError(f"{orbit_id}: missing atlas representative")
-        coefficients = [Fraction(0) for _ in atoms]
-        for coefficient_entry in entry["nonzero_packet_coefficients"]:
-            atom_id = coefficient_entry["atom_id"]
-            if atom_id not in atom_by_id:
-                raise ValueError(f"{orbit_id}: unknown atom {atom_id}")
-            atom_index = atoms.index(atom_by_id[atom_id])
-            value = parse_fraction(coefficient_entry["coefficient"], f"{orbit_id}.{atom_id}")
-            if value <= 0:
-                raise ValueError(f"{orbit_id}: packet coefficients must be positive when listed")
-            coefficients[atom_index] = value
+    for orbit_id, entry in sorted(factorization_by_orbit.items()):
+        representative = reps_by_id[orbit_id]
+        _verify_representative_metadata(entry, representative, "factorization")
+        residual_entry = residual_entry_by_orbit[orbit_id]
+        _verify_representative_metadata(
+            residual_entry,
+            representative,
+            "augmented residual",
+            require_weights=False,
+            require_support=False,
+        )
+        coefficients = _coefficients_from_entries(
+            atoms,
+            entry["nonzero_packet_coefficients"],
+            orbit_id,
+        )
         if sum(coefficients) != 1 or parse_fraction(entry["packet_mass"]) != 1:
             raise ValueError(f"{orbit_id}: packet mass is not exactly 1")
 
-        objective = depth_objective_coefficients(system, _weight_from_json(entry["weights"]))
-        residual = residual_by_orbit[orbit_id]
+        objective = depth_objective_coefficients(system, _weight_from_json(representative["weights"]))
+        residual = _vector_from_terms(system, residual_entry["nonzero_residual_terms"])
         _verify_mass_one_factorization(objective, atoms, tuple(coefficients), residual)
         if sum(1 for value in residual if value != 0) != entry["residual_nonzero_count"]:
             raise ValueError(f"{orbit_id}: residual nonzero count mismatch")
+        if rational_to_string(min(residual)) != residual_entry["minimum_residual_coordinate"]:
+            raise ValueError(f"{orbit_id}: residual minimum mismatch")
         factorization_count += 1
 
     five_atoms = packet_atoms(system, include_sigma=False)
+    if residual_data["five_packet_without_sigma"].get("packet_atom_count") != len(five_atoms):
+        raise ValueError("five-packet atom count mismatch")
+    if residual_data["five_packet_without_sigma"].get("packet_kind_counts") != _kind_counts(five_atoms):
+        raise ValueError("five-packet kind counts mismatch")
+    five_by_orbit = _entries_by_orbit_id(
+        residual_data["five_packet_without_sigma"]["representatives"],
+        "five-packet representatives",
+        expected_orbits,
+    )
     five_failures = 0
-    for entry in residual_data["five_packet_without_sigma"]["representatives"]:
-        objective = depth_objective_coefficients(system, _weight_from_json(entry["weights"]))
-        optimum = parse_fraction(entry["maximum_packet_mass"], f"{entry['orbit_id']}.maximum_packet_mass")
-        deficit = parse_fraction(entry["deficit"], f"{entry['orbit_id']}.deficit")
+    for orbit_id, entry in sorted(five_by_orbit.items()):
+        representative = reps_by_id[orbit_id]
+        _verify_representative_metadata(entry, representative, "five-packet")
+        objective = depth_objective_coefficients(system, _weight_from_json(representative["weights"]))
+        optimum = parse_fraction(entry["maximum_packet_mass"], f"{orbit_id}.maximum_packet_mass")
+        deficit = parse_fraction(entry["deficit"], f"{orbit_id}.deficit")
+        coefficients = _coefficients_from_entries(
+            five_atoms,
+            entry["nonzero_packet_coefficients"],
+            orbit_id,
+        )
+        residual = _vector_from_terms(system, entry["nonzero_residual_terms"])
+        _verify_packet_primal(objective, five_atoms, tuple(coefficients), residual, optimum)
+        if sum(1 for value in residual if value != 0) != entry["residual_nonzero_count"]:
+            raise ValueError(f"{orbit_id}: five-packet residual nonzero count mismatch")
+        if rational_to_string(min(residual)) != entry["minimum_residual_coordinate"]:
+            raise ValueError(f"{orbit_id}: five-packet residual minimum mismatch")
+        dual = _vector_from_terms(system, entry["dual_upper_bound_terms"])
+        _verify_dual_upper_bound(objective, five_atoms, dual, optimum)
         if entry["status"] == "deficient":
             five_failures += 1
             if optimum >= 1 or deficit != 1 - optimum:
-                raise ValueError(f"{entry['orbit_id']}: bad five-packet deficit")
-            dual = _vector_from_terms(system, entry["dual_upper_bound_terms"])
-            _verify_dual_upper_bound(objective, five_atoms, dual, optimum)
+                raise ValueError(f"{orbit_id}: bad five-packet deficit")
         elif entry["status"] == "closes":
             if optimum < 1 or deficit != 0:
-                raise ValueError(f"{entry['orbit_id']}: bad five-packet success entry")
+                raise ValueError(f"{orbit_id}: bad five-packet success entry")
         else:
-            raise ValueError(f"{entry['orbit_id']}: unknown five-packet status")
+            raise ValueError(f"{orbit_id}: unknown five-packet status")
 
     return {
         "orbit_representatives": factorization_count,
         "packet_atoms": len(atoms),
         "five_packet_failures": five_failures,
     }
+
+
+def _entries_by_orbit_id(
+    entries: list[dict[str, Any]],
+    label: str,
+    expected_orbits: set[str] | None = None,
+) -> dict[str, dict[str, Any]]:
+    if not isinstance(entries, list):
+        raise ValueError(f"{label} must be a list")
+    result: dict[str, dict[str, Any]] = {}
+    for entry in entries:
+        orbit_id = entry.get("id", entry.get("orbit_id"))
+        if not isinstance(orbit_id, str) or not orbit_id:
+            raise ValueError(f"{label}: missing orbit id")
+        if orbit_id in result:
+            raise ValueError(f"{label}: duplicate orbit id {orbit_id}")
+        result[orbit_id] = entry
+    if expected_orbits is not None and set(result) != expected_orbits:
+        missing = sorted(expected_orbits - set(result))
+        extra = sorted(set(result) - expected_orbits)
+        raise ValueError(
+            f"{label}: orbit id set mismatch; missing={missing[:5]} extra={extra[:5]}"
+        )
+    return result
+
+
+def _verify_representative_metadata(
+    entry: dict[str, Any],
+    representative: dict[str, Any],
+    label: str,
+    *,
+    require_weights: bool = True,
+    require_support: bool = True,
+) -> None:
+    orbit_id = representative["id"]
+    if entry.get("representative_blocker_id") != representative["representative_blocker_id"]:
+        raise ValueError(f"{orbit_id}: {label} representative_blocker_id mismatch")
+    if require_weights and _weight_from_json(entry.get("weights", {})) != _weight_from_json(representative["weights"]):
+        raise ValueError(f"{orbit_id}: {label} weights mismatch")
+    if require_support and entry.get("support") != representative["support"]:
+        raise ValueError(f"{orbit_id}: {label} support mismatch")
+
+
+def _coefficients_from_entries(
+    atoms: tuple[PacketAtom, ...],
+    coefficient_entries: list[dict[str, Any]],
+    orbit_id: str,
+) -> tuple[Fraction, ...]:
+    if not isinstance(coefficient_entries, list):
+        raise ValueError(f"{orbit_id}: coefficient list missing")
+    atom_index_by_id = {atom.atom_id: index for index, atom in enumerate(atoms)}
+    coefficients = [Fraction(0) for _ in atoms]
+    seen: set[str] = set()
+    for coefficient_entry in coefficient_entries:
+        atom_id = coefficient_entry.get("atom_id")
+        if atom_id not in atom_index_by_id:
+            raise ValueError(f"{orbit_id}: unknown atom {atom_id}")
+        if atom_id in seen:
+            raise ValueError(f"{orbit_id}: duplicate coefficient for {atom_id}")
+        seen.add(atom_id)
+        atom = atoms[atom_index_by_id[atom_id]]
+        if coefficient_entry.get("kind") != atom.kind:
+            raise ValueError(f"{orbit_id}: kind mismatch for {atom_id}")
+        value = parse_fraction(coefficient_entry.get("coefficient"), f"{orbit_id}.{atom_id}")
+        if value <= 0:
+            raise ValueError(f"{orbit_id}: packet coefficients must be positive when listed")
+        coefficients[atom_index_by_id[atom_id]] = value
+    return tuple(coefficients)
 
 
 def solve_representative(
@@ -876,6 +1001,28 @@ def _verify_mass_one_factorization(
         raise ValueError("negative packet coefficient")
     if min(residual, default=Fraction(0)) < 0:
         raise ValueError("negative residual coordinate")
+    recomputed = _residual_from_coefficients(objective, atoms, coefficients)
+    if recomputed != residual:
+        raise ValueError("residual does not equal objective minus packet combination")
+
+
+def _verify_packet_primal(
+    objective: tuple[Fraction, ...],
+    atoms: tuple[PacketAtom, ...],
+    coefficients: tuple[Fraction, ...],
+    residual: tuple[Fraction, ...],
+    claimed_mass: Fraction,
+) -> None:
+    if len(coefficients) != len(atoms):
+        raise ValueError("coefficient count does not match packet atoms")
+    if len(residual) != len(objective):
+        raise ValueError("residual length does not match objective")
+    if min(coefficients, default=Fraction(0)) < 0:
+        raise ValueError("negative packet coefficient")
+    if min(residual, default=Fraction(0)) < 0:
+        raise ValueError("negative residual coordinate")
+    if sum(coefficients) != claimed_mass:
+        raise ValueError("packet mass does not match claimed optimum")
     recomputed = _residual_from_coefficients(objective, atoms, coefficients)
     if recomputed != residual:
         raise ValueError("residual does not equal objective minus packet combination")
