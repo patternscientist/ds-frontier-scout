@@ -1,6 +1,6 @@
 # Scouting v2 Framework
 
-Status: framework only; subruns not started.
+Status: framework plus completed v2 subrun records. The methodology below is the governing framework used by the completed subruns, synthesis, and adversarial audit.
 
 Purpose: define a source-diverse background scouting lane that avoids the prior failure mode where one broad run prematurely inferred saturation. This lane prepares candidate search, source logging, synthesis, and adversarial audit templates. It does not execute any subrun by itself.
 
@@ -105,4 +105,3 @@ date_searched: TODO
 freshness_or_closure_signal: TODO
 could_revisit_if: TODO
 ```
-

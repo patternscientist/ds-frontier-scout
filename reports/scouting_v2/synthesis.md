@@ -162,7 +162,8 @@ This ranking is separate from theorem-pilot choice. It uses:
 | 5 | `quadratic_probing` | witness-family generator and probe/hash parameter schedule | finite table simulator plus exact obstruction metrics | obstruction families and proof-template stress tests | high | medium-high | Good hashing experiment after model locking. |
 | 6 | `range_mode_queries` | block-summary/candidate-list grammar and hard-array generator | brute-force exact mode for every interval | counterexample arrays and candidate-list rules | high | medium | Useful benchmark, not top side experiment. |
 | 7 | `splay_preorder_231` | local BST rotation rule and potential-template falsifier | exact Splay simulator; small offline BST optimum | invariants or minimal obstructions | very high | medium | Good rediscovery experiment, but too saturated. |
-| 8 | `karp_rabin_collision_detection` | collision-detector/filtering grammar or bad-modulus generator | exhaustive same-length substring collision oracle | algorithms or hard strings/moduli | medium | medium | Strong oracle, less obviously data-structure-object-first. |
+
+`karp_rabin_collision_detection` is deliberately not ranked as an OpenEvolve side experiment here despite its strong exact oracle: subrun `2I` rejected it for object-first OpenEvolve because the mutable object is more naturally an algorithm grammar or witness generator than a data-structure object.
 
 ### Top 5 Source-Based Justifications
 

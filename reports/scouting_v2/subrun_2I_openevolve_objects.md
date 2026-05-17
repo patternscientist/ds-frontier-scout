@@ -111,7 +111,7 @@ Problem or domain: Splay and nearby online BST algorithms on preorder / 231-avoi
 Scores kept separate:
 
 - theorem_project_suitability: 3/5
-- openevolve_suitability: 4/5 for counterexample and rule search, 2/5 for full theorem discovery
+- openevolve_suitability: 3/5 overall; 4/5 for counterexample and rule search, 2/5 for full theorem discovery
 - intellectual_interest: 5/5
 
 Concrete evolvable object:
