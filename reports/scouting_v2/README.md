@@ -1,8 +1,14 @@
 # Scouting v2 Framework
 
-Status: framework plus completed v2 subrun records. The methodology below is the governing framework used by the completed subruns, synthesis, and adversarial audit.
+Status: complete. Scouting v2 has been synthesized, adversarially audited, and closed out. Future control-panel chats should start with `closeout.md` for the final reusable decision surface, then consult the subruns only for provenance and detailed source logs.
 
 Purpose: define a source-diverse background scouting lane that avoids the prior failure mode where one broad run prematurely inferred saturation. This lane prepares candidate search, source logging, synthesis, and adversarial audit templates. It does not execute any subrun by itself.
+
+## Closeout
+
+- `closeout.md`: final Scouting v2 decision artifact. It records the non-interruption verdict for DS(k,1), later theorem-pilot options, the `list_update` side-experiment option, folder-population requirements for flagged leads, and failed/flagged candidates that should not be promoted without new primary-source evidence.
+- `synthesis.md`: completed synthesis of the v2 subruns.
+- `adversarial_audit.md`: completed hostile audit of the synthesis and source-governance claims.
 
 ## Background-Lane Boundary
 
