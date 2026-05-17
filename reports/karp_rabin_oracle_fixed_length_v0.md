@@ -135,8 +135,11 @@ Succeeded.
 git add candidate_topics\karp_rabin_collision_detection\oracle_spec.md reports\karp_rabin_oracle_fixed_length_v0.md scripts\karp_rabin_collision\__init__.py scripts\karp_rabin_collision\fixed_length.py scripts\karp_rabin_collision\oracle.py scripts\karp_rabin_collision\search_counterexamples.py tests\test_karp_rabin_collision.py
 ```
 
-Failed with `Unable to create ... .git/index.lock: Permission denied`. No commit
-was attempted.
+Historical environment note only: the original v0 run recorded
+`Unable to create ... .git/index.lock: Permission denied` while trying to stage
+files, and no v0 commit was attempted in that run. That note is stale as a
+repository-state warning for follow-up work; the fixed-shift batching branch was
+started cleanly from commit `35f21cfc08a00008e53c27cc0862659d09f3368a`.
 
 ## No Theorem Claims
 
