@@ -28,4 +28,14 @@ Primary sources to check before promotion:
 
 Required prompt fix:
 
-- Copy the exact recurrence and define the exact Ackermann/inverse-Ackermann normalization before using `blind_prompt.md`.
+- Done in `frontier.md` and `blind_prompt.md` for this hardened version: the main dissection lemma, shifting lemma, `J_k` hierarchy, and Tarjan-style Ackermann normalization are now explicit.
+
+## Lecture-Note Direct-Proof Audit
+
+Checked on 2026-05-17:
+
+- Seidel's Princeton/COS 423 path-compression slides give the top-down recurrence and an inverse-Ackermann-style interpretation, but the checked slides do not appear to provide the requested direct comparison from the paper's `J` hierarchy to Tarjan's classical Ackermann function.
+- Stanford CS166 2025 disjoint-set slides give a recent pedagogical recurrence exposition and an iterated-log-style inverse-Ackermann definition. This is useful context, but it is not the direct `J_k`-to-classical-`A(i,x)` proof requested in Dagstuhl 25191.
+- Search snippets for other union-find lecture notes mostly expose standard Tarjan/CLRS-style analyses or Seidel-Sharir recurrences. No checked public note was found that cleanly closes the exact proof-translation gap.
+
+Audit consequence: keep `open_status: open_proof_problem`, but do not claim novelty beyond Tarjan's 2025 problem statement. Before any theorem-pilot promotion, recheck author-maintained lecture notes and ask whether Seidel's SWAT 2006 invited material contains an unpublished fuller comparison.

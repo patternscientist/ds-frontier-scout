@@ -3,11 +3,72 @@ sources:
     title: "Top-down analysis of path compression"
     authors: ["Robert E. Tarjan"]
     year: 2025
+    source_type: problem_page
     url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    stable_identifiers:
+      dagstuhl_seminar: "25191"
+      section: "5.3"
+    accessed: "2026-05-17"
     status: verified
+    notes: "Explicit proof-translation problem; not an open union-find bound."
   - id: seidel_sharir_2005
     title: "Top-Down Analysis of Path Compression"
     authors: ["Raimund Seidel", "Micha Sharir"]
     year: 2005
+    source_type: paper
     url: "https://doi.org/10.1137/S0097539703439088"
-    status: todo
+    doi: "10.1137/S0097539703439088"
+    author_page_copy: "https://www-tcs.cs.uni-saarland.de/media/papers/2013/Top-DownAnalysisofPathCompression.gz"
+    accessed: "2026-05-17"
+    status: verified
+    notes: "Primary source for the main dissection lemma, shifting lemma, and J_k hierarchy."
+  - id: tarjan_1975_union_find
+    title: "Efficiency of a Good But Not Linear Set Union Algorithm"
+    authors: ["Robert E. Tarjan"]
+    year: 1975
+    source_type: paper
+    url: "https://doi.org/10.1145/321879.321884"
+    doi: "10.1145/321879.321884"
+    metadata_url: "https://www2.eecs.berkeley.edu/Pubs/TechRpts/1974/28764.html"
+    accessed: "2026-05-17"
+    status: verified_metadata_and_definition
+    notes: "Source for the Ackermann variant and two-parameter inverse normalization used as the comparison target."
+  - id: seidel_princeton_slides_2009
+    title: "Path Compression and Making the Inverse Ackermann Function Appear Natural(ly)"
+    authors: ["Raimund Seidel"]
+    year: 2009
+    source_type: lecture_slides
+    url: "https://www.cs.princeton.edu/courses/archive/spr09/cos423/Lectures/path-compression.pdf"
+    accessed: "2026-05-17"
+    status: checked_for_audit
+    notes: "Useful recurrence exposition; does not appear to give Tarjan's requested direct proof from the J hierarchy to the classical Ackermann definition."
+  - id: stanford_cs166_disjoint_sets_2025
+    title: "CS166 Disjoint-Set Forests"
+    authors: ["Keith Schwarz"]
+    year: 2025
+    source_type: lecture_slides
+    url: "https://web.stanford.edu/class/archive/cs/cs166/cs166.1256/lectures/11/"
+    accessed: "2026-05-17"
+    status: checked_for_audit
+    notes: "Recent lecture exposition of the top-down recurrence; uses an iterated-log presentation rather than a direct classical-Ackermann comparison."
+
+freshness_log_24_months:
+  date_searched: "2026-05-17"
+  scope: "Targeted hardening search only; no broad new source scouting and no promotion over STT / DS(k,1)."
+  searches:
+    - query: "Tarjan top-down path compression Ackermann proof 2025"
+      checked:
+        - "Dagstuhl 25191 section 5.3"
+        - "SIAM DOI page for Seidel-Sharir 2005"
+      result: "Found the explicit 2025 Tarjan problem statement; no located post-statement source claiming the requested direct proof."
+    - query: "Seidel Sharir top-down path compression direct proof"
+      checked:
+        - "Seidel author page copy of the 2005 paper"
+        - "Princeton COS 423 Seidel slides"
+      result: "Recovered the recurrence and a pedagogical top-down proof route; the checked slides still use Seidel-style iterated/auxiliary hierarchy language rather than a clean classical-Ackermann translation."
+    - query: "path compression top-down recurrence Ackermann lecture notes"
+      checked:
+        - "Stanford CS166 2025 disjoint-set lecture page and slides"
+        - "General lecture-note search-result snippets, not used as source evidence"
+      result: "The checked recent lecture notes explain the recurrence and inverse-Ackermann-style bounds, but no checked note contains the exact direct proof Tarjan asks for."
+  conclusion: "Open-status confidence remains high as a proof-exposition problem. Main freshness risk is hidden course notes or private notes, not visible recent publication closure."
