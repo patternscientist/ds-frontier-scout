@@ -1,0 +1,2409 @@
+{
+  "corrected_A_b_s_branch_counts": {
+    "{l1,l2,l3}": 703,
+    "{l1,l2}": 346,
+    "{l1,l3}": 346,
+    "{l1}": 220,
+    "{l2,l3}": 346,
+    "{l2}": 220,
+    "{l3}": 220,
+    "{}": 249
+  },
+  "corrected_formulas": {
+    "D(S)": "best S-first-b STT cost minus best b-root STT cost",
+    "F(L)": "min_A U(L\\A)+kappa(A)",
+    "F_deleted(L,S)": "min_A U((L\\A)\\S)+kappa(A)",
+    "delta(S)": "F(L)-F_deleted(L,S)",
+    "kappa(A)": "sum_i_in_A min(alpha,u_i)+sum_pairs_intersecting_A min(u_i,u_j)"
+  },
+  "counts": {
+    "F_formula_failures_on_small_star_grid": 0,
+    "all_stt_depth_vectors": 236,
+    "b_root_bellman_optimal_rays": 789,
+    "b_root_depth_vectors": 16,
+    "integer_rays_considered": 3969,
+    "proper_nonsingleton_subsets": 3,
+    "strictly_positive_b_root_rays": 23
+  },
+  "first_obstruction_candidate": {
+    "D_S": "0",
+    "F": "1",
+    "F_deleted": "0",
+    "active_F_branches": [
+      [
+        "l2",
+        "l3"
+      ],
+      [
+        "l1",
+        "l2",
+        "l3"
+      ]
+    ],
+    "active_deleted_branches": [
+      [],
+      [
+        "l1"
+      ]
+    ],
+    "b_root_bellman_optimal": true,
+    "b_root_cost": "3",
+    "bellman_gaps": {
+      "B/a": "0",
+      "B/b": "0",
+      "B/l1": "3",
+      "B/l2": "0",
+      "B/l3": "0",
+      "B/r": "3"
+    },
+    "delta": "1",
+    "slack_D_minus_delta": "-1",
+    "strictly_positive_weights": false,
+    "subset": [
+      "l2",
+      "l3"
+    ],
+    "true_bellman_optimum": "3",
+    "weights": {
+      "a": "0",
+      "b": "1",
+      "l1": "0",
+      "l2": "1",
+      "l3": "1",
+      "r": "0"
+    }
+  },
+  "k": 3,
+  "labels": [
+    "l1",
+    "l2",
+    "l3",
+    "a",
+    "b",
+    "r"
+  ],
+  "normalization": {
+    "A_b_s": "b-root Bellman-normal rays grouped by corrected F(L) active source-deletion branches s",
+    "depth_convention": "root-depth-0",
+    "weight_rays": "primitive integer rays with coordinates in [0,3]"
+  },
+  "overclaim_guard": "Finite exact evidence only.  This JSON does not prove the all-k proper-subset contraction lemma and does not claim public LP exactness on DS(k,1).",
+  "proper_subset_summaries": [
+    {
+      "checked_b_root_rays": 789,
+      "corrected_h_star_active_F_branch_counts": {
+        "{l1,l2,l3}": 703,
+        "{l1,l2}": 346,
+        "{l1,l3}": 346,
+        "{l1}": 220,
+        "{l2,l3}": 346,
+        "{l2}": 220,
+        "{l3}": 220,
+        "{}": 249
+      },
+      "corrected_h_star_active_deleted_branch_counts": {
+        "{l1,l2,l3}": 322,
+        "{l1,l2}": 105,
+        "{l1,l3}": 388,
+        "{l1}": 258,
+        "{l2,l3}": 388,
+        "{l2}": 258,
+        "{l3}": 613,
+        "{}": 665
+      },
+      "domination_certificate_attempt": {
+        "combination_tried": [
+          {
+            "coefficient": "1",
+            "inequality": "SUB_{l1,l2}"
+          }
+        ],
+        "failed_cut_support": [
+          "l1",
+          "l2"
+        ],
+        "note": "The natural S-first deletion bound does not dominate delta on at least one checked b-root Bellman ray.  See failures for exact obstruction candidates and Bellman verification.",
+        "status": "failed_for_checked_rays"
+      },
+      "failure_count": 11,
+      "failures": [
+        {
+          "D_S": "0",
+          "F": "1",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l2"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l3"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "3",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "0",
+            "B/l2": "0",
+            "B/l3": "3",
+            "B/r": "3"
+          },
+          "delta": "1",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l2"
+          ],
+          "true_bellman_optimum": "3",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "1",
+            "l2": "1",
+            "l3": "0",
+            "r": "0"
+          }
+        },
+        {
+          "D_S": "0",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l2"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l3"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "7",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "0",
+            "B/l2": "0",
+            "B/l3": "6",
+            "B/r": "2"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-2",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l2"
+          ],
+          "true_bellman_optimum": "7",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "2",
+            "l2": "2",
+            "l3": "0",
+            "r": "1"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l2"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l3"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "9",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "1",
+            "B/l2": "0",
+            "B/l3": "8",
+            "B/r": "1"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l2"
+          ],
+          "true_bellman_optimum": "9",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "2",
+            "l2": "3",
+            "l3": "0",
+            "r": "2"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l2"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l3"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "8",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "2",
+            "B/l2": "0",
+            "B/l3": "8",
+            "B/r": "5"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l2"
+          ],
+          "true_bellman_optimum": "8",
+          "weights": {
+            "a": "0",
+            "b": "2",
+            "l1": "2",
+            "l2": "3",
+            "l3": "0",
+            "r": "1"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l2"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l3"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "7",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "2",
+            "B/l2": "0",
+            "B/l3": "8",
+            "B/r": "8"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l2"
+          ],
+          "true_bellman_optimum": "7",
+          "weights": {
+            "a": "0",
+            "b": "3",
+            "l1": "2",
+            "l2": "3",
+            "l3": "0",
+            "r": "0"
+          }
+        }
+      ],
+      "minimum_slack": "-3",
+      "minimum_slack_witness": {
+        "D_S": "0",
+        "F": "3",
+        "F_deleted": "0",
+        "active_F_branches": [
+          [
+            "l1",
+            "l2"
+          ],
+          [
+            "l1",
+            "l2",
+            "l3"
+          ]
+        ],
+        "active_deleted_branches": [
+          [],
+          [
+            "l3"
+          ]
+        ],
+        "b_root_bellman_optimal": true,
+        "b_root_cost": "10",
+        "bellman_gaps": {
+          "B/a": "0",
+          "B/b": "0",
+          "B/l1": "0",
+          "B/l2": "0",
+          "B/l3": "9",
+          "B/r": "5"
+        },
+        "delta": "3",
+        "slack_D_minus_delta": "-3",
+        "strictly_positive_weights": false,
+        "subset": [
+          "l1",
+          "l2"
+        ],
+        "true_bellman_optimum": "10",
+        "weights": {
+          "a": "0",
+          "b": "2",
+          "l1": "3",
+          "l2": "3",
+          "l3": "0",
+          "r": "1"
+        }
+      },
+      "strictly_positive_b_root_rays": 23,
+      "strictly_positive_failure_count": 0,
+      "strictly_positive_failures": [],
+      "subset": [
+        "l1",
+        "l2"
+      ],
+      "support_size": 2,
+      "tight_examples": [
+        {
+          "D_S": "1",
+          "F": "1",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l2"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l3"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "5",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "2",
+            "B/l2": "0",
+            "B/l3": "5",
+            "B/r": "2"
+          },
+          "delta": "1",
+          "slack_D_minus_delta": "0",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l2"
+          ],
+          "true_bellman_optimum": "5",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "1",
+            "l2": "2",
+            "l3": "0",
+            "r": "1"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "1",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l2"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l3"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "4",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "2",
+            "B/l2": "0",
+            "B/l3": "5",
+            "B/r": "5"
+          },
+          "delta": "1",
+          "slack_D_minus_delta": "0",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l2"
+          ],
+          "true_bellman_optimum": "4",
+          "weights": {
+            "a": "0",
+            "b": "2",
+            "l1": "1",
+            "l2": "2",
+            "l3": "0",
+            "r": "0"
+          }
+        },
+        {
+          "D_S": "2",
+          "F": "3",
+          "F_deleted": "1",
+          "active_F_branches": [
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            []
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "9",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "4",
+            "B/l2": "0",
+            "B/l3": "4",
+            "B/r": "5"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "0",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l2"
+          ],
+          "true_bellman_optimum": "9",
+          "weights": {
+            "a": "0",
+            "b": "2",
+            "l1": "1",
+            "l2": "3",
+            "l3": "1",
+            "r": "1"
+          }
+        }
+      ]
+    },
+    {
+      "checked_b_root_rays": 789,
+      "corrected_h_star_active_F_branch_counts": {
+        "{l1,l2,l3}": 703,
+        "{l1,l2}": 346,
+        "{l1,l3}": 346,
+        "{l1}": 220,
+        "{l2,l3}": 346,
+        "{l2}": 220,
+        "{l3}": 220,
+        "{}": 249
+      },
+      "corrected_h_star_active_deleted_branch_counts": {
+        "{l1,l2,l3}": 322,
+        "{l1,l2}": 388,
+        "{l1,l3}": 105,
+        "{l1}": 258,
+        "{l2,l3}": 388,
+        "{l2}": 613,
+        "{l3}": 258,
+        "{}": 665
+      },
+      "domination_certificate_attempt": {
+        "combination_tried": [
+          {
+            "coefficient": "1",
+            "inequality": "SUB_{l1,l3}"
+          }
+        ],
+        "failed_cut_support": [
+          "l1",
+          "l3"
+        ],
+        "note": "The natural S-first deletion bound does not dominate delta on at least one checked b-root Bellman ray.  See failures for exact obstruction candidates and Bellman verification.",
+        "status": "failed_for_checked_rays"
+      },
+      "failure_count": 11,
+      "failures": [
+        {
+          "D_S": "0",
+          "F": "1",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l2"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "3",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "0",
+            "B/l2": "3",
+            "B/l3": "0",
+            "B/r": "3"
+          },
+          "delta": "1",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l3"
+          ],
+          "true_bellman_optimum": "3",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "1",
+            "l2": "0",
+            "l3": "1",
+            "r": "0"
+          }
+        },
+        {
+          "D_S": "0",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l2"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "7",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "0",
+            "B/l2": "6",
+            "B/l3": "0",
+            "B/r": "2"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-2",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l3"
+          ],
+          "true_bellman_optimum": "7",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "2",
+            "l2": "0",
+            "l3": "2",
+            "r": "1"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l2"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "9",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "1",
+            "B/l2": "8",
+            "B/l3": "0",
+            "B/r": "1"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l3"
+          ],
+          "true_bellman_optimum": "9",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "2",
+            "l2": "0",
+            "l3": "3",
+            "r": "2"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l2"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "8",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "2",
+            "B/l2": "8",
+            "B/l3": "0",
+            "B/r": "5"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l3"
+          ],
+          "true_bellman_optimum": "8",
+          "weights": {
+            "a": "0",
+            "b": "2",
+            "l1": "2",
+            "l2": "0",
+            "l3": "3",
+            "r": "1"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l2"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "7",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "2",
+            "B/l2": "8",
+            "B/l3": "0",
+            "B/r": "8"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l3"
+          ],
+          "true_bellman_optimum": "7",
+          "weights": {
+            "a": "0",
+            "b": "3",
+            "l1": "2",
+            "l2": "0",
+            "l3": "3",
+            "r": "0"
+          }
+        }
+      ],
+      "minimum_slack": "-3",
+      "minimum_slack_witness": {
+        "D_S": "0",
+        "F": "3",
+        "F_deleted": "0",
+        "active_F_branches": [
+          [
+            "l1",
+            "l3"
+          ],
+          [
+            "l1",
+            "l2",
+            "l3"
+          ]
+        ],
+        "active_deleted_branches": [
+          [],
+          [
+            "l2"
+          ]
+        ],
+        "b_root_bellman_optimal": true,
+        "b_root_cost": "10",
+        "bellman_gaps": {
+          "B/a": "0",
+          "B/b": "0",
+          "B/l1": "0",
+          "B/l2": "9",
+          "B/l3": "0",
+          "B/r": "5"
+        },
+        "delta": "3",
+        "slack_D_minus_delta": "-3",
+        "strictly_positive_weights": false,
+        "subset": [
+          "l1",
+          "l3"
+        ],
+        "true_bellman_optimum": "10",
+        "weights": {
+          "a": "0",
+          "b": "2",
+          "l1": "3",
+          "l2": "0",
+          "l3": "3",
+          "r": "1"
+        }
+      },
+      "strictly_positive_b_root_rays": 23,
+      "strictly_positive_failure_count": 0,
+      "strictly_positive_failures": [],
+      "subset": [
+        "l1",
+        "l3"
+      ],
+      "support_size": 2,
+      "tight_examples": [
+        {
+          "D_S": "1",
+          "F": "1",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l2"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "5",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "2",
+            "B/l2": "5",
+            "B/l3": "0",
+            "B/r": "2"
+          },
+          "delta": "1",
+          "slack_D_minus_delta": "0",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l3"
+          ],
+          "true_bellman_optimum": "5",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "1",
+            "l2": "0",
+            "l3": "2",
+            "r": "1"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "1",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l1",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l2"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "4",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "2",
+            "B/l2": "5",
+            "B/l3": "0",
+            "B/r": "5"
+          },
+          "delta": "1",
+          "slack_D_minus_delta": "0",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l3"
+          ],
+          "true_bellman_optimum": "4",
+          "weights": {
+            "a": "0",
+            "b": "2",
+            "l1": "1",
+            "l2": "0",
+            "l3": "2",
+            "r": "0"
+          }
+        },
+        {
+          "D_S": "2",
+          "F": "3",
+          "F_deleted": "1",
+          "active_F_branches": [
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            []
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "9",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "4",
+            "B/l2": "4",
+            "B/l3": "0",
+            "B/r": "5"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "0",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l1",
+            "l3"
+          ],
+          "true_bellman_optimum": "9",
+          "weights": {
+            "a": "0",
+            "b": "2",
+            "l1": "1",
+            "l2": "1",
+            "l3": "3",
+            "r": "1"
+          }
+        }
+      ]
+    },
+    {
+      "checked_b_root_rays": 789,
+      "corrected_h_star_active_F_branch_counts": {
+        "{l1,l2,l3}": 703,
+        "{l1,l2}": 346,
+        "{l1,l3}": 346,
+        "{l1}": 220,
+        "{l2,l3}": 346,
+        "{l2}": 220,
+        "{l3}": 220,
+        "{}": 249
+      },
+      "corrected_h_star_active_deleted_branch_counts": {
+        "{l1,l2,l3}": 322,
+        "{l1,l2}": 388,
+        "{l1,l3}": 388,
+        "{l1}": 613,
+        "{l2,l3}": 105,
+        "{l2}": 258,
+        "{l3}": 258,
+        "{}": 665
+      },
+      "domination_certificate_attempt": {
+        "combination_tried": [
+          {
+            "coefficient": "1",
+            "inequality": "SUB_{l2,l3}"
+          }
+        ],
+        "failed_cut_support": [
+          "l2",
+          "l3"
+        ],
+        "note": "The natural S-first deletion bound does not dominate delta on at least one checked b-root Bellman ray.  See failures for exact obstruction candidates and Bellman verification.",
+        "status": "failed_for_checked_rays"
+      },
+      "failure_count": 11,
+      "failures": [
+        {
+          "D_S": "0",
+          "F": "1",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l2",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l1"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "3",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "3",
+            "B/l2": "0",
+            "B/l3": "0",
+            "B/r": "3"
+          },
+          "delta": "1",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l2",
+            "l3"
+          ],
+          "true_bellman_optimum": "3",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "0",
+            "l2": "1",
+            "l3": "1",
+            "r": "0"
+          }
+        },
+        {
+          "D_S": "0",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l2",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l1"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "7",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "6",
+            "B/l2": "0",
+            "B/l3": "0",
+            "B/r": "2"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-2",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l2",
+            "l3"
+          ],
+          "true_bellman_optimum": "7",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "0",
+            "l2": "2",
+            "l3": "2",
+            "r": "1"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l2",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l1"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "9",
+          "bellman_gaps": {
+            "B/a": "0",
+            "B/b": "0",
+            "B/l1": "8",
+            "B/l2": "1",
+            "B/l3": "0",
+            "B/r": "1"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l2",
+            "l3"
+          ],
+          "true_bellman_optimum": "9",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "0",
+            "l2": "2",
+            "l3": "3",
+            "r": "2"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l2",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l1"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "8",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "8",
+            "B/l2": "2",
+            "B/l3": "0",
+            "B/r": "5"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l2",
+            "l3"
+          ],
+          "true_bellman_optimum": "8",
+          "weights": {
+            "a": "0",
+            "b": "2",
+            "l1": "0",
+            "l2": "2",
+            "l3": "3",
+            "r": "1"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "2",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l2",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l1"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "7",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "8",
+            "B/l2": "2",
+            "B/l3": "0",
+            "B/r": "8"
+          },
+          "delta": "2",
+          "slack_D_minus_delta": "-1",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l2",
+            "l3"
+          ],
+          "true_bellman_optimum": "7",
+          "weights": {
+            "a": "0",
+            "b": "3",
+            "l1": "0",
+            "l2": "2",
+            "l3": "3",
+            "r": "0"
+          }
+        }
+      ],
+      "minimum_slack": "-3",
+      "minimum_slack_witness": {
+        "D_S": "0",
+        "F": "3",
+        "F_deleted": "0",
+        "active_F_branches": [
+          [
+            "l2",
+            "l3"
+          ],
+          [
+            "l1",
+            "l2",
+            "l3"
+          ]
+        ],
+        "active_deleted_branches": [
+          [],
+          [
+            "l1"
+          ]
+        ],
+        "b_root_bellman_optimal": true,
+        "b_root_cost": "10",
+        "bellman_gaps": {
+          "B/a": "0",
+          "B/b": "0",
+          "B/l1": "9",
+          "B/l2": "0",
+          "B/l3": "0",
+          "B/r": "5"
+        },
+        "delta": "3",
+        "slack_D_minus_delta": "-3",
+        "strictly_positive_weights": false,
+        "subset": [
+          "l2",
+          "l3"
+        ],
+        "true_bellman_optimum": "10",
+        "weights": {
+          "a": "0",
+          "b": "2",
+          "l1": "0",
+          "l2": "3",
+          "l3": "3",
+          "r": "1"
+        }
+      },
+      "strictly_positive_b_root_rays": 23,
+      "strictly_positive_failure_count": 0,
+      "strictly_positive_failures": [],
+      "subset": [
+        "l2",
+        "l3"
+      ],
+      "support_size": 2,
+      "tight_examples": [
+        {
+          "D_S": "1",
+          "F": "1",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l2",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l1"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "5",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "5",
+            "B/l2": "2",
+            "B/l3": "0",
+            "B/r": "2"
+          },
+          "delta": "1",
+          "slack_D_minus_delta": "0",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l2",
+            "l3"
+          ],
+          "true_bellman_optimum": "5",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "0",
+            "l2": "1",
+            "l3": "2",
+            "r": "1"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "1",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l2",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l1"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "4",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "5",
+            "B/l2": "2",
+            "B/l3": "0",
+            "B/r": "5"
+          },
+          "delta": "1",
+          "slack_D_minus_delta": "0",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l2",
+            "l3"
+          ],
+          "true_bellman_optimum": "4",
+          "weights": {
+            "a": "0",
+            "b": "2",
+            "l1": "0",
+            "l2": "1",
+            "l3": "2",
+            "r": "0"
+          }
+        },
+        {
+          "D_S": "1",
+          "F": "1",
+          "F_deleted": "0",
+          "active_F_branches": [
+            [
+              "l2",
+              "l3"
+            ],
+            [
+              "l1",
+              "l2",
+              "l3"
+            ]
+          ],
+          "active_deleted_branches": [
+            [],
+            [
+              "l1"
+            ]
+          ],
+          "b_root_bellman_optimal": true,
+          "b_root_cost": "5",
+          "bellman_gaps": {
+            "B/a": "1",
+            "B/b": "0",
+            "B/l1": "5",
+            "B/l2": "0",
+            "B/l3": "2",
+            "B/r": "2"
+          },
+          "delta": "1",
+          "slack_D_minus_delta": "0",
+          "strictly_positive_weights": false,
+          "subset": [
+            "l2",
+            "l3"
+          ],
+          "true_bellman_optimum": "5",
+          "weights": {
+            "a": "0",
+            "b": "1",
+            "l1": "0",
+            "l2": "2",
+            "l3": "1",
+            "r": "1"
+          }
+        }
+      ]
+    }
+  ],
+  "public_dual": {
+    "constraints": {
+      "capping": [
+        {
+          "Q_left": [
+            "l1",
+            "a",
+            "l2"
+          ],
+          "Q_right": [
+            "l2",
+            "a",
+            "l1"
+          ],
+          "R": [
+            "l1",
+            "l2"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l1",
+            "a",
+            "l3"
+          ],
+          "Q_right": [
+            "l3",
+            "a",
+            "l1"
+          ],
+          "R": [
+            "l1",
+            "l3"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l1",
+            "a",
+            "b"
+          ],
+          "Q_right": [
+            "b",
+            "a",
+            "l1"
+          ],
+          "R": [
+            "l1",
+            "b"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l1",
+            "a",
+            "r"
+          ],
+          "Q_right": [
+            "r",
+            "a",
+            "l1"
+          ],
+          "R": [
+            "l1",
+            "r"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l1",
+            "b",
+            "r"
+          ],
+          "Q_right": [
+            "r",
+            "b",
+            "l1"
+          ],
+          "R": [
+            "l1",
+            "r"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l2",
+            "a",
+            "l3"
+          ],
+          "Q_right": [
+            "l3",
+            "a",
+            "l2"
+          ],
+          "R": [
+            "l2",
+            "l3"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l2",
+            "a",
+            "b"
+          ],
+          "Q_right": [
+            "b",
+            "a",
+            "l2"
+          ],
+          "R": [
+            "l2",
+            "b"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l2",
+            "a",
+            "r"
+          ],
+          "Q_right": [
+            "r",
+            "a",
+            "l2"
+          ],
+          "R": [
+            "l2",
+            "r"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l2",
+            "b",
+            "r"
+          ],
+          "Q_right": [
+            "r",
+            "b",
+            "l2"
+          ],
+          "R": [
+            "l2",
+            "r"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l3",
+            "a",
+            "b"
+          ],
+          "Q_right": [
+            "b",
+            "a",
+            "l3"
+          ],
+          "R": [
+            "l3",
+            "b"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l3",
+            "a",
+            "r"
+          ],
+          "Q_right": [
+            "r",
+            "a",
+            "l3"
+          ],
+          "R": [
+            "l3",
+            "r"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "l3",
+            "b",
+            "r"
+          ],
+          "Q_right": [
+            "r",
+            "b",
+            "l3"
+          ],
+          "R": [
+            "l3",
+            "r"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        },
+        {
+          "Q_left": [
+            "a",
+            "b",
+            "r"
+          ],
+          "Q_right": [
+            "r",
+            "b",
+            "a"
+          ],
+          "R": [
+            "a",
+            "r"
+          ],
+          "sense": "R_ij <= Q_ikj + Q_jki"
+        }
+      ],
+      "excluded": [
+        "H1/H2",
+        "refined-Z",
+        "path-monotonicity",
+        "ancestry-transitivity",
+        "LCA-separation"
+      ],
+      "frequency": [
+        {
+          "Q_terms": [],
+          "R": [
+            "l1",
+            "l2"
+          ],
+          "ancestor": "l2",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l1"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l1",
+            "l3"
+          ],
+          "ancestor": "l3",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l1"
+        },
+        {
+          "Q_terms": [
+            [
+              "l1",
+              "a",
+              "l2"
+            ],
+            [
+              "l1",
+              "a",
+              "l3"
+            ],
+            [
+              "l1",
+              "a",
+              "b"
+            ],
+            [
+              "l1",
+              "a",
+              "r"
+            ]
+          ],
+          "R": [
+            "a",
+            "l1"
+          ],
+          "ancestor": "a",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l1"
+        },
+        {
+          "Q_terms": [
+            [
+              "l1",
+              "b",
+              "r"
+            ]
+          ],
+          "R": [
+            "b",
+            "l1"
+          ],
+          "ancestor": "b",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l1"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l1",
+            "r"
+          ],
+          "ancestor": "r",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l1"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l1",
+            "l2"
+          ],
+          "ancestor": "l1",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l2"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l2",
+            "l3"
+          ],
+          "ancestor": "l3",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l2"
+        },
+        {
+          "Q_terms": [
+            [
+              "l2",
+              "a",
+              "l1"
+            ],
+            [
+              "l2",
+              "a",
+              "l3"
+            ],
+            [
+              "l2",
+              "a",
+              "b"
+            ],
+            [
+              "l2",
+              "a",
+              "r"
+            ]
+          ],
+          "R": [
+            "a",
+            "l2"
+          ],
+          "ancestor": "a",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l2"
+        },
+        {
+          "Q_terms": [
+            [
+              "l2",
+              "b",
+              "r"
+            ]
+          ],
+          "R": [
+            "b",
+            "l2"
+          ],
+          "ancestor": "b",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l2"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l2",
+            "r"
+          ],
+          "ancestor": "r",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l2"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l1",
+            "l3"
+          ],
+          "ancestor": "l1",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l3"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l2",
+            "l3"
+          ],
+          "ancestor": "l2",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l3"
+        },
+        {
+          "Q_terms": [
+            [
+              "l3",
+              "a",
+              "l1"
+            ],
+            [
+              "l3",
+              "a",
+              "l2"
+            ],
+            [
+              "l3",
+              "a",
+              "b"
+            ],
+            [
+              "l3",
+              "a",
+              "r"
+            ]
+          ],
+          "R": [
+            "a",
+            "l3"
+          ],
+          "ancestor": "a",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l3"
+        },
+        {
+          "Q_terms": [
+            [
+              "l3",
+              "b",
+              "r"
+            ]
+          ],
+          "R": [
+            "b",
+            "l3"
+          ],
+          "ancestor": "b",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l3"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l3",
+            "r"
+          ],
+          "ancestor": "r",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "l3"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "a",
+            "l1"
+          ],
+          "ancestor": "l1",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "a"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "a",
+            "l2"
+          ],
+          "ancestor": "l2",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "a"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "a",
+            "l3"
+          ],
+          "ancestor": "l3",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "a"
+        },
+        {
+          "Q_terms": [
+            [
+              "a",
+              "b",
+              "r"
+            ]
+          ],
+          "R": [
+            "a",
+            "b"
+          ],
+          "ancestor": "b",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "a"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "a",
+            "r"
+          ],
+          "ancestor": "r",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "a"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "b",
+            "l1"
+          ],
+          "ancestor": "l1",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "b"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "b",
+            "l2"
+          ],
+          "ancestor": "l2",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "b"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "b",
+            "l3"
+          ],
+          "ancestor": "l3",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "b"
+        },
+        {
+          "Q_terms": [
+            [
+              "b",
+              "a",
+              "l1"
+            ],
+            [
+              "b",
+              "a",
+              "l2"
+            ],
+            [
+              "b",
+              "a",
+              "l3"
+            ]
+          ],
+          "R": [
+            "a",
+            "b"
+          ],
+          "ancestor": "a",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "b"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "b",
+            "r"
+          ],
+          "ancestor": "r",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "b"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l1",
+            "r"
+          ],
+          "ancestor": "l1",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "r"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l2",
+            "r"
+          ],
+          "ancestor": "l2",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "r"
+        },
+        {
+          "Q_terms": [],
+          "R": [
+            "l3",
+            "r"
+          ],
+          "ancestor": "l3",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "r"
+        },
+        {
+          "Q_terms": [
+            [
+              "r",
+              "a",
+              "l1"
+            ],
+            [
+              "r",
+              "a",
+              "l2"
+            ],
+            [
+              "r",
+              "a",
+              "l3"
+            ]
+          ],
+          "R": [
+            "a",
+            "r"
+          ],
+          "ancestor": "a",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "r"
+        },
+        {
+          "Q_terms": [
+            [
+              "r",
+              "b",
+              "l1"
+            ],
+            [
+              "r",
+              "b",
+              "l2"
+            ],
+            [
+              "r",
+              "b",
+              "l3"
+            ],
+            [
+              "r",
+              "b",
+              "a"
+            ]
+          ],
+          "R": [
+            "b",
+            "r"
+          ],
+          "ancestor": "b",
+          "sense": "R_ki + sum_j Q_ikj <= w_i",
+          "target": "r"
+        }
+      ]
+    },
+    "counts": {
+      "Q": 26,
+      "R": 15,
+      "capping_constraints": 13,
+      "frequency_constraints": 30
+    },
+    "variables": {
+      "Q_ordered_collinear_triplets": [
+        [
+          "l1",
+          "a",
+          "l2"
+        ],
+        [
+          "l1",
+          "a",
+          "l3"
+        ],
+        [
+          "l1",
+          "a",
+          "b"
+        ],
+        [
+          "l1",
+          "a",
+          "r"
+        ],
+        [
+          "l1",
+          "b",
+          "r"
+        ],
+        [
+          "l2",
+          "a",
+          "l1"
+        ],
+        [
+          "l2",
+          "a",
+          "l3"
+        ],
+        [
+          "l2",
+          "a",
+          "b"
+        ],
+        [
+          "l2",
+          "a",
+          "r"
+        ],
+        [
+          "l2",
+          "b",
+          "r"
+        ],
+        [
+          "l3",
+          "a",
+          "l1"
+        ],
+        [
+          "l3",
+          "a",
+          "l2"
+        ],
+        [
+          "l3",
+          "a",
+          "b"
+        ],
+        [
+          "l3",
+          "a",
+          "r"
+        ],
+        [
+          "l3",
+          "b",
+          "r"
+        ],
+        [
+          "a",
+          "b",
+          "r"
+        ],
+        [
+          "b",
+          "a",
+          "l1"
+        ],
+        [
+          "b",
+          "a",
+          "l2"
+        ],
+        [
+          "b",
+          "a",
+          "l3"
+        ],
+        [
+          "r",
+          "a",
+          "l1"
+        ],
+        [
+          "r",
+          "a",
+          "l2"
+        ],
+        [
+          "r",
+          "a",
+          "l3"
+        ],
+        [
+          "r",
+          "b",
+          "l1"
+        ],
+        [
+          "r",
+          "b",
+          "l2"
+        ],
+        [
+          "r",
+          "b",
+          "l3"
+        ],
+        [
+          "r",
+          "b",
+          "a"
+        ]
+      ],
+      "R_unordered_pairs": [
+        [
+          "l1",
+          "l2"
+        ],
+        [
+          "l1",
+          "l3"
+        ],
+        [
+          "l1",
+          "a"
+        ],
+        [
+          "l1",
+          "b"
+        ],
+        [
+          "l1",
+          "r"
+        ],
+        [
+          "l2",
+          "l3"
+        ],
+        [
+          "l2",
+          "a"
+        ],
+        [
+          "l2",
+          "b"
+        ],
+        [
+          "l2",
+          "r"
+        ],
+        [
+          "l3",
+          "a"
+        ],
+        [
+          "l3",
+          "b"
+        ],
+        [
+          "l3",
+          "r"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "r"
+        ],
+        [
+          "b",
+          "r"
+        ]
+      ]
+    }
+  },
+  "schema": "proper_subset_contraction_small_k_v0",
+  "status": "obstruction_candidate_found",
+  "topology": "DS(k,1)"
+}
