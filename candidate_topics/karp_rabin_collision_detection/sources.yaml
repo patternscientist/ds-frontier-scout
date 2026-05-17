@@ -3,5 +3,42 @@ sources:
     title: "Detecting collisions in Karp-Rabin fingerprinting"
     authors: ["Martin Farach-Colton"]
     year: 2025
+    source_type: problem_page
     url: "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume15/issue05/25191/html/DagRep.15.5.1/DagRep.15.5.1.html"
+    stable_identifiers:
+      dagstuhl_seminar: "25191"
+      section: "5.5"
+    accessed: "2026-05-17"
     status: verified
+    notes: "Explicit open problem: detect same-length Karp-Rabin fingerprint collisions for a given string and prime; quadratic via suffix trees is stated as straightforward."
+  - id: karp_rabin_1987
+    title: "Efficient Randomized Pattern-Matching Algorithms"
+    authors: ["Richard M. Karp", "Michael O. Rabin"]
+    year: 1987
+    source_type: paper
+    url: "https://doi.org/10.1147/rd.312.0249"
+    doi: "10.1147/rd.312.0249"
+    accessed: "2026-05-17"
+    status: verified_metadata
+    notes: "Background source for the fingerprinting method; not source evidence that the 2025 collision-detection problem remains open."
+
+freshness_log_24_months:
+  date_searched: "2026-05-17"
+  scope: "Targeted hardening search only; no broad new source scouting and no promotion over STT / DS(k,1)."
+  searches:
+    - query: "Karp Rabin collision detection fixed prime subquadratic"
+      checked:
+        - "Dagstuhl 25191 section 5.5"
+        - "Dagstuhl seminar overview page"
+      result: "Found the May 2025 source problem; no checked source in this targeted pass closes the exact all-length fixed-prime detection problem."
+    - query: "collision-free Karp Rabin fingerprint certification fixed prime"
+      checked:
+        - "Scouting v2 subrun 2F and 2I logs"
+        - "Adjacent compressed-string fingerprint search-result snippets, not used as source evidence"
+      result: "Adjacent papers use, verify, or derandomize fingerprints in restricted settings; no checked result was recorded as solving the exact Dagstuhl decision problem."
+    - query: "substring polynomial hash collision checking prime"
+      checked:
+        - "Search snippets for fingerprint/collision terminology variants"
+        - "Karp-Rabin original-paper metadata"
+      result: "Terminology risk remains; no closure found in the narrow hardening pass."
+  conclusion: "Open-status confidence remains high for the exact Dagstuhl problem, but a future promotion must run a proper stringology terminology sweep before claiming current novelty."
