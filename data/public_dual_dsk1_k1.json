@@ -1,0 +1,276 @@
+{
+  "constraint_counts": {
+    "capping": 4,
+    "frequency": 12
+  },
+  "constraints": [
+    {
+      "family": "capping",
+      "lhs": {
+        "R[l1,b]": "1"
+      },
+      "name": "cap:R[l1,b]@a",
+      "rhs": {
+        "Q[b,a,l1]": "1",
+        "Q[l1,a,b]": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "capping",
+      "lhs": {
+        "R[l1,r]": "1"
+      },
+      "name": "cap:R[l1,r]@a",
+      "rhs": {
+        "Q[l1,a,r]": "1",
+        "Q[r,a,l1]": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "capping",
+      "lhs": {
+        "R[l1,r]": "1"
+      },
+      "name": "cap:R[l1,r]@b",
+      "rhs": {
+        "Q[l1,b,r]": "1",
+        "Q[r,b,l1]": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "capping",
+      "lhs": {
+        "R[a,r]": "1"
+      },
+      "name": "cap:R[a,r]@b",
+      "rhs": {
+        "Q[a,b,r]": "1",
+        "Q[r,b,a]": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "Q[l1,a,b]": "1",
+        "Q[l1,a,r]": "1",
+        "R[l1,a]": "1"
+      },
+      "name": "freq:l1|a",
+      "rhs": {
+        "u1": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "Q[l1,b,r]": "1",
+        "R[l1,b]": "1"
+      },
+      "name": "freq:l1|b",
+      "rhs": {
+        "u1": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "R[l1,r]": "1"
+      },
+      "name": "freq:l1|r",
+      "rhs": {
+        "u1": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "R[l1,a]": "1"
+      },
+      "name": "freq:a|l1",
+      "rhs": {
+        "alpha": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "Q[a,b,r]": "1",
+        "R[a,b]": "1"
+      },
+      "name": "freq:a|b",
+      "rhs": {
+        "alpha": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "R[a,r]": "1"
+      },
+      "name": "freq:a|r",
+      "rhs": {
+        "alpha": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "R[l1,b]": "1"
+      },
+      "name": "freq:b|l1",
+      "rhs": {
+        "beta": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "Q[b,a,l1]": "1",
+        "R[a,b]": "1"
+      },
+      "name": "freq:b|a",
+      "rhs": {
+        "beta": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "R[b,r]": "1"
+      },
+      "name": "freq:b|r",
+      "rhs": {
+        "beta": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "R[l1,r]": "1"
+      },
+      "name": "freq:r|l1",
+      "rhs": {
+        "gamma": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "Q[r,a,l1]": "1",
+        "R[a,r]": "1"
+      },
+      "name": "freq:r|a",
+      "rhs": {
+        "gamma": "1"
+      },
+      "sense": "<="
+    },
+    {
+      "family": "frequency",
+      "lhs": {
+        "Q[r,b,a]": "1",
+        "Q[r,b,l1]": "1",
+        "R[b,r]": "1"
+      },
+      "name": "freq:r|b",
+      "rhs": {
+        "gamma": "1"
+      },
+      "sense": "<="
+    }
+  ],
+  "edges": [
+    [
+      "l1",
+      "a"
+    ],
+    [
+      "a",
+      "b"
+    ],
+    [
+      "b",
+      "r"
+    ]
+  ],
+  "k": 1,
+  "schema": "public_skz_dual_dsk1_v0",
+  "self_test": {
+    "checks": {
+      "capping_names_match_embedded_ds11_witness_shape": true,
+      "constraint_counts_match_embedded_ds11_witness_shape": true,
+      "external_check_ds11_public_dual_witness_py_present": false,
+      "frequency_names_match_embedded_ds11_witness_shape": true,
+      "q_variables_match_embedded_ds11_witness_shape": true,
+      "r_variables_match_embedded_ds11_witness_shape": true
+    },
+    "note": "The external witness checker named in the handoff is absent in this checkout, so the self-test compares against the embedded DS(1,1) public R/Q row shape.",
+    "passed": true,
+    "self_test_schema": "public_dual_dsk1_self_test_v0"
+  },
+  "variable_domains": {
+    "nonnegative": [
+      "R[l1,a]",
+      "R[l1,b]",
+      "R[l1,r]",
+      "R[a,b]",
+      "R[a,r]",
+      "R[b,r]",
+      "Q[a,b,r]",
+      "Q[b,a,l1]",
+      "Q[l1,a,b]",
+      "Q[l1,a,r]",
+      "Q[l1,b,r]",
+      "Q[r,a,l1]",
+      "Q[r,b,a]",
+      "Q[r,b,l1]"
+    ],
+    "note": "Only public R/Q variables are generated. Nonnegativity is a variable-domain condition, not an additional STT/H1/H2 row."
+  },
+  "variables": {
+    "Q": [
+      "Q[a,b,r]",
+      "Q[b,a,l1]",
+      "Q[l1,a,b]",
+      "Q[l1,a,r]",
+      "Q[l1,b,r]",
+      "Q[r,a,l1]",
+      "Q[r,b,a]",
+      "Q[r,b,l1]"
+    ],
+    "R": [
+      "R[l1,a]",
+      "R[l1,b]",
+      "R[l1,r]",
+      "R[a,b]",
+      "R[a,r]",
+      "R[b,r]"
+    ]
+  },
+  "vertices": [
+    "l1",
+    "a",
+    "b",
+    "r"
+  ],
+  "weights": {
+    "a": "alpha",
+    "b": "beta",
+    "l1": "u1",
+    "r": "gamma"
+  }
+}
