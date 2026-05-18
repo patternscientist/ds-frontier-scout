@@ -1,0 +1,27 @@
+{
+  "required_universes": [
+    {
+      "failure_count": 0,
+      "topology": "DS(3,2)",
+      "values": [
+        0,
+        1,
+        2
+      ],
+      "weight_count": 2186
+    },
+    {
+      "failure_count": 0,
+      "topology": "DS(4,2)",
+      "values": [
+        0,
+        1
+      ],
+      "weight_count": 255
+    }
+  ],
+  "schema": "ds32_ds42_packet_window_gap_witnesses_v0",
+  "scope_guard": "A no-gap result here is exact finite packet-window evidence only; it is not an all-k theorem.",
+  "status": "no_gaps_found",
+  "witnesses": []
+}
