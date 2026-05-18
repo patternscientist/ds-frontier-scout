@@ -1,0 +1,92 @@
+# Milestone 3 tiny OpenEvolve integration dry-run only.
+# This file uses the installed OpenEvolve 0.2.x config schema. It is not a
+# serious search, not a leaderboard run, and not evidence of policy discovery.
+#
+# Intended command:
+# openevolve-run examples/list_update_openevolve/initial_program.py \
+#   examples/list_update_openevolve/evaluator.py \
+#   --config examples/list_update_openevolve/config_tiny_milestone3.yaml \
+#   --output runs/list_update_openevolve_milestone3_tiny \
+#   --iterations 1
+#
+# The runner independently rejects generated Python candidates that changed
+# anything outside the marked EVOLVE block.
+
+max_iterations: 1
+checkpoint_interval: 1
+log_level: INFO
+log_dir: runs/list_update_openevolve_milestone3_tiny/logs
+random_seed: 314159
+language: python
+file_suffix: .py
+diff_based_evolution: true
+max_code_length: 2000
+early_stopping_metric: combined_score
+
+llm:
+  api_base: https://api.openai.com/v1
+  api_key: ${OPENAI_API_KEY}
+  primary_model: gpt-5-mini
+  secondary_model_weight: 0
+  temperature: 0.2
+  max_tokens: 1024
+  timeout: 45
+  retries: 0
+  retry_delay: 1
+  system_message: |
+    This is a tiny integration dry-run for a list-update policy.
+    Do not claim discovery or novelty. Produce only a minimal SEARCH/REPLACE
+    diff that changes code between # EVOLVE-BLOCK-START and # EVOLVE-BLOCK-END.
+    Do not change imports, function signatures, comments outside the EVOLVE
+    block, evaluator semantics, or invalid-policy penalties.
+
+prompt:
+  system_message: |
+    This is a tiny integration dry-run for a list-update policy.
+    Do not claim discovery or novelty. Produce only a minimal SEARCH/REPLACE
+    diff that changes code between # EVOLVE-BLOCK-START and # EVOLVE-BLOCK-END.
+    Do not change imports, function signatures, comments outside the EVOLVE
+    block, evaluator semantics, or invalid-policy penalties.
+  num_top_programs: 1
+  num_diverse_programs: 0
+  include_artifacts: true
+  use_template_stochasticity: false
+  diff_summary_max_lines: 12
+
+database:
+  # Intentionally tiny: this is only an end-to-end plumbing check.
+  population_size: 2
+  archive_size: 2
+  num_islands: 1
+  elite_selection_ratio: 0.5
+  exploration_ratio: 0.5
+  exploitation_ratio: 0.5
+  feature_dimensions:
+    - combined_score
+  feature_bins: 2
+  random_seed: 314159
+  db_path: runs/list_update_openevolve_milestone3_tiny/database
+  in_memory: false
+  log_prompts: true
+  artifacts_base_path: runs/list_update_openevolve_milestone3_tiny/artifacts
+  cleanup_old_artifacts: false
+  max_snapshot_artifacts: 10
+
+evaluator:
+  # The list-update adapter itself uses the smoke suite and its own conservative
+  # policy timeout; this outer timeout bounds the OpenEvolve evaluator call.
+  timeout: 10
+  max_retries: 0
+  cascade_evaluation: false
+  parallel_evaluations: 1
+  use_llm_feedback: false
+  enable_artifacts: true
+
+evolution_trace:
+  enabled: true
+  format: jsonl
+  include_code: true
+  include_prompts: true
+  output_path: runs/list_update_openevolve_milestone3_tiny/evolution_trace.jsonl
+  buffer_size: 1
+  compress: false

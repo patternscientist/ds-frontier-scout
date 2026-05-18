@@ -1,0 +1,36 @@
+{
+  "artifact_dir": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3_tiny",
+  "best_candidate_report_path": null,
+  "blockers": [
+    "OPENAI_API_KEY is not set; OpenEvolve can be imported but cannot request the one tiny mutation"
+  ],
+  "candidate_evaluations": [],
+  "candidate_paths": [],
+  "command": [
+    "C:\\Users\\poin\\AppData\\Roaming\\Python\\Python314\\Scripts\\openevolve-run.exe",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\initial_program.py",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\evaluator.py",
+    "--config",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\config_tiny_milestone3.yaml",
+    "--output",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3_tiny",
+    "--iterations",
+    "1",
+    "--log-level",
+    "INFO"
+  ],
+  "config_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\config_tiny_milestone3.yaml",
+  "evolve_block_checks": [],
+  "openevolve_available": true,
+  "returncode": null,
+  "schema_version": "list_update_openevolve_milestone3_runner.v0",
+  "setup_instructions": [
+    "Install the intended OpenEvolve package into the Python environment used by this repository.",
+    "Verify either `python -c \"import openevolve\"` succeeds or `openevolve-run --help` is available.",
+    "Set OPENAI_API_KEY for the tiny one-iteration mutation request.",
+    "Rerun `python scripts/run_list_update_openevolve_tiny_milestone3.py` from the repository root."
+  ],
+  "status": "blocked",
+  "stderr_path": null,
+  "stdout_path": null
+}
