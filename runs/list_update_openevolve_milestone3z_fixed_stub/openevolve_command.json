@@ -1,0 +1,23 @@
+{
+  "api_base": "http://127.0.0.1:61407/v1",
+  "command": [
+    "C:\\Users\\poin\\AppData\\Roaming\\Python\\Python314\\Scripts\\openevolve-run.exe",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\initial_program.py",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\evaluator.py",
+    "--config",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\config_tiny_milestone3_fixed_stub.yaml",
+    "--output",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub",
+    "--iterations",
+    "1",
+    "--log-level",
+    "INFO"
+  ],
+  "cwd": "C:\\Users\\poin\\Documents\\ds-frontier-scout",
+  "invocation_kind": "cli",
+  "model": "fixed-stub-list-update-v0",
+  "schema_version": "list_update_openevolve_milestone3z_zero_money_runner.v0",
+  "stub_label": "Stubbed OpenAI-compatible transport test; fixed response, no model inference, no autonomous mutation, no policy discovery.",
+  "stubbed_transport": true,
+  "zero_money_local_model_test": true
+}

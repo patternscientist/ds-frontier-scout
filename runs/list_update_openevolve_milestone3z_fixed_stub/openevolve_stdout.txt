@@ -1,0 +1,26 @@
+
+Evolution complete!
+Best program metrics:
+  combined_score: 980.2105
+  fitness: 980.2105
+  valid: 1.0000
+  invalid_policy: 0.0000
+  timeout: 0.0000
+  nondeterminism: 0.0000
+  total_cost: 42.0000
+  ratio_vs_mtf: 1.0000
+  offline_oracle_ratio: 1.1053
+  offline_oracle_regret: 4.0000
+  source_length: 317.0000
+  ast_node_count: 19.0000
+  average_position_shift_per_request: 1.0000
+  policy_complexity: {'source': 'C:\\Users\\poin\\AppData\\Local\\Temp\\tmp2t511ui8.py', 'source_length': 317, 'ast_node_count': 19}
+  movement_aggressiveness: {'total_position_shift': 21, 'average_position_shift_per_request': 1.0}
+  suite: smoke
+  policy_name: tmp2t511ui8
+  report_path: None
+  fitness_formula_version: transparent_penalty_v0
+  penalties: {'invalid_policy': 0.0, 'timeout': 0.0, 'nondeterminism': 0.0, 'missing_ratio_vs_mtf': 0.0, 'ratio_vs_mtf': 0.0, 'missing_offline_oracle_ratio': 0.0, 'offline_oracle_ratio': 15.789474, 'missing_offline_oracle_regret': 0.0, 'offline_oracle_regret': 4.0, 'source_length': 0.0, 'ast_node_count': 0.0, 'movement_aggressiveness': 0.0}
+
+Latest checkpoint saved at: C:\Users\poin\Documents\ds-frontier-scout\runs\list_update_openevolve_milestone3z_fixed_stub\checkpoints\checkpoint_1
+To resume, use: --checkpoint C:\Users\poin\Documents\ds-frontier-scout\runs\list_update_openevolve_milestone3z_fixed_stub\checkpoints\checkpoint_1

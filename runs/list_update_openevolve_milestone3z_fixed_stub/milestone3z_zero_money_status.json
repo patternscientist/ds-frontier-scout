@@ -1,0 +1,509 @@
+{
+  "api_base": "http://127.0.0.1:61407/v1",
+  "artifact_dir": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub",
+  "best_candidate_report_path": null,
+  "blockers": [],
+  "candidate_records": [
+    {
+      "adapter_evaluation": null,
+      "candidate_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\best\\best_program.py",
+      "candidate_sha256": "45dff608c33effdfa8dfcde7ea3458fdb9cc3408963b91e75a00e6e455f0438c",
+      "changed_from_initial": false,
+      "changes_only_evolve_block": false,
+      "final_class": "generated_candidate_identical_to_initial",
+      "generated_changed_candidate": false,
+      "initial_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\initial_program.py",
+      "initial_sha256": "69204972702316ffb6a660890cdbc95fcfc680e7eb0977cee4743971991681e6",
+      "raw_sha256_changed": true,
+      "reason": "candidate hash matches the initial program",
+      "structural_class": "generated_candidate_identical_to_initial",
+      "text_equal_to_initial_ignoring_line_endings": true
+    },
+    {
+      "adapter_evaluation": null,
+      "candidate_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\checkpoints\\checkpoint_1\\best_program.py",
+      "candidate_sha256": "45dff608c33effdfa8dfcde7ea3458fdb9cc3408963b91e75a00e6e455f0438c",
+      "changed_from_initial": false,
+      "changes_only_evolve_block": false,
+      "final_class": "generated_candidate_identical_to_initial",
+      "generated_changed_candidate": false,
+      "initial_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\initial_program.py",
+      "initial_sha256": "69204972702316ffb6a660890cdbc95fcfc680e7eb0977cee4743971991681e6",
+      "raw_sha256_changed": true,
+      "reason": "candidate hash matches the initial program",
+      "structural_class": "generated_candidate_identical_to_initial",
+      "text_equal_to_initial_ignoring_line_endings": true
+    },
+    {
+      "adapter_evaluation": {
+        "adapter_command": [
+          "C:\\Python314\\python.exe",
+          "-m",
+          "list_update_eval.openevolve_adapter",
+          "--policy",
+          "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+          "--suite",
+          "smoke",
+          "--out",
+          "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\candidate_evaluations\\candidate_000_014ebc2b-7d23-4897-9b4f-a58434c62d81_smoke.json"
+        ],
+        "adapter_command_returncode": 0,
+        "adapter_report_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\candidate_evaluations\\candidate_000_014ebc2b-7d23-4897-9b4f-a58434c62d81_smoke.json",
+        "report": {
+          "artifacts": {
+            "adapter_report_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\candidate_evaluations\\candidate_000_014ebc2b-7d23-4897-9b4f-a58434c62d81_smoke.json",
+            "evaluator_diagnostics": {
+              "baseline_totals": {
+                "frequency_count": 45,
+                "move_to_front": 42,
+                "static_optimal": 38,
+                "static_safe": 54,
+                "transpose": 49
+              },
+              "cost_model": {
+                "access_cost_convention": "item at 0-based rank r costs r + 1",
+                "candidate_paid_exchanges": "not allowed",
+                "free_exchanges": "after an access, the requested item may move for free to any earlier 0-based position, including staying in place",
+                "internal_positions": "0-indexed",
+                "name": "full_cost_standard_free_after_access",
+                "offline_oracle_paid_exchanges": "unit-cost adjacent exchanges, canonicalized before access by the existing DP"
+              },
+              "offline_oracle_by_case": {
+                "smoke_n2_gap": {
+                  "case_id": "smoke_n2_gap",
+                  "cost": 3,
+                  "final_state": [
+                    0,
+                    1
+                  ],
+                  "n": 2,
+                  "trace": [
+                    1,
+                    0
+                  ]
+                },
+                "smoke_n3_mixed": {
+                  "case_id": "smoke_n3_mixed",
+                  "cost": 7,
+                  "final_state": [
+                    1,
+                    2,
+                    0
+                  ],
+                  "n": 3,
+                  "trace": [
+                    2,
+                    1,
+                    2
+                  ]
+                },
+                "smoke_phase_shift": {
+                  "case_id": "smoke_phase_shift",
+                  "cost": 14,
+                  "final_state": [
+                    3,
+                    2,
+                    1,
+                    0
+                  ],
+                  "n": 4,
+                  "trace": [
+                    0,
+                    0,
+                    1,
+                    1,
+                    2,
+                    2,
+                    3,
+                    3
+                  ]
+                },
+                "smoke_repeated_tail": {
+                  "case_id": "smoke_repeated_tail",
+                  "cost": 7,
+                  "final_state": [
+                    3,
+                    0,
+                    1,
+                    2
+                  ],
+                  "n": 4,
+                  "trace": [
+                    3,
+                    3,
+                    3,
+                    3
+                  ]
+                },
+                "smoke_static_order": {
+                  "case_id": "smoke_static_order",
+                  "cost": 7,
+                  "final_state": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "n": 3,
+                  "trace": [
+                    0,
+                    1,
+                    2,
+                    0
+                  ]
+                }
+              },
+              "oracle": {
+                "adversarial_trace_source": "scripts.list_update.adversarial_traces.worst_traces_by_policy",
+                "available": true,
+                "finite_minimax_todo": "No public interface was found for a true minimax value over online policy strategy spaces; this harness integrates the exact offline trace oracle and finite adversarial trace enumerator.",
+                "finite_minimax_value_available": false,
+                "kind": "exact_offline_optimum_per_trace",
+                "source": "scripts.list_update.exact_evaluator.offline_optimum"
+              },
+              "policies": {
+                "014ebc2b-7d23-4897-9b4f-a58434c62d81": {
+                  "baseline_ratios": {},
+                  "error": "InvalidPolicyError: 014ebc2b-7d23-4897-9b4f-a58434c62d81: target index 1 is outside allowed range 0..0",
+                  "invalid_policy": true,
+                  "locality_sensitivity_proxy": null,
+                  "mean_cost": null,
+                  "movement_aggressiveness": {},
+                  "oracle": {},
+                  "policy_complexity": {
+                    "ast_node_count": 26,
+                    "source": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+                    "source_length": 330
+                  },
+                  "timeout": false,
+                  "total_cost": null,
+                  "worst_trace_cost": null
+                }
+              },
+              "schema_version": "list_update_eval.milestone1.v0",
+              "static_optimal_comparator": {
+                "smoke_n2_gap": {
+                  "case_id": "smoke_n2_gap",
+                  "cost": 3,
+                  "n": 2,
+                  "note": "trace-aware fixed-order comparator, not an online policy",
+                  "permutation": [
+                    0,
+                    1
+                  ],
+                  "trace": [
+                    1,
+                    0
+                  ]
+                },
+                "smoke_n3_mixed": {
+                  "case_id": "smoke_n3_mixed",
+                  "cost": 4,
+                  "n": 3,
+                  "note": "trace-aware fixed-order comparator, not an online policy",
+                  "permutation": [
+                    2,
+                    1,
+                    0
+                  ],
+                  "trace": [
+                    2,
+                    1,
+                    2
+                  ]
+                },
+                "smoke_phase_shift": {
+                  "case_id": "smoke_phase_shift",
+                  "cost": 20,
+                  "n": 4,
+                  "note": "trace-aware fixed-order comparator, not an online policy",
+                  "permutation": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "trace": [
+                    0,
+                    0,
+                    1,
+                    1,
+                    2,
+                    2,
+                    3,
+                    3
+                  ]
+                },
+                "smoke_repeated_tail": {
+                  "case_id": "smoke_repeated_tail",
+                  "cost": 4,
+                  "n": 4,
+                  "note": "trace-aware fixed-order comparator, not an online policy",
+                  "permutation": [
+                    3,
+                    0,
+                    1,
+                    2
+                  ],
+                  "trace": [
+                    3,
+                    3,
+                    3,
+                    3
+                  ]
+                },
+                "smoke_static_order": {
+                  "case_id": "smoke_static_order",
+                  "cost": 7,
+                  "n": 3,
+                  "note": "trace-aware fixed-order comparator, not an online policy",
+                  "permutation": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "trace": [
+                    0,
+                    1,
+                    2,
+                    0
+                  ]
+                }
+              },
+              "suite": {
+                "cases": [
+                  {
+                    "family": "smoke",
+                    "id": "smoke_n2_gap",
+                    "n": 2,
+                    "source": "hand_checked",
+                    "trace": [
+                      1,
+                      0
+                    ]
+                  },
+                  {
+                    "family": "smoke",
+                    "id": "smoke_n3_mixed",
+                    "n": 3,
+                    "source": "hand_checked",
+                    "trace": [
+                      2,
+                      1,
+                      2
+                    ]
+                  },
+                  {
+                    "family": "smoke",
+                    "id": "smoke_static_order",
+                    "n": 3,
+                    "source": "hand_checked",
+                    "trace": [
+                      0,
+                      1,
+                      2,
+                      0
+                    ]
+                  },
+                  {
+                    "family": "repeated_item",
+                    "id": "smoke_repeated_tail",
+                    "n": 4,
+                    "source": "hand_checked",
+                    "trace": [
+                      3,
+                      3,
+                      3,
+                      3
+                    ]
+                  },
+                  {
+                    "family": "phase_shift",
+                    "id": "smoke_phase_shift",
+                    "n": 4,
+                    "source": "hand_checked",
+                    "trace": [
+                      0,
+                      0,
+                      1,
+                      1,
+                      2,
+                      2,
+                      3,
+                      3
+                    ]
+                  }
+                ],
+                "families": [
+                  "phase_shift",
+                  "repeated_item",
+                  "smoke"
+                ],
+                "name": "smoke",
+                "request_count": 21,
+                "trace_count": 5
+              }
+            },
+            "evaluator_error": "InvalidPolicyError: 014ebc2b-7d23-4897-9b4f-a58434c62d81: target index 1 is outside allowed range 0..0",
+            "evaluator_schema_version": "list_update_eval.milestone1.v0",
+            "fitness_formula": "combined_score = 1000 - penalties, where penalties are: 10000 for invalid policy behavior; 5000 for timeout; 2500 for detected nondeterminism; 1000 each when baseline/oracle metrics are unavailable; 200 * max(0, ratio_vs_mtf - 1); 150 * max(0, offline_oracle_ratio - 1); 1 * max(0, offline_oracle_regret); max(0, source_length - 1200) / 100; max(0, ast_node_count - 200) / 20; and 25 * max(0, average_position_shift_per_request - 1.25). Higher combined_score is better.",
+            "policy_name": "014ebc2b-7d23-4897-9b4f-a58434c62d81",
+            "policy_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+            "suite": "smoke"
+          },
+          "combined_score": -12000.0,
+          "fitness": -12000.0,
+          "fitness_formula_version": "transparent_penalty_v0",
+          "invalid_policy": true,
+          "metrics": {
+            "ast_node_count": 26,
+            "average_position_shift_per_request": null,
+            "combined_score": -12000.0,
+            "fitness": -12000.0,
+            "fitness_formula_version": "transparent_penalty_v0",
+            "invalid_policy": true,
+            "movement_aggressiveness": {},
+            "nondeterminism": false,
+            "offline_oracle_ratio": null,
+            "offline_oracle_regret": null,
+            "penalties": {
+              "ast_node_count": 0.0,
+              "invalid_policy": 10000.0,
+              "missing_offline_oracle_ratio": 1000.0,
+              "missing_offline_oracle_regret": 1000.0,
+              "missing_ratio_vs_mtf": 1000.0,
+              "movement_aggressiveness": 0.0,
+              "nondeterminism": 0.0,
+              "offline_oracle_ratio": 0.0,
+              "offline_oracle_regret": 0.0,
+              "ratio_vs_mtf": 0.0,
+              "source_length": 0.0,
+              "timeout": 0.0
+            },
+            "policy_complexity": {
+              "ast_node_count": 26,
+              "source": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+              "source_length": 330
+            },
+            "policy_name": "014ebc2b-7d23-4897-9b4f-a58434c62d81",
+            "ratio_vs_mtf": null,
+            "report_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\candidate_evaluations\\candidate_000_014ebc2b-7d23-4897-9b4f-a58434c62d81_smoke.json",
+            "source_length": 330,
+            "suite": "smoke",
+            "timeout": false,
+            "total_cost": null,
+            "valid": false
+          },
+          "movement_aggressiveness": {},
+          "nondeterminism": false,
+          "offline_oracle_ratio": null,
+          "offline_oracle_regret": null,
+          "policy_complexity": {
+            "ast_node_count": 26,
+            "source": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+            "source_length": 330
+          },
+          "policy_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+          "ratio_vs_mtf": null,
+          "report_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\candidate_evaluations\\candidate_000_014ebc2b-7d23-4897-9b4f-a58434c62d81_smoke.json",
+          "schema_version": "list_update_eval.openevolve_adapter.milestone2.v0",
+          "suite": "smoke",
+          "timeout": false,
+          "total_cost": null,
+          "valid": false
+        },
+        "stderr": "",
+        "stdout": "policy=014ebc2b-7d23-4897-9b4f-a58434c62d81 suite=smoke combined_score=-12000.0 valid=false invalid=true timeout=false nondeterminism=false total_cost=None ratio_vs_mtf=None offline_oracle_ratio=None wrote C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\candidate_evaluations\\candidate_000_014ebc2b-7d23-4897-9b4f-a58434c62d81_smoke.json\n"
+      },
+      "candidate_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+      "candidate_sha256": "04e3fd1c9f10b6db354f200b182cca868ce8ebe665fac8ab4bcbcd23bdf0ed8c",
+      "changed_from_initial": true,
+      "changes_only_evolve_block": true,
+      "final_class": "invalid_candidate",
+      "generated_changed_candidate": true,
+      "initial_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\initial_program.py",
+      "initial_sha256": "69204972702316ffb6a660890cdbc95fcfc680e7eb0977cee4743971991681e6",
+      "raw_sha256_changed": true,
+      "reason": null,
+      "structural_class": "generated_candidate_changed_evolve_block_only",
+      "text_equal_to_initial_ignoring_line_endings": false
+    },
+    {
+      "adapter_evaluation": null,
+      "candidate_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\8b88df25-0a37-4d28-9273-b260cc9bbcc1.py",
+      "candidate_sha256": "45dff608c33effdfa8dfcde7ea3458fdb9cc3408963b91e75a00e6e455f0438c",
+      "changed_from_initial": false,
+      "changes_only_evolve_block": false,
+      "final_class": "generated_candidate_identical_to_initial",
+      "generated_changed_candidate": false,
+      "initial_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\initial_program.py",
+      "initial_sha256": "69204972702316ffb6a660890cdbc95fcfc680e7eb0977cee4743971991681e6",
+      "raw_sha256_changed": true,
+      "reason": "candidate hash matches the initial program",
+      "structural_class": "generated_candidate_identical_to_initial",
+      "text_equal_to_initial_ignoring_line_endings": true
+    }
+  ],
+  "command": [
+    "C:\\Users\\poin\\AppData\\Roaming\\Python\\Python314\\Scripts\\openevolve-run.exe",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\initial_program.py",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\evaluator.py",
+    "--config",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\config_tiny_milestone3_fixed_stub.yaml",
+    "--output",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub",
+    "--iterations",
+    "1",
+    "--log-level",
+    "INFO"
+  ],
+  "config_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\config_tiny_milestone3_fixed_stub.yaml",
+  "endpoint_probe": {
+    "api_base": "http://127.0.0.1:61407/v1",
+    "available": true,
+    "models": [
+      "fixed-stub-list-update-v0"
+    ],
+    "models_url": "http://127.0.0.1:61407/v1/models",
+    "raw_model_count": 1,
+    "reason": null,
+    "status_code": 200
+  },
+  "evolve_block_only_changed_candidate_paths": [
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py"
+  ],
+  "extracted_candidate_paths": [
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\8b88df25-0a37-4d28-9273-b260cc9bbcc1.py"
+  ],
+  "generated_changed_candidate_paths": [
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py"
+  ],
+  "model": "fixed-stub-list-update-v0",
+  "ollama_probe": {
+    "installed": false,
+    "list_attempted": false,
+    "list_returncode": null,
+    "models": [],
+    "path": null,
+    "reason": "ollama executable was not found on PATH",
+    "stderr": "",
+    "stdout": ""
+  },
+  "openevolve_available": true,
+  "real_local_llm_mutation_obtained": false,
+  "real_local_llm_run_attempted": false,
+  "returncode": 0,
+  "schema_version": "list_update_openevolve_milestone3z_zero_money_runner.v0",
+  "setup_instructions": [
+    "Stubbed OpenAI-compatible transport test; fixed response, no model inference, no autonomous mutation, no policy discovery.",
+    "Treat this only as plumbing evidence for OpenEvolve HTTP transport and adapter re-evaluation.",
+    "It does not satisfy the autonomous Milestone 3 local-LLM criterion.",
+    "For a real zero-money LLM mutation, install/start Ollama, pull a free local model such as qwen2.5-coder:1.5b, and rerun `python scripts/run_list_update_openevolve_zero_money_milestone3.py`."
+  ],
+  "status": "succeeded",
+  "stderr_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\openevolve_stderr.txt",
+  "stdout_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\openevolve_stdout.txt",
+  "stub_label": "Stubbed OpenAI-compatible transport test; fixed response, no model inference, no autonomous mutation, no policy discovery.",
+  "stubbed_transport": true,
+  "zero_money_local_model_test": true
+}

@@ -1,0 +1,66 @@
+{
+  "api_base": "http://localhost:11434/v1",
+  "artifact_dir": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_zero_money",
+  "best_candidate_report_path": null,
+  "blockers": [
+    "local OpenAI-compatible endpoint is unavailable at http://localhost:11434/v1: URLError: <urlopen error timed out>"
+  ],
+  "candidate_records": [],
+  "command": [
+    "C:\\Users\\poin\\AppData\\Roaming\\Python\\Python314\\Scripts\\openevolve-run.exe",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\initial_program.py",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\evaluator.py",
+    "--config",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\config_tiny_milestone3_ollama.yaml",
+    "--output",
+    "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_zero_money",
+    "--iterations",
+    "1",
+    "--log-level",
+    "INFO"
+  ],
+  "config_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\examples\\list_update_openevolve\\config_tiny_milestone3_ollama.yaml",
+  "endpoint_probe": {
+    "api_base": "http://localhost:11434/v1",
+    "available": false,
+    "models": [],
+    "models_url": "http://localhost:11434/v1/models",
+    "raw_model_count": 0,
+    "reason": "URLError: <urlopen error timed out>",
+    "status_code": null
+  },
+  "evolve_block_only_changed_candidate_paths": [],
+  "extracted_candidate_paths": [],
+  "generated_changed_candidate_paths": [],
+  "model": "qwen2.5-coder:1.5b",
+  "ollama_probe": {
+    "installed": false,
+    "list_attempted": false,
+    "list_returncode": null,
+    "models": [],
+    "path": null,
+    "reason": "ollama executable was not found on PATH",
+    "stderr": "",
+    "stdout": ""
+  },
+  "openevolve_available": true,
+  "real_local_llm_mutation_obtained": false,
+  "real_local_llm_run_attempted": false,
+  "returncode": null,
+  "schema_version": "list_update_openevolve_milestone3z_zero_money_runner.v0",
+  "setup_instructions": [
+    "Install the free Ollama desktop/CLI if it is not already installed.",
+    "Pull the configured free local model, for example `ollama pull qwen2.5-coder:1.5b`.",
+    "Start the local server with `ollama serve` if it is not already running.",
+    "Verify the local endpoint with `Invoke-WebRequest http://localhost:11434/v1/models`.",
+    "Install OpenEvolve into the Python environment if needed with `python -m pip install openevolve`.",
+    "Rerun `python scripts/run_list_update_openevolve_zero_money_milestone3.py` from the repository root.",
+    "Do not set OPENAI_API_KEY for this zero-money Ollama path."
+  ],
+  "status": "blocked",
+  "stderr_path": null,
+  "stdout_path": null,
+  "stub_label": null,
+  "stubbed_transport": false,
+  "zero_money_local_model_test": true
+}

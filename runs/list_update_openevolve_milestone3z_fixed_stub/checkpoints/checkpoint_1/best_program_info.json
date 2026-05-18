@@ -1,0 +1,51 @@
+{
+  "id": "8b88df25-0a37-4d28-9273-b260cc9bbcc1",
+  "generation": 0,
+  "iteration": 0,
+  "current_iteration": 1,
+  "metrics": {
+    "combined_score": 980.210526,
+    "fitness": 980.210526,
+    "valid": true,
+    "invalid_policy": false,
+    "timeout": false,
+    "nondeterminism": false,
+    "total_cost": 42,
+    "ratio_vs_mtf": 1.0,
+    "offline_oracle_ratio": 1.105263157894737,
+    "offline_oracle_regret": 4,
+    "source_length": 317,
+    "ast_node_count": 19,
+    "average_position_shift_per_request": 1.0,
+    "policy_complexity": {
+      "source": "C:\\Users\\poin\\AppData\\Local\\Temp\\tmp2t511ui8.py",
+      "source_length": 317,
+      "ast_node_count": 19
+    },
+    "movement_aggressiveness": {
+      "total_position_shift": 21,
+      "average_position_shift_per_request": 1.0
+    },
+    "suite": "smoke",
+    "policy_name": "tmp2t511ui8",
+    "report_path": null,
+    "fitness_formula_version": "transparent_penalty_v0",
+    "penalties": {
+      "invalid_policy": 0.0,
+      "timeout": 0.0,
+      "nondeterminism": 0.0,
+      "missing_ratio_vs_mtf": 0.0,
+      "ratio_vs_mtf": 0.0,
+      "missing_offline_oracle_ratio": 0.0,
+      "offline_oracle_ratio": 15.789474,
+      "missing_offline_oracle_regret": 0.0,
+      "offline_oracle_regret": 4.0,
+      "source_length": 0.0,
+      "ast_node_count": 0.0,
+      "movement_aggressiveness": 0.0
+    }
+  },
+  "language": "python",
+  "timestamp": 1779132922.662531,
+  "saved_at": 1779132929.3300924
+}

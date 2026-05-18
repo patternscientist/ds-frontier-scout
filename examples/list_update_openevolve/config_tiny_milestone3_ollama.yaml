@@ -1,0 +1,97 @@
+# Milestone 3z zero-money local-model OpenEvolve/list-update integration test.
+# This config points OpenEvolve at a local OpenAI-compatible endpoint, intended
+# first for Ollama:
+#
+#   ollama pull qwen2.5-coder:1.5b
+#   ollama serve
+#
+# The dummy API key is local-only. Ollama requires an API key value in the
+# OpenAI-compatible client shape but ignores it. Do not replace this with a paid
+# hosted-model key for this zero-money path.
+#
+# This is a one-iteration plumbing test, not discovery, not a leaderboard run,
+# and not evidence of a novel list-update policy. The runner independently
+# hashes candidates, rejects copied initial snapshots as generated changes, and
+# records whether changed candidates stay inside the EVOLVE block.
+
+max_iterations: 1
+checkpoint_interval: 1
+log_level: INFO
+log_dir: runs/list_update_openevolve_milestone3z_zero_money/logs
+random_seed: 314159
+language: python
+file_suffix: .py
+diff_based_evolution: true
+max_code_length: 2000
+early_stopping_metric: combined_score
+
+llm:
+  api_base: http://localhost:11434/v1
+  api_key: ollama
+  # Small local default for a zero-money smoke run. If this model is not
+  # installed, try `ollama pull qwen2.5-coder:1.5b` or switch to another free
+  # local model already present in `ollama list`, such as qwen2.5-coder:3b.
+  primary_model: qwen2.5-coder:1.5b
+  secondary_model_weight: 0
+  temperature: 0.1
+  max_tokens: 512
+  timeout: 120
+  retries: 0
+  retry_delay: 1
+  system_message: |
+    This is a tiny zero-money local-model integration test for a list-update
+    policy. Do not claim discovery or novelty. Produce only a minimal
+    SEARCH/REPLACE diff that changes code between # EVOLVE-BLOCK-START and
+    # EVOLVE-BLOCK-END. Do not change imports, function signatures, comments
+    outside the EVOLVE block, evaluator semantics, or invalid-policy penalties.
+
+prompt:
+  system_message: |
+    This is a tiny zero-money local-model integration test for a list-update
+    policy. Do not claim discovery or novelty. Produce only a minimal
+    SEARCH/REPLACE diff that changes code between # EVOLVE-BLOCK-START and
+    # EVOLVE-BLOCK-END. Do not change imports, function signatures, comments
+    outside the EVOLVE block, evaluator semantics, or invalid-policy penalties.
+  num_top_programs: 1
+  num_diverse_programs: 0
+  include_artifacts: true
+  use_template_stochasticity: false
+  diff_summary_max_lines: 12
+
+database:
+  # Intentionally tiny: this is only an end-to-end local plumbing check.
+  population_size: 2
+  archive_size: 2
+  num_islands: 1
+  elite_selection_ratio: 0.5
+  exploration_ratio: 0.5
+  exploitation_ratio: 0.5
+  feature_dimensions:
+    - combined_score
+  feature_bins: 2
+  random_seed: 314159
+  db_path: runs/list_update_openevolve_milestone3z_zero_money/database
+  in_memory: false
+  log_prompts: true
+  artifacts_base_path: runs/list_update_openevolve_milestone3z_zero_money/artifacts
+  cleanup_old_artifacts: false
+  max_snapshot_artifacts: 10
+
+evaluator:
+  # The list-update adapter itself uses the smoke suite and its own conservative
+  # policy timeout; this outer timeout bounds the OpenEvolve evaluator call.
+  timeout: 10
+  max_retries: 0
+  cascade_evaluation: false
+  parallel_evaluations: 1
+  use_llm_feedback: false
+  enable_artifacts: true
+
+evolution_trace:
+  enabled: true
+  format: jsonl
+  include_code: true
+  include_prompts: true
+  output_path: runs/list_update_openevolve_milestone3z_zero_money/evolution_trace.jsonl
+  buffer_size: 1
+  compress: false

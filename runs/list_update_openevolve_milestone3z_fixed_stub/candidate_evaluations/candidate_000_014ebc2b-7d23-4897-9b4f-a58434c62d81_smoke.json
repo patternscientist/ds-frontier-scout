@@ -1,0 +1,362 @@
+{
+  "artifacts": {
+    "adapter_report_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\candidate_evaluations\\candidate_000_014ebc2b-7d23-4897-9b4f-a58434c62d81_smoke.json",
+    "evaluator_diagnostics": {
+      "baseline_totals": {
+        "frequency_count": 45,
+        "move_to_front": 42,
+        "static_optimal": 38,
+        "static_safe": 54,
+        "transpose": 49
+      },
+      "cost_model": {
+        "access_cost_convention": "item at 0-based rank r costs r + 1",
+        "candidate_paid_exchanges": "not allowed",
+        "free_exchanges": "after an access, the requested item may move for free to any earlier 0-based position, including staying in place",
+        "internal_positions": "0-indexed",
+        "name": "full_cost_standard_free_after_access",
+        "offline_oracle_paid_exchanges": "unit-cost adjacent exchanges, canonicalized before access by the existing DP"
+      },
+      "offline_oracle_by_case": {
+        "smoke_n2_gap": {
+          "case_id": "smoke_n2_gap",
+          "cost": 3,
+          "final_state": [
+            0,
+            1
+          ],
+          "n": 2,
+          "trace": [
+            1,
+            0
+          ]
+        },
+        "smoke_n3_mixed": {
+          "case_id": "smoke_n3_mixed",
+          "cost": 7,
+          "final_state": [
+            1,
+            2,
+            0
+          ],
+          "n": 3,
+          "trace": [
+            2,
+            1,
+            2
+          ]
+        },
+        "smoke_phase_shift": {
+          "case_id": "smoke_phase_shift",
+          "cost": 14,
+          "final_state": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "n": 4,
+          "trace": [
+            0,
+            0,
+            1,
+            1,
+            2,
+            2,
+            3,
+            3
+          ]
+        },
+        "smoke_repeated_tail": {
+          "case_id": "smoke_repeated_tail",
+          "cost": 7,
+          "final_state": [
+            3,
+            0,
+            1,
+            2
+          ],
+          "n": 4,
+          "trace": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "smoke_static_order": {
+          "case_id": "smoke_static_order",
+          "cost": 7,
+          "final_state": [
+            0,
+            1,
+            2
+          ],
+          "n": 3,
+          "trace": [
+            0,
+            1,
+            2,
+            0
+          ]
+        }
+      },
+      "oracle": {
+        "adversarial_trace_source": "scripts.list_update.adversarial_traces.worst_traces_by_policy",
+        "available": true,
+        "finite_minimax_todo": "No public interface was found for a true minimax value over online policy strategy spaces; this harness integrates the exact offline trace oracle and finite adversarial trace enumerator.",
+        "finite_minimax_value_available": false,
+        "kind": "exact_offline_optimum_per_trace",
+        "source": "scripts.list_update.exact_evaluator.offline_optimum"
+      },
+      "policies": {
+        "014ebc2b-7d23-4897-9b4f-a58434c62d81": {
+          "baseline_ratios": {},
+          "error": "InvalidPolicyError: 014ebc2b-7d23-4897-9b4f-a58434c62d81: target index 1 is outside allowed range 0..0",
+          "invalid_policy": true,
+          "locality_sensitivity_proxy": null,
+          "mean_cost": null,
+          "movement_aggressiveness": {},
+          "oracle": {},
+          "policy_complexity": {
+            "ast_node_count": 26,
+            "source": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+            "source_length": 330
+          },
+          "timeout": false,
+          "total_cost": null,
+          "worst_trace_cost": null
+        }
+      },
+      "schema_version": "list_update_eval.milestone1.v0",
+      "static_optimal_comparator": {
+        "smoke_n2_gap": {
+          "case_id": "smoke_n2_gap",
+          "cost": 3,
+          "n": 2,
+          "note": "trace-aware fixed-order comparator, not an online policy",
+          "permutation": [
+            0,
+            1
+          ],
+          "trace": [
+            1,
+            0
+          ]
+        },
+        "smoke_n3_mixed": {
+          "case_id": "smoke_n3_mixed",
+          "cost": 4,
+          "n": 3,
+          "note": "trace-aware fixed-order comparator, not an online policy",
+          "permutation": [
+            2,
+            1,
+            0
+          ],
+          "trace": [
+            2,
+            1,
+            2
+          ]
+        },
+        "smoke_phase_shift": {
+          "case_id": "smoke_phase_shift",
+          "cost": 20,
+          "n": 4,
+          "note": "trace-aware fixed-order comparator, not an online policy",
+          "permutation": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "trace": [
+            0,
+            0,
+            1,
+            1,
+            2,
+            2,
+            3,
+            3
+          ]
+        },
+        "smoke_repeated_tail": {
+          "case_id": "smoke_repeated_tail",
+          "cost": 4,
+          "n": 4,
+          "note": "trace-aware fixed-order comparator, not an online policy",
+          "permutation": [
+            3,
+            0,
+            1,
+            2
+          ],
+          "trace": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "smoke_static_order": {
+          "case_id": "smoke_static_order",
+          "cost": 7,
+          "n": 3,
+          "note": "trace-aware fixed-order comparator, not an online policy",
+          "permutation": [
+            0,
+            1,
+            2
+          ],
+          "trace": [
+            0,
+            1,
+            2,
+            0
+          ]
+        }
+      },
+      "suite": {
+        "cases": [
+          {
+            "family": "smoke",
+            "id": "smoke_n2_gap",
+            "n": 2,
+            "source": "hand_checked",
+            "trace": [
+              1,
+              0
+            ]
+          },
+          {
+            "family": "smoke",
+            "id": "smoke_n3_mixed",
+            "n": 3,
+            "source": "hand_checked",
+            "trace": [
+              2,
+              1,
+              2
+            ]
+          },
+          {
+            "family": "smoke",
+            "id": "smoke_static_order",
+            "n": 3,
+            "source": "hand_checked",
+            "trace": [
+              0,
+              1,
+              2,
+              0
+            ]
+          },
+          {
+            "family": "repeated_item",
+            "id": "smoke_repeated_tail",
+            "n": 4,
+            "source": "hand_checked",
+            "trace": [
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          {
+            "family": "phase_shift",
+            "id": "smoke_phase_shift",
+            "n": 4,
+            "source": "hand_checked",
+            "trace": [
+              0,
+              0,
+              1,
+              1,
+              2,
+              2,
+              3,
+              3
+            ]
+          }
+        ],
+        "families": [
+          "phase_shift",
+          "repeated_item",
+          "smoke"
+        ],
+        "name": "smoke",
+        "request_count": 21,
+        "trace_count": 5
+      }
+    },
+    "evaluator_error": "InvalidPolicyError: 014ebc2b-7d23-4897-9b4f-a58434c62d81: target index 1 is outside allowed range 0..0",
+    "evaluator_schema_version": "list_update_eval.milestone1.v0",
+    "fitness_formula": "combined_score = 1000 - penalties, where penalties are: 10000 for invalid policy behavior; 5000 for timeout; 2500 for detected nondeterminism; 1000 each when baseline/oracle metrics are unavailable; 200 * max(0, ratio_vs_mtf - 1); 150 * max(0, offline_oracle_ratio - 1); 1 * max(0, offline_oracle_regret); max(0, source_length - 1200) / 100; max(0, ast_node_count - 200) / 20; and 25 * max(0, average_position_shift_per_request - 1.25). Higher combined_score is better.",
+    "policy_name": "014ebc2b-7d23-4897-9b4f-a58434c62d81",
+    "policy_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+    "suite": "smoke"
+  },
+  "combined_score": -12000.0,
+  "fitness": -12000.0,
+  "fitness_formula_version": "transparent_penalty_v0",
+  "invalid_policy": true,
+  "metrics": {
+    "ast_node_count": 26,
+    "average_position_shift_per_request": null,
+    "combined_score": -12000.0,
+    "fitness": -12000.0,
+    "fitness_formula_version": "transparent_penalty_v0",
+    "invalid_policy": true,
+    "movement_aggressiveness": {},
+    "nondeterminism": false,
+    "offline_oracle_ratio": null,
+    "offline_oracle_regret": null,
+    "penalties": {
+      "ast_node_count": 0.0,
+      "invalid_policy": 10000.0,
+      "missing_offline_oracle_ratio": 1000.0,
+      "missing_offline_oracle_regret": 1000.0,
+      "missing_ratio_vs_mtf": 1000.0,
+      "movement_aggressiveness": 0.0,
+      "nondeterminism": 0.0,
+      "offline_oracle_ratio": 0.0,
+      "offline_oracle_regret": 0.0,
+      "ratio_vs_mtf": 0.0,
+      "source_length": 0.0,
+      "timeout": 0.0
+    },
+    "policy_complexity": {
+      "ast_node_count": 26,
+      "source": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+      "source_length": 330
+    },
+    "policy_name": "014ebc2b-7d23-4897-9b4f-a58434c62d81",
+    "ratio_vs_mtf": null,
+    "report_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\candidate_evaluations\\candidate_000_014ebc2b-7d23-4897-9b4f-a58434c62d81_smoke.json",
+    "source_length": 330,
+    "suite": "smoke",
+    "timeout": false,
+    "total_cost": null,
+    "valid": false
+  },
+  "movement_aggressiveness": {},
+  "nondeterminism": false,
+  "offline_oracle_ratio": null,
+  "offline_oracle_regret": null,
+  "policy_complexity": {
+    "ast_node_count": 26,
+    "source": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+    "source_length": 330
+  },
+  "policy_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\extracted_candidates\\014ebc2b-7d23-4897-9b4f-a58434c62d81.py",
+  "ratio_vs_mtf": null,
+  "report_path": "C:\\Users\\poin\\Documents\\ds-frontier-scout\\runs\\list_update_openevolve_milestone3z_fixed_stub\\candidate_evaluations\\candidate_000_014ebc2b-7d23-4897-9b4f-a58434c62d81_smoke.json",
+  "schema_version": "list_update_eval.openevolve_adapter.milestone2.v0",
+  "suite": "smoke",
+  "timeout": false,
+  "total_cost": null,
+  "valid": false
+}
