@@ -1,0 +1,1040 @@
+{
+  "generated_at": "2026-05-18T16:43:11.0803637-07:00",
+  "current_branch": "frontier-v5-4-provenance-manifest-v0",
+  "base_commit": "4dc1171298f7385a19df74003b4e613f99796ae3",
+  "source_of_truth": [
+    "current checked-in repository files",
+    "fetched git history and branch refs",
+    "verification commands run in this task"
+  ],
+  "status_label_vocabulary": [
+    "theorem-level",
+    "certificate-backed finite",
+    "scratch/provisional",
+    "candidate/conditional",
+    "killed/demoted",
+    "obstruction/refutation artifact",
+    "side-lane infrastructure",
+    "unknown / needs coordinator review"
+  ],
+  "artifacts": [
+    {
+      "path": "README.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "84a224202f749182773fad61675caa286f5a3f65",
+        "short": "84a2242",
+        "refs": "",
+        "subject": "Realign STT pilot framing and fixtures"
+      },
+      "branch_or_merge_provenance": "baseline repository overview",
+      "claim_supported": "Repository-level pilot framing that identifies search_trees_on_trees_lp as the leading pilot.",
+      "status_label": "candidate/conditional",
+      "verification_command": null,
+      "command_run_in_this_task": false,
+      "test_output_summary": "Narrative overview only; not a certificate artifact.",
+      "warnings": [
+        "Do not use README status as newer than the specialized v5.4 provenance artifacts."
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "49657847636e266caef86133df3cba3ee997fb9e",
+        "short": "4965784",
+        "refs": "",
+        "subject": "Initialize frontier scouting repo"
+      },
+      "branch_or_merge_provenance": "repo agent instructions",
+      "claim_supported": "Research standards, candidate philosophy, score separation, and audit requirements.",
+      "status_label": "candidate/conditional",
+      "verification_command": null,
+      "command_run_in_this_task": false,
+      "test_output_summary": "Instruction/provenance convention file only.",
+      "warnings": [
+        "Not a mathematical source; use as process guardrails."
+      ]
+    },
+    {
+      "path": "reports/stt_first_hit_hierarchy_frontier_note_v4_4.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "b846a62b62bab9aebd1c025a2833c90f99fbc0d5",
+        "short": "b846a62",
+        "refs": "",
+        "subject": "Add polished first-hit hierarchy frontier note"
+      },
+      "branch_or_merge_provenance": "pre-v5.4 unified frontier narrative",
+      "claim_supported": "Prior connected first-hit hierarchy overview and open-direction framing.",
+      "status_label": "candidate/conditional",
+      "verification_command": null,
+      "command_run_in_this_task": false,
+      "test_output_summary": "Narrative report only.",
+      "warnings": [
+        "Predates recent DS(k,2) packet-window and public-LP mixed-support audits.",
+        "Use as context, not as final v5.4 status."
+      ]
+    },
+    {
+      "path": "reports/stt_star_h1_depth_exactness_theorem_note.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "163377f426cc81eccaf13b62e6ad5515af11d70e",
+        "short": "163377f",
+        "refs": "origin/stt-star-depth-projection-v0, stt-star-depth-projection-v0",
+        "subject": "Add star H1 depth exactness theorem note"
+      },
+      "branch_or_merge_provenance": "star depth projection theorem branch; present in current main history",
+      "claim_supported": "H1 has exact depth projection on every pure star; H2 and stronger connected-first-hit levels inherit the exact star depth lower envelope.",
+      "status_label": "theorem-level",
+      "verification_command": "python -m unittest tests.test_stt_star_depth_projection",
+      "command_run_in_this_task": true,
+      "test_output_summary": "13 tests passed in about 52 seconds; tests are regression checks for the theorem note.",
+      "warnings": [
+        "Internal connected-first-hit theorem only.",
+        "Not public Golinsky/SKZ LP exactness.",
+        "Does not make star full-z exactness true."
+      ]
+    },
+    {
+      "path": "reports/stt_star_depth_projection_v0.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "329a500ab72e5e626e06d82f9bafeebd4af01ca5",
+        "short": "329a500",
+        "refs": "",
+        "subject": "Audit star depth projection experiments"
+      },
+      "branch_or_merge_provenance": "star depth projection finite/regression artifact",
+      "claim_supported": "Finite exact star depth-projection tests found no H2/H3/H4 gap in checked ranges; after theorem note, code is regression machinery.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m unittest tests.test_stt_star_depth_projection",
+      "command_run_in_this_task": true,
+      "test_output_summary": "13 tests passed.",
+      "warnings": [
+        "Finite tests are not the all-star proof.",
+        "Keep full-z and depth-projection statements separate."
+      ]
+    },
+    {
+      "path": "reports/stt_v4_star_audit_v0.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "666a25a0e91d269e980a3c621a883ad1f836e7a0",
+        "short": "666a25a",
+        "refs": "origin/stt-v4-star-audit-v0, stt-v4-star-audit-v0",
+        "subject": "Add v4 star obstruction audit"
+      },
+      "branch_or_merge_provenance": "v4 star obstruction audit branch",
+      "claim_supported": "4-leaf star has an exact H2-feasible full first-hit z-system with negative complete-Mobius masses; its depth vector is nevertheless STT-dominated.",
+      "status_label": "obstruction/refutation artifact",
+      "verification_command": "python -m unittest tests.test_stt_v4_star_audit",
+      "command_run_in_this_task": true,
+      "test_output_summary": "5 tests passed in about 1 second.",
+      "warnings": [
+        "Refutes global full-z exactness, not star depth projection."
+      ]
+    },
+    {
+      "path": "reports/stt_dsk1_h1_coarea_v1.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "d43296fa5119795b754459dd83e33a8410c7752c",
+        "short": "d43296f",
+        "refs": "origin/stt-dsk1-h1-coarea-v1, stt-dsk1-h1-coarea-v1",
+        "subject": "Patch and strengthen the DS(k,1) H1 coarea scouting artifact"
+      },
+      "branch_or_merge_provenance": "DS(k,1) H1 coarea v1 branch; later included in main history",
+      "claim_supported": "543 finite DS(k,1) objectives have verified H1 primal-dual certificates, H2 sandwich values, and no Phi submodularity failures.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m unittest tests.test_stt_dsk1_h1_coarea",
+      "command_run_in_this_task": true,
+      "test_output_summary": "8 tests passed in about 7 seconds.",
+      "warnings": [
+        "Does not prove all-k DS(k,1) H1 exactness.",
+        "Dual-pattern labels are heuristic proof-route classifications."
+      ]
+    },
+    {
+      "path": "examples/stt_lp/dsk1_h1_coarea_v1_certificates.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "d43296fa5119795b754459dd83e33a8410c7752c",
+        "short": "d43296f",
+        "refs": "origin/stt-dsk1-h1-coarea-v1, stt-dsk1-h1-coarea-v1",
+        "subject": "Patch and strengthen the DS(k,1) H1 coarea scouting artifact"
+      },
+      "branch_or_merge_provenance": "DS(k,1) H1 coarea v1 certificate data",
+      "claim_supported": "Machine data for 543 finite DS(k,1) cases under schema stt_dsk1_h1_coarea_v1.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m unittest tests.test_stt_dsk1_h1_coarea",
+      "command_run_in_this_task": true,
+      "test_output_summary": "8 tests passed.",
+      "warnings": [
+        "Finite certificate data only; not a symbolic Phi lemma."
+      ]
+    },
+    {
+      "path": "reports/stt_double_star_depth_projection_v0.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "9fe1373df36ca33c49ac2149eab0c8ad19a692bf",
+        "short": "9fe1373",
+        "refs": "origin/stt-double-star-depth-projection-v0, stt-double-star-depth-projection-v0",
+        "subject": "Clarify double star depth experiment scope"
+      },
+      "branch_or_merge_provenance": "double-star depth projection experiment branch",
+      "claim_supported": "Finite structured double-star H1/H2 depth-projection no-gap computations.",
+      "status_label": "candidate/conditional",
+      "verification_command": "python -m pytest tests/test_stt_double_star_depth_projection.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "6 tests passed.",
+      "warnings": [
+        "Finite double-star evidence only; no double-star theorem."
+      ]
+    },
+    {
+      "path": "reports/stt_double_star_coupling_functional_v0.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "55c3dffa42c6ad6c8961f02eff358486e7ee6011",
+        "short": "55c3dff",
+        "refs": "origin/stt-double-star-coupling-functional-v0, stt-double-star-coupling-functional-v0",
+        "subject": "Add double star coupling functional experiments"
+      },
+      "branch_or_merge_provenance": "double-star reduced coupling proof-route branch",
+      "claim_supported": "Finite no-gap tests for a reduced global coupling functional proof route.",
+      "status_label": "candidate/conditional",
+      "verification_command": "python -m pytest tests/test_stt_double_star_coupling_functional.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "8 tests passed.",
+      "warnings": [
+        "A reduced-functional counterexample would attack a proof route, not automatically full H1 exactness.",
+        "No theorem claim."
+      ]
+    },
+    {
+      "path": "reports/stt_double_star_ds21_normal_cones_v1_coverage.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "8ad56bf8c5cb3609d36a98249f2c04b2f290608f",
+        "short": "8ad56bf",
+        "refs": "",
+        "subject": "Add DS(2,1) normal cones coverage"
+      },
+      "branch_or_merge_provenance": "DS(2,1) normal-cone coverage branch data/report",
+      "claim_supported": "Targeted exact coverage for remaining smooth strict-heavy kink family.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m pytest tests/test_stt_ds21_normal_cones.py tests/test_stt_ds21_pinned_boundary.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Normal-cone and pinned-boundary tests passed: 5 tests total.",
+      "warnings": [
+        "Targets named cells only; not full 61-halfspace arrangement enumeration."
+      ]
+    },
+    {
+      "path": "reports/stt_double_star_ds21_pinned_boundary_v2.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "784b6e114aa90b36b4c8b1d5a2e25469177402ec",
+        "short": "784b6e1",
+        "refs": "origin/stt-double-star-ds21-pinned-boundary-v2, stt-double-star-ds21-pinned-boundary-v2",
+        "subject": "Add DS(2,1) pinned boundary certificates"
+      },
+      "branch_or_merge_provenance": "DS(2,1) pinned-boundary coverage branch",
+      "claim_supported": "Targeted exact rational coverage for frontier-listed A-pinned and B-pinned endpoint/cross-kink cells.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m pytest tests/test_stt_ds21_normal_cones.py tests/test_stt_ds21_pinned_boundary.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Normal-cone and pinned-boundary tests passed: 5 tests total.",
+      "warnings": [
+        "Covers targeted pinned families only, not the full DS(2,1) arrangement."
+      ]
+    },
+    {
+      "path": "reports/dsk2_interface_residual_v0.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "f78dcd38a886813c0ee485f5ba8beb45bd6df2ef",
+        "short": "f78dcd3",
+        "refs": "origin/stt-dsk2-interface-residual-v0, stt-dsk2-interface-residual-v0",
+        "subject": "Add DS(k,2) interface residual audit harness"
+      },
+      "branch_or_merge_provenance": "DS(k,2) interface residual branch; included before recent packet branches",
+      "claim_supported": "Corrected symbolic H1 interface residual identity for DS(1,2), DS(2,2), DS(3,2), plus bounded DS(2,2) no-gap search.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python scripts/check_dsk2_interface_identity.py; python -m pytest tests/test_stt_dsk2_interface_residual.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Identity script printed identity_holds=true for all three audited topologies; 3 pytest tests passed.",
+      "warnings": [
+        "Does not prove DS(k,2) exactness."
+      ]
+    },
+    {
+      "path": "certificates/dsk2_interface_residual_examples.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "f78dcd38a886813c0ee485f5ba8beb45bd6df2ef",
+        "short": "f78dcd3",
+        "refs": "origin/stt-dsk2-interface-residual-v0, stt-dsk2-interface-residual-v0",
+        "subject": "Add DS(k,2) interface residual audit harness"
+      },
+      "branch_or_merge_provenance": "DS(k,2) interface residual certificate examples",
+      "claim_supported": "Machine-readable schema dsk2_interface_residual_v0 with identity audits and representative dangerous-chamber certificates.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python scripts/check_dsk2_interface_identity.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Identity audits loaded and printed successfully.",
+      "warnings": [
+        "Diagnostic certificates only; no symbolic proof generator."
+      ]
+    },
+    {
+      "path": "reports/ds22_full_objective_depth_vector_cert_report.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "bc36a2ef3e8ca93f0b26d2eb26ae0cff652804f0",
+        "short": "bc36a2e",
+        "refs": "origin/stt-ds22-full-objective-depth-vector-cert-v0, stt-ds22-full-objective-depth-vector-cert-v0",
+        "subject": "Add DS22 H1 depth inclusion certificate"
+      },
+      "branch_or_merge_provenance": "DS22 H1 depth inclusion branch; ancestry later includes DS22 packet and DS32/DS42 merges",
+      "claim_supported": "Certificate-backed DS(2,2) full-objective H1 depth-vector inclusion.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m src.ds22_depth_inclusion_check certificates/ds22_depth_inclusion_cert.json; python -m unittest tests.test_ds22_depth_inclusion",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Verifier passed with 214 true schedules, 214 depth vectors, 943 blocker vertices, 943 dual certificates; 4 tests passed.",
+      "warnings": [
+        "Finite six-vertex DS(2,2) statement only.",
+        "Not DS(k,2), H2, public LP, or arbitrary double-star exactness."
+      ]
+    },
+    {
+      "path": "certificates/ds22_depth_inclusion_cert.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "bc36a2ef3e8ca93f0b26d2eb26ae0cff652804f0",
+        "short": "bc36a2e",
+        "refs": "origin/stt-ds22-full-objective-depth-vector-cert-v0, stt-ds22-full-objective-depth-vector-cert-v0",
+        "subject": "Add DS22 H1 depth inclusion certificate"
+      },
+      "branch_or_merge_provenance": "source certificate for DS22 depth inclusion and later DS22 packet atlas",
+      "claim_supported": "Schema ds22_full_objective_depth_inclusion_v0; 943 exact H1 dual certificates over blocker vertices.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m src.ds22_depth_inclusion_check certificates/ds22_depth_inclusion_cert.json",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Verifier passed.",
+      "warnings": [
+        "Certificate for one finite topology only."
+      ]
+    },
+    {
+      "path": "reports/ds22_simplex_augmented_packet_conic_report.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "fdbed2e1be1bab51a5bac09cd42ded963e2f9761",
+        "short": "fdbed2e",
+        "refs": "origin/ds22-simplex-augmented-packet-conic-v0, ds22-simplex-augmented-packet-conic-v0",
+        "subject": "Harden DS22 packet conic verifier"
+      },
+      "branch_or_merge_provenance": "merged by 9fd9045; later included by e56c48a and 4dc1171",
+      "claim_supported": "DS(2,2) simplex-augmented packet-conic closure over the checked 302-representative atlas.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m src.ds22_simplex_augmented_packet_conic --verify; python -m unittest tests.test_ds22_simplex_augmented_packet_conic",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Verifier passed with 302 representatives, 76 packet atoms, 287 five-packet failures; 9 tests passed in about 409 seconds.",
+      "warnings": [
+        "Raw Sigma simplex atoms are essential bookkeeping.",
+        "Not a conceptual all-k packet theorem.",
+        "Not DS(k,2), DS(k,m), or public LP exactness."
+      ]
+    },
+    {
+      "path": "data/ds22_blocker_orbits.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "4b55c6bfbc16132ee44a63acd57014102128357f",
+        "short": "4b55c6b",
+        "refs": "",
+        "subject": "Add DS22 simplex-augmented packet conic certificates"
+      },
+      "branch_or_merge_provenance": "DS22 packet-conic atlas data, later hardened by fdbed2e",
+      "claim_supported": "Leaf-swap blocker orbit atlas with 302 orbit representatives from the DS22 depth inclusion certificate.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m src.ds22_simplex_augmented_packet_conic --verify",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Verifier consumed atlas successfully.",
+      "warnings": [
+        "Atlas for DS(2,2) only."
+      ]
+    },
+    {
+      "path": "data/ds22_simplex_augmented_packet_factorizations.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "4b55c6bfbc16132ee44a63acd57014102128357f",
+        "short": "4b55c6b",
+        "refs": "",
+        "subject": "Add DS22 simplex-augmented packet conic certificates"
+      },
+      "branch_or_merge_provenance": "DS22 packet-conic factorization data, later verifier hardened",
+      "claim_supported": "302 exact factorizations, 0 augmented failures, 76 packet atoms.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m src.ds22_simplex_augmented_packet_conic --verify",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Verifier passed.",
+      "warnings": [
+        "Five-packet basis without Sigma fails for most representatives."
+      ]
+    },
+    {
+      "path": "data/ds22_simplex_augmented_packet_residuals.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "fdbed2e1be1bab51a5bac09cd42ded963e2f9761",
+        "short": "fdbed2e",
+        "refs": "origin/ds22-simplex-augmented-packet-conic-v0, ds22-simplex-augmented-packet-conic-v0",
+        "subject": "Harden DS22 packet conic verifier"
+      },
+      "branch_or_merge_provenance": "DS22 packet-conic residual and five-packet deficit data",
+      "claim_supported": "Residual records and five-packet deficit data, including 287 failures without Sigma.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m src.ds22_simplex_augmented_packet_conic --verify",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Verifier passed.",
+      "warnings": [
+        "Records a deficit for the non-Sigma packet basis; do not describe non-Sigma closure."
+      ]
+    },
+    {
+      "path": "reports/ds32_ds42_packet_window_capacity_hardening_report.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "a3a6c1bf62f136b07d8b4b6588feb14d8570d67f",
+        "short": "a3a6c1b",
+        "refs": "origin/ds32-ds42-packet-window-capacity-hardening-v0, ds32-ds42-packet-window-capacity-hardening-v0, audit-ds32-ds42",
+        "subject": "Harden DS32 DS42 packet-window capacity certificates"
+      },
+      "branch_or_merge_provenance": "merged by e56c48a; later included in 4dc1171 main merge",
+      "claim_supported": "Certificate-backed packet-window closure for DS(3,2) ternary and DS(4,2) binary declared universes.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m src.ds32_ds42_packet_window_capacity --verify; python -m pytest tests/test_ds32_ds42_packet_window_capacity.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Verifier passed with ds32_factorizations=2186, ds42_factorizations=255, gap_witnesses=0; pytest 5 tests passed.",
+      "warnings": [
+        "Finite declared universes only.",
+        "Not an all-k theorem and not DS(k,m) exactness."
+      ]
+    },
+    {
+      "path": "data/ds32_packet_window_factorizations_ternary.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "a3a6c1bf62f136b07d8b4b6588feb14d8570d67f",
+        "short": "a3a6c1b",
+        "refs": "origin/ds32-ds42-packet-window-capacity-hardening-v0, ds32-ds42-packet-window-capacity-hardening-v0, audit-ds32-ds42",
+        "subject": "Harden DS32 DS42 packet-window capacity certificates"
+      },
+      "branch_or_merge_provenance": "DS(3,2) packet-window certificate data",
+      "claim_supported": "2186 factorizations for DS(3,2) full ternary cube {0,1,2}^7 minus zero; failures list empty.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m src.ds32_ds42_packet_window_capacity --verify",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Verifier passed.",
+      "warnings": [
+        "Only this finite DS(3,2) universe."
+      ]
+    },
+    {
+      "path": "data/ds42_packet_window_factorizations_binary.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "a3a6c1bf62f136b07d8b4b6588feb14d8570d67f",
+        "short": "a3a6c1b",
+        "refs": "origin/ds32-ds42-packet-window-capacity-hardening-v0, ds32-ds42-packet-window-capacity-hardening-v0, audit-ds32-ds42",
+        "subject": "Harden DS32 DS42 packet-window capacity certificates"
+      },
+      "branch_or_merge_provenance": "DS(4,2) packet-window certificate data",
+      "claim_supported": "255 factorizations for DS(4,2) full binary cube {0,1}^8 minus zero; failures list empty.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m src.ds32_ds42_packet_window_capacity --verify",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Verifier passed.",
+      "warnings": [
+        "Only this finite DS(4,2) universe."
+      ]
+    },
+    {
+      "path": "data/ds32_ds42_packet_window_gap_witnesses.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "a3a6c1bf62f136b07d8b4b6588feb14d8570d67f",
+        "short": "a3a6c1b",
+        "refs": "origin/ds32-ds42-packet-window-capacity-hardening-v0, ds32-ds42-packet-window-capacity-hardening-v0, audit-ds32-ds42",
+        "subject": "Harden DS32 DS42 packet-window capacity certificates"
+      },
+      "branch_or_merge_provenance": "DS32/DS42 packet-window gap witness data",
+      "claim_supported": "Schema reports status no_gaps_found for required universes.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python -m src.ds32_ds42_packet_window_capacity --verify",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Verifier reported gap_witnesses=0.",
+      "warnings": [
+        "No gaps in declared universes is finite evidence, not a proof outside them."
+      ]
+    },
+    {
+      "path": "reports/proper_subset_contraction_report.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "78204ddceb1cc609cee95d54cee49a97ee40816f",
+        "short": "78204dd",
+        "refs": "",
+        "subject": "Add proper-subset contraction audit"
+      },
+      "branch_or_merge_provenance": "proper-subset contraction audit branch; current main merge 4dc1171",
+      "claim_supported": "Finite exact audit of corrected source-deletion/proper-subset route with obstruction candidates for k=3 and k=4.",
+      "status_label": "obstruction/refutation artifact",
+      "verification_command": "python scripts/check_proper_subset_contraction.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Passed: k3=obstruction_candidate_found, k4=obstruction_candidate_found.",
+      "warnings": [
+        "Does not prove public LP exactness.",
+        "Demotes audited scalar/proper-subset route under the report's interpretation."
+      ]
+    },
+    {
+      "path": "data/proper_subset_contraction_k3.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "78204ddceb1cc609cee95d54cee49a97ee40816f",
+        "short": "78204dd",
+        "refs": "",
+        "subject": "Add proper-subset contraction audit"
+      },
+      "branch_or_merge_provenance": "proper-subset contraction k=3 data",
+      "claim_supported": "Exact Fraction data with schema proper_subset_contraction_small_k_v0 and status obstruction_candidate_found.",
+      "status_label": "obstruction/refutation artifact",
+      "verification_command": "python scripts/check_proper_subset_contraction.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Checker passed.",
+      "warnings": [
+        "Finite k=3 data only."
+      ]
+    },
+    {
+      "path": "data/proper_subset_contraction_k4.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "78204ddceb1cc609cee95d54cee49a97ee40816f",
+        "short": "78204dd",
+        "refs": "",
+        "subject": "Add proper-subset contraction audit"
+      },
+      "branch_or_merge_provenance": "proper-subset contraction k=4 data",
+      "claim_supported": "Exact Fraction data with schema proper_subset_contraction_small_k_v0 and status obstruction_candidate_found.",
+      "status_label": "obstruction/refutation artifact",
+      "verification_command": "python scripts/check_proper_subset_contraction.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Checker passed.",
+      "warnings": [
+        "Finite k=4 data only."
+      ]
+    },
+    {
+      "path": "reports/mixed_support_oracle_report.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "427aa56983073c9eec709ea5224b8e644dab865f",
+        "short": "427aa56",
+        "refs": "origin/stt-public-lp-broot-mixed-support-oracle-v1, stt-public-lp-broot-mixed-support-oracle-v1",
+        "subject": "Add mixed support oracle audit"
+      },
+      "branch_or_merge_provenance": "merged into proper-subset branch by 5313696, then main by 4dc1171",
+      "claim_supported": "Exact finite k=3 public-star support-oracle/chamber/proxy obstruction audit.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python scripts/check_k3_pair_antichain_chambers.py; python scripts/extract_mixed_lambda_farkas.py; python -m unittest tests.test_star_support_oracle",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Chamber checker passed with 7 chambers; extractor recorded root-only and individual proxy failures with stronger residual ell Farkas not extracted; unittest 5 tests passed.",
+      "warnings": [
+        "Not b-root public-LP closure.",
+        "Not public LP exactness on DS(k,1).",
+        "Full residual ell_ij mixed-support theorem remains open."
+      ]
+    },
+    {
+      "path": "data/k3_pair_antichain_chambers.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "427aa56983073c9eec709ea5224b8e644dab865f",
+        "short": "427aa56",
+        "refs": "origin/stt-public-lp-broot-mixed-support-oracle-v1, stt-public-lp-broot-mixed-support-oracle-v1",
+        "subject": "Add mixed support oracle audit"
+      },
+      "branch_or_merge_provenance": "mixed-support oracle chamber data",
+      "claim_supported": "Schema k3_pair_antichain_chambers_v1 records symmetric k=3 pair-antichain chamber fan.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python scripts/check_k3_pair_antichain_chambers.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Passed: chambers=7, witness=verified.",
+      "warnings": [
+        "Do not promote k=3 chamber data to all-k theorem."
+      ]
+    },
+    {
+      "path": "data/mixed_support_certificates.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "427aa56983073c9eec709ea5224b8e644dab865f",
+        "short": "427aa56",
+        "refs": "origin/stt-public-lp-broot-mixed-support-oracle-v1, stt-public-lp-broot-mixed-support-oracle-v1",
+        "subject": "Add mixed support oracle audit"
+      },
+      "branch_or_merge_provenance": "mixed-support certificate data",
+      "claim_supported": "Schema mixed_support_certificates_v1; status support_oracle_chambers_certified_residual_ell_farkas_not_extracted.",
+      "status_label": "certificate-backed finite",
+      "verification_command": "python scripts/check_k3_pair_antichain_chambers.py; python scripts/extract_mixed_lambda_farkas.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Both scripts passed; extractor explicitly did not certify residual ell Farkas.",
+      "warnings": [
+        "Certificate data excludes residual ell Farkas proof."
+      ]
+    },
+    {
+      "path": "data/mixed_support_obstructions.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "427aa56983073c9eec709ea5224b8e644dab865f",
+        "short": "427aa56",
+        "refs": "origin/stt-public-lp-broot-mixed-support-oracle-v1, stt-public-lp-broot-mixed-support-oracle-v1",
+        "subject": "Add mixed support oracle audit"
+      },
+      "branch_or_merge_provenance": "mixed-support obstruction data",
+      "claim_supported": "Schema mixed_support_obstructions_v1; obstructions for root-only and individual SUB_T proxy routes.",
+      "status_label": "obstruction/refutation artifact",
+      "verification_command": "python scripts/extract_mixed_lambda_farkas.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "Extractor passed and reported root_only=failed_for_mixed_support_box_proxy; vector=failed_for_individual_SUB_T_delta_proxy.",
+      "warnings": [
+        "Do not extend proxy failures to the full residual ell_ij theorem."
+      ]
+    },
+    {
+      "path": "reports/list_update_openevolve_scaffold_v0.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "930e1cffc0a072eed7842448202517b7c61c4501",
+        "short": "930e1cf",
+        "refs": "origin/list-update-evaluator-hardening-v1, list-update-evaluator-hardening-v1",
+        "subject": "Harden list-update exact evaluator scaffold"
+      },
+      "branch_or_merge_provenance": "list-update exact evaluator scaffold/hardening side lane",
+      "claim_supported": "Exact finite-game oracle scaffold and sanity examples for a future OpenEvolve side experiment.",
+      "status_label": "side-lane infrastructure",
+      "verification_command": "python -m pytest tests/test_list_update_eval_milestone1.py tests/test_list_update_evaluator.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "18 list-update evaluator tests passed.",
+      "warnings": [
+        "No evolutionary search and no theorem claim."
+      ]
+    },
+    {
+      "path": "reports/list_update_evaluator_milestone1.md",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "0cb917e1e4b3bf8f717800aa9789513e6ad6acca",
+        "short": "0cb917e",
+        "refs": "origin/openevolve-list-update-evaluator-v0, openevolve-list-update-evaluator-v0",
+        "subject": "Add list update evaluator scaffold"
+      },
+      "branch_or_merge_provenance": "openevolve-list-update-evaluator-v0 side lane; current main contains files",
+      "claim_supported": "Deterministic evaluator milestone with policy interface, workload suites, baseline scoring, exact offline oracle integration, and smoke JSON.",
+      "status_label": "side-lane infrastructure",
+      "verification_command": "python -m pytest tests/test_list_update_eval_milestone1.py tests/test_list_update_evaluator.py",
+      "command_run_in_this_task": true,
+      "test_output_summary": "18 list-update evaluator tests passed.",
+      "warnings": [
+        "Side-lane infrastructure only.",
+        "Not policy discovery."
+      ]
+    },
+    {
+      "path": "reports/list_update_eval_smoke.json",
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "0cb917e1e4b3bf8f717800aa9789513e6ad6acca",
+        "short": "0cb917e",
+        "refs": "origin/openevolve-list-update-evaluator-v0, openevolve-list-update-evaluator-v0",
+        "subject": "Add list update evaluator scaffold"
+      },
+      "branch_or_merge_provenance": "milestone1 smoke output",
+      "claim_supported": "Schema list_update_eval.milestone1.v0 smoke output with exact oracle and baseline diagnostics.",
+      "status_label": "side-lane infrastructure",
+      "verification_command": null,
+      "command_run_in_this_task": false,
+      "test_output_summary": "Not regenerated to avoid overwriting checked-in provenance; related tests passed.",
+      "warnings": [
+        "Smoke output is not a competitive-ratio result."
+      ]
+    },
+    {
+      "path": "git:71ca111:reports/list_update_openevolve_wrapper_milestone2.md",
+      "present_in_current_checkout": false,
+      "latest_commit": {
+        "sha": "71ca11120227292f6920d1477af9d50e10a21c90",
+        "short": "71ca111",
+        "refs": "origin/openevolve-list-update-wrapper-v0, openevolve-list-update-wrapper-v0",
+        "subject": "Add list-update OpenEvolve adapter scaffold"
+      },
+      "branch_or_merge_provenance": "fetched side branch only; not present in current main checkout",
+      "claim_supported": "OpenEvolve-compatible adapter scaffold, dry-run report, and tests for hand-written candidate modules.",
+      "status_label": "side-lane infrastructure",
+      "verification_command": "python -m pytest tests/test_list_update_eval_milestone1.py tests/test_list_update_openevolve_adapter_milestone2.py",
+      "command_run_in_this_task": false,
+      "test_output_summary": "Not run because files are history-only in this checkout; report records 16 passed in its branch.",
+      "warnings": [
+        "No OpenEvolve evolutionary search was run in this milestone.",
+        "Not present in current main."
+      ]
+    },
+    {
+      "path": "git:41a37da:reports/list_update_openevolve_milestone3_tiny_run.md",
+      "present_in_current_checkout": false,
+      "latest_commit": {
+        "sha": "41a37da3ba8bbf6c82fefaeaf8e64286688f3c9c",
+        "short": "41a37da",
+        "refs": "origin/openevolve-list-update-tiny-run-v0, openevolve-list-update-tiny-run-v0",
+        "subject": "Add list-update OpenEvolve tiny dry run"
+      },
+      "branch_or_merge_provenance": "fetched side branch only; starts from 71ca111",
+      "claim_supported": "Tiny OpenEvolve integration dry-run setup; blocked by missing OPENAI_API_KEY; no generated candidate.",
+      "status_label": "side-lane infrastructure",
+      "verification_command": "python scripts/run_list_update_openevolve_tiny_milestone3.py",
+      "command_run_in_this_task": false,
+      "test_output_summary": "Not run because files are history-only in this checkout; branch report records blocked status.",
+      "warnings": [
+        "No evolutionary mutation ran.",
+        "No policy discovery or novelty claim."
+      ]
+    },
+    {
+      "path": "git:34b18c0:reports/list_update_openevolve_milestone3z_zero_money.md",
+      "present_in_current_checkout": false,
+      "latest_commit": {
+        "sha": "34b18c0aa12e5ac9ecf4c5dfe4d9b7d509f94d7b",
+        "short": "34b18c0",
+        "refs": "origin/openevolve-list-update-zero-money-tiny-run-v0, openevolve-list-update-zero-money-tiny-run-v0",
+        "subject": "Add zero-money OpenEvolve tiny integration path"
+      },
+      "branch_or_merge_provenance": "fetched side branch only; starts from 41a37da",
+      "claim_supported": "Zero-money local-model path blocked; fixed-stub OpenAI-compatible transport succeeded as non-autonomous plumbing evidence.",
+      "status_label": "side-lane infrastructure",
+      "verification_command": "python scripts/run_list_update_openevolve_zero_money_milestone3.py; python scripts/run_list_update_openevolve_fixed_stub_transport_milestone3.py",
+      "command_run_in_this_task": false,
+      "test_output_summary": "Not run because files are history-only in this checkout; branch report records blocked real local-model path and fixed-stub transport success.",
+      "warnings": [
+        "Fixed-stub transport is not a real local LLM mutation.",
+        "No autonomous mutation and no policy discovery."
+      ]
+    },
+    {
+      "path": "git:34b18c0:runs/list_update_openevolve_milestone3z_fixed_stub/milestone3z_zero_money_status.json",
+      "present_in_current_checkout": false,
+      "latest_commit": {
+        "sha": "34b18c0aa12e5ac9ecf4c5dfe4d9b7d509f94d7b",
+        "short": "34b18c0",
+        "refs": "origin/openevolve-list-update-zero-money-tiny-run-v0, openevolve-list-update-zero-money-tiny-run-v0",
+        "subject": "Add zero-money OpenEvolve tiny integration path"
+      },
+      "branch_or_merge_provenance": "fetched side branch fixed-stub run artifact",
+      "claim_supported": "Status JSON records stubbed_transport=true, real_local_llm_mutation_obtained=false, and one invalid changed candidate from fixed response.",
+      "status_label": "side-lane infrastructure",
+      "verification_command": null,
+      "command_run_in_this_task": false,
+      "test_output_summary": "Inspected with git show; not present in current checkout.",
+      "warnings": [
+        "Stubbed transport status must not be described as autonomous OpenEvolve success."
+      ]
+    }
+  ],
+  "commands_run": [
+    {
+      "command": "git fetch --all --prune --tags",
+      "result": "First sandboxed attempt failed with permission denied on shared FETCH_HEAD; approved retry succeeded."
+    },
+    {
+      "command": "git status --short",
+      "result": "Clean before edits."
+    },
+    {
+      "command": "git branch --show-current",
+      "result": "Empty before branch setup; worktree was detached at main commit."
+    },
+    {
+      "command": "git log --oneline --decorate --max-count=30",
+      "result": "Head at 4dc1171 with recent DS22, DS32/DS42, mixed-support, and proper-subset merges visible."
+    },
+    {
+      "command": "git switch -c frontier-v5-4-provenance-manifest-v0 main",
+      "result": "Created and switched to requested branch."
+    },
+    {
+      "command": "python -m src.ds22_simplex_augmented_packet_conic --verify",
+      "result": "Passed: orbit_representatives=302 packet_atoms=76 five_packet_failures=287."
+    },
+    {
+      "command": "python -m unittest tests.test_ds22_simplex_augmented_packet_conic",
+      "result": "Passed: 9 tests in about 409 seconds."
+    },
+    {
+      "command": "python -m src.ds32_ds42_packet_window_capacity --verify",
+      "result": "Passed: ds32_factorizations=2186 ds42_factorizations=255 gap_witnesses=0 ds32_max_denominator=3 ds42_max_denominator=2."
+    },
+    {
+      "command": "python -m pytest tests/test_ds32_ds42_packet_window_capacity.py",
+      "result": "Passed: 5 tests in about 19 seconds."
+    },
+    {
+      "command": "python scripts/check_proper_subset_contraction.py",
+      "result": "Passed: k3=obstruction_candidate_found k4=obstruction_candidate_found."
+    },
+    {
+      "command": "python scripts/check_k3_pair_antichain_chambers.py",
+      "result": "Passed: chambers=7 witness=verified."
+    },
+    {
+      "command": "python scripts/extract_mixed_lambda_farkas.py",
+      "result": "Passed with non-certification recorded: root_only=failed_for_mixed_support_box_proxy; vector=failed_for_individual_SUB_T_delta_proxy; stronger residual ell Farkas certificate not extracted."
+    },
+    {
+      "command": "python -m unittest tests.test_star_support_oracle",
+      "result": "Passed: 5 tests."
+    },
+    {
+      "command": "python -m src.ds22_depth_inclusion_check certificates/ds22_depth_inclusion_cert.json",
+      "result": "Passed: true_schedules=214 depth_vectors=214 blocker_vertices=943 dual_certificates=943 h1_rows=436."
+    },
+    {
+      "command": "python -m unittest tests.test_ds22_depth_inclusion",
+      "result": "Passed: 4 tests."
+    },
+    {
+      "command": "python -m unittest tests.test_stt_dsk1_h1_coarea",
+      "result": "Passed: 8 tests."
+    },
+    {
+      "command": "python scripts/check_dsk2_interface_identity.py",
+      "result": "Passed; JSON printed identity_holds=true for DS(1,2), DS(2,2), and DS(3,2)."
+    },
+    {
+      "command": "python -m unittest tests.test_stt_star_depth_projection",
+      "result": "Passed: 13 tests."
+    },
+    {
+      "command": "python -m unittest tests.test_stt_v4_star_audit",
+      "result": "Passed: 5 tests."
+    },
+    {
+      "command": "python -m pytest tests/test_list_update_eval_milestone1.py tests/test_list_update_evaluator.py",
+      "result": "Passed: 18 tests."
+    },
+    {
+      "command": "python -m pytest tests/test_stt_dsk2_interface_residual.py",
+      "result": "Passed: 3 tests."
+    },
+    {
+      "command": "python -m pytest tests/test_stt_double_star_depth_projection.py",
+      "result": "Passed: 6 tests."
+    },
+    {
+      "command": "python -m pytest tests/test_stt_double_star_coupling_functional.py",
+      "result": "Passed: 8 tests."
+    },
+    {
+      "command": "python -m pytest tests/test_stt_ds21_normal_cones.py tests/test_stt_ds21_pinned_boundary.py",
+      "result": "Passed: 5 tests."
+    }
+  ],
+  "commands_not_run": [
+    {
+      "command": "python -m src.ds22_h1_depth_polytope --progress",
+      "reason": "Certificate builder/rebuilder; not needed for lightweight verification of existing checked-in certificate."
+    },
+    {
+      "command": "python -m pytest",
+      "reason": "Full suite not run; targeted artifact commands were run and some certificate tests are long."
+    },
+    {
+      "command": "python -m list_update_eval.evaluate --suite smoke --all-baselines --out reports/list_update_eval_smoke.json",
+      "reason": "Would rewrite a checked-in smoke provenance artifact; related evaluator tests passed instead."
+    },
+    {
+      "command": "python -m pytest tests/test_list_update_openevolve_adapter_milestone2.py tests/test_list_update_openevolve_milestone3.py",
+      "reason": "Those tests/files are on fetched side branches, not present in the current checkout."
+    }
+  ],
+  "theorem_level_claims": [
+    {
+      "claim": "H1 has exact depth projection on all pure stars in the internal connected-first-hit hierarchy.",
+      "supporting_artifacts": [
+        "reports/stt_star_h1_depth_exactness_theorem_note.md"
+      ],
+      "warnings": [
+        "Not public Golinsky/SKZ LP exactness.",
+        "Does not make H2 globally exact in full z-space."
+      ]
+    }
+  ],
+  "certificate_backed_finite_claims": [
+    {
+      "claim": "DS(2,2) full-objective H1 depth-vector inclusion over the six-vertex checked topology.",
+      "supporting_artifacts": [
+        "reports/ds22_full_objective_depth_vector_cert_report.md",
+        "certificates/ds22_depth_inclusion_cert.json"
+      ]
+    },
+    {
+      "claim": "DS(2,2) simplex-augmented packet-conic closure over the 302-representative checked atlas.",
+      "supporting_artifacts": [
+        "reports/ds22_simplex_augmented_packet_conic_report.md",
+        "data/ds22_blocker_orbits.json",
+        "data/ds22_simplex_augmented_packet_factorizations.json",
+        "data/ds22_simplex_augmented_packet_residuals.json"
+      ]
+    },
+    {
+      "claim": "DS(3,2)/DS(4,2) packet-window closure for exactly the declared finite weight universes.",
+      "supporting_artifacts": [
+        "reports/ds32_ds42_packet_window_capacity_hardening_report.md",
+        "data/ds32_packet_window_factorizations_ternary.json",
+        "data/ds42_packet_window_factorizations_binary.json",
+        "data/ds32_ds42_packet_window_gap_witnesses.json"
+      ]
+    },
+    {
+      "claim": "DS(k,1) v1 coarea scouting data: 543 finite objectives with verified H1 certificates and no Phi submodularity failures.",
+      "supporting_artifacts": [
+        "reports/stt_dsk1_h1_coarea_v1.md",
+        "examples/stt_lp/dsk1_h1_coarea_v1_certificates.json"
+      ]
+    },
+    {
+      "claim": "Finite k=3 public-star support-oracle/chamber audit with proxy obstructions.",
+      "supporting_artifacts": [
+        "reports/mixed_support_oracle_report.md",
+        "data/k3_pair_antichain_chambers.json",
+        "data/mixed_support_certificates.json",
+        "data/mixed_support_obstructions.json"
+      ]
+    },
+    {
+      "claim": "Targeted DS(2,1) normal-cone and pinned-boundary coverage for named cells.",
+      "supporting_artifacts": [
+        "reports/stt_double_star_ds21_normal_cones_v1_coverage.md",
+        "reports/stt_double_star_ds21_pinned_boundary_v2.md"
+      ]
+    }
+  ],
+  "candidate_conditional_claims": [
+    {
+      "claim": "DS(k,1) H1 exactness may follow from Phi submodularity/coarea machinery.",
+      "supporting_artifacts": [
+        "reports/stt_dsk1_h1_coarea_v1.md"
+      ],
+      "status": "conjectural outside finite data"
+    },
+    {
+      "claim": "Double-star depth projection and reduced coupling functional remain plausible proof routes.",
+      "supporting_artifacts": [
+        "reports/stt_double_star_depth_projection_v0.md",
+        "reports/stt_double_star_coupling_functional_v0.md"
+      ],
+      "status": "finite no-gap evidence only"
+    },
+    {
+      "claim": "All-k DS(k,2) packet-window gluing is a next proof-work target.",
+      "supporting_artifacts": [
+        "reports/ds32_ds42_packet_window_capacity_hardening_report.md"
+      ],
+      "status": "candidate/conditional; not proved"
+    }
+  ],
+  "killed_or_demoted_routes": [
+    {
+      "route": "H2 as globally exact full first-hit z-space.",
+      "supporting_artifacts": [
+        "reports/stt_v4_star_audit_v0.md"
+      ],
+      "status_label": "killed/demoted"
+    },
+    {
+      "route": "Star-depth random/objective testing as frontier-pushing evidence.",
+      "supporting_artifacts": [
+        "reports/stt_star_h1_depth_exactness_theorem_note.md",
+        "reports/stt_star_depth_projection_v0.md"
+      ],
+      "status_label": "killed/demoted"
+    },
+    {
+      "route": "Scalar proper-subset D(S) >= delta(S) / SUB_S-alone public-LP route under the audited Bellman interpretation.",
+      "supporting_artifacts": [
+        "reports/proper_subset_contraction_report.md",
+        "data/proper_subset_contraction_k3.json",
+        "data/proper_subset_contraction_k4.json"
+      ],
+      "status_label": "killed/demoted"
+    },
+    {
+      "route": "Root-comparisons-only mixed-support box proxy and individual SUB_T delta proxy routes.",
+      "supporting_artifacts": [
+        "reports/mixed_support_oracle_report.md",
+        "data/mixed_support_obstructions.json"
+      ],
+      "status_label": "killed/demoted",
+      "warning": "Demotion is limited to audited proxy routes and does not resolve residual ell_ij or b-root closure."
+    }
+  ],
+  "side_lane_infrastructure": [
+    {
+      "lane": "list-update exact evaluator and milestone1 OpenEvolve evaluator interface",
+      "present_in_current_checkout": true,
+      "supporting_artifacts": [
+        "reports/list_update_openevolve_scaffold_v0.md",
+        "reports/list_update_evaluator_milestone1.md",
+        "reports/list_update_eval_smoke.json",
+        "list_update_eval/evaluate.py",
+        "tests/test_list_update_eval_milestone1.py"
+      ],
+      "status_label": "side-lane infrastructure",
+      "warning": "Not STT theorem evidence and not policy discovery."
+    },
+    {
+      "lane": "OpenEvolve wrapper/tiny/zero-money follow-up branches",
+      "present_in_current_checkout": false,
+      "supporting_history_commits": [
+        "71ca11120227292f6920d1477af9d50e10a21c90",
+        "41a37da3ba8bbf6c82fefaeaf8e64286688f3c9c",
+        "34b18c0aa12e5ac9ecf4c5dfe4d9b7d509f94d7b"
+      ],
+      "status_label": "side-lane infrastructure",
+      "warning": "Fixed-stub transport is non-autonomous plumbing evidence, not autonomous OpenEvolve success."
+    }
+  ],
+  "unresolved_status_questions": [
+    "No frontier_note_v5_4_unified_project_overview.md exists yet.",
+    "No checked artifact proves all-k DS(k,2), DS(k,m), or arbitrary double-star exactness.",
+    "No checked artifact proves b-root public-LP closure or public LP exactness on DS(k,1).",
+    "Residual ell_ij mixed-support Farkas certificates were not extracted.",
+    "DS(k,1) H1 exactness remains conjectural outside finite v1 data.",
+    "OpenEvolve wrapper/tiny/zero-money artifacts are history-only side-branch artifacts, not present in current main."
+  ],
+  "overclaim_warnings": [
+    "Do not treat finite DS(2,2), DS(3,2), or DS(4,2) certificates as all-k DS(k,2) or DS(k,m) proof.",
+    "Do not treat internal connected-first-hit H1 star exactness as public Golinsky/SKZ LP exactness.",
+    "Do not describe public-LP obstruction artifacts as public-LP closure.",
+    "Do not extend mixed-support proxy obstructions to the full residual ell_ij mixed-support theorem.",
+    "Do not describe list-update evaluator/wrapper/fixed-stub transport artifacts as autonomous policy discovery.",
+    "Do not reuse the v4.4 frontier note without patching it with the newer DS(k,2), public-LP, and pure-star statuses."
+  ]
+}
