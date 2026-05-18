@@ -1,0 +1,23 @@
+# FUTURE-RUN STUB ONLY.
+# Milestone 2 validates the adapter and dry-run scoring harness. Do not run a
+# real OpenEvolve search from this file until Milestone 3 explicitly approves it.
+
+task:
+  name: list_update_policy_smoke_scaffold
+  initial_program: examples/list_update_openevolve/initial_program.py
+  evaluator: examples/list_update_openevolve/evaluator.py
+
+evaluation:
+  suite: smoke
+  timeout_seconds: 5
+
+evolution:
+  population_size: 4
+  max_iterations: 2
+  elites: 1
+
+artifacts:
+  dry_run_report: reports/list_update_openevolve_adapter_smoke.json
+
+# Milestone 3 / do not run yet:
+# openevolve run --config examples/list_update_openevolve/config.yaml
