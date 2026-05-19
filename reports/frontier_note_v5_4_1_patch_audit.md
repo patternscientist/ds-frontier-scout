@@ -1,9 +1,9 @@
-# v5.4.1 unified overview patch audit
+# v5.4.1 unified overview Codex integration sanity report
 
 **Date:** 2026-05-19  
 **Branch:** `frontier-v5-4-1-overview-patch`  
 **Installed overview:** `reports/frontier_note_v5_4_1_unified_project_overview.md`  
-**Audit scope:** focused prose/provenance sanity audit against Claude red-team audit v2 and the Codex starter prompt. This audit did not attempt a new proof pass or broad certificate-suite rebuild.
+**Integration scope:** focused prose/provenance sanity check against Claude red-team audit v2 and the Codex starter prompt. This report did not attempt a new proof pass or broad certificate-suite rebuild.
 
 ## Summary verdict
 
@@ -58,7 +58,7 @@ from pathlib import Path
 import re
 p = Path('reports/frontier_note_v5_4_1_unified_project_overview.md')
 text = p.read_text(encoding='utf-8')
-assert text.count('```') % 2 == 0
+assert text.count(chr(96) * 3) % 2 == 0
 # Required phrase, notation, status-label, and Appendix A path checks.
 PY
 ```

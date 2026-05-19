@@ -487,13 +487,13 @@ The project does **not** claim:
 
 ### 12.1 Before club sharing
 
-Red-team this v5.4 overview for:
+Final rendered Markdown skim for the v5.4.1 overview before club sharing:
 
-- outsider readability;
-- status-label discipline;
-- whether “public frontier” is explained enough without turning into a literature review;
-- whether the internal/public LP boundary is clear;
-- whether DS(k,2) finite evidence is stated carefully enough.
+- headings and Appendix B/C numbering render as intended;
+- tables are readable, especially the provenance and milestone/status tables;
+- fenced code and math blocks stay properly fenced and do not leak into surrounding prose;
+- version labels consistently say v5.4.1 where this overview is being referenced;
+- no theorem, status-label, provenance-count, or mathematical wording changes are needed unless a render-only punctuation fix is forced.
 
 ### 12.2 Main theorem/certificate lane
 
