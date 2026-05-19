@@ -1,0 +1,260 @@
+{
+  "generated_at": "2026-05-18T15:33:07-07:00",
+  "base_commit": "9fd90458e76c5a545c0d0e064211bbe0201f19ae",
+  "candidate_scores": [
+    {
+      "candidate": "list_update",
+      "scores": {
+        "local_model_editability": 5,
+        "cheap_evaluation_loop": 5,
+        "dense_feedback": 5,
+        "artifact_value_if_no_breakthrough": 5,
+        "existing_infrastructure": 5,
+        "theorem_relevance": 4,
+        "risk_of_local_llm_noise": 4,
+        "dependency_lightness": 5,
+        "scope_clarity": 5,
+        "generalization_risk": 2
+      },
+      "weighted_total": 53.3,
+      "infrastructure_discounted_total": 47.3,
+      "summary": "Best zero-money local-model side lane: tiny policy object, exact small-trace offline comparator, dense ratios/regret diagnostics, and side-branch OpenEvolve wrapper work. Main weakness is finite-state generalization.",
+      "best_next_milestone": "Run one real local OpenAI-compatible OpenEvolve iteration through Ollama or LM Studio, preserving EVOLVE-block guards and independent adapter re-evaluation.",
+      "main_risk": "Finite/local policy improvements may not generalize to arbitrary list size or theorem-level randomized competitive-ratio progress."
+    },
+    {
+      "candidate": "karp_rabin_collision_detection",
+      "scores": {
+        "local_model_editability": 3,
+        "cheap_evaluation_loop": 5,
+        "dense_feedback": 4,
+        "artifact_value_if_no_breakthrough": 5,
+        "existing_infrastructure": 4,
+        "theorem_relevance": 4,
+        "risk_of_local_llm_noise": 3,
+        "dependency_lightness": 5,
+        "scope_clarity": 4,
+        "generalization_risk": 3
+      },
+      "weighted_total": 46.9,
+      "infrastructure_discounted_total": 42.1,
+      "summary": "Strong optional parallel scaffold because current repo has exact finite oracle and fixed-shift batching infrastructure. It remains weaker than list-update as an OpenEvolve lane because the mutable object must still be fixed.",
+      "best_next_milestone": "Create a tiny fixed-shift batching selector or adversarial witness-generator scaffold against the existing oracle.",
+      "main_risk": "An exact oracle alone is not a clean evolvable object; generated artifacts may only refute toy batching selectors."
+    },
+    {
+      "candidate": "search_trees_on_trees_lp",
+      "scores": {
+        "local_model_editability": 3,
+        "cheap_evaluation_loop": 2,
+        "dense_feedback": 5,
+        "artifact_value_if_no_breakthrough": 5,
+        "existing_infrastructure": 5,
+        "theorem_relevance": 5,
+        "risk_of_local_llm_noise": 3,
+        "dependency_lightness": 2,
+        "scope_clarity": 3,
+        "generalization_risk": 4
+      },
+      "weighted_total": 43.6,
+      "infrastructure_discounted_total": 37.6,
+      "summary": "Best main theorem/certificate lane, with exact STT enumeration, rational certificates, and checked-in checker infrastructure. Less suitable as the first tiny local-model autonomous code-evolution target because useful mutations are proof/LP/context-heavy.",
+      "best_next_milestone": "Continue theorem/certificate work on source-aligned STT enumeration, LP/certificate schema, and exact small-topology artifacts rather than a tiny local-model mutation loop.",
+      "main_risk": "Small local models may generate plausible but invalid inequality or rounding code, and full LP/polytope paths can require heavier dependencies."
+    },
+    {
+      "candidate": "imprecise_comparison_sorting",
+      "scores": {
+        "local_model_editability": 4,
+        "cheap_evaluation_loop": 4,
+        "dense_feedback": 5,
+        "artifact_value_if_no_breakthrough": 4,
+        "existing_infrastructure": 1,
+        "theorem_relevance": 4,
+        "risk_of_local_llm_noise": 3,
+        "dependency_lightness": 4,
+        "scope_clarity": 3,
+        "generalization_risk": 3
+      },
+      "weighted_total": 41.4,
+      "infrastructure_discounted_total": 40.2,
+      "summary": "Excellent finite-game evaluator candidate, especially for strategy/adversary tables and LP certificates, but less directly a data-structure object-first side lane and with modern-status uncertainty.",
+      "best_next_milestone": "Only after list-update: define a tiny randomized-strategy table evaluator and adversary LP/checker for small n.",
+      "main_risk": "Exact model and modern open status remain uncertain, and the lane may become algorithmic game search rather than data-structure evolution."
+    },
+    {
+      "candidate": "quadratic_probing",
+      "scores": {
+        "local_model_editability": 4,
+        "cheap_evaluation_loop": 5,
+        "dense_feedback": 4,
+        "artifact_value_if_no_breakthrough": 4,
+        "existing_infrastructure": 1,
+        "theorem_relevance": 3,
+        "risk_of_local_llm_noise": 3,
+        "dependency_lightness": 5,
+        "scope_clarity": 3,
+        "generalization_risk": 2
+      },
+      "weighted_total": 40.3,
+      "infrastructure_discounted_total": 39.1,
+      "summary": "Cheap and editable finite simulator/witness-family candidate, but model sensitivity after the ICALP 2024 progress makes finite empirical wins risky.",
+      "best_next_milestone": "Build a pure-Python finite witness-family generator and simulator under the exact ICALP 2024-style assumptions.",
+      "main_risk": "Finite load-factor simulations can overfit and may answer the wrong hashing model."
+    },
+    {
+      "candidate": "range_mode_queries",
+      "scores": {
+        "local_model_editability": 4,
+        "cheap_evaluation_loop": 4,
+        "dense_feedback": 4,
+        "artifact_value_if_no_breakthrough": 4,
+        "existing_infrastructure": 1,
+        "theorem_relevance": 3,
+        "risk_of_local_llm_noise": 3,
+        "dependency_lightness": 5,
+        "scope_clarity": 3,
+        "generalization_risk": 2
+      },
+      "weighted_total": 39.0,
+      "infrastructure_discounted_total": 37.8,
+      "summary": "Good pure-Python hard-array and candidate-list stress-test target. Less compelling than list-update because small arrays can mislead about asymptotic linear-space data structures.",
+      "best_next_milestone": "Implement all-interval exact mode oracle plus a tiny candidate-list grammar and hard-array generator.",
+      "main_risk": "Correctness over small arrays does not imply cell-probe or asymptotic range-mode progress."
+    },
+    {
+      "candidate": "pairing_heaps",
+      "scores": {
+        "local_model_editability": 3,
+        "cheap_evaluation_loop": 3,
+        "dense_feedback": 4,
+        "artifact_value_if_no_breakthrough": 4,
+        "existing_infrastructure": 1,
+        "theorem_relevance": 4,
+        "risk_of_local_llm_noise": 2,
+        "dependency_lightness": 4,
+        "scope_clarity": 3,
+        "generalization_risk": 2
+      },
+      "weighted_total": 35.4,
+      "infrastructure_discounted_total": 34.2,
+      "summary": "Potential-function and adversarial-trace search is theorem-relevant, but small local models are likely to confuse standard two-pass analysis with variants.",
+      "best_next_milestone": "After higher-priority lanes: implement a standard two-pass simulator and tiny potential-inequality checker.",
+      "main_risk": "Variant confusion and small-trace underfitting are severe."
+    }
+  ],
+  "recommended_order": [
+    "list_update",
+    "karp_rabin_collision_detection",
+    "imprecise_comparison_sorting",
+    "quadratic_probing",
+    "range_mode_queries",
+    "search_trees_on_trees_lp",
+    "pairing_heaps"
+  ],
+  "normal_weighted_order": [
+    "list_update",
+    "karp_rabin_collision_detection",
+    "search_trees_on_trees_lp",
+    "imprecise_comparison_sorting",
+    "quadratic_probing",
+    "range_mode_queries",
+    "pairing_heaps"
+  ],
+  "infrastructure_discounted_order": [
+    "list_update",
+    "karp_rabin_collision_detection",
+    "imprecise_comparison_sorting",
+    "quadratic_probing",
+    "range_mode_queries",
+    "search_trees_on_trees_lp",
+    "pairing_heaps"
+  ],
+  "primary_recommendation": "Continue list_update first as the immediate zero-money/local-model OpenEvolve side lane.",
+  "secondary_recommendation": "Optionally run one tiny karp_rabin_collision_detection fixed-shift selector or witness-generator scaffold in parallel, without delaying list_update.",
+  "list_update_verdict": "Continue first. It wins both normal and infrastructure-discounted rankings; the win is structural, not merely due to existing infrastructure.",
+  "sunk_cost_audit": {
+    "normal_rank": 1,
+    "infrastructure_discounted_rank": 1,
+    "normal_total": 53.3,
+    "infrastructure_discounted_total": 47.3,
+    "verdict": "Robust. Removing the infrastructure weight leaves list_update first because of editability, cheap exact evaluation, dense feedback, dependency lightness, and crisp next milestone."
+  },
+  "role_separation_verdict": {
+    "main_theorem_certificate_lane": "search_trees_on_trees_lp",
+    "immediate_zero_money_openevolve_side_lane": "list_update",
+    "optional_parallel_scaffold": "karp_rabin_collision_detection",
+    "notes": "Do not make STT LP and list_update compete as if they serve the same role. STT remains theorem/certificate-first; list_update remains the cheap local-model evolution lane."
+  },
+  "recommended_zero_money_next_step": "Run the next Codex prompt included in the Markdown report: start from commit 34b18c0 on the list-update zero-money branch, attempt one real local OpenAI-compatible OpenEvolve iteration through Ollama or LM Studio, preserve EVOLVE-block guards and independent adapter re-evaluation, and record a blocker if no real endpoint is available.",
+  "warnings": [
+    "Do not claim OpenEvolve has discovered a list-update policy.",
+    "Do not count the fixed-stub transport result as autonomous OpenEvolve success.",
+    "Do not assume paid OpenAI/API credits are available.",
+    "Do not claim modern open status was reverified; this audit performed no external search.",
+    "Do not treat finite list-update wins as theorem-level competitive-ratio progress without generalization evidence.",
+    "Do not demote search_trees_on_trees_lp from the main theorem/certificate lane merely because it is less suited to tiny local-model mutation.",
+    "Do not promote candidates based on exact oracles alone; require an explicit mutable object and evaluator objective."
+  ],
+  "source_files_inspected": [
+    "README.md",
+    "reports/fixed_point_recommendation.md",
+    "reports/candidate_matrix.md",
+    "reports/top_20_shortlist.md",
+    "reports/search_space_gaps.md",
+    "reports/list_update_openevolve_scaffold_v0.md",
+    "reports/scouting_v2/subrun_2I_openevolve_objects.md",
+    "reports/scouting_v2/synthesis.md",
+    "reports/karp_rabin_oracle_fixed_length_v0.md",
+    "reports/karp_rabin_fixed_shift_batching_v0.md",
+    "tests/test_list_update_evaluator.py",
+    "scripts/list_update/MODEL.md",
+    "candidate_topics/search_trees_on_trees_lp/problem.md",
+    "candidate_topics/search_trees_on_trees_lp/openevolve_fit.md",
+    "candidate_topics/search_trees_on_trees_lp/score.yaml",
+    "candidate_topics/quadratic_probing/problem.md",
+    "candidate_topics/quadratic_probing/openevolve_fit.md",
+    "candidate_topics/quadratic_probing/score.yaml",
+    "candidate_topics/imprecise_comparison_sorting/problem.md",
+    "candidate_topics/imprecise_comparison_sorting/openevolve_fit.md",
+    "candidate_topics/imprecise_comparison_sorting/score.yaml",
+    "candidate_topics/range_mode_queries/problem.md",
+    "candidate_topics/range_mode_queries/openevolve_fit.md",
+    "candidate_topics/range_mode_queries/score.yaml",
+    "candidate_topics/list_update/problem.md",
+    "candidate_topics/list_update/openevolve_fit.md",
+    "candidate_topics/list_update/score.yaml",
+    "candidate_topics/karp_rabin_collision_detection/problem.md",
+    "candidate_topics/karp_rabin_collision_detection/openevolve_fit.md",
+    "candidate_topics/karp_rabin_collision_detection/score.yaml",
+    "candidate_topics/pairing_heaps/problem.md",
+    "candidate_topics/pairing_heaps/openevolve_fit.md",
+    "candidate_topics/pairing_heaps/score.yaml"
+  ],
+  "side_lane_commits_inspected": [
+    {
+      "commit": "0cb917e",
+      "available": true,
+      "report_path": "reports/list_update_evaluator_milestone1.md",
+      "summary": "Deterministic evaluator scaffold; no OpenEvolve wrapper or policy evolution."
+    },
+    {
+      "commit": "71ca11120227292f6920d1477af9d50e10a21c90",
+      "available": true,
+      "report_path": "reports/list_update_openevolve_wrapper_milestone2.md",
+      "summary": "OpenEvolve-compatible adapter/wrapper scaffold; no evolutionary run."
+    },
+    {
+      "commit": "41a37da3ba8bbf6c82fefaeaf8e64286688f3c9c",
+      "available": true,
+      "report_path": "reports/list_update_openevolve_milestone3_tiny_run.md",
+      "summary": "Tiny run blocked by missing API credentials; no generated policy."
+    },
+    {
+      "commit": "34b18c0ea8da80037f52fda79b538d4f4f044d16",
+      "available": true,
+      "report_path": "reports/list_update_openevolve_milestone3z_zero_money.md",
+      "summary": "Real local endpoint path blocked; fixed-stub transport succeeded but was non-autonomous, non-discovery, and produced an invalid changed candidate."
+    }
+  ]
+}
