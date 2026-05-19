@@ -1,10 +1,10 @@
 # Frontier v5.4 Repo Provenance Manifest
 
-Generated: 2026-05-18
+Generated: 2026-05-18; patched 2026-05-18T17:09:30-07:00
 
 Branch: `frontier-v5-4-provenance-manifest-v0`
 
-Base commit: `4dc1171298f7385a19df74003b4e613f99796ae3`
+Base commit: `110825f614ff8cf53040ea1449cc3a787884a7cd` (`origin/main` after zero-money strategy audit merge)
 
 Scope: repository-local provenance for the AI and Data Structures / STT connected-first-hit project, intended as coordinator input for `frontier_note_v5_4_unified_project_overview.md`. This manifest uses checked-in files and fetched git history only. It does not add theorem claims and does not perform a literature search.
 
@@ -16,13 +16,15 @@ The strongest recent finite certificate lane is DS(k,2), but it must be describe
 
 The public-LP bridge lane currently contains obstruction/correction evidence, not closure. The proper-subset contraction audit demotes the scalar/proper-subset route under the audited interpretation. The mixed-support oracle audit certifies a finite k=3 public-star support-oracle/chamber/proxy obstruction analysis, while explicitly leaving b-root public-LP closure and the full residual `ell_ij` mixed-support theorem open.
 
-The list-update/OpenEvolve materials are a side lane. Current `main` contains the deterministic evaluator milestone and older exact evaluator scaffold. Fetched history also contains wrapper/tiny-run/zero-money follow-up branches, but those artifacts are not present in the current checkout. They are infrastructure only; fixed-stub transport is not autonomous OpenEvolve policy discovery.
+The list-update/OpenEvolve materials are a side lane. Current `main` contains the deterministic evaluator milestone, older exact evaluator scaffold, and the zero-money candidate rerank audit. Fetched history also contains wrapper/tiny-run/zero-money follow-up branches, but those branch-run artifacts are not present in the current checkout. They are infrastructure and strategy-audit material only; fixed-stub transport and reranking do not constitute autonomous OpenEvolve policy discovery.
 
 ## Current Repo State
 
 - Current branch after setup: `frontier-v5-4-provenance-manifest-v0`
-- Starting `main` commit: `4dc1171298f7385a19df74003b4e613f99796ae3`
+- Starting `main` commit for this patched manifest: `110825f614ff8cf53040ea1449cc3a787884a7cd`
 - Relevant recent merge path:
+  - `110825f` merged `origin/openevolve-zero-money-strategy-audit-v0` to `main`.
+  - `3fef3fe` added the zero-money OpenEvolve rerank audit.
   - `9fd9045` merged `origin/ds22-simplex-augmented-packet-conic-v0`.
   - `e56c48a` merged `origin/ds32-ds42-packet-window-capacity-hardening-v0`.
   - `5313696` merged `origin/stt-public-lp-broot-mixed-support-oracle-v1` into `stt-public-lp-proper-subset-contraction-v0`.
@@ -46,6 +48,7 @@ The list-update/OpenEvolve materials are a side lane. Current `main` contains th
 | Proper-subset contraction audit | `reports/proper_subset_contraction_report.md`, `data/proper_subset_contraction_k3.json`, `data/proper_subset_contraction_k4.json`, `scripts/check_proper_subset_contraction.py` | `78204dd` | `obstruction/refutation artifact` | Finite exact audit flags obstruction candidates for the corrected scalar/proper-subset source-deletion route. | Script passed with k3/k4 `obstruction_candidate_found`. | Scalar `D(S) >= delta(S)` / `SUB_S`-alone route should remain killed or demoted under this interpretation. |
 | Mixed-support public-star oracle audit | `reports/mixed_support_oracle_report.md`, `data/k3_pair_antichain_chambers.json`, `data/mixed_support_certificates.json`, `data/mixed_support_obstructions.json` | `427aa56` | `certificate-backed finite` | Exact finite k=3 public-star support-oracle/chamber audit and proxy obstruction data. | Chamber checker, Farkas extractor, and support-oracle unittest passed. | Not b-root public-LP closure; not public LP exactness; residual `ell_ij` Farkas extraction is not certified. |
 | Current list-update evaluator side lane | `reports/list_update_evaluator_milestone1.md`, `reports/list_update_eval_smoke.json`, `list_update_eval/*`, `tests/test_list_update_eval_milestone1.py` | `0cb917e` | `side-lane infrastructure` | Deterministic evaluator, offline oracle integration, baseline scoring, and smoke JSON for future OpenEvolve side experiment. | `tests/test_list_update_eval_milestone1.py` and `tests/test_list_update_evaluator.py`: 18 tests passed. | Not STT theorem lane and not policy discovery. |
+| Zero-money OpenEvolve strategy audit | `reports/openevolve_zero_money_candidate_rerank_v0.md`, `reports/openevolve_zero_money_candidate_rerank_v0.json` | `3fef3fe` | `side-lane infrastructure` | Repo-grounded reranking audit under zero-money/local-model constraints: continue `list_update` first, keep `search_trees_on_trees_lp` as theorem/certificate lane, and treat `karp_rabin_collision_detection` as optional tiny parallel scaffold. | JSON syntax validated; no mathematical verification rerun. | Strategy/rerank audit only; not policy discovery, not autonomous OpenEvolve success, and not a new literature/open-status check. |
 | History-only OpenEvolve wrapper/tiny/zero-money side branches | `reports/list_update_openevolve_wrapper_milestone2.md`, `reports/list_update_openevolve_milestone3_tiny_run.md`, `reports/list_update_openevolve_milestone3z_zero_money.md` on fetched branch commits | `71ca111`, `41a37da`, `34b18c0` | `side-lane infrastructure` | Wrapper scaffold, blocked tiny run, and fixed-stub zero-money transport check exist in git history. | Not run in this task; files are not in current checkout. | Fixed-stub transport is non-autonomous, non-discovery plumbing evidence only. |
 
 ## Theorem-Level Stable Claims
@@ -82,6 +85,7 @@ Do not translate this into a public Golinsky/SKZ LP theorem. The theorem note it
 ## Side-Lane Infrastructure
 
 - Current `main` contains the list-update evaluator milestone and exact evaluator scaffold. These support a future OpenEvolve side experiment and are not part of the STT theorem lane.
+- Current `main` also contains `reports/openevolve_zero_money_candidate_rerank_v0.md` and `.json`: a zero-money/local-model strategy audit that recommends continuing `list_update` first, preserving `search_trees_on_trees_lp` as the main theorem/certificate lane, and optionally using `karp_rabin_collision_detection` as a tiny parallel scaffold.
 - Fetched branch `openevolve-list-update-wrapper-v0` (`71ca111`) adds an OpenEvolve-compatible adapter scaffold, but those files are not present in this checkout.
 - Fetched branch `openevolve-list-update-tiny-run-v0` (`41a37da`) records a blocked tiny dry-run due to missing API credentials.
 - Fetched branch `openevolve-list-update-zero-money-tiny-run-v0` (`34b18c0`) records a blocked real local-model path and a successful fixed-stub transport check. The stub path is explicitly non-autonomous and produced no valid policy discovery.
@@ -113,18 +117,20 @@ Do not translate this into a public Golinsky/SKZ LP theorem. The theorem note it
 | `python -m pytest tests/test_stt_double_star_depth_projection.py` | Passed: 6 tests. |
 | `python -m pytest tests/test_stt_double_star_coupling_functional.py` | Passed: 8 tests. |
 | `python -m pytest tests/test_stt_ds21_normal_cones.py tests/test_stt_ds21_pinned_boundary.py` | Passed: 5 tests. |
+| `python -m json.tool reports/openevolve_zero_money_candidate_rerank_v0.json` | Passed during patch inspection. |
+| `python -m json.tool data/frontier_v5_4_repo_provenance_manifest.json` | Re-run after this patch; passed. |
 
 ## Commands Not Run
 
 - `python -m src.ds22_h1_depth_polytope --progress`: not run because it is a certificate builder/rebuilder, not needed to verify existing manifest claims.
 - Full `python -m pytest`: not run because targeted verification already exercised the relevant artifacts and some certificate tests are long.
 - `python -m list_update_eval.evaluate --suite smoke --all-baselines --out reports/list_update_eval_smoke.json`: not run to avoid rewriting the existing smoke provenance artifact.
-- History-only OpenEvolve wrapper/tiny/zero-money branch commands were not run because those files are not present in the current checkout and the lane is infrastructure-only.
+- History-only OpenEvolve wrapper/tiny/zero-money branch commands were not run because those branch-run files are not present in the current checkout and the lane is infrastructure-only.
 
 ## Missing Or Ambiguous Artifacts
 
 - No `frontier_note_v5_4_unified_project_overview.md` exists yet; this manifest is an input for it.
-- The wrapper/tiny-run/zero-money OpenEvolve files from `71ca111`, `41a37da`, and `34b18c0` are available in fetched branch history but are not present in current `main`.
+- The wrapper/tiny-run/zero-money OpenEvolve run files from `71ca111`, `41a37da`, and `34b18c0` are available in fetched branch history but are not present in current `main`; the newer strategy audit from `3fef3fe` is present in current `main`.
 - No checked artifact proves b-root public-LP closure or public LP exactness on DS(k,1).
 - No checked artifact extracts residual `ell_ij` mixed-support Farkas certificates.
 - No checked artifact proves all-k DS(k,2), DS(k,m), or arbitrary double-star exactness.
@@ -137,6 +143,7 @@ Do not translate this into a public Golinsky/SKZ LP theorem. The theorem note it
 - Do not treat public-LP obstruction artifacts as public-LP closure artifacts.
 - Do not describe mixed-support proxy obstructions as a proof that the full residual `ell_ij` mixed-support theorem fails.
 - Do not describe list-update infrastructure or fixed-stub transport as autonomous OpenEvolve policy discovery.
+- Do not describe the zero-money reranking audit as policy discovery or autonomous OpenEvolve success.
 - Do not reuse v4.4 narrative without updating the status of pure stars, DS(k,2) packet evidence, and public-LP obstructions.
 
 ## Recommended Inputs For v5.4 Frontier Note
@@ -147,4 +154,4 @@ Do not translate this into a public Golinsky/SKZ LP theorem. The theorem note it
 4. Present DS(3,2)/DS(4,2) as finite packet-window capacity hardening over declared weight universes, not as all-k evidence beyond its scope.
 5. Present public-LP artifacts as correction/demotion work: proper-subset scalar route obstructed; mixed-support k=3 proxy routes obstructed; residual `ell_ij` and b-root closure open.
 6. Keep DS(k,1) H1/coarea and double-star coupling as candidate proof architectures supported by finite certificates, not theorem-level claims.
-7. Put list-update/OpenEvolve in a clearly separate side-lane appendix or infrastructure paragraph.
+7. Put list-update/OpenEvolve in a clearly separate side-lane appendix or infrastructure paragraph, including the zero-money audit's role separation: `list_update` first for local-model OpenEvolve, `search_trees_on_trees_lp` as the theorem/certificate lane, and `karp_rabin_collision_detection` only as an optional tiny scaffold.

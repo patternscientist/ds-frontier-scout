@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-18T16:43:11.0803637-07:00",
+  "generated_at": "2026-05-18T17:09:30.1907866-07:00",
   "current_branch": "frontier-v5-4-provenance-manifest-v0",
-  "base_commit": "4dc1171298f7385a19df74003b4e613f99796ae3",
+  "base_commit": "110825f614ff8cf53040ea1449cc3a787884a7cd",
   "source_of_truth": [
     "current checked-in repository files",
     "fetched git history and branch refs",
@@ -679,6 +679,30 @@
       ]
     },
     {
+      "path": "reports/openevolve_zero_money_candidate_rerank_v0.md",
+      "related_paths": [
+        "reports/openevolve_zero_money_candidate_rerank_v0.json"
+      ],
+      "present_in_current_checkout": true,
+      "latest_commit": {
+        "sha": "3fef3fe148ef6999edd78dee3d54ea7ccd5e3904",
+        "short": "3fef3fe",
+        "refs": "origin/openevolve-zero-money-strategy-audit-v0, openevolve-zero-money-strategy-audit-v0",
+        "subject": "Add zero-money OpenEvolve rerank audit"
+      },
+      "branch_or_merge_provenance": "openevolve-zero-money-strategy-audit-v0 merged to origin/main by 110825f; current checkout contains the report and JSON",
+      "claim_supported": "Repo-grounded zero-money/local-model OpenEvolve strategy rerank: list_update remains the immediate side lane, search_trees_on_trees_lp remains the main theorem/certificate lane, and karp_rabin_collision_detection is an optional tiny parallel scaffold.",
+      "status_label": "side-lane infrastructure",
+      "verification_command": "python -m json.tool reports/openevolve_zero_money_candidate_rerank_v0.json",
+      "command_run_in_this_task": true,
+      "test_output_summary": "JSON syntax validation passed; no heavy mathematical verification was rerun.",
+      "warnings": [
+        "Strategy/rerank audit only, not policy discovery.",
+        "Not autonomous OpenEvolve success.",
+        "Does not reverify modern open status and does not change the STT theorem/certificate lane."
+      ]
+    },
+    {
       "path": "git:71ca111:reports/list_update_openevolve_wrapper_milestone2.md",
       "present_in_current_checkout": false,
       "latest_commit": {
@@ -854,6 +878,18 @@
     {
       "command": "python -m pytest tests/test_stt_ds21_normal_cones.py tests/test_stt_ds21_pinned_boundary.py",
       "result": "Passed: 5 tests."
+    },
+    {
+      "command": "git merge origin/main",
+      "result": "Merged current origin/main containing 110825f and source commit 3fef3fe into the manifest branch."
+    },
+    {
+      "command": "python -m json.tool reports/openevolve_zero_money_candidate_rerank_v0.json",
+      "result": "Passed during patch inspection."
+    },
+    {
+      "command": "python -m json.tool data/frontier_v5_4_repo_provenance_manifest.json",
+      "result": "Passed after adding the zero-money strategy audit artifact."
     }
   ],
   "commands_not_run": [
@@ -871,7 +907,7 @@
     },
     {
       "command": "python -m pytest tests/test_list_update_openevolve_adapter_milestone2.py tests/test_list_update_openevolve_milestone3.py",
-      "reason": "Those tests/files are on fetched side branches, not present in the current checkout."
+      "reason": "Those wrapper/tiny-run tests/files are on fetched side branches, not present in the current checkout; the current-main strategy audit JSON was syntax-validated instead."
     }
   ],
   "theorem_level_claims": [
@@ -1010,6 +1046,16 @@
       "warning": "Not STT theorem evidence and not policy discovery."
     },
     {
+      "lane": "zero-money/local-model OpenEvolve strategy rerank audit",
+      "present_in_current_checkout": true,
+      "supporting_artifacts": [
+        "reports/openevolve_zero_money_candidate_rerank_v0.md",
+        "reports/openevolve_zero_money_candidate_rerank_v0.json"
+      ],
+      "status_label": "side-lane infrastructure",
+      "warning": "Strategy audit only: list_update remains the immediate side lane; search_trees_on_trees_lp remains theorem/certificate-first; fixed-stub transport and reranking are not policy discovery."
+    },
+    {
       "lane": "OpenEvolve wrapper/tiny/zero-money follow-up branches",
       "present_in_current_checkout": false,
       "supporting_history_commits": [
@@ -1018,7 +1064,7 @@
         "34b18c0aa12e5ac9ecf4c5dfe4d9b7d509f94d7b"
       ],
       "status_label": "side-lane infrastructure",
-      "warning": "Fixed-stub transport is non-autonomous plumbing evidence, not autonomous OpenEvolve success."
+      "warning": "Fixed-stub transport is non-autonomous plumbing evidence, not autonomous OpenEvolve success; the newer rerank audit is present separately on current main."
     }
   ],
   "unresolved_status_questions": [
@@ -1027,7 +1073,7 @@
     "No checked artifact proves b-root public-LP closure or public LP exactness on DS(k,1).",
     "Residual ell_ij mixed-support Farkas certificates were not extracted.",
     "DS(k,1) H1 exactness remains conjectural outside finite v1 data.",
-    "OpenEvolve wrapper/tiny/zero-money artifacts are history-only side-branch artifacts, not present in current main."
+    "OpenEvolve wrapper/tiny/zero-money run artifacts from 71ca111, 41a37da, and 34b18c0 are history-only side-branch artifacts; the 3fef3fe zero-money strategy audit is present on current main."
   ],
   "overclaim_warnings": [
     "Do not treat finite DS(2,2), DS(3,2), or DS(4,2) certificates as all-k DS(k,2) or DS(k,m) proof.",
@@ -1035,6 +1081,7 @@
     "Do not describe public-LP obstruction artifacts as public-LP closure.",
     "Do not extend mixed-support proxy obstructions to the full residual ell_ij mixed-support theorem.",
     "Do not describe list-update evaluator/wrapper/fixed-stub transport artifacts as autonomous policy discovery.",
-    "Do not reuse the v4.4 frontier note without patching it with the newer DS(k,2), public-LP, and pure-star statuses."
+    "Do not reuse the v4.4 frontier note without patching it with the newer DS(k,2), public-LP, and pure-star statuses.",
+    "Do not describe the zero-money strategy rerank audit as policy discovery or autonomous OpenEvolve success."
   ]
 }
